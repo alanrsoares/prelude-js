@@ -1,2 +1,2 @@
 # preλude-js
-Modular implementation of Haskell's Prelude library in ES6
+A truly modular implementation of Haskell's Prelude library in ES6
