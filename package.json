@@ -1,0 +1,26 @@
+{
+  "name": "prelude-js",
+  "version": "0.1.0",
+  "description": "A modular implementation of Haskell's Prelude library in ES6",
+  "main": "lib/prelude.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanrsoares/prelude-js.git"
+  },
+  "keywords": [
+    "prelude",
+    "functional",
+    "js",
+    "es6",
+    "haskell"
+  ],
+  "author": "github.com/alanrsoares",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alanrsoares/prelude-js/issues"
+  },
+  "homepage": "https://github.com/alanrsoares/prelude-js#readme"
+}
