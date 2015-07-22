@@ -22,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/alanrsoares/prelude-js/issues"
   },
-  "homepage": "https://github.com/alanrsoares/prelude-js#readme"
+  "homepage": "https://github.com/alanrsoares/prelude-js#readme",
+  "devDependencies": {
+    "babel": "^5.8.3",
+    "babel-core": "^5.8.3",
+    "babel-eslint": "^3.1.25",
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5",
+    "releasy": "^1.5.5"
+  }
 }
