@@ -28,6 +28,33 @@ export const find = curry((fn, [x, ...xs]) => x
   : undefined
 );
 
+export const head = (xs) => xs[0];
+
+export const tail = ([x, ...xs]) => xs;
+
+export const first = head;
+
+export const last = (xs) => xs.slice(-1);
+
+export const initial = (xs) => !xs.length ? undefined : xs.slice(0, -1);
+
+export const empty = (xs) => !xs.length;
+
+export const reverse = (xs) => xs.concat().reverse();
+
+export const uniqueBy = curry((f, xs) => {
+  let memo = {};
+  xs.map(f).forEach((x) => {
+    const key = `K_${x}`;
+    if (!memo[key]) {
+      memo[key] = x;
+    }
+  });
+  return Object.values(memo);
+});
+
+export const unique = (xs) => uniqueBy(id, xs);
+
 export default {
   each,
   map,
@@ -35,5 +62,14 @@ export default {
   compact,
   reject,
   reduce,
-  partition
+  partition,
+  find,
+  head,
+  tail,
+  first,
+  last,
+  initial,
+  empty,
+  reverse,
+  unique
 };

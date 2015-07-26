@@ -29,4 +29,11 @@ describe('List.js', () => {
       expect(List.map((x) => ++x)(input)).to.deep.equal([2, 3, 4, 5, 6]);
     });
   });
+
+  describe('List.unique', () => {
+    it('Should find the unique items in a list', () => {
+      const input = [1, 2, 3, 2, 2, 1, 3, 2, 0, 9];
+      expect(List.unique(input)).to.deep.equal([1, 2, 3, 0, 9]);
+    });
+  });
 });
