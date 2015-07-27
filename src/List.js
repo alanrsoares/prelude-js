@@ -55,6 +55,36 @@ export const uniqueBy = curry((f, xs) => {
 
 export const unique = (xs) => uniqueBy(id, xs);
 
+export const foldl = curry((fn, memo, xs) => xs.reduce(fn, memo));
+
+export const foldl1 = curry((fn, xs) => xs.reduce(fn, 0));
+
+export const foldr = curry((fn, memo, xs) => {
+  for (let i = xs.length - 1; i >= 0; i--) {
+    memo = fn(xs[i], memo);
+  }
+  return memo;
+});
+
+export const foldr1 = curry((fn, xs) => foldr(fn, 0, xs));
+
+export const unfoldr = curry((fn, b) => {
+  let result = [];
+  let x = b;
+  let that;
+  while ((that = fn(b))) {
+    result.push(that[0]);
+    x = that[1];
+  }
+  return result;
+});
+
+// aliases
+
+export const fold = foldl;
+
+export const fold1 = foldl1;
+
 export default {
   each,
   map,
@@ -72,5 +102,11 @@ export default {
   empty,
   reverse,
   uniqueBy,
-  unique
+  unique,
+  fold,
+  fold1,
+  foldl,
+  foldl1,
+  foldr,
+  foldr1
 };
