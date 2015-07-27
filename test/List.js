@@ -48,6 +48,71 @@ describe('List.js', () => {
     });
   });
 
+  describe('List.find', () => {
+    const input = [1, 2, 3, 4, 5];
+    it('Should return the exact value in a list that satisfies a given predicate', () => {
+      expect(List.find((x) => x === 4, input)).to.equal(4);
+    });
+    it('Should return the first value in a list that satisfies an ambiguous predicate', () => {
+      expect(List.find((x) => x > 2, input)).to.equal(3);
+    });
+    it('Should return undefined when no value in a list satisfies a given predicate', () => {
+      expect(List.find((x) => x === 12, input)).to.equal(undefined);
+    });
+  });
+
+  describe('List.head', () => {
+    const input = [1, 2, 3, 4, 5];
+    it('Should return the first value in a list', () => {
+      expect(List.head(input)).to.equal(1);
+    });
+  });
+
+  describe('List.first (alias => List.head)', () => {
+    const input = [1, 2, 3, 4, 5];
+    it('Should return the first value in a list', () => {
+      expect(List.first(input)).to.equal(1);
+    });
+  });
+
+  describe('List.tail', () => {
+    const input = [1, 2, 3, 4, 5];
+    it('Should return all but the first value in a list', () => {
+      expect(List.tail(input)).to.deep.equal([2, 3, 4, 5]);
+    });
+  });
+
+  describe('List.last', () => {
+    const input = [1, 2, 3, 4, 5];
+    it('Should return the last value in a list', () => {
+      expect(List.last(input)).to.equal(5);
+    });
+  });
+
+  describe('List.initial', () => {
+    const input = [1, 2, 3, 4, 5];
+    it('Should return all but the last value in a list', () => {
+      expect(List.initial(input)).to.deep.equal([1, 2, 3, 4]);
+    });
+  });
+
+  describe('List.empty', () => {
+    it('Should return true for an empty list', () => {
+      expect(List.empty([])).to.equal(true);
+    });
+    it('Should return false for an non-empty list', () => {
+      expect(List.empty([1, 2, 3])).to.equal(false);
+    });
+  });
+
+  describe('List.reverse', () => {
+    const input = [1, 2, 0, 5, 4, 3];
+    it('Should return the items in a list in a reversed order', () => {
+      expect(List.reverse(input)).to.deep.equal([3, 4, 5, 0, 2, 1]);
+      expect(List.reverse(input)).to.deep.equal(input.reverse());
+    });
+  });
+
   describe('List.uniqueBy', () => {
     it('Should find the unique items in a list given a predicate', () => {
       const input = [
