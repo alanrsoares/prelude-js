@@ -133,4 +133,32 @@ describe('List.js', () => {
       expect(List.unique(input)).to.deep.equal([1, 2, 3, 0, 9]);
     });
   });
+
+  describe('List.foldl', () => {
+    it('Should calculate the sum of items in a list', () => {
+      const input = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      expect(List.foldl((x, y) => x + y, 0, input)).to.equal(45);
+    });
+  });
+
+  describe('List.foldl1', () => {
+    it('Should calculate the number of items in a list', () => {
+      const input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+      expect(List.foldl1((x) => x + 1, input)).to.equal(10);
+    });
+  });
+
+  describe('List.foldr', () => {
+    it('Should concatenate the letters with the initial value', () => {
+      const input = ['h', 'e', 'l', 'l'];
+      expect(List.foldr((x, y) => x + y, 'o')(input)).to.equal('hello');
+    });
+  });
+
+  describe('List.foldr1', () => {
+    it('Should calculate the number of items in a list', () => {
+      const input = [1, 2, 3, 4, 9];
+      expect(List.foldr1((x, y) => x - y, input)).to.equal(7);
+    });
+  });
 });
