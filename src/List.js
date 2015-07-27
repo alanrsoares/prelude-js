@@ -34,7 +34,7 @@ export const tail = ([x, ...xs]) => xs;
 
 export const first = head;
 
-export const last = (xs) => xs.slice(-1);
+export const last = (xs) => xs.slice(-1)[0];
 
 export const initial = (xs) => !xs.length ? undefined : xs.slice(0, -1);
 
