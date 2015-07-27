@@ -71,5 +71,6 @@ export default {
   initial,
   empty,
   reverse,
+  uniqueBy,
   unique
 };
