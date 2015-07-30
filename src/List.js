@@ -101,6 +101,15 @@ export const unfoldr = curry((fn, b) => {
   return result;
 });
 
+//:: [[a]] -> [a]
+export const concat = (xss) =>
+  [].concat.apply([], xss);
+
+//:: (a -> [b]) -> [a] -> [b]
+export const concatMap = curry((fn, xs) => {
+  return [].concat.apply([], xs.map(fn));
+});
+
 // aliases
 
 export const fold = foldl;
@@ -130,5 +139,8 @@ export default {
   foldl,
   foldl1,
   foldr,
-  foldr1
+  foldr1,
+  unfoldr,
+  concat,
+  concatMap
 };
