@@ -2,6 +2,8 @@ import { curry, compose } from './Func';
 
 export const id = (x) => x;
 
+export const isArray = (x) => ({}).toString.call(x) === '[object Array]';
+
 export const negate = (x) => !x;
 
 //:: (a -> b) -> [a] -> void
@@ -110,6 +112,11 @@ export const concatMap = curry((fn, xs) => {
   return [].concat.apply([], xs.map(fn));
 });
 
+//:: List -> List
+export const flatten = curry((xs) => {
+  return [].concat.apply([], xs.map((x) => isArray(x) ? flatten(x) : x));
+});
+
 // aliases
 
 export const fold = foldl;
@@ -142,5 +149,6 @@ export default {
   foldr1,
   unfoldr,
   concat,
-  concatMap
+  concatMap,
+  flatten
 };
