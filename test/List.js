@@ -174,4 +174,12 @@ describe('List.js', () => {
       expect(List.concatMap((x) => [`${x}`, x], [1, 2, 3])).to.deep.equal(['1', 1, '2', 2, '3', 3]);
     });
   });
+
+  describe('List.flatten', () => {
+    it('Should flatten a list', () => {
+      //flatten [1, [[2], 3], [4, [[5]]]] #=> [1, 2, 3, 4, 5]
+      const input = [1, [[2], 3], [4, [[5]]]];
+      expect(List.flatten(input)).to.deep.equal([1, 2, 3, 4, 5]);
+    });
+  });
 });
