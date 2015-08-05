@@ -113,9 +113,8 @@ export const concatMap = curry((fn, xs) => {
 });
 
 //:: List -> List
-export const flatten = curry((xs) => {
-  return [].concat.apply([], xs.map((x) => isArray(x) ? flatten(x) : x));
-});
+export const flatten = (xs) =>
+  [].concat.apply([], xs.map((x) => isArray(x) ? flatten(x) : x));
 
 // aliases
 
