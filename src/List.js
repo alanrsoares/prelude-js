@@ -104,13 +104,10 @@ export const unfoldr = curry((fn, b) => {
 });
 
 //:: [[a]] -> [a]
-export const concat = (xss) =>
-  [].concat.apply([], xss);
+export const concat = (xss) => [].concat.apply([], xss);
 
 //:: (a -> [b]) -> [a] -> [b]
-export const concatMap = curry((fn, xs) => {
-  return [].concat.apply([], xs.map(fn));
-});
+export const concatMap = curry((fn, xs) => [].concat.apply([], xs.map(fn)));
 
 //:: List -> List
 export const flatten = (xs) =>
