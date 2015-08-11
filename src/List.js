@@ -113,9 +113,11 @@ export const concatMap = curry((fn, xs) => [].concat.apply([], xs.map(fn)));
 export const flatten = (xs) =>
   [].concat.apply([], xs.map((x) => isArray(x) ? flatten(x) : x));
 
+//::([a], [a], ...) -> [a]
 export const difference = (xs, ...yss) =>
   xs.filter((x) => !yss.some(find((y) => y === x)));
 
+//::([a], [a], ...) -> [a]
 export const intersection = (xs, ...yss) =>
   xs.filter((x) => yss.some(find((y) => y === x)));
 
