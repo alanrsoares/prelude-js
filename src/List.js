@@ -126,6 +126,19 @@ export const difference = (xs, ...yss) => {
   return results;
 };
 
+export const intersection = (xs, ...yss) => {
+  const results = [];
+  outer: for (let x of xs) {
+    for (let ys of yss) {
+      if (!find((y) => y === x, ys)) {
+        continue outer;
+      }
+    }
+    results.push(x);
+  }
+  return results;
+};
+
 
 // aliases
 
@@ -161,5 +174,6 @@ export default {
   concat,
   concatMap,
   flatten,
-  difference
+  difference,
+  intersection
 };

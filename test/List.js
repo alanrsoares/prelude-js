@@ -190,4 +190,12 @@ describe('List.js', () => {
       expect(List.difference([1, 2, 3], [1])).to.deep.equal([2, 3]);
     });
   });
+
+  describe('List.intersection', () => {
+    it('Should calculate the intersection between lists', () => {
+      //flatten [1, [[2], 3], [4, [[5]]]] #=> [1, 2, 3, 4, 5]
+      const input = [1, [[2], 3], [4, [[5]]]];
+      expect(List.intersection([1, 2, 3], [1])).to.deep.equal([1]);
+    });
+  });
 });
