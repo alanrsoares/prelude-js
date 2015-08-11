@@ -182,4 +182,12 @@ describe('List.js', () => {
       expect(List.flatten(input)).to.deep.equal([1, 2, 3, 4, 5]);
     });
   });
+
+  describe('List.difference', () => {
+    it('Should calculate the difference between lists', () => {
+      //flatten [1, [[2], 3], [4, [[5]]]] #=> [1, 2, 3, 4, 5]
+      const input = [1, [[2], 3], [4, [[5]]]];
+      expect(List.difference([1, 2, 3], [1])).to.deep.equal([2, 3]);
+    });
+  });
 });

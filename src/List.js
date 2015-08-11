@@ -113,6 +113,20 @@ export const concatMap = curry((fn, xs) => [].concat.apply([], xs.map(fn)));
 export const flatten = (xs) =>
   [].concat.apply([], xs.map((x) => isArray(x) ? flatten(x) : x));
 
+export const difference = (xs, ...yss) => {
+  const results = [];
+  outer: for (let x of xs) {
+    for (let ys of yss) {
+      if (find((y) => y === x, ys)) {
+        continue outer;
+      }
+    }
+    results.push(x);
+  }
+  return results;
+};
+
+
 // aliases
 
 export const fold = foldl;
@@ -146,5 +160,6 @@ export default {
   unfoldr,
   concat,
   concatMap,
-  flatten
+  flatten,
+  difference
 };
