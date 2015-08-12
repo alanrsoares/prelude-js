@@ -113,16 +113,24 @@ export const concatMap = curry((fn, xs) => [].concat.apply([], xs.map(fn)));
 export const flatten = (xs) =>
   [].concat.apply([], xs.map((x) => isArray(x) ? flatten(x) : x));
 
-//::([a], [a], ...) -> [a]
+//:: ([a], [a], ...) -> [a]
 export const difference = (xs, ...yss) =>
   xs.filter((x) => !yss.some(find((y) => y === x)));
 
-//::([a], [a], ...) -> [a]
+//:: ([a], [a], ...) -> [a]
 export const intersection = (xs, ...yss) =>
   xs.filter((x) => yss.some(find((y) => y === x)));
 
-//::([a], [a], ...) -> [a]
+//:: ([a], [a], ...) -> [a]
 export const union = (xs, ...yss) => unique(xs.concat(flatten(yss)));
+
+//:: (a -> b) -> [a] -> { b: Number }
+export const countBy = (fn, xs) =>
+  xs.reduce((memo, x) => {
+    let result = fn(x);
+    memo[result] ? memo[result] ++ : memo[result] = 1;
+    return memo;
+  }, {});
 
 // aliases
 
@@ -160,5 +168,6 @@ export default {
   flatten,
   difference,
   intersection,
-  union
+  union,
+  countBy
 };
