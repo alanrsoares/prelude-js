@@ -122,8 +122,7 @@ export const intersection = (xs, ...yss) =>
   xs.filter((x) => yss.some(find((y) => y === x)));
 
 //::([a], [a], ...) -> [a]
-export const union = (xs, ...yss) =>
-  yss.reduce((memo, ys) => memo.concat(difference(ys, memo)), xs);
+export const union = (xs, ...yss) => unique(xs.concat(flatten(yss)));
 
 // aliases
 
