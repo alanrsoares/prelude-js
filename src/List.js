@@ -121,6 +121,9 @@ export const difference = (xs, ...yss) =>
 export const intersection = (xs, ...yss) =>
   xs.filter((x) => yss.some(find((y) => y === x)));
 
+export const union = (xs, ...yss) =>
+  yss.reduce((memo, ys) => memo.concat(difference(ys, memo)), xs);
+
 // aliases
 
 export const fold = foldl;
@@ -156,5 +159,6 @@ export default {
   concatMap,
   flatten,
   difference,
-  intersection
+  intersection,
+  union
 };
