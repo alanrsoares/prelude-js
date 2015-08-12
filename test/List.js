@@ -204,4 +204,12 @@ describe('List.js', () => {
       expect(List.union([1, 5, 7], [3, 5], [])).to.deep.equal([1, 5, 7, 3]);
     });
   });
+
+  describe('List.countBy', () => {
+    it('Should count the occurences by a given predicate', () => {
+      expect(List.countBy(Math.floor, [4.2, 4.4, 9.8])).to.deep.equal({ 4: 2, 9: 1 });
+      expect(List.countBy((x) => x.length, ['foo', 'bar', 'burp'])).to.deep.equal({ 3: 2, 4: 1 });
+      expect(List.countBy((x) => x > 2, [- 3, 1, 2, 3, 4, 5])).to.deep.equal({ true: 3, false: 3 });
+    });
+  });
 });
