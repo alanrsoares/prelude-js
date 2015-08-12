@@ -177,15 +177,16 @@ describe('List.js', () => {
 
   describe('List.flatten', () => {
     it('Should flatten a list', () => {
-      //flatten [1, [[2], 3], [4, [[5]]]] #=> [1, 2, 3, 4, 5]
-      const input = [1, [[2], 3], [4, [[5]]]];
-      expect(List.flatten(input)).to.deep.equal([1, 2, 3, 4, 5]);
+      expect(List.flatten([1, [[2], 3], [4, [[5]]]])).to.deep.equal([1, 2, 3, 4, 5]);
     });
   });
 
   describe('List.difference', () => {
     it('Should calculate the difference between lists', () => {
       expect(List.difference([1, 2, 3, 4], [1], [4])).to.deep.equal([2, 3]);
+      expect(List.difference([1, 2, 3], [2, 1, 3], [3, 1, 2])).to.deep.equal([]);
+      expect(List.difference([1, 2, 3], [101, 2, 1, 10], [2, 1], [-1, 0, 1, 2])).to.deep.equal([3]);
+      expect(List.difference([1, 2, 3, 4, 5], [5, 2, 10], [9])).to.deep.equal([1, 3, 4]);
     });
   });
 
@@ -197,10 +198,10 @@ describe('List.js', () => {
     });
   });
 
-  //union [1 5 7] [3 5] [] #=> [1 5 7 3]
   describe('List.union', () => {
     it('Should calculate the union between lists', () => {
       expect(List.union([1, 2, 3, 4], [2, 4, 5], [9], [])).to.deep.equal([1, 2, 3, 4, 5, 9]);
+      expect(List.union([1, 5, 7], [3, 5], [])).to.deep.equal([1, 5, 7, 3]);
     });
   });
 });
