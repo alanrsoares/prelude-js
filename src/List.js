@@ -127,10 +127,19 @@ export const union = (xs, ...yss) => unique(xs.concat(flatten(yss)));
 //:: (a -> b) -> [a] -> { b: Number }
 export const countBy = (fn, xs) =>
   xs.reduce((memo, x) => {
-    let result = fn(x);
-    memo[result] ? memo[result] ++ : memo[result] = 1;
+    let key = fn(x);
+    memo[key] ? memo[key] ++ : memo[key] = 1;
     return memo;
   }, {});
+
+  //:: (a -> b) -> [a] -> { b: [b] }
+  export const groupBy = (fn, xs) =>
+    xs.reduce((memo, x) => {
+      let key = fn(x);
+      memo[key] ? memo[key].push(x) : memo[key] = [x];
+      return memo;
+    }, {});
+
 
 // aliases
 
@@ -169,5 +178,6 @@ export default {
   difference,
   intersection,
   union,
-  countBy
+  countBy,
+  groupBy
 };
