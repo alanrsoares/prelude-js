@@ -191,7 +191,16 @@ describe('List.js', () => {
 
   describe('List.intersection', () => {
     it('Should calculate the intersection between lists', () => {
-      expect(List.intersection([1, 2, 3, 4], [2, 4], [3])).to.deep.equal([2, 3, 4]);
+      expect(List.intersection([1, 2, 3], [2, 1, 3], [3, 1, 2])).to.deep.equal([1, 2, 3]);
+      expect(List.intersection([1, 2, 3], [101, 2, 1, 10], [2, 1], [-1, 0, 1, 2])).to.deep.equal([1, 2]);
+      expect(List.intersection([2, 3], [9, 8], [12, 1], [99])).to.deep.equal([]);
+    });
+  });
+
+  //union [1 5 7] [3 5] [] #=> [1 5 7 3]
+  describe('List.union', () => {
+    it('Should calculate the union between lists', () => {
+      expect(List.union([1, 2, 3, 4], [2, 4, 5], [9], [])).to.deep.equal([1, 2, 3, 4, 5, 9]);
     });
   });
 });
