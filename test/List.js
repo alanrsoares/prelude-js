@@ -214,7 +214,7 @@ describe('List.js', () => {
   });
 
   describe('List.groupBy', () => {
-    it('Should count the occurences by a given predicate', () => {
+    it('Should group the matching results by a given predicate', () => {
       expect(List.groupBy(Math.floor, [4.2, 4.4, 9.8])).to.deep.equal({ 4: [4.2, 4.4], 9: [9.8] });
       expect(List.groupBy((x) => x.length, ['one', 'two', 'three'])).to.deep.equal({ 3: ['one', 'two'], 5: ['three'] });
       expect(List.groupBy((x) => x > 2, [-3, 1, 2, 3, 4, 5])).to.deep.equal({ true: [3, 4, 5], false: [-3, 1, 2] });
