@@ -128,7 +128,7 @@ export const union = (xs, ...yss) => unique(xs.concat(flatten(yss)));
 export const countBy = (fn, xs) =>
   xs.reduce((memo, x) => {
     let key = fn(x);
-    memo[key] ? memo[key] ++ : memo[key] = 1;
+    memo[key] = memo[key] ? memo[key] + 1 : 1;
     return memo;
   }, {});
 
@@ -136,7 +136,7 @@ export const countBy = (fn, xs) =>
   export const groupBy = (fn, xs) =>
     xs.reduce((memo, x) => {
       let key = fn(x);
-      memo[key] ? memo[key].push(x) : memo[key] = [x];
+      memo[key] = memo[key] ? memo[key].concat([x]) : [x];
       return memo;
     }, {});
 
