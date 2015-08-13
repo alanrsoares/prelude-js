@@ -141,7 +141,10 @@ export const countBy = (fn, xs) =>
     }, {});
 
   export const and = (xs) =>
-    xs.reduce((memo, x) => !!(memo && x), true);
+    xs.reduce((memo, x) => memo && !!x, true);
+
+  export const or = (xs) =>
+    xs.reduce((memo, x) => memo || !!x, false);
 
 // aliases
 
@@ -182,5 +185,6 @@ export default {
   union,
   countBy,
   groupBy,
-  and
+  and,
+  or
 };
