@@ -222,9 +222,17 @@ describe('List.js', () => {
   });
 
   describe('List.and', () => {
-    it('Should Returns false if any item in the list is false, otherwise returns true', () => {
+    it('Should return false if any item in the list is false, otherwise returns true', () => {
       expect(List.and([1, 2, 3])).to.deep.equal(true);
       expect(List.and([3, 2, false])).to.deep.equal(false);
     });
   });
+
+  describe('List.or', () => {
+    it('Should return true if any item in the list is true, otherwise returns false', () => {
+      expect(List.or([1, 2, 3])).to.deep.equal(true);
+      expect(List.or([0, '', null, false])).to.deep.equal(false);
+    });
+  });
+
 });
