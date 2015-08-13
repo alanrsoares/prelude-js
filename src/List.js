@@ -140,6 +140,8 @@ export const countBy = (fn, xs) =>
       return memo;
     }, {});
 
+  export const and = (xs) =>
+    xs.reduce((memo, x) => !!(memo && x), true);
 
 // aliases
 
@@ -179,5 +181,6 @@ export default {
   intersection,
   union,
   countBy,
-  groupBy
+  groupBy,
+  and
 };
