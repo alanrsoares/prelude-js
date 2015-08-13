@@ -220,4 +220,11 @@ describe('List.js', () => {
       expect(List.groupBy((x) => x > 2, [-3, 1, 2, 3, 4, 5])).to.deep.equal({ true: [3, 4, 5], false: [-3, 1, 2] });
     });
   });
+
+  describe('List.and', () => {
+    it('Should Returns false if any item in the list is false, otherwise returns true', () => {
+      expect(List.and([1, 2, 3])).to.deep.equal(true);
+      expect(List.and([3, 2, false])).to.deep.equal(false);
+    });
+  });
 });
