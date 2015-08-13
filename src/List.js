@@ -12,19 +12,19 @@ export const each = curry((fn, xs) => xs.forEach(fn));
 //:: (a -> b) -> [a] -> [b]
 export const map = curry((fn, xs) => xs.map(fn));
 
-//:: (a -> Bool) -> [a] -> [a]
+//:: (a -> Boolean) -> [a] -> [a]
 export const filter = curry((fn, xs) => xs.filter(fn));
 
 //:: [a] -> [a]
 export const compact = filter(id);
 
-//:: (a -> Bool) -> [a] -> [a]
+//:: (a -> Boolean) -> [a] -> [a]
 export const reject = curry((fn, xs) => xs.filter(compose(fn, negate)));
 
 //:: ((a, b) -> a) -> [b] -> a
 export const reduce = curry((fn, xs) => xs.reduce(fn));
 
-//:: (a -> Bool) -> [a] -> [[a] [a]]
+//:: (a -> Boolean) -> [a] -> [[a] [a]]
 export const partition = curry((fn, xs) => {
   let passed = [];
   let failed = [];
@@ -32,7 +32,7 @@ export const partition = curry((fn, xs) => {
   return [passed, failed];
 });
 
-//:: (a -> Bool) -> [a] -> a
+//:: (a -> Boolean) -> [a] -> a
 export const find = curry((fn, [x, ...xs]) => x
   ? fn(x) ? x : find(fn, xs)
   : undefined
@@ -53,7 +53,7 @@ export const last = (xs) => xs.slice(-1)[0];
 //:: [a] -> [a]
 export const initial = (xs) => !xs.length ? undefined : xs.slice(0, -1);
 
-//:: [a] -> Bool
+//:: [a] -> Boolean
 export const empty = (xs) => !xs.length;
 
 //:: [a] -> [a]
@@ -132,19 +132,21 @@ export const countBy = (fn, xs) =>
     return memo;
   }, {});
 
-  //:: (a -> b) -> [a] -> { b: [b] }
-  export const groupBy = (fn, xs) =>
-    xs.reduce((memo, x) => {
-      let key = fn(x);
-      memo[key] = memo[key] ? memo[key].concat([x]) : [x];
-      return memo;
-    }, {});
+//:: (a -> b) -> [a] -> { b: [b] }
+export const groupBy = (fn, xs) =>
+  xs.reduce((memo, x) => {
+    let key = fn(x);
+    memo[key] = memo[key] ? memo[key].concat([x]) : [x];
+    return memo;
+  }, {});
 
-  export const and = (xs) =>
-    xs.reduce((memo, x) => memo && !!x, true);
+//:: [a] -> Boolean
+export const and = (xs) =>
+  xs.reduce((memo, x) => memo && !!x, true);
 
-  export const or = (xs) =>
-    xs.reduce((memo, x) => memo || !!x, false);
+//:: [a] -> Boolean
+export const or = (xs) =>
+  xs.reduce((memo, x) => memo || !!x, false);
 
 // aliases
 
