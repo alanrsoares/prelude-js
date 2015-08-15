@@ -37,7 +37,6 @@ export default {
   curry,
   apply,
   flip,
-  over,
   memoize,
   memoise,
   compose
