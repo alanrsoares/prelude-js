@@ -31,4 +31,19 @@ describe('Func.js', () => {
       expect(invertedPower(2, 5)).to.equal(25);
     });
   });
+
+  describe('Funct.memoize', () => {
+    it('Should call a memoized function only once', () => {
+      let called = 0;
+      const length = (x) => ++called && x.length;
+      const memoLength = Func.memoize(length);
+      const cases = ['foo', 'bar', 'baz', 'buzz'];
+      cases.map((word, k) => {
+        for (let i = 0; i <= k; i++) {
+          memoLength(word);
+        }
+      });
+      expect(called).to.equal(cases.length);
+    });
+  });
 });
