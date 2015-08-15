@@ -38,12 +38,27 @@ describe('Func.js', () => {
       const length = (x) => ++called && x.length;
       const memoLength = Func.memoize(length);
       const cases = ['foo', 'bar', 'baz', 'buzz'];
+
       cases.map((word, k) => {
         for (let i = 0; i <= k; i++) {
           memoLength(word);
         }
       });
+
       expect(called).to.equal(cases.length);
+    });
+  });
+
+  describe('Funct.compose', () => {
+    it('Should compose multiple functions into one', () => {
+      const plus1 = (a, b) => (a + 1);
+      const double = (a, b) => (a * 2);
+      const half = (a, b) => (a / 2);
+      const complex = Func.compose(plus1, double, half);
+
+      expect(complex(1)).to.equal(half(double(plus1(1))));
+      expect(complex(2)).to.equal(half(double(plus1(2))));
+      expect(complex(3)).to.equal(half(double(plus1(3))));
     });
   });
 });
