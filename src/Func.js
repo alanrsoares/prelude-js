@@ -15,6 +15,7 @@ export const apply = curry((fn, args) => fn.apply(null, args));
 //:: (a -> b -> c) -> b -> a -> c
 export const flip = curry((fn, x, y) => fn(y, x));
 
+//:: (b -> c) -> (a -> b) -> a -> a -> (a -> c)
 export const over = curry((f, g, x, y) => f((g(x)), (g(y))));
 
 //:: (a -> b) -> a -> b
