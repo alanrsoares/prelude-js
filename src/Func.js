@@ -1,4 +1,4 @@
-//           curry :: ((a, b) -> c) -> a -> b -> c
+//:: ((a, b) -> c) -> a -> b -> c
 export const curry = (fn, ...args) => {
   const c = (fnArgs) => {
     if (fnArgs.length >= fn.length) {
