@@ -1,10 +1,19 @@
+import id from './General/id';
+import isType from './General/isType';
+import negate from './General/negate';
+
 import { curry, compose } from './Func';
 
-export const id = (x) => x;
+//:: (Number, Number?, Number?) -> [Number]
+export const range = (to, from = 1, step = 1) => {
+  const result = [];
+  for (let i = from; i <= to; i += step) {
+    result.push(i);
+  }
+  return result;
+};
 
-export const isArray = (x) => ({}).toString.call(x) === '[object Array]';
-
-export const negate = (x) => !x;
+export const isArray = isType('Array');
 
 //:: (a -> b) -> [a] -> void
 export const each = curry((fn, xs) => xs.forEach(fn));
@@ -155,6 +164,7 @@ export const fold = foldl;
 export const fold1 = foldl1;
 
 export default {
+  range,
   each,
   map,
   filter,
