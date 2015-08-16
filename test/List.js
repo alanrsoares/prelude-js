@@ -2,6 +2,16 @@ import { expect } from 'chai';
 import List from '../src/List';
 
 describe('List.js', () => {
+  describe('List.range', () => {
+    it('Should return a list of numbers according to the given boundaries', () => {
+      expect(List.range(0)).to.deep.equal([]);
+      expect(List.range(1)).to.deep.equal([1]);
+      expect(List.range(3)).to.deep.equal([1, 2, 3]);
+      expect(List.range(10, 8)).to.deep.equal([8, 9, 10]);
+      expect(List.range(100, 50).length).to.equal(51);
+    });
+  });
+
   describe('List.each', () => {
     it('Should apply a function to each item in a list, not returning any value', () => {
       const input = [1, 2, 3, 4, 5];
