@@ -157,6 +157,9 @@ export const and = (xs) =>
 export const or = (xs) =>
   xs.reduce((memo, x) => memo || !!x, false);
 
+//:: (a -> Boolean) -> [a] -> Boolean
+export const any = curry((fn, xs) => xs.some(fn));
+
 // aliases
 
 export const fold = foldl;
