@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import List from '../src/List';
+import * as List from '../src/List';
 
 describe('List.js', () => {
   describe('List.range', () => {
@@ -233,15 +233,30 @@ describe('List.js', () => {
 
   describe('List.and', () => {
     it('Should return false if any item in the list is false, otherwise returns true', () => {
-      expect(List.and([1, 2, 3])).to.deep.equal(true);
-      expect(List.and([3, 2, false])).to.deep.equal(false);
+      expect(List.and([1, 2, 3])).to.equal(true);
+      expect(List.and([3, 2, false])).to.equal(false);
     });
   });
 
   describe('List.or', () => {
     it('Should return true if any item in the list is true, otherwise returns false', () => {
       expect(List.or([1, 2, 3])).to.deep.equal(true);
-      expect(List.or([0, '', null, false])).to.deep.equal(false);
+      expect(List.or([0, '', null, false])).to.equal(false);
+    });
+  });
+
+  describe('List.any', () => {
+    it('Should return true true on the first item that satisfies the predicate', () => {
+      expect(List.any((x) => x > 2, [1, 2, 3])).to.equal(true);
+      expect(List.any((x) => x.length > 3, ['foo', 'bar', 'buzz'])).to.deep.equal(true);
+      expect(List.any((x) => x.length < 3, ['foo', 'bar', 'buzz'])).to.deep.equal(false);
+    });
+  });
+
+  describe('List.all', () => {
+    it('Should return true true on the first item that does not satisfy the predicate', () => {
+      expect(List.all((x) => x, [1, 2, 3])).to.equal(false);
+      expect(List.all((x) => x.length > 3, ['foo', 'bar', 'buzz'])).to.equal(false);
     });
   });
 
