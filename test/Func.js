@@ -49,16 +49,23 @@ describe('Func.js', () => {
     });
   });
 
-  describe('Funct.compose', () => {
+  describe('Func.compose', () => {
     it('Should compose multiple functions into one', () => {
-      const plus1 = (a, b) => (a + 1);
-      const double = (a, b) => (a * 2);
-      const half = (a, b) => (a / 2);
-      const complex = Func.compose(plus1, double, half);
+      const plus1 = (x) => x + 1;
+      const negate = (x) => -x;
+      const complex = Func.compose(plus1, negate, Math.pow);
 
-      expect(complex(1)).to.equal(half(double(plus1(1))));
-      expect(complex(2)).to.equal(half(double(plus1(2))));
-      expect(complex(3)).to.equal(half(double(plus1(3))));
+      expect(complex(3, 2)).to.equal(plus1(negate(Math.pow(3, 2))));
     });
   });
+
+  describe('Func.negate', () => {
+    it('Should negate the result of a function', () => {
+      const gt2 = (x) => x > 2;
+      const twoOrLess = Func.negate(gt2);
+      expect(gt2(2)).to.equal(false);
+      expect(twoOrLess(2)).to.equal(true);
+    });
+  });
+
 });

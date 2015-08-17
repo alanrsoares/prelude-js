@@ -1,8 +1,7 @@
 import id from './General/id';
 import isType from './General/isType';
-import negate from './General/negate';
 
-import { curry, compose } from './Func';
+import { curry, compose, negate } from './Func';
 
 //:: (Number, Number?, Number?) -> [Number]
 export const range = (to, from = 1, step = 1) => {
@@ -12,8 +11,6 @@ export const range = (to, from = 1, step = 1) => {
   }
   return result;
 };
-
-export const isArray = isType('Array');
 
 //:: (a -> b) -> [a] -> void
 export const each = curry((fn, xs) => xs.forEach(fn));
@@ -28,10 +25,10 @@ export const filter = curry((fn, xs) => xs.filter(fn));
 export const compact = filter(id);
 
 //:: (a -> Boolean) -> [a] -> [a]
-export const reject = curry((fn, xs) => xs.filter(compose(fn, negate)));
+export const reject = curry((fn, xs) => xs.filter(negate(fn)));
 
 //:: ((a, b) -> a) -> [b] -> a
-export const reduce = curry((fn, xs) => xs.reduce(fn));
+export const reduce = curry((fn, memo, xs) => xs.reduce(fn, memo));
 
 //:: (a -> Boolean) -> [a] -> [[a] [a]]
 export const partition = curry((fn, xs) => {
@@ -116,11 +113,10 @@ export const unfoldr = curry((fn, b) => {
 export const concat = (xss) => [].concat.apply([], xss);
 
 //:: (a -> [b]) -> [a] -> [b]
-export const concatMap = curry((fn, xs) => [].concat.apply([], xs.map(fn)));
+export const concatMap = curry((fn, xs) => concat(map(fn, xs)));
 
 //:: List -> List
-export const flatten = (xs) =>
-  [].concat.apply([], xs.map((x) => isArray(x) ? flatten(x) : x));
+export const flatten = concatMap((xs) => isType('Array', xs) ? flatten(xs) : xs);
 
 //:: ([a], [a], ...) -> [a]
 export const difference = (xs, ...yss) =>
@@ -134,70 +130,35 @@ export const intersection = (xs, ...yss) =>
 export const union = (xs, ...yss) => unique(xs.concat(flatten(yss)));
 
 //:: (a -> b) -> [a] -> { b: Number }
-export const countBy = (fn, xs) =>
+export const countBy = curry((fn, xs) =>
   xs.reduce((memo, x) => {
     let key = fn(x);
     memo[key] = memo[key] ? memo[key] + 1 : 1;
     return memo;
-  }, {});
+  }, {}));
 
 //:: (a -> b) -> [a] -> { b: [b] }
-export const groupBy = (fn, xs) =>
+export const groupBy = curry((fn, xs) =>
   xs.reduce((memo, x) => {
     let key = fn(x);
     memo[key] = memo[key] ? memo[key].concat([x]) : [x];
     return memo;
-  }, {});
+  }, {}));
 
 //:: [a] -> Boolean
-export const and = (xs) =>
-  xs.reduce((memo, x) => memo && !!x, true);
+export const and = reduce((memo, x) => memo && !!x, true);
 
 //:: [a] -> Boolean
-export const or = (xs) =>
-  xs.reduce((memo, x) => memo || !!x, false);
+export const or = reduce((memo, x) => memo || !!x, false);
+
+//:: (a -> Boolean) -> [a] -> Boolean
+export const any = curry((fn, xs) => xs.some(fn));
+
+//:: (a -> Boolean) -> [a] -> Boolean
+export const all = negate(any);
 
 // aliases
 
 export const fold = foldl;
 
 export const fold1 = foldl1;
-
-export default {
-  range,
-  each,
-  map,
-  filter,
-  compact,
-  reject,
-  reduce,
-  partition,
-  find,
-  head,
-  tail,
-  first,
-  last,
-  initial,
-  empty,
-  reverse,
-  uniqueBy,
-  unique,
-  fold,
-  fold1,
-  foldl,
-  foldl1,
-  foldr,
-  foldr1,
-  unfoldr,
-  concat,
-  concatMap,
-  flatten,
-  difference,
-  intersection,
-  union,
-  countBy,
-  groupBy,
-  and,
-  or,
-  any
-};
