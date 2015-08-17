@@ -5,6 +5,9 @@
 ```haskell
 curry :: (a → b → c) → a → b → c
 ```
+
+> Returns a curried version of the supplied function. Useful for currying functions from non-LiveScript libraries.
+
 ### Examples
 ```javascript
 const add = curry((a, b) => a + b);
