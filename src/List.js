@@ -113,11 +113,10 @@ export const unfoldr = curry((fn, b) => {
 export const concat = (xss) => [].concat.apply([], xss);
 
 //:: (a -> [b]) -> [a] -> [b]
-export const concatMap = curry((fn, xs) => [].concat.apply([], xs.map(fn)));
+export const concatMap = compose(concat, map);
 
 //:: List -> List
-export const flatten = (xs) =>
-  [].concat.apply([], xs.map((x) => isType('Array', x) ? flatten(x) : x));
+export const flatten = compose(concat, map((xs) => isType('Array', xs) ? flatten(xs) : xs));
 
 //:: ([a], [a], ...) -> [a]
 export const difference = (xs, ...yss) =>
