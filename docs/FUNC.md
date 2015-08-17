@@ -25,9 +25,7 @@ apply :: (a → b → c → ... → d) → [a, b, c, ...] → d
 > Returns the application of the supplied list as arguments to the supplied function.
 
 ```javascript
-const add = curry((a, b) => a + b);
-const inc = add(1);
-
-inc(2); //=> 3
+const sum = (a, b) => a + b;
+apply(add, [2, 3]); //=> 5
 
 ```
