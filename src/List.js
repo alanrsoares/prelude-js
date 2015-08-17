@@ -12,8 +12,6 @@ export const range = (to, from = 1, step = 1) => {
   return result;
 };
 
-export const isArray = isType('Array');
-
 //:: (a -> b) -> [a] -> void
 export const each = curry((fn, xs) => xs.forEach(fn));
 
@@ -30,7 +28,7 @@ export const compact = filter(id);
 export const reject = curry((fn, xs) => xs.filter(negate(fn)));
 
 //:: ((a, b) -> a) -> [b] -> a
-export const reduce = curry((fn, xs) => xs.reduce(fn));
+export const reduce = curry((fn, memo, xs) => xs.reduce(fn, memo));
 
 //:: (a -> Boolean) -> [a] -> [[a] [a]]
 export const partition = curry((fn, xs) => {
@@ -119,7 +117,7 @@ export const concatMap = curry((fn, xs) => [].concat.apply([], xs.map(fn)));
 
 //:: List -> List
 export const flatten = (xs) =>
-  [].concat.apply([], xs.map((x) => isArray(x) ? flatten(x) : x));
+  [].concat.apply([], xs.map((x) => isType('Array', x) ? flatten(x) : x));
 
 //:: ([a], [a], ...) -> [a]
 export const difference = (xs, ...yss) =>
@@ -149,12 +147,10 @@ export const groupBy = (fn, xs) =>
   }, {});
 
 //:: [a] -> Boolean
-export const and = (xs) =>
-  xs.reduce((memo, x) => memo && !!x, true);
+export const and = reduce((memo, x) => memo && !!x, true);
 
 //:: [a] -> Boolean
-export const or = (xs) =>
-  xs.reduce((memo, x) => memo || !!x, false);
+export const or = reduce((memo, x) => memo || !!x, false);
 
 //:: (a -> Boolean) -> [a] -> Boolean
 export const any = curry((fn, xs) => xs.some(fn));
