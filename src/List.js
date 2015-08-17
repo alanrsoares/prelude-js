@@ -131,20 +131,20 @@ export const intersection = (xs, ...yss) =>
 export const union = (xs, ...yss) => unique(xs.concat(flatten(yss)));
 
 //:: (a -> b) -> [a] -> { b: Number }
-export const countBy = (fn, xs) =>
+export const countBy = curry((fn, xs) =>
   xs.reduce((memo, x) => {
     let key = fn(x);
     memo[key] = memo[key] ? memo[key] + 1 : 1;
     return memo;
-  }, {});
+  }, {}));
 
 //:: (a -> b) -> [a] -> { b: [b] }
-export const groupBy = (fn, xs) =>
+export const groupBy = curry((fn, xs) =>
   xs.reduce((memo, x) => {
     let key = fn(x);
     memo[key] = memo[key] ? memo[key].concat([x]) : [x];
     return memo;
-  }, {});
+  }, {}));
 
 //:: [a] -> Boolean
 export const and = reduce((memo, x) => memo && !!x, true);
