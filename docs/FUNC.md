@@ -1,8 +1,6 @@
-# Preλude-js - Docs
+# Preλude-js - Func
 
-## Func
-
-### Func.curry
+## Func.curry
 
 `curry :: (a → b → c) → a → b → c`
 
