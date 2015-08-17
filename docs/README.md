@@ -1,4 +1,4 @@
 # Preλude-js - Docs
 
-* Func
-  * Func.curry
+* [Func](FUNC.md)
+  * [Func.curry](FUNC.md#funccurry)
