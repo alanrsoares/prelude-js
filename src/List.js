@@ -1,8 +1,7 @@
 import id from './General/id';
 import isType from './General/isType';
-import negate from './General/negate';
 
-import { curry, compose } from './Func';
+import { curry, compose, negate } from './Func';
 
 //:: (Number, Number?, Number?) -> [Number]
 export const range = (to, from = 1, step = 1) => {
@@ -28,7 +27,7 @@ export const filter = curry((fn, xs) => xs.filter(fn));
 export const compact = filter(id);
 
 //:: (a -> Boolean) -> [a] -> [a]
-export const reject = curry((fn, xs) => xs.filter(compose(fn, negate)));
+export const reject = curry((fn, xs) => xs.filter(negate(fn)));
 
 //:: ((a, b) -> a) -> [b] -> a
 export const reduce = curry((fn, xs) => xs.reduce(fn));
@@ -160,46 +159,11 @@ export const or = (xs) =>
 //:: (a -> Boolean) -> [a] -> Boolean
 export const any = curry((fn, xs) => xs.some(fn));
 
+//:: (a -> Boolean) -> [a] -> Boolean
+export const all = negate(any);
+
 // aliases
 
 export const fold = foldl;
 
 export const fold1 = foldl1;
-
-export default {
-  range,
-  each,
-  map,
-  filter,
-  compact,
-  reject,
-  reduce,
-  partition,
-  find,
-  head,
-  tail,
-  first,
-  last,
-  initial,
-  empty,
-  reverse,
-  uniqueBy,
-  unique,
-  fold,
-  fold1,
-  foldl,
-  foldl1,
-  foldr,
-  foldr1,
-  unfoldr,
-  concat,
-  concatMap,
-  flatten,
-  difference,
-  intersection,
-  union,
-  countBy,
-  groupBy,
-  and,
-  or
-};
