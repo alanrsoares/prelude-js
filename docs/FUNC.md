@@ -8,7 +8,6 @@ curry :: (a → b → c) → a → b → c
 
 > Returns a curried version of the supplied function.
 
-### Examples
 ```javascript
 const add = curry((a, b) => a + b);
 const inc = add(1);
