@@ -24,10 +24,13 @@ export const memoize = (fn) => {
   };
 };
 
+// (a -> b) -> !(a -> b)
+export const negate = (fn) => (...args) => !fn.apply(null, args);
+
 //:: ([a -> b?]) -> a -> b?
 export const compose = (...fns) =>
   (...args) =>
-    fns.reduce((memo, fn, i) => [fn.apply(this, memo)], args)[0];
+    fns.reduceRight((memo, fn) => [fn.apply(this, memo)], args)[0];
 
 // aliases
 
@@ -39,5 +42,6 @@ export default {
   flip,
   memoize,
   memoise,
+  negate,
   compose
 };
