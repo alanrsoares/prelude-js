@@ -4,7 +4,9 @@
 
 ### Func.curry
 
-`curry :: (a → b → c) → a → b → c`
+```haskell
+curry :: (a → b → c) → a → b → c
+```
 
 ```javascript
 const add = curry((a, b) => a + b);
