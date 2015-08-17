@@ -26,6 +26,6 @@ apply :: (a → b → c → ... → d) → [a, b, c, ...] → d
 
 ```javascript
 const sum = (a, b) => a + b;
-apply(add, [2, 3]); //=> 5
+apply(sum, [2, 3]); //=> 5
 
 ```
