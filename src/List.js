@@ -201,5 +201,6 @@ export default {
   countBy,
   groupBy,
   and,
-  or
+  or,
+  any
 };
