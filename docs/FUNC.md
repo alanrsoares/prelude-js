@@ -13,7 +13,6 @@ const add = curry((a, b) => a + b);
 const inc = add(1);
 
 inc(2); //=> 3
-
 ```
 
 ## Func.apply
@@ -27,5 +26,18 @@ apply :: (a → b → c → ... → d) → [a, b, c, ...] → d
 ```javascript
 const sum = (a, b) => a + b;
 apply(sum, [2, 3]); //=> 5
-
 ```
+
+## Func.flip
+
+```haskell
+flip :: (a → b → c) → (b → a → c)
+```
+
+> Returns a function with the arguments flipped.
+
+```javascript
+const invertedPower = flip(Math.pow);
+invertedPower(2, 3) //=> 9
+```
+
