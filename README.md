@@ -5,7 +5,7 @@ A truly modular implementation of Haskell's Prelude library in ES6
 [![Build Status](https://travis-ci.org/alanrsoares/prelude-js.svg?branch=master)](https://travis-ci.org/alanrsoares/prelude-js)
 
 
-> check out the [docs](/docs/README.md) for modules details
+> **check out the [docs](/docs/README.md) for modules details**
 
 
 ## install
