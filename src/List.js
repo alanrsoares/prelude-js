@@ -109,6 +109,8 @@ export const unfoldr = curry((fn, b) => {
   return result;
 });
 
+export const mapReduce = curry((mapper, reducer, xs) => xs.map(mapper).reduce(reducer));
+
 //:: [[a]] -> [a]
 export const concat = (xss) => [].concat.apply([], xss);
 
