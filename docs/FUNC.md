@@ -78,8 +78,9 @@ negate :: Function → Function
 > Caches computed results, speeding up later calls with the same arguments.
 
 ```javascript
-const memoF = memoize(expensiveFunction);
-memoF(2) // slow, but result is then cached
-memoF(2) // fast
+const gt2 = (x) => x > 2;
+const twoOrLess = negate(gt2);
+gt2(2); //=> false
+twoOrLess(2); //=> true
 ```
 
