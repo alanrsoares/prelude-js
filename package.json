@@ -32,5 +32,8 @@
     "chai": "^3.2.0",
     "mocha": "^2.2.5",
     "releasy": "^1.5.5"
+  },
+  "dependencies": {
+    "codecov.io": "^0.1.6"
   }
 }
