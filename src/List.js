@@ -1,7 +1,9 @@
 import id from './General/id';
 import isType from './General/isType';
-
+import { merge } from './Obj';
 import { curry, compose, negate } from './Func';
+
+console.log(merge({}, { foo: 'bar' }, { bar: 'baz' }));
 
 //:: (Number, Number?, Number?) -> [Number]
 export const range = (to, from = 1, step = 1) => {
@@ -67,14 +69,8 @@ export const reverse = (xs) => xs.concat().reverse();
 
 //:: (a -> b) -> [a] -> [a]
 export const uniqueBy = curry((f, xs) => {
-  let memo = {};
-  xs.map(f).forEach((x) => {
-    const key = `K_${x}`;
-    if (!memo[key]) {
-      memo[key] = x;
-    }
-  });
-  return Object.values(memo);
+  const reducer = (memo, x) => merge(memo, { [`K_${x}`]: x });
+  return Object.values(xs.map(f).reduce(reducer, {}));
 });
 
 //:: [a] -> [a]
