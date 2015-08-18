@@ -69,3 +69,17 @@ memoF(2) // slow, but result is then cached
 memoF(2) // fast
 ```
 
+## Func.negate
+
+```haskell
+negate :: Function → Function
+```
+
+> Caches computed results, speeding up later calls with the same arguments.
+
+```javascript
+const memoF = memoize(expensiveFunction);
+memoF(2) // slow, but result is then cached
+memoF(2) // fast
+```
+
