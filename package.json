@@ -6,7 +6,8 @@
   "scripts": {
     "start": "mocha test --compilers js:babel/register --watch",
     "test": "mocha test --compilers js:babel/register",
-    "release": "releasy -s --stable && npm publish"
+    "release": "releasy -s --stable && npm publish",
+    "cover": "istanbul cover _mocha -- --compilers js:babel/register -R spec && cat ./coverage/coverage.json | codecov"
   },
   "repository": {
     "type": "git",
