@@ -41,14 +41,3 @@ export const compose = (...fns) =>
 // aliases
 
 export const memoise = memoize;
-
-export default {
-  curry,
-  fix,
-  apply,
-  flip,
-  memoize,
-  memoise,
-  negate,
-  compose
-};
