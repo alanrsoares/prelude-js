@@ -95,7 +95,7 @@ compose :: ((y → z), (x → y), …, (o → p), ((a, b, …, n) → o)) → (a
 ```javascript
 const plus1 = (x) => x + 1;
 const negate = (x) => -x;
-const complex = Func.compose(plus1, negate, Math.pow);
+const complex = compose(plus1, negate, Math.pow);
 
 complex(3, 2) === plus1(negate(Math.pow(3, 2)));
 ```
