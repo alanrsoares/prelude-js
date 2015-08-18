@@ -38,7 +38,7 @@ flip :: (a → b → c) → (b → a → c)
 
 ```javascript
 const invertedPower = flip(Math.pow);
-invertedPower(2, 3) //=> 9
+invertedPower(2, 3); //=> 9
 ```
 
 ## Func.fix
@@ -52,6 +52,20 @@ fix :: (Function → Function) → Function
 ```javascript
 fix((fib) => (n) => n <= 1 
       ? 1 
-      : fib(n - 1) + fib(n - 2))(9) //=> 55
+      : fib(n - 1) + fib(n - 2))(9); //=> 55
+```
+
+## Func.memoize
+
+```haskell
+memoize :: Function → Function
+```
+
+> Caches computed results, speeding up later calls with the same arguments.
+
+```javascript
+const memoF = memoize(expensiveFunction);
+memoF(2) // slow, but result is then cached
+memoF(2) // fast
 ```
 
