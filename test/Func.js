@@ -21,6 +21,13 @@ describe('Func.js', () => {
     });
   });
 
+  describe('Funct.fix', () => {
+    it('Should run a recursive-ready inline function', () => {
+      const fiftyFive = fix((fib) => (n) => n <= 1 ? 1 : fib(n-1) + fib(n-2));
+      expect(fiftyFive).to.equal(55);
+    });
+  });
+
   describe('Funct.flip', () => {
     it('Should return a function with the arguments flipped', () => {
       const subtract = (a, b) => a - b;
