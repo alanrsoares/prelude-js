@@ -109,6 +109,7 @@ export const unfoldr = curry((fn, b) => {
   return result;
 });
 
+//:: (a -> b, b -> c) -> [a] -> c
 export const mapReduce = curry((mapper, reducer, xs) => xs.map(mapper).reduce(reducer));
 
 //:: [[a]] -> [a]
