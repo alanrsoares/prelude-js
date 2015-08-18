@@ -84,3 +84,18 @@ gt2(2); //=> false
 twoOrLess(2); //=> true
 ```
 
+## Func.compose
+
+```haskell
+compose :: ((y → z), (x → y), …, (o → p), ((a, b, …, n) → o)) → (a → b → … → n → z)
+```
+
+> Performs right-to-left function composition. The rightmost function may have any arity; the remaining functions must be unary.
+
+```javascript
+const plus1 = (x) => x + 1;
+const negate = (x) => -x;
+const complex = Func.compose(plus1, negate, Math.pow);
+
+complex(3, 2) === plus1(negate(Math.pow(3, 2)));
+```
