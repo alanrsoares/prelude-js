@@ -41,3 +41,17 @@ const invertedPower = flip(Math.pow);
 invertedPower(2, 3) //=> 9
 ```
 
+## Func.fix
+
+```haskell
+fix :: (Function → Function) → Function
+```
+
+> Fix-point function for anonymous recursion, implemented with the [Y combinator](https://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator).
+
+```javascript
+fix((fib) => (n) => n <= 1 
+      ? 1 
+      : fib(n - 1) + fib(n - 2))(9) //=> 55
+```
+
