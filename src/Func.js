@@ -26,7 +26,7 @@ export const memoize = (fn) => {
   let memo = {};
   return (...args) => {
     const key = args.map((arg) => arg + typeof arg).join('');
-    return memo[key] || (memo[key] = fn.apply(null, args));
+    return (key in memo) ? memo[key] : (memo[key] = fn.apply(null, args));
   };
 };
 
