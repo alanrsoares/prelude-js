@@ -32,9 +32,7 @@
     "babel-eslint": "^3.1.25",
     "chai": "^3.2.0",
     "mocha": "^2.2.5",
-    "releasy": "^1.5.5"
-  },
-  "dependencies": {
+    "releasy": "^1.5.5",
     "codecov.io": "^0.1.6",
     "istanbul": "^0.3.18"
   }
