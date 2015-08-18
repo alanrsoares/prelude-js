@@ -13,7 +13,7 @@ A truly modular implementation of Haskell's Prelude library in ES6
 npm install prelude-es6
 ```
 
-![alt tag](/logo2.png)
+![alt tag](/logo.png)
 
 ## Contribute
 
