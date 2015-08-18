@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import Func from '../src/Func';
+import * as Func from '../src/Func';
 
 describe('Func.js', () => {
   describe('Funct.curry', () => {
@@ -23,7 +23,7 @@ describe('Func.js', () => {
 
   describe('Funct.fix', () => {
     it('Should run a recursive-ready inline function', () => {
-      const fiftyFive = fix((fib) => (n) => n <= 1 ? 1 : fib(n-1) + fib(n-2));
+      const fiftyFive = Func.fix((fib) => (n) => n <= 1 ? 1 : fib(n - 1) + fib(n - 2))(9);
       expect(fiftyFive).to.equal(55);
     });
   });

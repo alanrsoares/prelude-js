@@ -15,10 +15,11 @@ export const apply = curry((fn, args) => fn.apply(null, args));
 //:: (a -> b -> c) -> b -> a -> c
 export const flip = curry((fn, x, y) => fn(y, x));
 
-//
+//:: Function -> Function
 export const fix = (f) =>
-  ((g) => (...args) => f(g(g)).apply(null, args))
-  ((g) => (...args) => f(g(g)).apply(null, args));
+  ((g) => (...args) => f(g(g)).apply(null, args))(
+    (g) => (...args) => f(g(g)).apply(null, args)
+  );
 
 //:: (a -> b) -> a -> b
 export const memoize = (fn) => {
@@ -43,6 +44,7 @@ export const memoise = memoize;
 
 export default {
   curry,
+  fix,
   apply,
   flip,
   memoize,
