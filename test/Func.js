@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import * as Func from '../src/Func';
 
 describe('Func.js', () => {
-  describe('Funct.curry', () => {
+  describe('Func.curry', () => {
     it('Should allow partial application of a function', () => {
       const sum = Func.curry((a, b) => a + b);
       const increment = sum(1);
@@ -12,7 +12,7 @@ describe('Func.js', () => {
     });
   });
 
-  describe('Funct.apply', () => {
+  describe('Func.apply', () => {
     it('Should return the application of the supplied list as arguments to the supplied function', () => {
       const sum = Func.curry((a, b) => a + b);
       const sumAll = (...xs) => xs.reduce(sum);
@@ -21,14 +21,14 @@ describe('Func.js', () => {
     });
   });
 
-  describe('Funct.fix', () => {
+  describe('Func.fix', () => {
     it('Should run a recursive-ready inline function', () => {
       const fiftyFive = Func.fix((fib) => (n) => n <= 1 ? 1 : fib(n - 1) + fib(n - 2))(9);
       expect(fiftyFive).to.equal(55);
     });
   });
 
-  describe('Funct.flip', () => {
+  describe('Func.flip', () => {
     it('Should return a function with the arguments flipped', () => {
       const subtract = (a, b) => a - b;
       const invertedSubtract = Func.flip(subtract);
@@ -39,7 +39,7 @@ describe('Func.js', () => {
     });
   });
 
-  describe('Funct.memoize', () => {
+  describe('Func.memoize', () => {
     it('Should call a memoized function only once', () => {
       let called = 0;
       const length = (x) => ++called && x.length;
