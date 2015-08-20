@@ -3,7 +3,7 @@
 ## List.each
 
 ```haskell
-curry :: (a → Undefined) → [a] → [a]
+each :: (a → Undefined) → [a] → [a]
 ```
 
 > Applies a function to each item in the list and returns the original list. Used for side effects.
