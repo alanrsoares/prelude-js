@@ -1,4 +1,4 @@
-# Preλude-js :: Docs :: List
+# λ :: List
 
 ## List.each
 
