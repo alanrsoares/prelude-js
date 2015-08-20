@@ -3,14 +3,12 @@
 ## List.each
 
 ```haskell
-curry :: (a → b → c) → a → b → c
+curry :: (a → Undefined) → [a] → [a]
 ```
 
-> Returns a curried version of the supplied function.
+> Applies a function to each item in the list and returns the original list. Used for side effects.
 
 ```javascript
-const add = curry((a, b) => a + b);
-const inc = add(1);
-
-inc(2); //=> 3
+each((x) => x.push('boom'), [['a'], ['b'], ['c']]);
+//=> [['a', 'boom'], ['b', 'boom'], ['c', 'boom']]
 ```
