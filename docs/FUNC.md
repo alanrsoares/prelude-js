@@ -1,4 +1,4 @@
-# Preλude-js :: Docs :: Func
+# λ :: Func
 
 ## Func.curry
 
