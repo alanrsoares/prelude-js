@@ -1,6 +1,6 @@
 # λ :: List
 
-## List.each `:: (a → Undefined) → [a] → [a]`
+## List.each
 
 ```haskell
 each :: (a → Undefined) → [a] → [a]
