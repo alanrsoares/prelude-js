@@ -1,4 +1,4 @@
-# Preλude-js :: Docs :: Func
+# Preλude-js :: Docs :: `Func`
 
 ## Func.curry
 
@@ -6,7 +6,7 @@
 curry :: (a → b → c) → a → b → c
 ```
 
-> Returns a curried version of the supplied function.
+> `Returns a curried version of the supplied function.`
 
 ```javascript
 const add = curry((a, b) => a + b);
