@@ -3,7 +3,7 @@
 ## Func.curry
 
 ```haskell
-curry :: (a → b → c) → a → b → c
+curry :: (a → b → c → ... → d) → a → b → c → ... → d
 ```
 
 > Returns a curried version of the supplied function.
