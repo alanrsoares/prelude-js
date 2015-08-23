@@ -15,6 +15,7 @@ describe('General.js', () => {
 
   describe('General.id', () => {
     it('Should return its own argument value', () => {
+      expect(General.id({})).to.deep.equal({});
       expect(General.id('foo')).to.equal('foo');
       expect(General.id(0)).to.equal(0);
       expect(General.id(null)).to.equal(null);
