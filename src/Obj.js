@@ -9,6 +9,7 @@ export const values = Object.values || ((x) => keys(x).map((k) => x[k]));
 //:: a → a'
 export const clone = (x) => JSON.parse(JSON.stringify(x));
 
+//:: (a → b) → a → b → a
 export const reduce = curry((fn, initial, x) =>
   keys(x).reduce((memo, k, i) => fn(memo, k, x[k], i), initial));
 
