@@ -10,7 +10,6 @@
   * [memoize](FUNC.md#funcmemoize)
   * [negate](FUNC.md#funcnegate)
   * [compose](FUNC.md#funccompose)
-
 * [List](LIST.md)
   * [range](LIST.md#listrange)
   * [each](LIST.md#listeach)
