@@ -3,8 +3,6 @@ import isType from './General/isType';
 import { merge } from './Obj';
 import { curry, compose, negate } from './Func';
 
-console.log(merge({}, { foo: 'bar' }, { bar: 'baz' }));
-
 //:: (Number, Number?, Number?) -> [Number]
 export const range = (to, from = 1, step = 1) => {
   const result = [];

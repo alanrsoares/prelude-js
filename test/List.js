@@ -148,6 +148,7 @@ describe('List.js', () => {
     it('Should calculate the sum of items in a list', () => {
       const input = [1, 2, 3, 4, 5, 6, 7, 8, 9];
       expect(List.foldl((x, y) => x + y, 0, input)).to.equal(45);
+      expect(List.fold((x, y) => x + y, 0, input)).to.equal(45);
     });
   });
 
@@ -155,6 +156,7 @@ describe('List.js', () => {
     it('Should calculate the number of items in a list', () => {
       const input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
       expect(List.foldl1((x) => x + 1, input)).to.equal(10);
+      expect(List.fold1((x) => x + 1, input)).to.equal(10);
     });
   });
 
