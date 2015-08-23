@@ -1,12 +1,12 @@
 import { curry } from './Func';
 
 //:: {a: b} → [a]
-export const keys = (x) => Object.keys(x);
+export const keys = Object.keys;
 
 //:: {a: b} → [b]
-export const values = (x) => keys(x).map((k) => x[k]);
+export const values = Object.values || ((x) => keys(x).map((k) => x[k]));
 
-//:: a → a
+//:: a → a'
 export const clone = (x) => JSON.parse(JSON.stringify(x));
 
 export const reduce = curry((fn, initial, x) =>
