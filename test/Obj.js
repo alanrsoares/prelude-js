@@ -25,4 +25,16 @@ describe('Obj.js', () => {
       expect(Obj.merge({ a: 2, c: 9 }, { b: 3 }, { a: 4 })).to.deep.equal({ a: 4, b: 3, c: 9 });
     });
   });
+  describe('Obj.pairsToObj', () => {
+    it('Takes a list of pairs and turns them into an object', () => {
+      expect(Obj.pairsToObj([['a', 'b'], ['c', 'd'], ['e', 1]])).to.deep.equal({ a: 'b', c: 'd', e: 1 });
+    });
+  });
+
+  describe('Obj.objToPairs', () => {
+    it('Takes an object and returns a list of pairs', () => {
+      expect(Obj.objToPairs({ a: 'b', c: 'd', e: 1 })).to.deep.equal([['a', 'b'], ['c', 'd'], ['e', 1]]);
+    });
+  });
+
 });
