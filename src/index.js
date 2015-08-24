@@ -1,11 +1,15 @@
+import Func from './Func';
 import General from './General';
-import * as Func from './Func';
-import * as List from './List';
-import * as Obj from './Obj';
+import List from './List';
+import Num from './Num';
+import Obj from './Obj';
+import Str from './Str';
 
 export default {
-  General,
   Func,
+  General,
   List,
-  Obj
+  Num,
+  Obj,
+  Str
 };
