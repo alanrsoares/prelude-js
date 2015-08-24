@@ -246,6 +246,9 @@ describe('List.js', () => {
 
   describe('List.or', () => {
     it('Should return true if any item in the list is true, otherwise returns false', () => {
+      const either = (xs, y) => List.or(xs.map(x => x === y));
+      expect(either([1, 2], 2)).to.equal(true);
+      expect(either([1, 2], 3)).to.equal(false);
       expect(List.or([1, 2, 3])).to.deep.equal(true);
       expect(List.or([0, '', null, false])).to.equal(false);
     });
