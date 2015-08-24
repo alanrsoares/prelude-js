@@ -28,9 +28,9 @@ export const objToPairs = map((k, v) => [k, v]);
 export const clone = (x) => JSON.parse(JSON.stringify(x));
 
 //:: {a: b} -> {a: b} -> {a: b}
-export const merge = (y, ...xs) =>
+export const merge = Object.assign || ((y, ...xs) =>
   xs.reduce((z, x) =>
     reduce((memo, key, value) => {
       memo[key] = value;
       return memo;
-    }, z, x), y);
+    }, z, x), y));
