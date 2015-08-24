@@ -1,0 +1,25 @@
+{
+  "name": "prelude-es6",
+  "version": "0.1.11",
+  "homepage": "https://github.com/alanrsoares/prelude-js",
+  "authors": [
+    "Alan R. Soares <alanrsoars@gmail.com>"
+  ],
+  "description": "A modular functional-style library in Es2015",
+  "main": "src/index.js",
+  "keywords": [
+    "Haskell",
+    "Prelude",
+    "ES6",
+    "Functional",
+    "Modular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
