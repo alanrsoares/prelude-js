@@ -236,6 +236,9 @@ describe('List.js', () => {
 
   describe('List.and', () => {
     it('Should return false if any item in the list is false, otherwise returns true', () => {
+      const neither = (xs, y) => List.and(xs.map(x => x !== y));
+      expect(neither([1, 2], 2)).to.equal(false);
+      expect(neither([1, 2], 3)).to.equal(true);
       expect(List.and([1, 2, 3])).to.equal(true);
       expect(List.and([3, 2, false])).to.equal(false);
     });
