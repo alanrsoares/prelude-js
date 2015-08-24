@@ -1,0 +1,4 @@
+#!/bin/bash
+releasy=./node_modules/.bin/releasy
+$releasy -qsf bower.json --stable --no-tag --no-push
+$releasy -s --stable
