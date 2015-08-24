@@ -1,4 +1,4 @@
-import { curry } from './Func';
+import { curry } from '../Func';
 
 //:: {a: b} → [a]
 export const keys = Object.keys;

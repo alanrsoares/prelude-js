@@ -1,7 +1,7 @@
-import id from './General/id';
-import isType from './General/isType';
-import { merge } from './Obj';
-import { curry, compose, negate } from './Func';
+import id from '../General/id';
+import isType from '../General/isType';
+import { merge } from '../Obj';
+import { curry, compose, negate } from '../Func';
 
 //:: (Number, Number?, Number?) -> [Number]
 export const range = (to, from = 1, step = 1) => {
