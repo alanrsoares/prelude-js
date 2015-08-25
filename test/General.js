@@ -3,13 +3,13 @@ import General from '../src/General';
 
 describe('General.js', () => {
 
-  describe('General.negate', () => {
+  describe('General.deny', () => {
     it('Should return the negation of its own argument value', () => {
-      expect(General.negate(0)).to.equal(true);
-      expect(General.negate(null)).to.equal(true);
-      expect(General.negate(undefined)).to.equal(true);
-      expect(General.negate(1)).to.equal(false);
-      expect(General.negate(true)).to.equal(false);
+      expect(General.deny(0)).to.equal(true);
+      expect(General.deny(null)).to.equal(true);
+      expect(General.deny(undefined)).to.equal(true);
+      expect(General.deny(1)).to.equal(false);
+      expect(General.deny(true)).to.equal(false);
     });
   });
 

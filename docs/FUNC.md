@@ -50,8 +50,8 @@ fix :: (Function → Function) → Function
 > Fix-point function for anonymous recursion, implemented with the [Y combinator](https://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator).
 
 ```javascript
-fix((fib) => (n) => n <= 1 
-      ? 1 
+fix((fib) => (n) => n <= 1
+      ? 1
       : fib(n - 1) + fib(n - 2))(9); //=> 55
 ```
 
@@ -69,17 +69,17 @@ memoF(2) // slow, but result is then cached
 memoF(2) // fast
 ```
 
-## Func.negate
+## Func.deny
 
 ```haskell
-negate :: Function → Function
+deny :: Function → Function
 ```
 
-> Caches computed results, speeding up later calls with the same arguments.
+> Denies the result of a predicate function
 
 ```javascript
 const gt2 = (x) => x > 2;
-const twoOrLess = negate(gt2);
+const twoOrLess = deny(gt2);
 gt2(2); //=> false
 twoOrLess(2); //=> true
 ```

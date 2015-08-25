@@ -8,7 +8,7 @@
   * [flip](FUNC.md#funcflip)
   * [fix](FUNC.md#funcfix)
   * [memoize](FUNC.md#funcmemoize)
-  * [negate](FUNC.md#funcnegate)
+  * [deny](FUNC.md#funcdeny)
   * [compose](FUNC.md#funccompose)
 * [List](LIST.md)
   * [range](LIST.md#listrange)

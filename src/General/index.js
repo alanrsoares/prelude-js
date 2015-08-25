@@ -1,13 +1,13 @@
 import id from './id';
-import negate from './negate';
-import typeOf from './typeOf'
+import deny from './deny';
+import typeOf from './typeOf';
 import isType from './isType';
 import replicate from './replicate';
 import areSimilar from './areSimilar';
 
 export default {
   id,
-  negate,
+  deny,
   isType,
   typeOf,
   replicate,

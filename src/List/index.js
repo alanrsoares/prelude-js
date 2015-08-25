@@ -1,7 +1,7 @@
 import id from '../General/id';
 import isType from '../General/isType';
 import { merge } from '../Obj';
-import { curry, compose, negate } from '../Func';
+import { curry, compose, deny } from '../Func';
 
 //:: (Number, Number?, Number?) -> [Number]
 export const range = (to, from = 1, step = 1) => {
@@ -25,7 +25,7 @@ export const filter = curry((fn, xs) => xs.filter(fn));
 export const compact = filter(id);
 
 //:: (a -> Boolean) -> [a] -> [a]
-export const reject = curry((fn, xs) => xs.filter(negate(fn)));
+export const reject = curry((fn, xs) => xs.filter(deny(fn)));
 
 //:: ((a, b) -> a) -> [b] -> a
 export const reduce = curry((fn, memo, xs) => xs.reduce(fn, memo));
@@ -152,7 +152,7 @@ export const or = reduce((memo, x) => memo || !!x, false);
 export const any = curry((fn, xs) => xs.some(fn));
 
 //:: (a -> Boolean) -> [a] -> Boolean
-export const all = negate(any);
+export const all = deny(any);
 
 // aliases
 
