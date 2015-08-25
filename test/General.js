@@ -53,7 +53,7 @@ describe('General.js', () => {
       expect(General.areSimilar({ a: { b: [2] } }, { a: { b: [2] } })).to.equal(true);
       expect(General.areSimilar({ a: { b: [1, '{}'] } }, { a: { b: [1, '{}'] } })).to.equal(true);
       expect(General.areSimilar({ a: { b: [1, '{}'] } }, { a: { b: ['{}', 1] } })).to.equal(true);
-      expect(General.areSimilar({ a: { b: [1, '{}', [3, '4', ['98']]] } }, { a: { b: [[['98'], 3, '4'], '{}', 1] } })).to.equal(true);
+      expect(General.areSimilar({ a: { b: [1, '{}', [3, '4', ['98']]] } })({ a: { b: [[['98'], 3, '4'], '{}', 1] } })).to.equal(true);
     });
   });
 

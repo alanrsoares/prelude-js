@@ -2,8 +2,9 @@ import { curry, fix } from '../Func';
 import { keys } from '../Obj';
 import typeOf from './typeOf';
 
-function areSimilar(a, b) {
-  switch(typeOf(a)) {
+//+ areSimilar :: a -> a -> Boolean
+export default fix((areSimilar) => curry((a, b) => {
+  switch (typeOf(a)) {
     case 'Array':
       return a.length === b.length &&
         keys(a).reduce((acc, k) => acc && areSimilar((a.sort()[k]), (b.sort()[k])), true);
@@ -13,7 +14,4 @@ function areSimilar(a, b) {
     default:
       return a === b;
   }
-};
-
-//+ areSimilar :: a -> a -> Boolean
-export default curry(areSimilar);
+}));
