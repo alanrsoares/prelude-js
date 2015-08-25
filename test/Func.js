@@ -70,8 +70,8 @@ describe('Func.js', () => {
     it('Should negate the result of a function', () => {
       const gt2 = (x) => x > 2;
       const twoOrLess = Func.negate(gt2);
-      expect(gt2(2)).to.equal(false);
-      expect(twoOrLess(2)).to.equal(true);
+      expect(gt2(2)).to.not.be.true;
+      expect(twoOrLess(2)).to.be.true;
     });
   });
 

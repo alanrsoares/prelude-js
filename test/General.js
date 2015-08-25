@@ -43,4 +43,18 @@ describe('General.js', () => {
     });
   });
 
+  describe('General.areSimilar', () => {
+    it('Should tell wether two items are similar, regardless of order of properties', () => {
+      expect(General.areSimilar({ foo: 'bar' }, { foo: 'bar' })).to.be.true;
+      expect(General.areSimilar({ foo: 'bar' }, { foo: 'baz' })).to.not.be.tre;
+      expect(General.areSimilar({}, {})).to.be.true;
+      expect(General.areSimilar({ a: {} }, { a: {} })).to.be.true;
+      expect(General.areSimilar({ a: { b: [] } }, { a: { b: {} } })).to.not.be.true;
+      expect(General.areSimilar({ a: { b: [2] } }, { a: { b: [2] } })).to.be.true;
+      expect(General.areSimilar({ a: { b: [1, '{}'] } }, { a: { b: [1, '{}'] } })).to.be.true;
+      expect(General.areSimilar({ a: { b: [1, '{}'] } }, { a: { b: ['{}', 1] } })).to.be.true;
+      expect(General.areSimilar({ a: { b: [1, '{}', [3, '4', ['98']]] } }, { a: { b: [[['98'], 3, '4'], '{}', 1] } })).to.be.true;
+    });
+  });
+
 });
