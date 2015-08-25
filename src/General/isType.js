@@ -1,7 +1,5 @@
 import { curry } from '../Func';
+import typeOf from './typeOf';
 
-//:: (String, a) -> Boolean
-export const isType = curry((type, x) =>
-  ({}).toString.call(x).match(/^\[object (\w+)\]$/)[1] === type);
-
-export default isType;
+//+ isType :: (String, a) -> Boolean
+export default curry((type, x) => typeOf(x) === type);
