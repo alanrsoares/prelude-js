@@ -1,8 +1,8 @@
-import curry from '../Func/curry';
+import { curry, fix } from '../Func';
 import { keys } from '../Obj';
+import typeOf from './typeOf';
 
-//+ areSimilar :: a -> a -> Boolean
-export default curry((a, b) => {
+function areSimilar(a, b) {
   switch(typeOf(a)) {
     case 'Array':
       return a.length === b.length &&
@@ -13,4 +13,7 @@ export default curry((a, b) => {
     default:
       return a === b;
   }
-});
+};
+
+//+ areSimilar :: a -> a -> Boolean
+export default curry(areSimilar);
