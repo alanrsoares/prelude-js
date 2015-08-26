@@ -1,5 +1,6 @@
 #!/bin/bash
 releasy=./node_modules/.bin/releasy
-$releasy -qsf bower.json --stable --no-tag --no-push
-$releasy -s --stable
+type=$1 #[ major | minor | patch (default) ]
+$releasy $type -qsf bower.json --stable --no-tag --no-push
+$releasy $type -s --stable
 npm publish
