@@ -1,15 +1,18 @@
-import id from './id';
+import areSimilar from './areSimilar';
 import deny from './deny';
-import typeOf from './typeOf';
+import equals from './equals';
+import id from './id';
 import ofType from './ofType';
 import replicate from './replicate';
-import areSimilar from './areSimilar';
+import typeOf from './typeOf';
 
 export default {
-  id,
+  areSimilar,
   deny,
+  equals,
+  id,
   ofType,
-  typeOf,
   replicate,
-  areSimilar
+  typeOf
 };
+
