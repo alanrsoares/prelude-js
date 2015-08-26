@@ -1,4 +1,4 @@
-import merge from './merge';
+import compose from '../Func/compose';
 
 //+ clone :: a -> a'
-export default (x) => merge({}, x);
+export default compose(JSON.parse, JSON.stringify);

@@ -16,6 +16,10 @@ describe('Obj.js', () => {
     it('Should return a copy of a given object, with no reference to it', () => {
       expect(Obj.clone({ a: 2, b: 3, c: 9 })).to.deep.equal({ a: 2, b: 3, c: 9 });
       expect(Obj.clone({ a: 2, b: 3, c: 9 })).not.to.equal({ a: 2, b: 3, c: 9 });
+      expect(Obj.clone({})).to.not.equal({});
+      expect(Obj.clone(3)).to.equal(3);
+      expect(Obj.clone('3')).to.equal('3');
+      expect(Obj.clone(null)).to.equal(null);
     });
   });
   describe('Obj.merge', () => {
