@@ -4,7 +4,6 @@ import curry from './curry';
 import deny from './deny';
 import fix from './fix';
 import flip from './flip';
-import index from './index';
 import memoize from './memoize';
 
 export default {
@@ -14,7 +13,6 @@ export default {
   deny,
   fix,
   flip,
-  index,
   memoize
 };
 
