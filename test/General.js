@@ -33,13 +33,13 @@ describe('General.js', () => {
     });
   });
 
-  describe('General.isType', () => {
+  describe('General.ofType', () => {
     it('Should assert wether a value is of a given type', () => {
-      expect(General.isType('String', 'a')).to.deep.equal(true);
-      expect(General.isType('Array', [])).to.deep.equal(true);
-      expect(General.isType('Function', () => {})).to.deep.equal(true);
-      expect(General.isType('Number', 0)).to.deep.equal(true);
-      expect(General.isType('Number', NaN)).to.deep.equal(true);
+      expect(General.ofType('String', 'a')).to.deep.equal(true);
+      expect(General.ofType('Array', [])).to.deep.equal(true);
+      expect(General.ofType('Function', () => {})).to.deep.equal(true);
+      expect(General.ofType('Number', 0)).to.deep.equal(true);
+      expect(General.ofType('Number', NaN)).to.deep.equal(true);
     });
   });
 

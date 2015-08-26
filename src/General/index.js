@@ -1,14 +1,14 @@
 import id from './id';
 import deny from './deny';
 import typeOf from './typeOf';
-import isType from './isType';
+import ofType from './ofType';
 import replicate from './replicate';
 import areSimilar from './areSimilar';
 
 export default {
   id,
   deny,
-  isType,
+  ofType,
   typeOf,
   replicate,
   areSimilar

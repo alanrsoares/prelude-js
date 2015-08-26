@@ -1,5 +1,5 @@
 import id from '../General/id';
-import isType from '../General/isType';
+import ofType from '../General/ofType';
 import { merge } from '../Obj';
 import { curry, compose, deny } from '../Func';
 
@@ -113,7 +113,7 @@ export const concat = (xss) => [].concat.apply([], xss);
 export const concatMap = curry((fn, xs) => concat(map(fn, xs)));
 
 //:: List -> List
-export const flatten = concatMap((xs) => isType('Array', xs) ? flatten(xs) : xs);
+export const flatten = concatMap((xs) => ofType('Array', xs) ? flatten(xs) : xs);
 
 //:: ([a], [a], ...) -> [a]
 export const difference = (xs, ...yss) =>
