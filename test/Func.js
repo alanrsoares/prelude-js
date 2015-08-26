@@ -1,8 +1,6 @@
 import { expect } from 'chai';
 import * as Func from '../src/Func';
 
-// over :: (b -> c) -> (a -> b) -> a -> b -> c
-
 describe('Func.js', () => {
   describe('Func.curry', () => {
     it('Should allow partial application of a function', () => {
