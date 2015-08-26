@@ -28,7 +28,7 @@ export const compact = filter(id);
 export const reject = curry((fn, xs) => xs.filter(deny(fn)));
 
 //:: ((a, b) -> a) -> [b] -> a
-export const reduce = curry((fn, memo, xs) => xs.reduce(fn, memo));
+export const reduce = curry((fn, initial, xs) => xs.reduce(fn, initial));
 
 //:: (a -> Boolean) -> [a] -> [[a] [a]]
 export const partition = curry((fn, xs) => {
@@ -67,7 +67,7 @@ export const reverse = (xs) => xs.concat().reverse();
 
 //:: (a -> b) -> [a] -> [a]
 export const uniqueBy = curry((f, xs) => {
-  const reducer = (memo, x) => merge(memo, { [`K_${x}`]: x });
+  const reducer = (acc, x) => merge(acc, { [`K_${x}`]: x });
   return Object.values(xs.map(f).reduce(reducer, {}));
 });
 
@@ -75,17 +75,17 @@ export const uniqueBy = curry((f, xs) => {
 export const unique = (xs) => uniqueBy(id, xs);
 
 //:: (b -> a -> b) -> b -> [a] -> b
-export const foldl = curry((fn, memo, xs) => xs.reduce(fn, memo));
+export const foldl = curry((fn, acc, xs) => xs.reduce(fn, acc));
 
 //:: (a -> a -> a) -> [a] -> a
 export const foldl1 = curry((fn, xs) => xs.reduce(fn, 0));
 
 //:: (b -> a -> b) -> b -> [a] -> b
-export const foldr = curry((fn, memo, xs) => {
+export const foldr = curry((fn, acc, xs) => {
   for (let i = xs.length - 1; i >= 0; i--) {
-    memo = fn(xs[i], memo);
+    acc = fn(xs[i], acc);
   }
-  return memo;
+  return acc;
 });
 
 //:: (a -> a -> a) -> [a] -> a
@@ -128,25 +128,25 @@ export const union = (xs, ...yss) => unique(xs.concat(flatten(yss)));
 
 //:: (a -> b) -> [a] -> { b: Number }
 export const countBy = curry((fn, xs) =>
-  xs.reduce((memo, x) => {
+  xs.reduce((acc, x) => {
     let key = fn(x);
-    memo[key] = memo[key] ? memo[key] + 1 : 1;
-    return memo;
+    acc[key] = acc[key] ? acc[key] + 1 : 1;
+    return acc;
   }, {}));
 
 //:: (a -> b) -> [a] -> { b: [b] }
 export const groupBy = curry((fn, xs) =>
-  xs.reduce((memo, x) => {
+  xs.reduce((acc, x) => {
     let key = fn(x);
-    memo[key] = memo[key] ? memo[key].concat([x]) : [x];
-    return memo;
+    acc[key] = acc[key] ? acc[key].concat([x]) : [x];
+    return acc;
   }, {}));
 
 //:: [a] -> Boolean
-export const and = reduce((memo, x) => memo && !!x, true);
+export const and = reduce((acc, x) => acc && !!x, true);
 
 //:: [a] -> Boolean
-export const or = reduce((memo, x) => memo || !!x, false);
+export const or = reduce((acc, x) => acc || !!x, false);
 
 //:: (a -> Boolean) -> [a] -> Boolean
 export const any = curry((fn, xs) => xs.some(fn));

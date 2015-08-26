@@ -1,4 +1,4 @@
-//+ compose :: ([a -> b?]) -> a -> b?
+//+ compose :: ((y → z), (x → y), …, (o → p), ((a, b, …, n) → o)) → (a → b → … → n → z)
 export default (...fns) =>
   (...args) =>
-    fns.reduceRight((memo, fn) => [fn.apply(this, memo)], args)[0];
+    fns.reduceRight((acc, fn) => [fn.apply(this, acc)], args)[0];
