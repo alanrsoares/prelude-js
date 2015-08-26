@@ -1,6 +1,6 @@
 {
   "name": "prelude-es6",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "A modular implementation of Haskell's Prelude library in ES6",
   "main": "src/index.js",
   "scripts": {
