@@ -154,6 +154,9 @@ export const any = curry((fn, xs) => xs.some(fn));
 //:: (a -> Boolean) -> [a] -> Boolean
 export const all = deny(any);
 
+//:: List -> List
+export const sort = (xs) => xs.sort();
+
 // aliases
 
 export const fold = foldl;
