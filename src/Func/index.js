@@ -1,18 +1,20 @@
-import curry from './curry';
 import apply from './apply';
-import flip from './flip';
-import fix from './fix';
-import deny from './deny';
 import compose from './compose';
+import curry from './curry';
+import deny from './deny';
+import fix from './fix';
+import flip from './flip';
+import index from './index';
 import memoize from './memoize';
 
 export default {
-  curry,
   apply,
-  flip,
-  fix,
-  deny,
   compose,
-  memoize,
-  memoise: memoize
+  curry,
+  deny,
+  fix,
+  flip,
+  index,
+  memoize
 };
+
