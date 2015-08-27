@@ -1,164 +1,139 @@
-import id from '../General/id';
-import ofType from '../General/ofType';
-import { merge } from '../Obj';
-import { curry, compose, deny } from '../Func';
+import all from './all';
+import and from './and';
+import any from './any';
+import at from './at';
+import breakList from './breakList';
+import compact from './compact';
+import concat from './concat';
+import concatMap from './concatMap';
+import countBy from './countBy';
+import difference from './difference';
+import drop from './drop';
+import dropWhile from './dropWhile';
+import each from './each';
+import elemIndex from './elemIndex';
+import elemIndices from './elemIndices';
+import empty from './empty';
+import filter from './filter';
+import find from './find';
+import findIndex from './findIndex';
+import findIndices from './findIndices';
+import first from './first';
+import flatten from './flatten';
+import fold from './fold';
+import fold1 from './fold1';
+import foldl from './foldl';
+import foldl1 from './foldl1';
+import foldr from './foldr';
+import foldr1 from './foldr1';
+import groupBy from './groupBy';
+import head from './head';
+import initial from './initial';
+import intersection from './intersection';
+import last from './last';
+import map from './map';
+import maximum from './maximum';
+import maximumBy from './maximumBy';
+import mean from './mean';
+import minimum from './minimum';
+import minimumBy from './minimumBy';
+import or from './or';
+import partition from './partition';
+import product from './product';
+import range from './range';
+import reduce from './reduce';
+import reject from './reject';
+import reverse from './reverse';
+import scan from './scan';
+import scan1 from './scan1';
+import scanr from './scanr';
+import scanr1 from './scanr1';
+import slice from './slice';
+import sort from './sort';
+import sortBy from './sortBy';
+import sortWith from './sortWith';
+import span from './span';
+import splitAt from './splitAt';
+import sum from './sum';
+import tail from './tail';
+import take from './take';
+import takeWhile from './takeWhile';
+import unfoldr from './unfoldr';
+import union from './union';
+import unique from './unique';
+import uniqueBy from './uniqueBy';
+import zip from './zip';
+import zipAll from './zipAll';
+import zipAllWith from './zipAllWith';
+import zipWith from './zipWith';
 
-//:: (Number, Number?, Number?) -> [Number]
-export const range = (to, from = 1, step = 1) => {
-  const result = [];
-  for (let i = from; i <= to; i += step) {
-    result.push(i);
-  }
-  return result;
+export default {
+  all,
+  and,
+  any,
+  at,
+  breakList,
+  compact,
+  concat,
+  concatMap,
+  countBy,
+  difference,
+  drop,
+  dropWhile,
+  each,
+  elemIndex,
+  elemIndices,
+  empty,
+  filter,
+  find,
+  findIndex,
+  findIndices,
+  first,
+  flatten,
+  fold,
+  fold1,
+  foldl,
+  foldl1,
+  foldr,
+  foldr1,
+  groupBy,
+  head,
+  initial,
+  intersection,
+  last,
+  map,
+  maximum,
+  maximumBy,
+  mean,
+  minimum,
+  minimumBy,
+  or,
+  partition,
+  product,
+  range,
+  reduce,
+  reject,
+  reverse,
+  scan,
+  scan1,
+  scanr,
+  scanr1,
+  slice,
+  sort,
+  sortBy,
+  sortWith,
+  span,
+  splitAt,
+  sum,
+  tail,
+  take,
+  takeWhile,
+  unfoldr,
+  union,
+  unique,
+  uniqueBy,
+  zip,
+  zipAll,
+  zipAllWith,
+  zipWith
 };
-
-//:: (a -> b) -> [a] -> void
-export const each = curry((fn, xs) => xs.forEach(fn));
-
-//:: (a -> b) -> [a] -> [b]
-export const map = curry((fn, xs) => xs.map(fn));
-
-//:: (a -> Boolean) -> [a] -> [a]
-export const filter = curry((fn, xs) => xs.filter(fn));
-
-//:: [a] -> [a]
-export const compact = filter(id);
-
-//:: (a -> Boolean) -> [a] -> [a]
-export const reject = curry((fn, xs) => xs.filter(deny(fn)));
-
-//:: ((a, b) -> a) -> [b] -> a
-export const reduce = curry((fn, initial, xs) => xs.reduce(fn, initial));
-
-//:: (a -> Boolean) -> [a] -> [[a] [a]]
-export const partition = curry((fn, xs) => {
-  let passed = [];
-  let failed = [];
-  xs.forEach((x) => (fn(x) ? passed : failed ).push(x));
-  return [passed, failed];
-});
-
-//:: (a -> Boolean) -> [a] -> a
-export const find = curry((fn, [x, ...xs]) => x
-  ? fn(x) ? x : find(fn, xs)
-  : undefined
-);
-
-//:: [a] -> a
-export const head = (xs) => xs[0];
-
-//:: [a] -> [a]
-export const tail = ([x, ...xs]) => xs;
-
-//:: [a] -> a
-export const first = head;
-
-//:: [a] -> a
-export const last = (xs) => xs.slice(-1)[0];
-
-//:: [a] -> [a]
-export const initial = (xs) => !xs.length ? undefined : xs.slice(0, -1);
-
-//:: [a] -> Boolean
-export const empty = (xs) => !xs.length;
-
-//:: [a] -> [a]
-export const reverse = (xs) => xs.concat().reverse();
-
-//:: (a -> b) -> [a] -> [a]
-export const uniqueBy = curry((f, xs) => {
-  const reducer = (acc, x) => merge(acc, { [`K_${x}`]: x });
-  return Object.values(xs.map(f).reduce(reducer, {}));
-});
-
-//:: [a] -> [a]
-export const unique = (xs) => uniqueBy(id, xs);
-
-//:: (b -> a -> b) -> b -> [a] -> b
-export const foldl = curry((fn, acc, xs) => xs.reduce(fn, acc));
-
-//:: (a -> a -> a) -> [a] -> a
-export const foldl1 = curry((fn, xs) => xs.reduce(fn, 0));
-
-//:: (b -> a -> b) -> b -> [a] -> b
-export const foldr = curry((fn, acc, xs) => {
-  for (let i = xs.length - 1; i >= 0; i--) {
-    acc = fn(xs[i], acc);
-  }
-  return acc;
-});
-
-//:: (a -> a -> a) -> [a] -> a
-export const foldr1 = curry((fn, xs) => foldr(fn, 0, xs));
-
-//:: (a -> [b]) -> [a] -> [b]
-export const unfoldr = curry((fn, b) => {
-  let result = [];
-  let x = b;
-  let that;
-  while ((that = fn(b))) {
-    result.push(that[0]);
-    x = that[1];
-  }
-  return result;
-});
-
-//:: (a -> b, b -> c) -> [a] -> c
-export const mapReduce = curry((mapper, reducer, xs) => xs.map(mapper).reduce(reducer));
-
-//:: [[a]] -> [a]
-export const concat = (xss) => [].concat.apply([], xss);
-
-//:: (a -> [b]) -> [a] -> [b]
-export const concatMap = curry((fn, xs) => concat(map(fn, xs)));
-
-//:: List -> List
-export const flatten = concatMap((xs) => ofType('Array', xs) ? flatten(xs) : xs);
-
-//:: ([a], [a], ...) -> [a]
-export const difference = (xs, ...yss) =>
-  xs.filter((x) => !yss.some(find((y) => y === x)));
-
-//:: ([a], [a], ...) -> [a]
-export const intersection = (xs, ...yss) =>
-  xs.filter((x) => yss.some(find((y) => y === x)));
-
-//:: ([a], [a], ...) -> [a]
-export const union = (xs, ...yss) => unique(xs.concat(flatten(yss)));
-
-//:: (a -> b) -> [a] -> { b: Number }
-export const countBy = curry((fn, xs) =>
-  xs.reduce((acc, x) => {
-    let key = fn(x);
-    acc[key] = acc[key] ? acc[key] + 1 : 1;
-    return acc;
-  }, {}));
-
-//:: (a -> b) -> [a] -> { b: [b] }
-export const groupBy = curry((fn, xs) =>
-  xs.reduce((acc, x) => {
-    let key = fn(x);
-    acc[key] = acc[key] ? acc[key].concat([x]) : [x];
-    return acc;
-  }, {}));
-
-//:: [a] -> Boolean
-export const and = reduce((acc, x) => acc && !!x, true);
-
-//:: [a] -> Boolean
-export const or = reduce((acc, x) => acc || !!x, false);
-
-//:: (a -> Boolean) -> [a] -> Boolean
-export const any = curry((fn, xs) => xs.some(fn));
-
-//:: (a -> Boolean) -> [a] -> Boolean
-export const all = deny(any);
-
-//:: List -> List
-export const sort = (xs) => xs.sort();
-
-// aliases
-
-export const fold = foldl;
-
-export const fold1 = foldl1;
