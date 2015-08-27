@@ -272,6 +272,7 @@ describe('List.js', () => {
   describe('List.sort', () => {
     it('Should sorts a list without modifying the input.', () => {
       expect(List.sort([1, 3, 2])).to.deep.equal([1, 2, 3]);
+      expect(List.sort([1, 3, 2, 0])).to.deep.equal([0, 1, 2, 3]);
     });
   });
 

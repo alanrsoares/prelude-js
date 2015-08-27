@@ -1,10 +1,48 @@
-//:: String → String
-export const capitalize = (x) => x.charAt(0).toUpperCase() + x.slice(1);
+import breakStr from './breakStr';
+import camelize from './camelize';
+import capitalize from './capitalize';
+import chars from './chars';
+import dasherize from './dasherize';
+import drop from './drop';
+import dropWhile from './dropWhile';
+import empty from './empty';
+import join from './join';
+import lines from './lines';
+import repeat from './repeat';
+import reverse from './reverse';
+import slice from './slice';
+import span from './span';
+import split from './split';
+import splitAt from './splitAt';
+import take from './take';
+import takeWhile from './takeWhile';
+import unchars from './unchars';
+import unlines from './unlines';
+import unwords from './unwords';
+import words from './words';
 
-//:: String → String
-export const dasherize = (x) =>
-  x.replace(/[A-Z]/g, (m) => `-${ m.toLowerCase() }`);
+export default {
+  breakStr,
+  camelize,
+  capitalize,
+  chars,
+  dasherize,
+  drop,
+  dropWhile,
+  empty,
+  join,
+  lines,
+  repeat,
+  reverse,
+  slice,
+  span,
+  split,
+  splitAt,
+  take,
+  takeWhile,
+  unchars,
+  unlines,
+  unwords,
+  words
+};
 
-//:: String → String
-export const camelize = (x) =>
-  x.replace(/-(\w)/g, (m) => m[1].toUpperCase());
