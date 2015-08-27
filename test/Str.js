@@ -24,4 +24,12 @@ describe('Str.js', () => {
     });
   });
 
+  describe('Str.split', () => {
+    it('Should split a string by a given separator', () => {
+      expect(Str.split('-', 'foo-bar')).to.deep.equal(['foo', 'bar']);
+      expect(Str.split('-', 'fee-fi-fo-foo')).to.deep.equal(['fee', 'fi', 'fo', 'foo']);
+      expect(Str.split(/[A-Z]/, 'feeFiFoFoo')).to.deep.equal(['fee', 'i', 'o', 'oo']);
+    });
+  });
+
 });
