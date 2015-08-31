@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import * as List from '../src/List';
+import * as List from '../lib/List';
 
 describe('List.js', () => {
   describe('List.range', () => {

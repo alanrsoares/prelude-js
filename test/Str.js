@@ -1,4 +1,4 @@
-import * as Str from '../src/Str';
+import * as Str from '../lib/Str';
 import { expect } from 'chai';
 
 describe('Str.js', () => {

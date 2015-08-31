@@ -2,7 +2,7 @@ import fs from 'fs';
 import minimist from 'minimist';
 
 const ARGS = minimist(process.argv.slice(2));
-const MODULE_PATH = `./src/${ARGS.module}`;
+const MODULE_PATH = `./lib/${ARGS.module}`;
 const fns = fs.readdirSync(MODULE_PATH)
               .map((i) => i.replace(/(.+)\.js$/, '$1'))
               .filter((fn) => fn !== 'index');

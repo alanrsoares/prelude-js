@@ -2,7 +2,7 @@
   "name": "prelude-es6",
   "version": "0.1.25",
   "description": "A modular implementation of Haskell's Prelude library in ES6",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "start": "mocha test --compilers js:babel/register --watch",
     "test": "mocha test --compilers js:babel/register",

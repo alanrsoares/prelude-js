@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import * as Func from '../src/Func';
+import * as Func from '../lib/Func';
 
 describe('Func.js', () => {
   describe('Func.curry', () => {
