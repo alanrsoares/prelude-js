@@ -289,4 +289,10 @@ describe('List.js', () => {
     });
   });
 
+  describe('List.sum', () => {
+    it('Should return the sum of a list of numbers.', () => {
+      expect(List.sum([1, 2, 3, 4, 5])).to.equal(15);
+    });
+  });
+
 });
