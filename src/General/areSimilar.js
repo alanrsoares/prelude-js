@@ -11,6 +11,8 @@ export default fix((areSimilar) => curry((a, b) => {
     case 'Object':
       return keys(a).length === keys(b).length &&
         keys(a).reduce((acc, k) => acc && areSimilar(a[k], b[k]), true);
+    case 'Function':
+      return a.toString() === b.toString();
     default:
       return a === b;
   }
