@@ -270,9 +270,22 @@ describe('List.js', () => {
   });
 
   describe('List.sort', () => {
-    it('Should sorts a list without modifying the input.', () => {
+    it('Sorts a list without modifying the input.', () => {
       expect(List.sort([1, 3, 2])).to.deep.equal([1, 2, 3]);
       expect(List.sort([1, 3, 2, 0])).to.deep.equal([0, 1, 2, 3]);
+    });
+  });
+
+  describe('List.sortWith', () => {
+    it('Should sort a list with a custom binary predicate.', () => {
+      const sorter = (x, y) => x.length > y.length ? 1 : x.length < y.length ? -1 : 0;
+      expect(List.sortWith(sorter, ['three', 'one', 'two'])).to.deep.equal(['one', 'two', 'three']);
+    });
+  });
+
+  describe('List.sortBy', () => {
+    it('Should sort a list with a custom property-accessor predicate.', () => {
+      expect(List.sortBy((x) => x.length, ['three', 'one', 'two'])).to.deep.equal(['one', 'two', 'three']);
     });
   });
 
