@@ -295,4 +295,10 @@ describe('List.js', () => {
     });
   });
 
+  describe('List.product', () => {
+    it('Should return the product of all items in a list of numbers.', () => {
+      expect(List.product([1, 2, 3])).to.equal(6);
+    });
+  });
+
 });
