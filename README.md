@@ -18,7 +18,7 @@ npm install prelude-es6
 
 ## Contribute
 
-### clone it
+#### clone it
 ```bash
 $ git clone git@github.com:alanrsoares/prelude-js.git
 ```
