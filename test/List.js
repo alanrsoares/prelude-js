@@ -314,4 +314,11 @@ describe('List.js', () => {
     });
   });
 
+  describe('List.minimum', () => {
+    it('Should return the minimum value of all items in a list of numbers.', () => {
+      expect(List.minimum([1, 2, 3, 4, 5])).to.equal(1);
+      expect(List.minimum([-1, -2, -3, -4, -5])).to.equal(-5);
+    });
+  });
+
 });
