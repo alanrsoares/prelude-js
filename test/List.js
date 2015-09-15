@@ -301,4 +301,17 @@ describe('List.js', () => {
     });
   });
 
+  describe('List.mean', () => {
+    it('Should return the mean/average of all items in a list of numbers.', () => {
+      expect(List.mean([1, 2, 3, 4, 5])).to.equal(3);
+    });
+  });
+
+  describe('List.maximum', () => {
+    it('Should return the maximum value of all items in a list of numbers.', () => {
+      expect(List.maximum([1, 2, 3, 4, 5])).to.equal(5);
+      expect(List.maximum([-1, -2, -3, -4, -5])).to.equal(-1);
+    });
+  });
+
 });
