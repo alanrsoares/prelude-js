@@ -1,18 +1,18 @@
-modules=`ls ./lib | grep -v js`
+modules=`ls ./src | grep -v js`
 
 rm -f ./index.js
-babel ./lib/index.js -o ./index.js
+babel ./src/index.js -o ./index.js
 
 for module in $modules
 do
   rm -rf $module
   mkdir $module
 
-  files=`ls ./lib/$module`
+  files=`ls ./src/$module`
 
   for file in $files
   do
-    babel "./lib/$module/$file" -o "./$module/$file"
+    babel "./src/$module/$file" -o "./$module/$file"
   done
 
 done

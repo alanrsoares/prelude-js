@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import * as Obj from '../lib/Obj';
+import * as Obj from '../src/Obj';
 
 describe('Obj.js', () => {
   describe('Obj.keys', () => {

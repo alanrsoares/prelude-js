@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import General from '../lib/General';
+import General from '../src/General';
 
 describe('General.js', () => {
 
