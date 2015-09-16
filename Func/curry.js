@@ -1,4 +1,3 @@
-//:: ((a, b) -> c) -> a -> b -> c
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31,3 +30,4 @@ exports["default"] = function (fn) {
 };
 
 module.exports = exports["default"];
+//:: ((a, b) -> c) -> a -> b -> c

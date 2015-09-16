@@ -16,9 +16,10 @@ var _concat2 = _interopRequireDefault(_concat);
 
 var _map = require('./map');
 
+//+ concatMap :: (a -> [b]) -> [a] -> [b]
+
 var _map2 = _interopRequireDefault(_map);
 
-//+ concatMap :: (a -> [b]) -> [a] -> [b]
 exports['default'] = (0, _FuncCurry2['default'])(function (fn, xs) {
   return (0, _concat2['default'])((0, _map2['default'])(fn, xs));
 });

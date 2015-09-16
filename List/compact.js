@@ -12,8 +12,9 @@ var _filter2 = _interopRequireDefault(_filter);
 
 var _GeneralId = require('../General/id');
 
+//+ filter :: [a] -> [a]
+
 var _GeneralId2 = _interopRequireDefault(_GeneralId);
 
-//+ filter :: [a] -> [a]
 exports['default'] = (0, _filter2['default'])(_GeneralId2['default']);
 module.exports = exports['default'];

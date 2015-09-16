@@ -8,9 +8,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _reduce = require('./reduce');
 
+//+ or :: [a] -> Boolean
+
 var _reduce2 = _interopRequireDefault(_reduce);
 
-//+ or :: [a] -> Boolean
 exports['default'] = (0, _reduce2['default'])(function (acc, x) {
   return acc || !!x;
 }, false);

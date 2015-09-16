@@ -12,9 +12,10 @@ var _Obj = require('../Obj');
 
 var _typeOf = require('./typeOf');
 
+//+ areSimilar :: a -> a -> Boolean
+
 var _typeOf2 = _interopRequireDefault(_typeOf);
 
-//+ areSimilar :: a -> a -> Boolean
 exports['default'] = (0, _Func.fix)(function (areSimilar) {
   return (0, _Func.curry)(function (a, b) {
     if ((0, _typeOf2['default'])(a) !== (0, _typeOf2['default'])(b)) {

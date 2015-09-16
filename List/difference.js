@@ -8,9 +8,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _find = require('./find');
 
-var _find2 = _interopRequireDefault(_find);
-
 //+ difference :: ([a], [a], ...) -> [a]
+
+var _find2 = _interopRequireDefault(_find);
 
 exports['default'] = function (xs) {
   for (var _len = arguments.length, yss = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {

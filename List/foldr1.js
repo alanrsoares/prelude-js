@@ -12,9 +12,10 @@ var _FuncCurry2 = _interopRequireDefault(_FuncCurry);
 
 var _foldr = require('./foldr');
 
+//+ foldr1 :: (a -> a -> a) -> [a] -> a
+
 var _foldr2 = _interopRequireDefault(_foldr);
 
-//+ foldr1 :: (a -> a -> a) -> [a] -> a
 exports['default'] = (0, _FuncCurry2['default'])(function (fn, xs) {
   return (0, _foldr2['default'])(fn, 0, xs);
 });

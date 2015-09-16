@@ -18,9 +18,10 @@ var _ObjMerge2 = _interopRequireDefault(_ObjMerge);
 
 var _ObjValues = require('../Obj/values');
 
+//+ uniqueBy :: (a -> b) -> [a] -> [a]
+
 var _ObjValues2 = _interopRequireDefault(_ObjValues);
 
-//+ uniqueBy :: (a -> b) -> [a] -> [a]
 exports['default'] = (0, _FuncCurry2['default'])(function (fn, xs) {
   var reducer = function reducer(acc, x) {
     return (0, _ObjMerge2['default'])(acc, _defineProperty({}, 'K_' + x, x));

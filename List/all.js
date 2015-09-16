@@ -12,8 +12,9 @@ var _FuncDeny2 = _interopRequireDefault(_FuncDeny);
 
 var _any = require('./any');
 
+//+ all :: (a -> Boolean) -> [a] -> Boolean
+
 var _any2 = _interopRequireDefault(_any);
 
-//+ all :: (a -> Boolean) -> [a] -> Boolean
 exports['default'] = (0, _FuncDeny2['default'])(_any2['default']);
 module.exports = exports['default'];

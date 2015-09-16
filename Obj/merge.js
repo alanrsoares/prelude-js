@@ -8,9 +8,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _reduce = require('./reduce');
 
-var _reduce2 = _interopRequireDefault(_reduce);
-
 //+ merge :: {a: b} -> {a: b} -> {a: b}
+
+var _reduce2 = _interopRequireDefault(_reduce);
 
 exports['default'] = Object.assign || function (y) {
   for (var _len = arguments.length, xs = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {

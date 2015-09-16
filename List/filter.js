@@ -8,9 +8,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _FuncCurry = require('../Func/curry');
 
+//+ filter :: (a -> Boolean) -> [a] -> [a]
+
 var _FuncCurry2 = _interopRequireDefault(_FuncCurry);
 
-//+ filter :: (a -> Boolean) -> [a] -> [a]
 exports['default'] = (0, _FuncCurry2['default'])(function (fn, xs) {
   return xs.filter(fn);
 });

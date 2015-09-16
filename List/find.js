@@ -14,9 +14,10 @@ var _FuncCurry2 = _interopRequireDefault(_FuncCurry);
 
 var _FuncFix = require('../Func/fix');
 
+//+ find :: (a -> Boolean) -> [a] -> a
+
 var _FuncFix2 = _interopRequireDefault(_FuncFix);
 
-//+ find :: (a -> Boolean) -> [a] -> a
 exports['default'] = (0, _FuncFix2['default'])(function (find) {
   return (0, _FuncCurry2['default'])(function (fn, _ref) {
     var _ref2 = _toArray(_ref);

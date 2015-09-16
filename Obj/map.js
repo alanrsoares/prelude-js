@@ -12,9 +12,10 @@ var _FuncCurry2 = _interopRequireDefault(_FuncCurry);
 
 var _keys = require('./keys');
 
+//+ map :: ((a, b) -> c) -> {a: b} -> [c]
+
 var _keys2 = _interopRequireDefault(_keys);
 
-//+ map :: ((a, b) -> c) -> {a: b} -> [c]
 exports['default'] = (0, _FuncCurry2['default'])(function (fn, x) {
   return (0, _keys2['default'])(x).map(function (k, i) {
     return fn(k, x[k], i);
