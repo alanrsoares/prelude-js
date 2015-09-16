@@ -1,7 +1,10 @@
-modules=`ls ./src | grep -v js`
-
+# clear index
 rm -f ./index.js
 babel ./src/index.js -o ./index.js
+
+modules=`ls ./src | grep -v js`
+modules_length=`echo $modules | wc -w | tr -d '[[:space:]]'`
+modules_processed=1
 
 for module in $modules
 do
@@ -9,10 +12,15 @@ do
   mkdir $module
 
   files=`ls ./src/$module`
+  files_length=`echo $files | wc -w | tr -d '[[:space:]]'`
+  files_processed=1
 
   for file in $files
   do
+    echo "Building module: $module [$modules_processed/$modules_length] - file: $file [$files_processed/$files_length]"
     babel "./src/$module/$file" -o "./$module/$file"
+    files_processed=$[files_processed + 1]
   done
 
+  modules_processed=$[modules_processed + 1]
 done
