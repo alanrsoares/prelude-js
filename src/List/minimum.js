@@ -1,4 +1,5 @@
-import foldr from './foldr';
+import minimumBy from './minimumBy';
+import id from '../General/id';
 
-//+ minimum :: [Number] -> Number
-export default foldr((acc, x) => x !== null && x < acc ? x : acc, null);
+//+ maximun :: [Number] -> Number
+export default minimumBy(id);

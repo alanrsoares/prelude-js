@@ -1,4 +1,5 @@
-import foldr from './foldr';
+import maximumBy from './maximumBy';
+import id from '../General/id';
 
 //+ maximun :: [Number] -> Number
-export default foldr((acc, x) => x !== null && x > acc ? x : acc, null);
+export default maximumBy(id);
