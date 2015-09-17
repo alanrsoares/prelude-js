@@ -6,13 +6,15 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _foldr = require('./foldr');
+var _maximumBy = require('./maximumBy');
+
+var _maximumBy2 = _interopRequireDefault(_maximumBy);
+
+var _GeneralId = require('../General/id');
 
 //+ maximun :: [Number] -> Number
 
-var _foldr2 = _interopRequireDefault(_foldr);
+var _GeneralId2 = _interopRequireDefault(_GeneralId);
 
-exports['default'] = (0, _foldr2['default'])(function (acc, x) {
-  return x !== null && x > acc ? x : acc;
-}, null);
+exports['default'] = (0, _maximumBy2['default'])(_GeneralId2['default']);
 module.exports = exports['default'];
