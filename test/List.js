@@ -311,6 +311,9 @@ describe('List.js', () => {
     it('Should return the maximum value of all items in a list of numbers.', () => {
       expect(List.maximum([1, 2, 3, 4, 5])).to.equal(5);
       expect(List.maximum([-1, -2, -3, -4, -5])).to.equal(-1);
+      expect(List.maximum(['1', '3', '2'])).to.equal('3');
+      expect(List.maximum(['a', 'c', 'b'])).to.equal('c');
+      expect(List.maximum(['w', 'c', 'b'])).to.equal('w');
     });
   });
 
@@ -318,6 +321,9 @@ describe('List.js', () => {
     it('Should return the minimum value of all items in a list of numbers.', () => {
       expect(List.minimum([1, 2, 3, 4, 5])).to.equal(1);
       expect(List.minimum([-1, -2, -3, -4, -5])).to.equal(-5);
+      expect(List.minimum(['1', '3', '2'])).to.equal('1');
+      expect(List.minimum(['a', 'c', 'b'])).to.equal('a');
+      expect(List.minimum(['w', 'c', 'b'])).to.equal('b');
     });
   });
 
