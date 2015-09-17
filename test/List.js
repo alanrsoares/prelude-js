@@ -308,7 +308,7 @@ describe('List.js', () => {
   });
 
   describe('List.maximum', () => {
-    it('Should return the maximum value of all items in a list of numbers.', () => {
+    it('Should return the maximum value of all items in a list of comparables.', () => {
       expect(List.maximum([1, 2, 3, 4, 5])).to.equal(5);
       expect(List.maximum([-1, -2, -3, -4, -5])).to.equal(-1);
       expect(List.maximum(['1', '3', '2'])).to.equal('3');
@@ -318,12 +318,33 @@ describe('List.js', () => {
   });
 
   describe('List.minimum', () => {
-    it('Should return the minimum value of all items in a list of numbers.', () => {
+    it('Should return the minimum value of all items in a list of comparables.', () => {
       expect(List.minimum([1, 2, 3, 4, 5])).to.equal(1);
       expect(List.minimum([-1, -2, -3, -4, -5])).to.equal(-5);
       expect(List.minimum(['1', '3', '2'])).to.equal('1');
       expect(List.minimum(['a', 'c', 'b'])).to.equal('a');
       expect(List.minimum(['w', 'c', 'b'])).to.equal('b');
+    });
+  });
+
+  describe('List.maximumBy', () => {
+    it('Should return the item with the maximum value resulting from applying a predicate.', () => {
+      expect(List.maximumBy(x => x, [1, 2, 3, 4, 5])).to.equal(5);
+      expect(List.maximumBy(x => x, [-1, -2, -3, -4, -5])).to.equal(-1);
+      expect(List.maximumBy(x => x, ['1', '3', '2'])).to.equal('3');
+      expect(List.maximumBy(x => x, ['a', 'c', 'b'])).to.equal('c');
+      expect(List.maximumBy(x => x, ['w', 'c', 'b'])).to.equal('w');
+    });
+  });
+
+  describe('List.minimumBy', () => {
+    it('Should return the item with the minimum value resulting from applying a predicate.', () => {
+      expect(List.minimumBy(x => x, [1, 2, 3, 4, 5])).to.equal(1);
+      expect(List.minimumBy(x => x, [-1, -2, -3, -4, -5])).to.equal(-5);
+      expect(List.minimumBy(x => x, ['1', '3', '2'])).to.equal('1');
+      expect(List.minimumBy(x => x, ['a', 'c', 'b'])).to.equal('a');
+      expect(List.minimumBy(x => x, ['w', 'c', 'b'])).to.equal('b');
+      expect(List.minimumBy(x => x.length, ['was', 'a', 'test'])).to.equal('a');
     });
   });
 
