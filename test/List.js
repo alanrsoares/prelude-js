@@ -348,4 +348,13 @@ describe('List.js', () => {
     });
   });
 
+  describe('List.scan', () => {
+    it('Should return a list composed of the initial value, the intermediate values, and then the final value.', () => {
+      const sum = (a, b) => a + b;
+
+      expect(List.scan(sum, 0, [1, 2, 3])).to.deep.equal([0, 1, 3, 6]);
+
+    });
+  });
+
 });
