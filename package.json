@@ -7,8 +7,7 @@
     "start": "mocha test --compilers js:babel/register --watch",
     "test": "mocha test --compilers js:babel/register",
     "cover": "istanbul cover _mocha -- --compilers js:babel/register -R spec && cat ./coverage/coverage.json | codecov",
-    "dist": "scripts/dist",
-    "prepublish": "scripts/release"
+    "dist": "scripts/dist"
   },
   "repository": {
     "type": "git",

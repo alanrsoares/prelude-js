@@ -5,3 +5,4 @@ npm run dist
 git add . && git commit -am "build dist"
 $releasy $type -qsf bower.json --stable --no-tag --no-push
 $releasy $type -s --stable
+npm publish
