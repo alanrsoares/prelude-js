@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import * as List from '../src/List';
+import get from '../src/Obj/get';
 
 describe('List.js', () => {
   describe('List.range', () => {
@@ -221,7 +222,7 @@ describe('List.js', () => {
   describe('List.countBy', () => {
     it('Should count the occurences by a given predicate', () => {
       expect(List.countBy(Math.floor, [4.2, 4.4, 9.8])).to.deep.equal({ 4: 2, 9: 1 });
-      expect(List.countBy((x) => x.length, ['foo', 'bar', 'burp'])).to.deep.equal({ 3: 2, 4: 1 });
+      expect(List.countBy(get('length'), ['foo', 'bar', 'burp'])).to.deep.equal({ 3: 2, 4: 1 });
       expect(List.countBy((x) => x > 2, [-3, 1, 2, 3, 4, 5])).to.deep.equal({ true: 3, false: 3 });
     });
   });
@@ -229,7 +230,7 @@ describe('List.js', () => {
   describe('List.groupBy', () => {
     it('Should group the matching results by a given predicate', () => {
       expect(List.groupBy(Math.floor, [4.2, 4.4, 9.8])).to.deep.equal({ 4: [4.2, 4.4], 9: [9.8] });
-      expect(List.groupBy((x) => x.length, ['one', 'two', 'three'])).to.deep.equal({ 3: ['one', 'two'], 5: ['three'] });
+      expect(List.groupBy(get('length'), ['one', 'two', 'three'])).to.deep.equal({ 3: ['one', 'two'], 5: ['three'] });
       expect(List.groupBy((x) => x > 2, [-3, 1, 2, 3, 4, 5])).to.deep.equal({ true: [3, 4, 5], false: [-3, 1, 2] });
     });
   });
@@ -285,7 +286,7 @@ describe('List.js', () => {
 
   describe('List.sortBy', () => {
     it('Should sort a list with a custom property-accessor predicate.', () => {
-      expect(List.sortBy((x) => x.length, ['three', 'one', 'two'])).to.deep.equal(['one', 'two', 'three']);
+      expect(List.sortBy(get('length'), ['three', 'one', 'two'])).to.deep.equal(['one', 'two', 'three']);
     });
   });
 
@@ -344,7 +345,7 @@ describe('List.js', () => {
       expect(List.minimumBy(x => x, ['1', '3', '2'])).to.equal('1');
       expect(List.minimumBy(x => x, ['a', 'c', 'b'])).to.equal('a');
       expect(List.minimumBy(x => x, ['w', 'c', 'b'])).to.equal('b');
-      expect(List.minimumBy(x => x.length, ['was', 'a', 'test'])).to.equal('a');
+      expect(List.minimumBy(get('length'), ['was', 'a', 'test'])).to.equal('a');
     });
   });
 
