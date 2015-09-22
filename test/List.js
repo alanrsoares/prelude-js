@@ -366,6 +366,7 @@ describe('List.js', () => {
 
       expect(List.scan1(sum, [1, 2, 3])).to.deep.equal([1, 3, 6]);
       expect(List.scan1(mult, [1, 2, 3])).to.deep.equal([1, 2, 6]);
+      expect(List.scan1(mult, [])).to.deep.equal(undefined);
 
     });
   });
