@@ -1,4 +1,5 @@
 import clone from './clone';
+import get from './get';
 import keys from './keys';
 import map from './map';
 import merge from './merge';
@@ -9,6 +10,7 @@ import values from './values';
 
 export default {
   clone,
+  get,
   keys,
   map,
   merge,
@@ -17,4 +19,3 @@ export default {
   reduce,
   values
 };
-
