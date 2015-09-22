@@ -41,4 +41,12 @@ describe('Obj.js', () => {
     });
   });
 
+  describe('Obj.get', () => {
+    it('Should return a member (property or method) from a given object', () => {
+      expect(Obj.get('foo', { foo: 'bar' })).to.equal('bar');
+      expect(Obj.get('length', [])).to.equal(0);
+      expect(Obj.get('length', 'foo')).to.equal(3);
+    });
+  });
+
 });
