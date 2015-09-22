@@ -6,8 +6,6 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
-
 var _FuncCurry = require('../Func/curry');
 
 var _FuncCurry2 = _interopRequireDefault(_FuncCurry);
@@ -16,13 +14,15 @@ var _scan = require('./scan');
 
 var _scan2 = _interopRequireDefault(_scan);
 
-exports['default'] = (0, _FuncCurry2['default'])(function (fn, _ref) {
-  var _ref2 = _toArray(_ref);
+var _head = require('./head');
 
-  var head = _ref2[0];
+var _head2 = _interopRequireDefault(_head);
 
-  var tail = _ref2.slice(1);
+var _tail = require('./tail');
 
-  return tail && (0, _scan2['default'])(fn, head, tail);
+var _tail2 = _interopRequireDefault(_tail);
+
+exports['default'] = (0, _FuncCurry2['default'])(function (fn, xs) {
+  return !xs.length ? undefined : (0, _scan2['default'])(fn, (0, _head2['default'])(xs), (0, _tail2['default'])(xs));
 });
 module.exports = exports['default'];

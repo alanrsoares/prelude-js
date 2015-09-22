@@ -10,6 +10,10 @@ var _clone = require('./clone');
 
 var _clone2 = _interopRequireDefault(_clone);
 
+var _get = require('./get');
+
+var _get2 = _interopRequireDefault(_get);
+
 var _keys = require('./keys');
 
 var _keys2 = _interopRequireDefault(_keys);
@@ -40,6 +44,7 @@ var _values2 = _interopRequireDefault(_values);
 
 exports['default'] = {
   clone: _clone2['default'],
+  get: _get2['default'],
   keys: _keys2['default'],
   map: _map2['default'],
   merge: _merge2['default'],
