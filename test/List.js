@@ -351,8 +351,21 @@ describe('List.js', () => {
   describe('List.scan', () => {
     it('Should return a list composed of the initial value, the intermediate values, and then the final value.', () => {
       const sum = (a, b) => a + b;
+      const mult = (a, b) => a * b;
 
       expect(List.scan(sum, 0, [1, 2, 3])).to.deep.equal([0, 1, 3, 6]);
+      expect(List.scan(mult, 1, [2, 3, 4])).to.deep.equal([1, 2, 6, 24]);
+
+    });
+  });
+
+  describe('List.scan1', () => {
+    it('Should return a list composed of the initial value, the intermediate values, and then the final value.', () => {
+      const sum = (a, b) => a + b;
+      const mult = (a, b) => a * b;
+
+      expect(List.scan1(sum, [1, 2, 3])).to.deep.equal([1, 3, 6]);
+      expect(List.scan1(mult, [1, 2, 3])).to.deep.equal([1, 2, 6]);
 
     });
   });
