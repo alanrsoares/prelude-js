@@ -46,6 +46,8 @@ import reject from './reject';
 import reverse from './reverse';
 import scan from './scan';
 import scan1 from './scan1';
+import scanl from './scanl';
+import scanl1 from './scanl1';
 import scanr from './scanr';
 import scanr1 from './scanr1';
 import slice from './slice';
@@ -116,6 +118,8 @@ export default {
   reverse,
   scan,
   scan1,
+  scanl,
+  scanl1,
   scanr,
   scanr1,
   slice,
@@ -137,3 +141,4 @@ export default {
   zipAllWith,
   zipWith
 };
+
