@@ -12,8 +12,6 @@ var _FuncCurry2 = _interopRequireDefault(_FuncCurry);
 
 var _keys = require('./keys');
 
-//+ reduce :: (a -> b) -> a -> b -> a
-
 var _keys2 = _interopRequireDefault(_keys);
 
 exports['default'] = (0, _FuncCurry2['default'])(function (fn, initial, x) {

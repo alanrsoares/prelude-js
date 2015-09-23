@@ -6,7 +6,6 @@ Object.defineProperty(exports, '__esModule', {
 
 var _Func = require('../Func');
 
-//+ equals :: a -> a -> Boolean
 exports['default'] = (0, _Func.curry)(function (a, b) {
   return a === b;
 });

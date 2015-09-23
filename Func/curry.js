@@ -30,4 +30,3 @@ exports["default"] = function (fn) {
 };
 
 module.exports = exports["default"];
-//:: ((a, b) -> c) -> a -> b -> c

@@ -1,4 +1,3 @@
-//:: [a] -> Boolean
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

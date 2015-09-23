@@ -12,8 +12,6 @@ var _maximumBy2 = _interopRequireDefault(_maximumBy);
 
 var _GeneralId = require('../General/id');
 
-//+ maximun :: [Number] -> Number
-
 var _GeneralId2 = _interopRequireDefault(_GeneralId);
 
 exports['default'] = (0, _maximumBy2['default'])(_GeneralId2['default']);

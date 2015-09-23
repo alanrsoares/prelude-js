@@ -12,8 +12,6 @@ var _GeneralOfType2 = _interopRequireDefault(_GeneralOfType);
 
 var _concatMap = require('./concatMap');
 
-//+ flatten :: List -> List
-
 var _concatMap2 = _interopRequireDefault(_concatMap);
 
 var flatten = function flatten(ys) {

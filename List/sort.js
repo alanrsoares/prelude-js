@@ -1,4 +1,3 @@
-//+ sort :: List -> List
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

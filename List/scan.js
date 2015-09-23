@@ -12,8 +12,6 @@ var _FuncCurry2 = _interopRequireDefault(_FuncCurry);
 
 var _ListLast = require('../List/last');
 
-//+ scan :: (a -> b) -> [a] -> [b]
-
 var _ListLast2 = _interopRequireDefault(_ListLast);
 
 exports['default'] = (0, _FuncCurry2['default'])(function (fn, init, xs) {

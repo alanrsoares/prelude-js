@@ -8,8 +8,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _keys = require('./keys');
 
-//:: {a: b} -> [b]
-
 var _keys2 = _interopRequireDefault(_keys);
 
 exports['default'] = Object.values || function (x) {

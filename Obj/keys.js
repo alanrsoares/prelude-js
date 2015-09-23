@@ -1,4 +1,3 @@
-//+ keys :: {a: b} -> [a]
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

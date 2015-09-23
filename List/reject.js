@@ -12,8 +12,6 @@ var _FuncCurry2 = _interopRequireDefault(_FuncCurry);
 
 var _FuncDeny = require('../Func/deny');
 
-//+ reject :: (a -> Boolean) -> [a] -> [a]
-
 var _FuncDeny2 = _interopRequireDefault(_FuncDeny);
 
 exports['default'] = (0, _FuncCurry2['default'])(function (fn, xs) {

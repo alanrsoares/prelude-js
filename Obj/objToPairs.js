@@ -8,8 +8,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _map = require('./map');
 
-//+ objToPairs :: {a: b} -> [[a, b]]
-
 var _map2 = _interopRequireDefault(_map);
 
 exports['default'] = (0, _map2['default'])(function (k, v) {

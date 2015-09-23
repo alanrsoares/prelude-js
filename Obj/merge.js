@@ -8,8 +8,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _reduce = require('./reduce');
 
-//+ merge :: {a: b} -> {a: b} -> {a: b}
-
 var _reduce2 = _interopRequireDefault(_reduce);
 
 exports['default'] = Object.assign || function (y) {

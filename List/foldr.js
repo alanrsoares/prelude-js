@@ -8,8 +8,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _FuncCurry = require('../Func/curry');
 
-//+ foldr :: (b -> a -> b) -> b -> [a] -> b
-
 var _FuncCurry2 = _interopRequireDefault(_FuncCurry);
 
 exports['default'] = (0, _FuncCurry2['default'])(function (fn, acc, xs) {

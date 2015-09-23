@@ -12,8 +12,6 @@ var _unique2 = _interopRequireDefault(_unique);
 
 var _flatten = require('./flatten');
 
-//+ union :: ([a], [a], ...) -> [a]
-
 var _flatten2 = _interopRequireDefault(_flatten);
 
 exports['default'] = function (xs) {

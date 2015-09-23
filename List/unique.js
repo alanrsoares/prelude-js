@@ -12,8 +12,6 @@ var _uniqueBy2 = _interopRequireDefault(_uniqueBy);
 
 var _GeneralId = require('../General/id');
 
-//+ unique :: [a] -> [a]
-
 var _GeneralId2 = _interopRequireDefault(_GeneralId);
 
 exports['default'] = function (xs) {

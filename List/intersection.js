@@ -8,8 +8,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _find = require('./find');
 
-//+ intersection :: ([a], [a], ...) -> [a]
-
 var _find2 = _interopRequireDefault(_find);
 
 exports['default'] = function (xs) {

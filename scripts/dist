@@ -12,7 +12,7 @@ do
   mkdir $module
 
   echo "-- Building module: $module [$modules_processed/$modules_length] --"
-  babel "./src/$module/" --out-dir "./$module/"
+  babel "./src/$module/" --no-comments -d "./$module/"
 
   modules_processed=$[modules_processed + 1]
 done

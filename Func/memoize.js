@@ -1,4 +1,3 @@
-//+ memoize :: (a -> b) -> a -> b
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {

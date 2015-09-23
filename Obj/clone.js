@@ -8,8 +8,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _FuncCompose = require('../Func/compose');
 
-//+ clone :: a -> a'
-
 var _FuncCompose2 = _interopRequireDefault(_FuncCompose);
 
 exports['default'] = (0, _FuncCompose2['default'])(JSON.parse, JSON.stringify);

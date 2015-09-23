@@ -8,8 +8,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _sum = require('./sum');
 
-//+ mean :: [Number] -> Number
-
 var _sum2 = _interopRequireDefault(_sum);
 
 exports['default'] = function (xs) {

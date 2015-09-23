@@ -1,4 +1,3 @@
-//+ range :: (Number, Number?, Number?) -> [Number]
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

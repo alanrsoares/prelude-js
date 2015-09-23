@@ -14,8 +14,6 @@ var _typeOf2 = _interopRequireDefault(_typeOf);
 
 var _equals = require('./equals');
 
-//+ ofType :: (String, a) -> Boolean
-
 var _equals2 = _interopRequireDefault(_equals);
 
 exports['default'] = (0, _Func.curry)(function (type, x) {

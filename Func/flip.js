@@ -8,8 +8,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _curry = require('./curry');
 
-//+ flip :: (a -> b -> c) -> b -> a -> c
-
 var _curry2 = _interopRequireDefault(_curry);
 
 exports['default'] = (0, _curry2['default'])(function (fn, x, y) {

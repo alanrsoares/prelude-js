@@ -18,8 +18,6 @@ var _ObjMerge2 = _interopRequireDefault(_ObjMerge);
 
 var _ObjValues = require('../Obj/values');
 
-//+ uniqueBy :: (a -> b) -> [a] -> [a]
-
 var _ObjValues2 = _interopRequireDefault(_ObjValues);
 
 exports['default'] = (0, _FuncCurry2['default'])(function (fn, xs) {

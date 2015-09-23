@@ -1,4 +1,3 @@
-//+ fix :: Function -> Function
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

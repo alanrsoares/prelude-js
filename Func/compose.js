@@ -1,4 +1,3 @@
-//+ compose :: ((y → z), (x → y), …, (o → p), ((a, b, …, n) → o)) → (a → b → … → n → z)
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
