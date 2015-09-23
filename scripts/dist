@@ -11,16 +11,8 @@ do
   rm -rf $module
   mkdir $module
 
-  files=`ls ./src/$module`
-  files_length=`echo $files | wc -w | tr -d '[[:space:]]'`
-  files_processed=1
-
-  for file in $files
-  do
-    echo "Building module: $module [$modules_processed/$modules_length] - file: $file [$files_processed/$files_length]"
-    babel "./src/$module/$file" -o "./$module/$file"
-    files_processed=$[files_processed + 1]
-  done
+  echo "-- Building module: $module [$modules_processed/$modules_length] --"
+  babel "./src/$module/" --out-dir "./$module/"
 
   modules_processed=$[modules_processed + 1]
 done
