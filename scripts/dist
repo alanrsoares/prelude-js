@@ -3,16 +3,15 @@ rm -f ./index.js
 babel ./src/index.js -o ./index.js
 
 modules=`ls ./src | grep -v js`
-modules_length=`echo $modules | wc -w | tr -d '[[:space:]]'`
-modules_processed=1
+length=`echo $modules | wc -w | tr -d '[[:space:]]'`
+processed=1
 
 for module in $modules
 do
-  rm -rf $module
-  mkdir $module
+  rm -rf $module && mkdir $module
 
-  echo "-- Building module: $module [$modules_processed/$modules_length] --"
-  babel "./src/$module/" --no-comments -d "./$module/"
+  echo "[$processed/$length] building module '$module'"
+  babel "./src/$module/" --no-comments -qd "./$module/"
 
-  modules_processed=$[modules_processed + 1]
+  processed=$[processed + 1]
 done
