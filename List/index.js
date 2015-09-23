@@ -198,6 +198,14 @@ var _scan1 = require('./scan1');
 
 var _scan12 = _interopRequireDefault(_scan1);
 
+var _scanl = require('./scanl');
+
+var _scanl2 = _interopRequireDefault(_scanl);
+
+var _scanl1 = require('./scanl1');
+
+var _scanl12 = _interopRequireDefault(_scanl1);
+
 var _scanr = require('./scanr');
 
 var _scanr2 = _interopRequireDefault(_scanr);
@@ -327,6 +335,8 @@ exports['default'] = {
   reverse: _reverse2['default'],
   scan: _scan2['default'],
   scan1: _scan12['default'],
+  scanl: _scanl2['default'],
+  scanl1: _scanl12['default'],
   scanr: _scanr2['default'],
   scanr1: _scanr12['default'],
   slice: _slice2['default'],
