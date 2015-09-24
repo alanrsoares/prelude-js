@@ -45,6 +45,7 @@ describe('General.js', () => {
 
   describe('General.areSimilar', () => {
     it('Should tell wether two items are similar, regardless of order of properties', () => {
+      expect(General.areSimilar([1, 2, 3], [1, 2, 3])).to.equal(true);
       expect(General.areSimilar({ foo: 'bar' }, { foo: 'bar' })).to.equal(true);
       expect(General.areSimilar({ foo: 'bar' }, { foo: 'baz' })).to.equal(false);
       expect(General.areSimilar({}, {})).to.equal(true);
@@ -52,8 +53,8 @@ describe('General.js', () => {
       expect(General.areSimilar({ a: { b: [] } }, { a: { b: {} } })).to.equal(false);
       expect(General.areSimilar({ a: { b: [2] } }, { a: { b: [2] } })).to.equal(true);
       expect(General.areSimilar({ a: { b: [1, '{}'] } }, { a: { b: [1, '{}'] } })).to.equal(true);
-      expect(General.areSimilar({ a: { b: [1, '{}'] } }, { a: { b: ['{}', 1] } })).to.equal(true);
-      expect(General.areSimilar({ a: { b: [1, '{}', [3, '4', ['98']]] } })({ a: { b: [[['98'], 3, '4'], '{}', 1] } })).to.equal(true);
+      expect(General.areSimilar({ a: { b: [1, '{}'] } }, { a: { b: [1, '{}'] } })).to.equal(true);
+      expect(General.areSimilar({ a: { b: [1, '{}', [3, '4', ['98']]] } })({ a: { b: [[['98'], 3, '4'], '{}', 1] } })).to.equal(false);
       expect(General.areSimilar(null, 1)).to.equal(false);
       expect(General.areSimilar([1], null)).to.equal(false);
       expect(General.areSimilar({}, null)).to.equal(false);
