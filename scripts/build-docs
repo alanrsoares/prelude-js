@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm -f docs/README.md
+babel-node scripts/build-readme.js > docs/README.md
