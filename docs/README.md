@@ -3,7 +3,7 @@
 ## Modules
 
 
-* [FUNC](Func.md)
+* [Func](FUNC.md)
 	* [apply](FUNC.md#funcapply),
 	* [compose](FUNC.md#funccompose),
 	* [curry](FUNC.md#funccurry),
@@ -11,7 +11,7 @@
 	* [fix](FUNC.md#funcfix),
 	* [flip](FUNC.md#funcflip),
 	* [memoize](FUNC.md#funcmemoize)
-* [GENERAL](General.md)
+* [General](GENERAL.md)
 	* [aresimilar](GENERAL.md#generalaresimilar),
 	* [deny](GENERAL.md#generaldeny),
 	* [equals](GENERAL.md#generalequals),
@@ -19,7 +19,7 @@
 	* [oftype](GENERAL.md#generaloftype),
 	* [replicate](GENERAL.md#generalreplicate),
 	* [typeof](GENERAL.md#generaltypeof)
-* [LIST](List.md)
+* [List](LIST.md)
 	* [all](LIST.md#listall),
 	* [and](LIST.md#listand),
 	* [any](LIST.md#listany),
@@ -90,8 +90,8 @@
 	* [zipall](LIST.md#listzipall),
 	* [zipallwith](LIST.md#listzipallwith),
 	* [zipwith](LIST.md#listzipwith)
-* [NUM](Num.md)
-* [OBJ](Obj.md)
+* [Num](NUM.md)
+* [Obj](OBJ.md)
 	* [clone](OBJ.md#objclone),
 	* [get](OBJ.md#objget),
 	* [keys](OBJ.md#objkeys),
@@ -101,7 +101,7 @@
 	* [pairstoobj](OBJ.md#objpairstoobj),
 	* [reduce](OBJ.md#objreduce),
 	* [values](OBJ.md#objvalues)
-* [STR](Str.md)
+* [Str](STR.md)
 	* [breakstr](STR.md#strbreakstr),
 	* [camelize](STR.md#strcamelize),
 	* [capitalize](STR.md#strcapitalize),
