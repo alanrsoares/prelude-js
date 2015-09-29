@@ -8,7 +8,8 @@
     "test": "mocha test --compilers js:babel/register",
     "cover": "istanbul cover _mocha -- --compilers js:babel/register -R spec && cat ./coverage/coverage.json | codecov",
     "dist": "scripts/dist",
-    "release": "scripts/release"
+    "release": "scripts/release",
+    "docs": "scripts/build-docs"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,9 @@
     "functional",
     "js",
     "es6",
-    "haskell"
+    "haskell",
+    "lodash",
+    "underscore"
   ],
   "author": "github.com/alanrsoares",
   "license": "MIT",
