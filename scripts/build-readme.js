@@ -13,7 +13,7 @@ function functions(m) {
            .map((f) => `\n\t* [${ low(f) }](${ up(m) }.md#${ low(m + f) })`);
 }
 
-const modules = moduleNames.map((m) => `\n* [${ m }](${ m }.md)${ functions(m) }`);
+const modules = moduleNames.map((m) => `\n* [${ up(m) }](${ m }.md)${ functions(m) }`);
 
 const file =
 `# Preλude-js :: Docs\n
