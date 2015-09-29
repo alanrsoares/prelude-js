@@ -6,12 +6,11 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _NumAdd = require('../Num/add');
+var _FuncCurry = require('../Func/curry');
 
-var _NumAdd2 = _interopRequireDefault(_NumAdd);
+var _FuncCurry2 = _interopRequireDefault(_FuncCurry);
 
-exports['default'] = function (xs) {
-  return xs.reduceRight(_NumAdd2['default']);
-};
-
+exports['default'] = (0, _FuncCurry2['default'])(function (a, b) {
+  return a + b;
+});
 module.exports = exports['default'];

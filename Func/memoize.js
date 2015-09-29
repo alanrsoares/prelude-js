@@ -14,7 +14,7 @@ exports['default'] = function (fn) {
     var key = args.map(function (arg) {
       return arg + typeof arg;
     }).join('');
-    return key in memo ? memo[key] : memo[key] = fn.apply(null, args);
+    return key in memo ? memo[key] : memo[key] = fn.apply(undefined, args);
   };
 };
 
