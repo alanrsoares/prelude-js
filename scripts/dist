@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # clear index
 rm -f ./index.js
 babel ./src/index.js -o ./index.js
