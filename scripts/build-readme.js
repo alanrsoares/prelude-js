@@ -8,8 +8,8 @@ const up = (x) => x.toUpperCase();
 
 function functions(m) {
   return fs.readdirSync(`./src/${ m }`)
-           .map((i) => i.replace(/(.+)\.js$/, '$1'))
-           .filter((f) => f !== 'index')
+           .filter((f) => !/index/.test(f))
+           .map((f) => f.replace(/(.+)\.js$/, '$1'))
            .map((f) => `\n\t* [${ low(f) }](${ up(m) }.md#${ low(m + f) })`)
            .join('');
 }
