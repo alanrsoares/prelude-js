@@ -10,7 +10,8 @@ function functions(m) {
   return fs.readdirSync(`./src/${ m }`)
            .map((i) => i.replace(/(.+)\.js$/, '$1'))
            .filter((f) => f !== 'index')
-           .map((f) => `\n\t* [${ low(f) }](${ up(m) }.md#${ low(m + f) })`);
+           .map((f) => `\n\t* [${ low(f) }](${ up(m) }.md#${ low(m + f) })`)
+           .join('');
 }
 
 const modules = moduleNames.map((m) => `\n* [${ m }](${ up(m) }.md)${ functions(m) }`);
