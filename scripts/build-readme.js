@@ -1,4 +1,4 @@
-import fs from 'fs';
+const fs = require('fs');
 
 const moduleNames = fs.readdirSync('./src')
                       .filter((fn) => fn !== 'index.js');
