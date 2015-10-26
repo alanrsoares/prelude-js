@@ -11,6 +11,7 @@ var _FuncCurry = require('../Func/curry');
 var _FuncCurry2 = _interopRequireDefault(_FuncCurry);
 
 exports['default'] = (0, _FuncCurry2['default'])(function (p, s) {
-  return p.substring(0, p.length - s.toString().length) + s;
+  if (p === undefined) p = '';
+  return p.substring(0, p.length - (s || '').toString().length) + (s || '');
 });
 module.exports = exports['default'];

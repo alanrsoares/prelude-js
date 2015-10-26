@@ -46,6 +46,10 @@ var _lines = require('./lines');
 
 var _lines2 = _interopRequireDefault(_lines);
 
+var _padLeft = require('./padLeft');
+
+var _padLeft2 = _interopRequireDefault(_padLeft);
+
 var _repeat = require('./repeat');
 
 var _repeat2 = _interopRequireDefault(_repeat);
@@ -105,6 +109,7 @@ exports['default'] = {
   empty: _empty2['default'],
   join: _join2['default'],
   lines: _lines2['default'],
+  padLeft: _padLeft2['default'],
   repeat: _repeat2['default'],
   reverse: _reverse2['default'],
   slice: _slice2['default'],
