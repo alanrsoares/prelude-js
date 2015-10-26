@@ -32,4 +32,16 @@ describe('Str.js', () => {
     });
   });
 
+  describe('Str.padLeft', () => {
+    it('Should pad a string with a given value', () => {
+      expect(Str.padLeft("00", 1)).to.equal("01");
+      expect(Str.padLeft("0000", 1)).to.equal("0001");
+      expect(Str.padLeft("0000", null)).to.equal("0000");
+      expect(Str.padLeft("0000", undefined)).to.equal("0000");
+      expect(Str.padLeft("0000", 30)).to.equal("0030");
+      expect(Str.padLeft("0000", 9999)).to.equal("9999");
+      expect(Str.padLeft("0000", 123456)).to.equal("123456");
+    });
+  });
+
 });

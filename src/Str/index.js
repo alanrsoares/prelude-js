@@ -8,6 +8,7 @@ import dropWhile from './dropWhile';
 import empty from './empty';
 import join from './join';
 import lines from './lines';
+import padLeft from './padLeft';
 import repeat from './repeat';
 import reverse from './reverse';
 import slice from './slice';
@@ -32,6 +33,7 @@ export default {
   empty,
   join,
   lines,
+  padLeft,
   repeat,
   reverse,
   slice,
