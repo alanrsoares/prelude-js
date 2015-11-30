@@ -36,6 +36,7 @@
     "babel-eslint": "^4.1.1",
     "chai": "^3.2.0",
     "codecov.io": "^0.1.6",
+    "deep-freeze": "0.0.1",
     "istanbul": "^0.3.18",
     "minimist": "^1.2.0",
     "mocha": "^2.2.5",
