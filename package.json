@@ -33,13 +33,13 @@
   "devDependencies": {
     "babel": "^5.8.3",
     "babel-core": "^5.8.3",
-    "babel-eslint": "^4.1.1",
-    "chai": "^3.2.0",
+    "babel-eslint": "^5.0.0-beta4",
+    "chai": "^3.4.1",
     "codecov.io": "^0.1.6",
     "deep-freeze": "0.0.1",
-    "istanbul": "^0.3.18",
+    "istanbul": "^0.4.1",
     "minimist": "^1.2.0",
-    "mocha": "^2.2.5",
+    "mocha": "^2.3.4",
     "releasy": "^1.5.5"
   }
 }
