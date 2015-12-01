@@ -22,6 +22,10 @@ var _chars = require('./chars');
 
 var _chars2 = _interopRequireDefault(_chars);
 
+var _contains = require('./contains');
+
+var _contains2 = _interopRequireDefault(_contains);
+
 var _dasherize = require('./dasherize');
 
 var _dasherize2 = _interopRequireDefault(_dasherize);
@@ -74,6 +78,10 @@ var _splitAt = require('./splitAt');
 
 var _splitAt2 = _interopRequireDefault(_splitAt);
 
+var _startsWith = require('./startsWith');
+
+var _startsWith2 = _interopRequireDefault(_startsWith);
+
 var _take = require('./take');
 
 var _take2 = _interopRequireDefault(_take);
@@ -103,6 +111,7 @@ exports['default'] = {
   camelize: _camelize2['default'],
   capitalize: _capitalize2['default'],
   chars: _chars2['default'],
+  contains: _contains2['default'],
   dasherize: _dasherize2['default'],
   drop: _drop2['default'],
   dropWhile: _dropWhile2['default'],
@@ -116,6 +125,7 @@ exports['default'] = {
   span: _span2['default'],
   split: _split2['default'],
   splitAt: _splitAt2['default'],
+  startsWith: _startsWith2['default'],
   take: _take2['default'],
   takeWhile: _takeWhile2['default'],
   unchars: _unchars2['default'],
