@@ -487,4 +487,19 @@ describe('List.js', () => {
     });
   });
 
+  describe('List.take', () => {
+    it('Should take the first n elements of a list', () => {
+      const input = [2, 3, 5, 8, 1, 0, 9];
+
+      deepFreeze(input);
+      deepFreeze(List.take);
+
+      expect(List.take(2, input)).to.deep.equal([2, 3]);
+      expect(List.take(3, input)).to.deep.equal([2, 3, 5]);
+      expect(List.take(1, input)).to.deep.equal([2]);
+      expect(List.take(0, input)).to.deep.equal([]);
+      expect(List.take(null, input)).to.deep.equal([]);
+      expect(List.take(4, input)).to.deep.equal([2, 3, 5, 8]);
+    });
+  });
 });
