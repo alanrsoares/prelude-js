@@ -44,4 +44,22 @@ describe('Str.js', () => {
     });
   });
 
+  describe('Str.contains', () => {
+    it('Should tell if a given string contain a substring', () => {
+      expect(Str.contains("foo", "bar")).to.equal(false);
+      expect(Str.contains("foo", "foobar")).to.equal(true);
+      expect(Str.contains("bar", "foobar")).to.equal(true);
+      expect(Str.contains("z", "baz")).to.equal(true);
+    });
+  });
+
+  describe('Str.startsWith', () => {
+    it('Should tell if a given string startsWith a substring', () => {
+      expect(Str.startsWith("foo", "bar")).to.equal(false);
+      expect(Str.startsWith("foo", "foobar")).to.equal(true);
+      expect(Str.startsWith("bar", "foobar")).to.equal(false);
+      expect(Str.startsWith("b", "baz")).to.equal(true);
+    });
+  });
+
 });

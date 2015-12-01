@@ -2,6 +2,7 @@ import breakStr from './breakStr';
 import camelize from './camelize';
 import capitalize from './capitalize';
 import chars from './chars';
+import contains from './contains';
 import dasherize from './dasherize';
 import drop from './drop';
 import dropWhile from './dropWhile';
@@ -15,6 +16,7 @@ import slice from './slice';
 import span from './span';
 import split from './split';
 import splitAt from './splitAt';
+import startsWith from './startsWith';
 import take from './take';
 import takeWhile from './takeWhile';
 import unchars from './unchars';
@@ -27,6 +29,7 @@ export default {
   camelize,
   capitalize,
   chars,
+  contains,
   dasherize,
   drop,
   dropWhile,
@@ -40,6 +43,7 @@ export default {
   span,
   split,
   splitAt,
+  startsWith,
   take,
   takeWhile,
   unchars,
