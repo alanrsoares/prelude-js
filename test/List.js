@@ -502,4 +502,42 @@ describe('List.js', () => {
       expect(List.take(4, input)).to.deep.equal([2, 3, 5, 8]);
     });
   });
+
+  describe('List.takeWhile', () => {
+    it('Should take the first n elements that satisfy the given predicate', () => {
+      const input = [2, 3, 5, 8, 1, 0, 9];
+
+      deepFreeze(input);
+      deepFreeze(List.takeWhile);
+
+      expect(List.takeWhile((n) => n <= 3, input)).to.deep.equal([2, 3]);
+    });
+  });
+
+  describe('List.drop', () => {
+    it('Should drop the first n elements of a list', () => {
+      const input = [2, 3, 5, 8, 1, 0, 9];
+
+      deepFreeze(input);
+      deepFreeze(List.drop);
+
+      expect(List.drop(2, input)).to.deep.equal([5, 8, 1, 0, 9]);
+      expect(List.drop(3, input)).to.deep.equal([8, 1, 0, 9]);
+      expect(List.drop(1, input)).to.deep.equal([3, 5, 8, 1, 0, 9]);
+      expect(List.drop(0, input)).to.deep.equal(input);
+      expect(List.drop(null, input)).to.deep.equal(input);
+      expect(List.drop(4, input)).to.deep.equal([1, 0, 9]);
+    });
+  });
+
+  describe('List.dropWhile', () => {
+    it('Should drop the first n elements that satisfy the given predicate', () => {
+      const input = [2, 3, 5, 8, 1, 0, 9];
+
+      deepFreeze(input);
+      deepFreeze(List.dropWhile);
+
+      expect(List.dropWhile((n) => n <= 3, input)).to.deep.equal([5, 8, 1, 0, 9]);
+    });
+  });
 });

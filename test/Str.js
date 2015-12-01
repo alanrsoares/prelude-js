@@ -1,4 +1,5 @@
 import * as Str from '../src/Str';
+import flip from '../Func/flip';
 import { expect } from 'chai';
 
 describe('Str.js', () => {
@@ -59,6 +60,22 @@ describe('Str.js', () => {
       expect(Str.startsWith("foo", "foobar")).to.equal(true);
       expect(Str.startsWith("bar", "foobar")).to.equal(false);
       expect(Str.startsWith("b", "baz")).to.equal(true);
+    });
+  });
+
+  describe('Str.take', () => {
+    it('Should return a substring composed of the first n character of a string', () => {
+      expect(Str.take(4, 'hello')).to.equal('hell');
+    });
+  });
+
+  describe('Str.takeWhile', () => {
+    const isVowel = flip(Str.contains)('aeiou');
+
+    it('Should return a substring composed of the first n character that satisfy a given predicate', () => {
+      expect(Str.takeWhile(isVowel, 'art')).to.equal('a');
+      expect(Str.takeWhile(isVowel, 'iao')).to.equal('iao');
+      expect(Str.takeWhile(isVowel, 'fry')).to.equal('');
     });
   });
 
