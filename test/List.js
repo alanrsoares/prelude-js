@@ -1,7 +1,8 @@
 import { expect } from 'chai';
 import deepFreeze from 'deep-freeze'
 import * as List from '../src/List';
-import get from '../src/Obj/get';
+import { get } from '../src/Obj';
+import { Case, run } from './cases';
 
 describe('List.js', () => {
   describe('List.range', () => {
@@ -30,14 +31,11 @@ describe('List.js', () => {
 
   describe('List.map', () => {
     it('Should apply a function to each item in a list, returning a new list with the result', () => {
-      const input = [1, 2, 3, 4, 5];
-      const expected = [2, 3, 4, 5, 6];
-
-      deepFreeze(input);
-      deepFreeze(List.map);
-
-      expect(List.map((x) => ++x, input)).to.deep.equal(expected);
-      expect(List.map((x) => ++x)(input)).to.deep.equal(expected);
+      run(List.map,
+        Case([(x) => ++x, [1, 2, 3, 4, 5]], [2, 3, 4, 5, 6]),
+        Case([(x) => --x, [2, 3, 4, 5, 6]], [1, 2, 3, 4, 5]),
+        Case([(x) => x * 2, [1, 2, 3, 4, 5]], [2, 4, 6, 8, 10])
+      );
     });
   });
 
