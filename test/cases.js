@@ -1,5 +1,5 @@
-import { expect } from 'chai';
 import deepFreeze from 'deep-freeze'
+import { expect } from 'chai';
 import { curry } from '../src/Func';
 
 const shallow = (actual, expected) => expect(actual).to.equal(expected);
