@@ -538,4 +538,16 @@ describe('List.js', () => {
       expect(List.dropWhile((n) => n <= 3, input)).to.deep.equal([5, 8, 1, 0, 9]);
     });
   });
+
+  describe('List.zip', () => {
+    it('Should zip together its two arguments into a list of lists. ', () => {
+      run(List.zip,
+        Case([[], []], []),
+        Case([[1, 2], [4, 5]], [[1, 4], [2, 5]]),
+        Case([[1, 2], [4, 5, 6]], [[1, 4], [2, 5]]),
+        Case([[1, 2, 3], [4, 5]], [[1, 4], [2, 5]])
+      );
+      expect(List.zip([1, 2, 3])([4, 5])).to.deep.equal([[1, 4], [2, 5]]);
+    });
+  })
 });
