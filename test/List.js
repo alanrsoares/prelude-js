@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import deepFreeze from 'deep-freeze'
 import * as List from '../src/List';
 import { get } from '../src/Obj';
+import { id } from '../src/General';
 import { Case, run } from './cases';
 
 describe('List.js', () => {
@@ -548,6 +549,18 @@ describe('List.js', () => {
         Case([[1, 2, 3], [4, 5]], [[1, 4], [2, 5]])
       );
       expect(List.zip([1, 2, 3])([4, 5])).to.deep.equal([[1, 4], [2, 5]]);
+    });
+  });
+
+  describe('List.zipWith', () => {
+    const sum = (a, b) => a + b;
+
+    it('Should zipWith together its two arguments into a list of lists. ', () => {
+      run(List.zipWith,
+        Case([id, [], []], []),
+        Case([sum, [1, 2, 3], [3, 2, 1]], [4, 4, 4])
+      );
+      expect(List.zipWith(id)([], [])).to.deep.equal([]);
     });
   })
 });
