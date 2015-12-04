@@ -4,21 +4,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
-
 exports["default"] = function () {
-  for (var _len = arguments.length, fns = Array(_len), _key = 0; _key < _len; _key++) {
-    fns[_key] = arguments[_key];
+  for (var _len = arguments.length, fs = Array(_len), _key = 0; _key < _len; _key++) {
+    fs[_key] = arguments[_key];
   }
 
-  return function () {
-    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-      args[_key2] = arguments[_key2];
+  return function (v) {
+    for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+      args[_key2 - 1] = arguments[_key2];
     }
 
-    return fns.reduceRight(function (acc, fn) {
-      return [fn.apply(undefined, _toConsumableArray(acc))];
-    }, args)[0];
+    return fs.reduceRight(function (g, f) {
+      return f.apply(undefined, [g].concat(args));
+    }, v);
   };
 };
 
