@@ -1,5 +1,4 @@
 import { expect } from 'chai';
-import deepFreeze from 'deep-freeze'
 import * as List from '../src/List';
 import { get } from '../src/Obj';
 import { id } from '../src/General';
@@ -22,9 +21,6 @@ describe('List.js', () => {
       const output = [];
       const expected = [2, 3, 4, 5, 6];
 
-      deepFreeze(input);
-      deepFreeze(List.each);
-
       List.each((x) => output.push(++x), input);
       expect(output).to.deep.equal(expected);
     });
@@ -45,9 +41,6 @@ describe('List.js', () => {
       const input = [0, true, 1, 2, false, 4, 5];
       const expected = [true, 1, 2, 4, 5];
 
-      deepFreeze(input);
-      deepFreeze(List.compact);
-
       expect(List.compact(input)).to.deep.equal(expected);
     });
   });
@@ -56,9 +49,6 @@ describe('List.js', () => {
     it('Should return the values in a list that satisfy a given predicate', () => {
       const input = [0, 1, 2, 3, 4, 5];
       const expected = [4, 5];
-
-      deepFreeze(input);
-      deepFreeze(List.filter);
 
       expect(List.filter((x) => x > 3, input)).to.deep.equal(expected);
     });
@@ -69,9 +59,6 @@ describe('List.js', () => {
       const input = [0, true, 1, 2, false, 4, 5];
       const expected = [0, false];
 
-      deepFreeze(input);
-      deepFreeze(List.reject);
-
       expect(List.reject((x) => x, input)).to.deep.equal(expected);
     });
   });
@@ -80,18 +67,12 @@ describe('List.js', () => {
     it('Should return a list with two lists containing the passed and failed values given a predicate', () => {
       const input = [0, true, 1, 2, false, 4, 5];
 
-      deepFreeze(input);
-      deepFreeze(List.partition);
-
       expect(List.partition((x) => x, input)).to.deep.equal([[true, 1, 2, 4, 5], [0, false]]);
     });
   });
 
   describe('List.find', () => {
     const input = [1, 2, 3, 4, 5];
-
-    deepFreeze(input);
-    deepFreeze(List.find);
 
     it('Should return the exact value in a list that satisfies a given predicate', () => {
       expect(List.find((x) => x === 4, input)).to.equal(4);
@@ -107,9 +88,6 @@ describe('List.js', () => {
   describe('List.head', () => {
     const input = [1, 2, 3, 4, 5];
 
-    deepFreeze(input);
-    deepFreeze(List.head);
-
     it('Should return the first value in a list', () => {
       expect(List.head(input)).to.equal(1);
     });
@@ -117,9 +95,6 @@ describe('List.js', () => {
 
   describe('List.first (alias => List.head)', () => {
     const input = [1, 2, 3, 4, 5];
-
-    deepFreeze(input);
-    deepFreeze(List.first);
 
     it('Should return the first value in a list', () => {
       expect(List.first(input)).to.equal(1);
@@ -129,9 +104,6 @@ describe('List.js', () => {
   describe('List.tail', () => {
     const input = [1, 2, 3, 4, 5];
 
-    deepFreeze(input);
-    deepFreeze(List.tail);
-
     it('Should return all but the first value in a list', () => {
       expect(List.tail(input)).to.deep.equal([2, 3, 4, 5]);
     });
@@ -140,9 +112,6 @@ describe('List.js', () => {
   describe('List.last', () => {
     const input = [1, 2, 3, 4, 5];
 
-    deepFreeze(input);
-    deepFreeze(List.last);
-
     it('Should return the last value in a list', () => {
       expect(List.last(input)).to.equal(5);
     });
@@ -150,9 +119,6 @@ describe('List.js', () => {
 
   describe('List.initial', () => {
     const input = [1, 2, 3, 4, 5];
-
-    deepFreeze(input);
-    deepFreeze(List.initial);
 
     it('Should return all but the last value in a list', () => {
       expect(List.initial(input)).to.deep.equal([1, 2, 3, 4]);
@@ -171,9 +137,6 @@ describe('List.js', () => {
   describe('List.reverse', () => {
     const input = [1, 2, 0, 5, 4, 3];
 
-    deepFreeze(input);
-    deepFreeze(List.reverse);
-
     it('Should return the items in a list in a reversed order', () => {
       expect(List.reverse(input)).to.deep.equal([3, 4, 5, 0, 2, 1]);
     });
@@ -190,9 +153,6 @@ describe('List.js', () => {
         { color: 'orange' }
       ];
 
-      deepFreeze(input);
-      deepFreeze(List.uniqueBy);
-
       expect(List.uniqueBy((x) => x.color, input)).to.deep.equal(['orange', 'green', 'blue']);
     });
   });
@@ -201,9 +161,6 @@ describe('List.js', () => {
     it('Should find the unique items in a list', () => {
       const input = [1, 2, 3, 2, 2, 1, 3, 2, 0, 9];
 
-      deepFreeze(input);
-      deepFreeze(List.unique);
-
       expect(List.unique(input)).to.deep.equal([1, 2, 3, 0, 9]);
     });
   });
@@ -211,9 +168,6 @@ describe('List.js', () => {
   describe('List.foldl', () => {
     it('Should calculate the sum of items in a list', () => {
       const input = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-      deepFreeze(input);
-      deepFreeze(List.foldl);
 
       expect(List.foldl((x, y) => x + y, 0, input)).to.equal(45);
       expect(List.fold((x, y) => x + y, 0, input)).to.equal(45);
@@ -224,9 +178,6 @@ describe('List.js', () => {
     it('Should calculate the number of items in a list', () => {
       const input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
-      deepFreeze(input);
-      deepFreeze(List.foldl1);
-
       expect(List.foldl1((x) => x + 1, input)).to.equal(10);
       expect(List.fold1((x) => x + 1, input)).to.equal(10);
     });
@@ -236,9 +187,6 @@ describe('List.js', () => {
     it('Should concatenate the letters with the initial value', () => {
       const input = ['h', 'e', 'l', 'l'];
 
-      deepFreeze(input);
-      deepFreeze(List.foldr);
-
       expect(List.foldr((x, y) => x + y, 'o')(input)).to.equal('hello');
     });
   });
@@ -247,9 +195,6 @@ describe('List.js', () => {
     it('Should calculate the number of items in a list', () => {
       const input = [1, 2, 3, 4, 9];
 
-      deepFreeze(input);
-      deepFreeze(List.foldr1);
-
       expect(List.foldr1((x, y) => x - y, input)).to.equal(7);
     });
   });
@@ -257,9 +202,6 @@ describe('List.js', () => {
   describe('List.concat', () => {
     it('Should concatenate a list of lists into one list', () => {
       const input = [[1, 2], [3], [4, 5]];
-
-      deepFreeze(input);
-      deepFreeze(List.concat);
 
       expect(List.concat(input)).to.deep.equal([1, 2, 3, 4, 5]);
     });
@@ -270,9 +212,6 @@ describe('List.js', () => {
 
       const input = [1, 2, 3];
 
-      deepFreeze(input);
-      deepFreeze(List.concatMap);
-
       expect(List.concatMap((x) => [`${x}`, x], input)).to.deep.equal(['1', 1, '2', 2, '3', 3]);
       expect(List.concatMap((x) => [x, x], input)).to.deep.equal([1, 1, 2, 2, 3, 3]);
     });
@@ -281,9 +220,6 @@ describe('List.js', () => {
   describe('List.flatten', () => {
     it('Should flatten a list', () => {
       const input = [1, [[2], 3], [4, [[5]]]];
-
-      deepFreeze(input);
-      deepFreeze(List.flatten);
 
       expect(List.flatten(input)).to.deep.equal([1, 2, 3, 4, 5]);
     });
@@ -325,9 +261,6 @@ describe('List.js', () => {
       { input: ['foo', 'bar', 'burp'], predicate: get('length'), expected: { 3: 2, 4: 1 } },
       { input: [-3, 1, 2, 3, 4, 5], predicate: (x) => x > 2, expected: { true: 3, false: 3 } }
     ];
-
-    deepFreeze(cases);
-    deepFreeze(List.countBy);
 
     it('Should count the occurences by a given predicate', () => {
       cases.forEach(({ input, predicate, expected }) => {
@@ -490,9 +423,6 @@ describe('List.js', () => {
     it('Should take the first n elements of a list', () => {
       const input = [2, 3, 5, 8, 1, 0, 9];
 
-      deepFreeze(input);
-      deepFreeze(List.take);
-
       expect(List.take(2, input)).to.deep.equal([2, 3]);
       expect(List.take(3, input)).to.deep.equal([2, 3, 5]);
       expect(List.take(1, input)).to.deep.equal([2]);
@@ -506,9 +436,6 @@ describe('List.js', () => {
     it('Should take the first n elements that satisfy the given predicate', () => {
       const input = [2, 3, 5, 8, 1, 0, 9];
 
-      deepFreeze(input);
-      deepFreeze(List.takeWhile);
-
       expect(List.takeWhile((n) => n <= 3, input)).to.deep.equal([2, 3]);
     });
   });
@@ -516,9 +443,6 @@ describe('List.js', () => {
   describe('List.drop', () => {
     it('Should drop the first n elements of a list', () => {
       const input = [2, 3, 5, 8, 1, 0, 9];
-
-      deepFreeze(input);
-      deepFreeze(List.drop);
 
       expect(List.drop(2, input)).to.deep.equal([5, 8, 1, 0, 9]);
       expect(List.drop(3, input)).to.deep.equal([8, 1, 0, 9]);
@@ -532,9 +456,6 @@ describe('List.js', () => {
   describe('List.dropWhile', () => {
     it('Should drop the first n elements that satisfy the given predicate', () => {
       const input = [2, 3, 5, 8, 1, 0, 9];
-
-      deepFreeze(input);
-      deepFreeze(List.dropWhile);
 
       expect(List.dropWhile((n) => n <= 3, input)).to.deep.equal([5, 8, 1, 0, 9]);
     });

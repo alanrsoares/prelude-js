@@ -1,7 +1,7 @@
-import { curry } from '../Func';
-import { range } from '../List';
+import curry from '../Func/curry';
+import range from '../List/range';
 
-//:: (Number, b) -> [b]
+//+ replicate :: (Number, b) -> [b]
 export const replicate = curry((n, x) => range(n).map(() => x));
 
 export default replicate;
