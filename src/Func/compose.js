@@ -1,4 +1,4 @@
 //+ compose :: (b -> c) -> (a -> b) -> a -> c
-export default (...fs) =>
-  (v, ...args) =>
-    fs.reduceRight((g, f) => f(g, ...args), v);
+export default (...fs) => (...args) =>
+  (([g, ...gs]) => 
+    gs.reduce((acc, h) => h(acc), g(...args)))(fs.reverse());
