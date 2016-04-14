@@ -10,5 +10,8 @@ var _FuncCompose = require('../Func/compose');
 
 var _FuncCompose2 = _interopRequireDefault(_FuncCompose);
 
-exports['default'] = (0, _FuncCompose2['default'])(JSON.parse, JSON.stringify);
+exports['default'] = function (x) {
+  return JSON.parse(JSON.stringify(x));
+};
+
 module.exports = exports['default'];
