@@ -2,7 +2,6 @@ import { expect } from 'chai'
 import General from '../src/General'
 
 describe('General.js', () => {
-
   describe('General.deny', () => {
     it('Should return the negation of its own argument value', () => {
       expect(General.deny(0)).to.equal(true)

@@ -11,4 +11,5 @@ export default {
   List,
   Num,
   Obj,
-Str}
+  Str
+}

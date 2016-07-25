@@ -9,7 +9,8 @@
     "cover": "istanbul cover _mocha -- --compilers js:babel/register -R spec && cat ./coverage/coverage.json | codecov",
     "dist": "scripts/dist",
     "release": "scripts/release",
-    "docs": "scripts/build-docs"
+    "docs": "scripts/build-docs",
+    "lint": "standard src/* test/* --global describe --global it"
   },
   "repository": {
     "type": "git",
