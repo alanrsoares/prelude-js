@@ -1,5 +1,5 @@
-import maximumBy from './maximumBy';
-import id from '../General/id';
+import maximumBy from './maximumBy'
+import id from '../General/id'
 
-//+ maximun :: [Number] -> Number
-export default maximumBy(id);
+// + maximun :: [Number] -> Number
+export default maximumBy(id)

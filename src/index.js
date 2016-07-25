@@ -1,9 +1,9 @@
-import Func from './Func';
-import General from './General';
-import List from './List';
-import Num from './Num';
-import Obj from './Obj';
-import Str from './Str';
+import Func from './Func'
+import General from './General'
+import List from './List'
+import Num from './Num'
+import Obj from './Obj'
+import Str from './Str'
 
 export default {
   Func,
@@ -11,5 +11,4 @@ export default {
   List,
   Num,
   Obj,
-  Str
-};
+Str}

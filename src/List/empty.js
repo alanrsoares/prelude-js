@@ -1,2 +1,2 @@
-//:: [a] -> Boolean
-export default (xs) => !xs.length;
+// :: [a] -> Boolean
+export default (xs) => !xs.length

@@ -1,4 +1,4 @@
-import curry from '../Func/curry';
+import curry from '../Func/curry'
 
-//+ startsWith :: String -> String -> Bool
-export default curry((search, target) => target && target.indexOf(search) === 0);
+// + startsWith :: String -> String -> Bool
+export default curry((search, target) => target && target.indexOf(search) === 0)

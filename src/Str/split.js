@@ -1,4 +1,4 @@
-import curry from '../Func/curry';
+import curry from '../Func/curry'
 
-//+ split :: String -> String -> String[]
-export default curry((sep, str) => str.split(sep));
+// + split :: String -> String -> String[]
+export default curry((sep, str) => str.split(sep))

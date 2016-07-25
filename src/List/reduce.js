@@ -1,4 +1,4 @@
-import curry from '../Func/curry';
+import curry from '../Func/curry'
 
-//+ reduce :: ((a, b) -> a) -> [b] -> a
-export default curry((fn, initial, xs) => xs.reduce(fn, initial));
+// + reduce :: ((a, b) -> a) -> [b] -> a
+export default curry((fn, initial, xs) => xs.reduce(fn, initial))

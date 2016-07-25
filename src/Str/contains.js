@@ -1,4 +1,4 @@
-import curry from '../Func/curry';
+import curry from '../Func/curry'
 
-//+ contains :: String -> String -> Bool
-export default curry((search, target) => target && target.indexOf(search) > -1);
+// + contains :: String -> String -> Bool
+export default curry((search, target) => target && target.indexOf(search) > -1)

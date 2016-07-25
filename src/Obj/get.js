@@ -1,3 +1,3 @@
-import curry from '../Func/curry';
+import curry from '../Func/curry'
 
-export default curry((member, x) => x[member]);
+export default curry((member, x) => x[member])

@@ -1,10 +1,10 @@
-import apply from './apply';
-import compose from './compose';
-import curry from './curry';
-import deny from './deny';
-import fix from './fix';
-import flip from './flip';
-import memoize from './memoize';
+import apply from './apply'
+import compose from './compose'
+import curry from './curry'
+import deny from './deny'
+import fix from './fix'
+import flip from './flip'
+import memoize from './memoize'
 
 export default {
   apply,
@@ -13,6 +13,4 @@ export default {
   deny,
   fix,
   flip,
-  memoize
-};
-
+memoize}

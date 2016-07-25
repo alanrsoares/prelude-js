@@ -1,4 +1,4 @@
-//:: a -> a
-export const id = (x) => x;
+// :: a -> a
+export const id = (x) => x
 
-export default id;
+export default id

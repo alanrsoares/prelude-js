@@ -1,8 +1,8 @@
-//+ memoize :: (a -> b) -> a -> b
+// + memoize :: (a -> b) -> a -> b
 export default (fn) => {
-  const memo = {};
+  const memo = {}
   return (...args) => {
-    const key = args.map((arg) => arg + typeof arg).join('');
-    return (key in memo) ? memo[key] : (memo[key] = fn(...args));
-  };
-};
+    const key = args.map((arg) => arg + typeof arg).join('')
+    return (key in memo) ? memo[key] : (memo[key] = fn(...args))
+  }
+}

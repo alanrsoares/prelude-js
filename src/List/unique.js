@@ -1,5 +1,5 @@
-import uniqueBy from './uniqueBy';
-import id from '../General/id';
+import uniqueBy from './uniqueBy'
+import id from '../General/id'
 
-//+ unique :: [a] -> [a]
-export default (xs) => uniqueBy(id, xs);
+// + unique :: [a] -> [a]
+export default (xs) => uniqueBy(id, xs)

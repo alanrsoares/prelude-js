@@ -1,2 +1,2 @@
-//+ deny :: a -> a
-export default (x) => !x;
+// + deny :: a -> a
+export default (x) => !x

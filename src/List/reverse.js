@@ -1,2 +1,2 @@
-//+ reverse :: [a] -> [a]
-export default (xs) => xs.concat().reverse();
+// + reverse :: [a] -> [a]
+export default (xs) => xs.concat().reverse()

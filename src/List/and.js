@@ -1,4 +1,4 @@
-import reduce from './reduce';
+import reduce from './reduce'
 
-//+ and :: [a] -> Boolean
-export default reduce((acc, x) => acc && !!x, true);
+// + and :: [a] -> Boolean
+export default reduce((acc, x) => acc && !!x, true)

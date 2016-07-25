@@ -1,4 +1,4 @@
-import sum from './sum';
+import sum from './sum'
 
-//+ mean :: [Number] -> Number
-export default (xs) => sum(xs) / xs.length;
+// + mean :: [Number] -> Number
+export default (xs) => sum(xs) / xs.length

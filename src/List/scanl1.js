@@ -1,3 +1,3 @@
-import scan1 from './scan1';
+import scan1 from './scan1'
 
-export default scan1;
+export default scan1

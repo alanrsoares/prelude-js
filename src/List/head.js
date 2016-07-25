@@ -1,2 +1,2 @@
-//+ head :: [a] -> a
-export default (xs) => xs[0];
+// + head :: [a] -> a
+export default (xs) => xs[0]

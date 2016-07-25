@@ -1,4 +1,4 @@
-import add from '../Num/add';
+import add from '../Num/add'
 
-//+ sum :: [Number] -> Number
-export default (xs) => xs.reduceRight(add);
+// + sum :: [Number] -> Number
+export default (xs) => xs.reduceRight(add)
