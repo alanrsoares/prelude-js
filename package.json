@@ -40,6 +40,7 @@
     "istanbul": "^0.4.1",
     "minimist": "^1.2.0",
     "mocha": "^2.3.4",
-    "releasy": "^1.5.5"
+    "releasy": "^1.5.5",
+    "standard": "^7.1.2"
   }
 }
