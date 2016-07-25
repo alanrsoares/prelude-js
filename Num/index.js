@@ -11,6 +11,5 @@ var _add = require('./add');
 var _add2 = _interopRequireDefault(_add);
 
 exports['default'] = {
-  add: _add2['default']
-};
+  add: _add2['default'] };
 module.exports = exports['default'];

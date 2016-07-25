@@ -51,6 +51,5 @@ exports['default'] = {
   objToPairs: _objToPairs2['default'],
   pairsToObj: _pairsToObj2['default'],
   reduce: _reduce2['default'],
-  values: _values2['default']
-};
+  values: _values2['default'] };
 module.exports = exports['default'];

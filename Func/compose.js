@@ -1,12 +1,20 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-exports["default"] = function () {
+var _ListInitial = require('../List/initial');
+
+var _ListInitial2 = _interopRequireDefault(_ListInitial);
+
+var _ListLast = require('../List/last');
+
+var _ListLast2 = _interopRequireDefault(_ListLast);
+
+exports['default'] = function () {
   for (var _len = arguments.length, fs = Array(_len), _key = 0; _key < _len; _key++) {
     fs[_key] = arguments[_key];
   }
@@ -16,18 +24,10 @@ exports["default"] = function () {
       args[_key2] = arguments[_key2];
     }
 
-    return (function (_ref) {
-      var _ref2 = _toArray(_ref);
-
-      var g = _ref2[0];
-
-      var gs = _ref2.slice(1);
-
-      return gs.reduce(function (acc, h) {
-        return h(acc);
-      }, g.apply(undefined, args));
-    })(fs.reverse());
+    return (0, _ListInitial2['default'])(fs).reduceRight(function (acc, f) {
+      return f.call(undefined, acc);
+    }, (0, _ListLast2['default'])(fs).apply(undefined, args));
   };
 };
 
-module.exports = exports["default"];
+module.exports = exports['default'];

@@ -356,6 +356,5 @@ exports['default'] = {
   zip: _zip2['default'],
   zipAll: _zipAll2['default'],
   zipAllWith: _zipAllWith2['default'],
-  zipWith: _zipWith2['default']
-};
+  zipWith: _zipWith2['default'] };
 module.exports = exports['default'];

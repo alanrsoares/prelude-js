@@ -131,6 +131,5 @@ exports['default'] = {
   unchars: _unchars2['default'],
   unlines: _unlines2['default'],
   unwords: _unwords2['default'],
-  words: _words2['default']
-};
+  words: _words2['default'] };
 module.exports = exports['default'];

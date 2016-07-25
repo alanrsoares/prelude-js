@@ -41,6 +41,5 @@ exports['default'] = {
   deny: _deny2['default'],
   fix: _fix2['default'],
   flip: _flip2['default'],
-  memoize: _memoize2['default']
-};
+  memoize: _memoize2['default'] };
 module.exports = exports['default'];

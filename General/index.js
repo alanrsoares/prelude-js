@@ -41,6 +41,5 @@ exports['default'] = {
   id: _id2['default'],
   ofType: _ofType2['default'],
   replicate: _replicate2['default'],
-  typeOf: _typeOf2['default']
-};
+  typeOf: _typeOf2['default'] };
 module.exports = exports['default'];
