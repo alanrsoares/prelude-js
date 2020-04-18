@@ -1,5 +1,5 @@
 import maximumBy from './maximumBy'
 import id from '../General/id'
 
-// + maximun :: [Number] -> Number
+// + maximum :: [Number] -> Number
 export default maximumBy(id)
