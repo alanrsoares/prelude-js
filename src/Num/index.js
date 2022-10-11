@@ -1,4 +1,3 @@
 import add from './add'
 
-export default {
-add}
+export default { add }

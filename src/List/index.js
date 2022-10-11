@@ -139,4 +139,5 @@ export default {
   zip,
   zipAll,
   zipAllWith,
-zipWith}
+  zipWith
+}

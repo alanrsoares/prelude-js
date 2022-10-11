@@ -7,4 +7,4 @@ export default curry((fn, xs) => xs.concat()
     : fn(x) < fn(y)
       ? -1
       : 0
-))
+  ))

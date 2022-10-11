@@ -23,7 +23,9 @@ describe('Func.js', () => {
 
   describe('Func.fix', () => {
     it('Should run a recursive-ready inline function', () => {
-      const fiftyFive = Func.fix((fib) => (n) => n <= 1 ? 1 : fib(n - 1) + fib(n - 2))(9)
+      const fiftyFive = Func.fix(
+        (fib) => (n) => n <= 1 ? 1 : fib(n - 1) + fib(n - 2)
+      )(9)
       expect(fiftyFive).to.equal(55)
     })
   })
@@ -46,7 +48,7 @@ describe('Func.js', () => {
       const memoLength = Func.memoize(length)
       const cases = ['foo', 'bar', 'baz', 'buzz']
 
-      cases.map((word, k) => {
+      cases.forEach((word, k) => {
         for (let i = 0; i <= k; i++) {
           memoLength(word)
         }

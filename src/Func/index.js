@@ -13,4 +13,5 @@ export default {
   deny,
   fix,
   flip,
-memoize}
+  memoize
+}

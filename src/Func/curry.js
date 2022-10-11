@@ -1,5 +1,5 @@
 // :: ((a, b) -> c) -> a -> b -> c
-export default function(fn, ...args) {
+export default function (fn, ...args) {
   const c = (fnArgs) => {
     if (fnArgs.length >= fn.length) {
       return fn.apply(this, fnArgs)

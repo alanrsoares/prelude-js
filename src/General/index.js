@@ -13,4 +13,5 @@ export default {
   id,
   ofType,
   replicate,
-typeOf}
+  typeOf
+}

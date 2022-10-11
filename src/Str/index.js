@@ -49,4 +49,5 @@ export default {
   unchars,
   unlines,
   unwords,
-words}
+  words
+}

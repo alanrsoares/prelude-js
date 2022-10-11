@@ -17,4 +17,5 @@ export default {
   objToPairs,
   pairsToObj,
   reduce,
-values}
+  values
+}
