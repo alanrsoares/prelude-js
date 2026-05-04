@@ -1,0 +1,37 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - master
+      - bun-modernization-2026
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Check formatting
+        run: bun run format:check
+
+      - name: Run linter
+        run: bun run lint
+
+      - name: Run tests
+        run: bun run test
+
+      - name: Verify docs generation
+        run: |
+          bun run docs
+          git diff --exit-code -- docs/README.md

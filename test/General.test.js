@@ -36,10 +36,9 @@ describe('General.js', () => {
     it('Should assert wether a value is of a given type', () => {
       expect(General.ofType('String', 'a')).toEqual(true)
       expect(General.ofType('Array', [])).toEqual(true)
-      expect(General.ofType('Function', () => {
-      })).toEqual(true)
+      expect(General.ofType('Function', () => {})).toEqual(true)
       expect(General.ofType('Number', 0)).toEqual(true)
-      expect(General.ofType('Number', NaN)).toEqual(true)
+      expect(General.ofType('Number', Number.NaN)).toEqual(true)
     })
   })
 
@@ -54,7 +53,11 @@ describe('General.js', () => {
       expect(General.areSimilar({ a: { b: [2] } }, { a: { b: [2] } })).toBe(true)
       expect(General.areSimilar({ a: { b: [1, '{}'] } }, { a: { b: [1, '{}'] } })).toBe(true)
       expect(General.areSimilar({ a: { b: [1, '{}'] } }, { a: { b: [1, '{}'] } })).toBe(true)
-      expect(General.areSimilar({ a: { b: [1, '{}', [3, '4', ['98']]] } })({ a: { b: [[['98'], 3, '4'], '{}', 1] } })).toBe(false)
+      expect(
+        General.areSimilar({ a: { b: [1, '{}', [3, '4', ['98']]] } })({
+          a: { b: [[['98'], 3, '4'], '{}', 1] },
+        }),
+      ).toBe(false)
       expect(General.areSimilar(null, 1)).toBe(false)
       expect(General.areSimilar([1], null)).toBe(false)
       expect(General.areSimilar({}, null)).toBe(false)

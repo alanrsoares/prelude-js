@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'bun:test'
+import id from '../src/General/id.js'
 import List from '../src/List/index.js'
 import get from '../src/Obj/get.js'
-import id from '../src/General/id.js'
 import { Case, run } from './cases.js'
 
 describe('List.js', () => {
@@ -28,10 +28,11 @@ describe('List.js', () => {
 
   describe('List.map', () => {
     it('Should apply a function to each item in a list, returning a new list with the result', () => {
-      run(List.map,
+      run(
+        List.map,
         Case([(x) => ++x, [1, 2, 3, 4, 5]], [2, 3, 4, 5, 6]),
         Case([(x) => --x, [2, 3, 4, 5, 6]], [1, 2, 3, 4, 5]),
-        Case([(x) => x * 2, [1, 2, 3, 4, 5]], [2, 4, 6, 8, 10])
+        Case([(x) => x * 2, [1, 2, 3, 4, 5]], [2, 4, 6, 8, 10]),
       )
     })
   })
@@ -67,7 +68,10 @@ describe('List.js', () => {
     it('Should return a list with two lists containing the passed and failed values given a predicate', () => {
       const input = [0, true, 1, 2, false, 4, 5]
 
-      expect(List.partition((x) => x, input)).toEqual([[true, 1, 2, 4, 5], [0, false]])
+      expect(List.partition((x) => x, input)).toEqual([
+        [true, 1, 2, 4, 5],
+        [0, false],
+      ])
     })
   })
 
@@ -150,7 +154,7 @@ describe('List.js', () => {
         { color: 'orange' },
         { color: 'blue' },
         { color: 'green' },
-        { color: 'orange' }
+        { color: 'orange' },
       ]
 
       expect(List.uniqueBy((x) => x.color, input)).toEqual(['orange', 'green', 'blue'])
@@ -244,7 +248,7 @@ describe('List.js', () => {
   describe('List.union', () => {
     const cases = [
       { input: [[1, 2, 3, 4], [2, 4, 5], [9], []], expected: [1, 2, 3, 4, 5, 9] },
-      { input: [[1, 5, 7], [3, 5], []], expected: [1, 5, 7, 3] }
+      { input: [[1, 5, 7], [3, 5], []], expected: [1, 5, 7, 3] },
     ]
 
     it('Should calculate the union between lists', () => {
@@ -258,7 +262,7 @@ describe('List.js', () => {
     const cases = [
       { input: [4.2, 4.4, 9.8], predicate: Math.floor, expected: { 4: 2, 9: 1 } },
       { input: ['foo', 'bar', 'burp'], predicate: get('length'), expected: { 3: 2, 4: 1 } },
-      { input: [-3, 1, 2, 3, 4, 5], predicate: (x) => x > 2, expected: { true: 3, false: 3 } }
+      { input: [-3, 1, 2, 3, 4, 5], predicate: (x) => x > 2, expected: { true: 3, false: 3 } },
     ]
 
     it('Should count the occurences by a given predicate', () => {
@@ -271,14 +275,20 @@ describe('List.js', () => {
   describe('List.groupBy', () => {
     it('Should group the matching results by a given predicate', () => {
       expect(List.groupBy(Math.floor, [4.2, 4.4, 9.8])).toEqual({ 4: [4.2, 4.4], 9: [9.8] })
-      expect(List.groupBy(get('length'), ['one', 'two', 'three'])).toEqual({ 3: ['one', 'two'], 5: ['three'] })
-      expect(List.groupBy((x) => x > 2, [-3, 1, 2, 3, 4, 5])).toEqual({ true: [3, 4, 5], false: [-3, 1, 2] })
+      expect(List.groupBy(get('length'), ['one', 'two', 'three'])).toEqual({
+        3: ['one', 'two'],
+        5: ['three'],
+      })
+      expect(List.groupBy((x) => x > 2, [-3, 1, 2, 3, 4, 5])).toEqual({
+        true: [3, 4, 5],
+        false: [-3, 1, 2],
+      })
     })
   })
 
   describe('List.and', () => {
     it('Should return false if any item in the list is false, otherwise returns true', () => {
-      const neither = (xs, y) => List.and(xs.map(x => x !== y))
+      const neither = (xs, y) => List.and(xs.map((x) => x !== y))
       expect(neither([1, 2], 2)).toBe(false)
       expect(neither([1, 2], 3)).toBe(true)
       expect(List.and([1, 2, 3])).toBe(true)
@@ -288,7 +298,7 @@ describe('List.js', () => {
 
   describe('List.or', () => {
     it('Should return true if any item in the list is true, otherwise returns false', () => {
-      const either = (xs, y) => List.or(xs.map(x => x === y))
+      const either = (xs, y) => List.or(xs.map((x) => x === y))
       expect(either([1, 2], 2)).toBe(true)
       expect(either([1, 2], 3)).toBe(false)
       expect(List.or([1, 2, 3])).toEqual(true)
@@ -320,7 +330,7 @@ describe('List.js', () => {
 
   describe('List.sortWith', () => {
     it('Should sort a list with a custom binary predicate.', () => {
-      const sorter = (x, y) => x.length > y.length ? 1 : x.length < y.length ? -1 : 0
+      const sorter = (x, y) => (x.length > y.length ? 1 : x.length < y.length ? -1 : 0)
       expect(List.sortWith(sorter, ['three', 'one', 'two'])).toEqual(['one', 'two', 'three'])
     })
   })
@@ -371,21 +381,21 @@ describe('List.js', () => {
 
   describe('List.maximumBy', () => {
     it('Should return the item with the maximum value resulting from applying a predicate.', () => {
-      expect(List.maximumBy(x => x, [1, 2, 3, 4, 5])).toBe(5)
-      expect(List.maximumBy(x => x, [-1, -2, -3, -4, -5])).toBe(-1)
-      expect(List.maximumBy(x => x, ['1', '3', '2'])).toBe('3')
-      expect(List.maximumBy(x => x, ['a', 'c', 'b'])).toBe('c')
-      expect(List.maximumBy(x => x, ['w', 'c', 'b'])).toBe('w')
+      expect(List.maximumBy((x) => x, [1, 2, 3, 4, 5])).toBe(5)
+      expect(List.maximumBy((x) => x, [-1, -2, -3, -4, -5])).toBe(-1)
+      expect(List.maximumBy((x) => x, ['1', '3', '2'])).toBe('3')
+      expect(List.maximumBy((x) => x, ['a', 'c', 'b'])).toBe('c')
+      expect(List.maximumBy((x) => x, ['w', 'c', 'b'])).toBe('w')
     })
   })
 
   describe('List.minimumBy', () => {
     it('Should return the item with the minimum value resulting from applying a predicate.', () => {
-      expect(List.minimumBy(x => x, [1, 2, 3, 4, 5])).toBe(1)
-      expect(List.minimumBy(x => x, [-1, -2, -3, -4, -5])).toBe(-5)
-      expect(List.minimumBy(x => x, ['1', '3', '2'])).toBe('1')
-      expect(List.minimumBy(x => x, ['a', 'c', 'b'])).toBe('a')
-      expect(List.minimumBy(x => x, ['w', 'c', 'b'])).toBe('b')
+      expect(List.minimumBy((x) => x, [1, 2, 3, 4, 5])).toBe(1)
+      expect(List.minimumBy((x) => x, [-1, -2, -3, -4, -5])).toBe(-5)
+      expect(List.minimumBy((x) => x, ['1', '3', '2'])).toBe('1')
+      expect(List.minimumBy((x) => x, ['a', 'c', 'b'])).toBe('a')
+      expect(List.minimumBy((x) => x, ['w', 'c', 'b'])).toBe('b')
       expect(List.minimumBy(get('length'), ['was', 'a', 'test'])).toBe('a')
     })
   })
@@ -460,13 +470,44 @@ describe('List.js', () => {
 
   describe('List.zip', () => {
     it('Should zip together its two arguments into a list of lists. ', () => {
-      run(List.zip,
+      run(
+        List.zip,
         Case([[], []], []),
-        Case([[1, 2], [4, 5]], [[1, 4], [2, 5]]),
-        Case([[1, 2], [4, 5, 6]], [[1, 4], [2, 5]]),
-        Case([[1, 2, 3], [4, 5]], [[1, 4], [2, 5]])
+        Case(
+          [
+            [1, 2],
+            [4, 5],
+          ],
+          [
+            [1, 4],
+            [2, 5],
+          ],
+        ),
+        Case(
+          [
+            [1, 2],
+            [4, 5, 6],
+          ],
+          [
+            [1, 4],
+            [2, 5],
+          ],
+        ),
+        Case(
+          [
+            [1, 2, 3],
+            [4, 5],
+          ],
+          [
+            [1, 4],
+            [2, 5],
+          ],
+        ),
       )
-      expect(List.zip([1, 2, 3])([4, 5])).toEqual([[1, 4], [2, 5]])
+      expect(List.zip([1, 2, 3])([4, 5])).toEqual([
+        [1, 4],
+        [2, 5],
+      ])
     })
   })
 
@@ -474,10 +515,7 @@ describe('List.js', () => {
     const sum = (a, b) => a + b
 
     it('Should zipWith together its two arguments into a list of lists. ', () => {
-      run(List.zipWith,
-        Case([id, [], []], []),
-        Case([sum, [1, 2, 3], [3, 2, 1]], [4, 4, 4])
-      )
+      run(List.zipWith, Case([id, [], []], []), Case([sum, [1, 2, 3], [3, 2, 1]], [4, 4, 4]))
       expect(List.zipWith(id)([], [])).toEqual([])
     })
   })

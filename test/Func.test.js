@@ -23,9 +23,7 @@ describe('Func.js', () => {
 
   describe('Func.fix', () => {
     it('Should run a recursive-ready inline function', () => {
-      const fiftyFive = Func.fix(
-        (fib) => (n) => n <= 1 ? 1 : fib(n - 1) + fib(n - 2)
-      )(9)
+      const fiftyFive = Func.fix((fib) => (n) => (n <= 1 ? 1 : fib(n - 1) + fib(n - 2)))(9)
       expect(fiftyFive).toBe(55)
     })
   })

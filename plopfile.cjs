@@ -8,7 +8,7 @@ module.exports = function (plop) {
         type: 'list',
         name: 'module',
         message: 'Which module should receive the new function?',
-        choices: MODULES
+        choices: MODULES,
       },
       {
         type: 'input',
@@ -18,8 +18,8 @@ module.exports = function (plop) {
           return /^[a-z][A-Za-z0-9]*$/.test(value)
             ? true
             : 'Use lowerCamelCase names, starting with a letter.'
-        }
-      }
+        },
+      },
     ],
     actions(data) {
       const moduleIndex = `src/${data.module}/index.js`
@@ -31,21 +31,21 @@ module.exports = function (plop) {
           type: 'add',
           path: `src/${data.module}/{{name}}.js`,
           templateFile: 'templates/function.js.hbs',
-          abortOnFail: true
+          abortOnFail: true,
         },
         {
           type: 'modify',
           path: moduleIndex,
           pattern: importPattern,
-          template: "$1import {{name}} from './{{name}}.js'\n"
+          template: "$1import {{name}} from './{{name}}.js'\n",
         },
         {
           type: 'modify',
           path: moduleIndex,
           pattern: exportPattern,
-          template: "export default {\n  {{name}},\n"
-        }
+          template: 'export default {\n  {{name}},\n',
+        },
       ]
-    }
+    },
   })
 }

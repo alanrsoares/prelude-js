@@ -31,13 +31,23 @@ describe('Obj.js', () => {
   })
   describe('Obj.pairsToObj', () => {
     it('Takes a list of pairs and turns them into an object', () => {
-      expect(Obj.pairsToObj([['a', 'b'], ['c', 'd'], ['e', 1]])).toEqual({ a: 'b', c: 'd', e: 1 })
+      expect(
+        Obj.pairsToObj([
+          ['a', 'b'],
+          ['c', 'd'],
+          ['e', 1],
+        ]),
+      ).toEqual({ a: 'b', c: 'd', e: 1 })
     })
   })
 
   describe('Obj.objToPairs', () => {
     it('Takes an object and returns a list of pairs', () => {
-      expect(Obj.objToPairs({ a: 'b', c: 'd', e: 1 })).toEqual([['a', 'b'], ['c', 'd'], ['e', 1]])
+      expect(Obj.objToPairs({ a: 'b', c: 'd', e: 1 })).toEqual([
+        ['a', 'b'],
+        ['c', 'd'],
+        ['e', 1],
+      ])
     })
   })
 

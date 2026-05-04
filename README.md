@@ -26,8 +26,9 @@ bun test
 
 ## Package Layout
 
-- `preludejs` resolves to the root module entrypoint.
+- `preludejs` resolves to `src/index.js`.
 - `preludejs/List`, `preludejs/Func`, `preludejs/Obj`, and the other module subpaths are exported directly.
 - Deep imports such as `preludejs/List/map` are also exported for consumers that want single-function entrypoints.
+- Legacy generated module folders are no longer stored in the repository root.
 
 ![Prelude-js logo](./logo.png)

@@ -1,4 +1,4 @@
-import { readdirSync } from 'fs'
+import { readdirSync } from 'node:fs'
 
 const byName = (a, b) => a.localeCompare(b)
 
@@ -18,9 +18,7 @@ function functions(m) {
     .join('')
 }
 
-const modules = moduleNames.map(
-  (m) => `\n* [${m}](${up(m)}.md)${functions(m)}`
-)
+const modules = moduleNames.map((m) => `\n* [${m}](${up(m)}.md)${functions(m)}`)
 
 const file = `# Preλude-js :: Docs\n
 ## Modules\n
