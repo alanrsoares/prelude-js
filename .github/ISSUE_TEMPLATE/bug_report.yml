@@ -1,0 +1,33 @@
+name: Bug report
+description: Report a defect or regression in the library.
+title: 'bug: '
+labels:
+  - bug
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe the bug and the expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Share a minimal reproduction, sample input, or failing usage snippet.
+      render: javascript
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include runtime, package version, and any relevant tooling details.
+      placeholder: |
+        preludejs:
+        bun:
+        node:
+        os:
+    validations:
+      required: true
