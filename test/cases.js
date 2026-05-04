@@ -1,7 +1,7 @@
-import { expect } from 'chai'
-import { curry } from '../src/Func'
+import { expect } from 'bun:test'
+import curry from '../src/Func/curry.js'
 
-const deep = (actual, expected) => expect(actual).to.deep.equal(expected)
+const deep = (actual, expected) => expect(actual).toEqual(expected)
 
 const runCase = curry((f, { input, expected, comparison }) => comparison(f(...input), expected))
 

@@ -1,14 +1,14 @@
-import { expect } from 'chai'
-import * as Func from '../src/Func'
+import { describe, expect, it } from 'bun:test'
+import Func from '../src/Func/index.js'
 
 describe('Func.js', () => {
   describe('Func.curry', () => {
     it('Should allow partial application of a function', () => {
       const sum = Func.curry((a, b) => a + b)
       const increment = sum(1)
-      expect(sum(1, 2)).to.equal(3)
-      expect(sum(3)(2)).to.equal(5)
-      expect(increment(1)).to.equal(2)
+      expect(sum(1, 2)).toBe(3)
+      expect(sum(3)(2)).toBe(5)
+      expect(increment(1)).toBe(2)
     })
   })
 
@@ -16,8 +16,8 @@ describe('Func.js', () => {
     it('Should return the application of the supplied list as arguments to the supplied function', () => {
       const sum = Func.curry((a, b) => a + b)
       const sumAll = (...xs) => xs.reduce(sum)
-      expect(Func.apply(sum, [2, 3])).to.equal(5)
-      expect(Func.apply(sumAll, [1, 2, 3, 4, 5])).to.equal(15)
+      expect(Func.apply(sum, [2, 3])).toBe(5)
+      expect(Func.apply(sumAll, [1, 2, 3, 4, 5])).toBe(15)
     })
   })
 
@@ -26,7 +26,7 @@ describe('Func.js', () => {
       const fiftyFive = Func.fix(
         (fib) => (n) => n <= 1 ? 1 : fib(n - 1) + fib(n - 2)
       )(9)
-      expect(fiftyFive).to.equal(55)
+      expect(fiftyFive).toBe(55)
     })
   })
 
@@ -35,9 +35,9 @@ describe('Func.js', () => {
       const subtract = (a, b) => a - b
       const invertedSubtract = Func.flip(subtract)
       const invertedPower = Func.flip(Math.pow)
-      expect(subtract(2, 5)).to.equal(-3)
-      expect(invertedSubtract(2, 5)).to.equal(3)
-      expect(invertedPower(2, 5)).to.equal(25)
+      expect(subtract(2, 5)).toBe(-3)
+      expect(invertedSubtract(2, 5)).toBe(3)
+      expect(invertedPower(2, 5)).toBe(25)
     })
   })
 
@@ -54,7 +54,7 @@ describe('Func.js', () => {
         }
       })
 
-      expect(called).to.equal(cases.length)
+      expect(called).toBe(cases.length)
     })
   })
 
@@ -64,7 +64,7 @@ describe('Func.js', () => {
       const negate = (x) => -x
       const complex = Func.compose(plus1, negate, Math.pow)
 
-      expect(complex(3, 2)).to.equal(plus1(negate(Math.pow(3, 2))))
+      expect(complex(3, 2)).toBe(plus1(negate(Math.pow(3, 2))))
     })
   })
 
@@ -72,8 +72,8 @@ describe('Func.js', () => {
     it('Should deny the result of a function', () => {
       const gt2 = (x) => x > 2
       const twoOrLess = Func.deny(gt2)
-      expect(gt2(2)).to.equal(false)
-      expect(twoOrLess(2)).to.equal(true)
+      expect(gt2(2)).toBe(false)
+      expect(twoOrLess(2)).toBe(true)
     })
   })
 })
