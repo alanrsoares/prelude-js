@@ -1,0 +1,16 @@
+{
+  "name": "@alanrsoares/preludejs",
+  "version": "1.0.0",
+  "publish": {
+    "include": ["LICENSE", "README.md", "src/**/*.js"]
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./Func": "./src/Func/index.js",
+    "./General": "./src/General/index.js",
+    "./List": "./src/List/index.js",
+    "./Num": "./src/Num/index.js",
+    "./Obj": "./src/Obj/index.js",
+    "./Str": "./src/Str/index.js"
+  }
+}

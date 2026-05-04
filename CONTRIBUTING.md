@@ -33,4 +33,5 @@ bun run generate
 
 - Releases are managed by `release-please`.
 - npm publishing is intended to run through GitHub Actions trusted publishing.
+- JSR publishing is intended to run through GitHub Actions using OIDC.
 - Do not commit manual version bumps unless the release workflow specifically requires it.
