@@ -34,4 +34,6 @@ jobs:
         run: bun run check
 
       - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
         run: npm publish --provenance --access public
