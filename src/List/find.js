@@ -1,5 +1,5 @@
-import curry from '../Func/curry'
-import fix from '../Func/fix'
+import curry from '../Func/curry.js'
+import fix from '../Func/fix.js'
 
 // + find :: (a -> Boolean) -> [a] -> a
 export default fix((find) => curry((fn, [x, ...xs]) => x

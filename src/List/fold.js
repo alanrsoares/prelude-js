@@ -1,3 +1,3 @@
-import foldl from './foldl'
+import foldl from './foldl.js'
 
 export default foldl

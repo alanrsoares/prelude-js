@@ -1,4 +1,4 @@
-import curry from '../Func/curry'
+import curry from '../Func/curry.js'
 
 // + groupBy :: (a -> b) -> [a] -> { b: [b] }
 export default curry((fn, xs) => xs.reduce((acc, x) => {

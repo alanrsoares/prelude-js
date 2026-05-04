@@ -1,2 +1,2 @@
 // + tail :: [a] -> [a]
-export default ([x, ...xs]) => xs
+export default ([_x, ...xs]) => xs

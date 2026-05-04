@@ -1,10 +1,10 @@
-import apply from './apply'
-import compose from './compose'
-import curry from './curry'
-import deny from './deny'
-import fix from './fix'
-import flip from './flip'
-import memoize from './memoize'
+import apply from './apply.js'
+import compose from './compose.js'
+import curry from './curry.js'
+import deny from './deny.js'
+import fix from './fix.js'
+import flip from './flip.js'
+import memoize from './memoize.js'
 
 export default {
   apply,

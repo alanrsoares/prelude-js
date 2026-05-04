@@ -1,9 +1,9 @@
-import curry from '../Func/curry'
-import fix from '../Func/fix'
-import keys from '../Obj/keys'
-import get from '../Obj/get'
-import typeOf from './typeOf'
-import equals from './equals'
+import curry from '../Func/curry.js'
+import fix from '../Func/fix.js'
+import keys from '../Obj/keys.js'
+import get from '../Obj/get.js'
+import typeOf from './typeOf.js'
+import equals from './equals.js'
 
 // + areSimilar :: a -> a -> Boolean
 export default fix((areSimilar) => curry((a, b) => {

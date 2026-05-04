@@ -1,3 +1,3 @@
-import scan from './scan'
+import scan from './scan.js'
 
 export default scan

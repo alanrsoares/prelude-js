@@ -1,7 +1,7 @@
-import curry from '../Func/curry'
-import foldr from './foldr'
-import last from './last'
-import initial from './initial'
+import curry from '../Func/curry.js'
+import foldr from './foldr.js'
+import last from './last.js'
+import initial from './initial.js'
 
 // + foldr1 :: (a -> a -> a) -> [a] -> a
 export default curry((fn, xs) => foldr(fn, last(xs), initial(xs)))

@@ -1,4 +1,4 @@
-import curry from '../Func/curry'
+import curry from '../Func/curry.js'
 
 // + partition :: (a -> Boolean) -> [a] -> [[a] [a]]
 export default curry((fn, xs) => {
