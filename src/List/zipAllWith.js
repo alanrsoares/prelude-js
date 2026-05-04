@@ -1,6 +1,6 @@
-// + zipAllWith :: (a -> b -> c) -> [a] -> [b] -> [c]
 import curry from '../Func/curry.js'
 
+// + zipAllWith :: (a -> b -> c) -> [a] -> [b] -> [c]
 export default curry((fn, xs, ys) => {
   const length = Math.max(xs.length, ys.length)
 
