@@ -1,9 +1,11 @@
-import Func from './Func'
-import General from './General'
-import List from './List'
-import Num from './Num'
-import Obj from './Obj'
-import Str from './Str'
+import Func from './Func/index.js'
+import General from './General/index.js'
+import List from './List/index.js'
+import Num from './Num/index.js'
+import Obj from './Obj/index.js'
+import Str from './Str/index.js'
+
+export { Func, General, List, Num, Obj, Str }
 
 export default {
   Func,
@@ -11,5 +13,5 @@ export default {
   List,
   Num,
   Obj,
-  Str
+  Str,
 }

@@ -1,4 +1,4 @@
-import curry from '../Func/curry'
+import curry from '../Func/curry.js'
 
 // + foldr :: (b -> a -> b) -> b -> [a] -> b
 export default curry((fn, acc, xs) => {

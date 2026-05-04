@@ -1,6 +1,6 @@
-import curry from '../Func/curry'
-import merge from '../Obj/merge'
-import values from '../Obj/values'
+import curry from '../Func/curry.js'
+import merge from '../Obj/merge.js'
+import values from '../Obj/values.js'
 
 // + uniqueBy :: (a -> b) -> [a] -> [a]
 export default curry((fn, xs) => {

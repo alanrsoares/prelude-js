@@ -1,5 +1,0 @@
-#!/bin/bash
-module=$1
-func=$2
-
-touch src/$module/$func.js

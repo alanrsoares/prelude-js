@@ -1,4 +1,0 @@
-#!/bin/bash
-module=$1
-index=src/$module/index.js
-babel-node scripts/build-index --module=$module > $index

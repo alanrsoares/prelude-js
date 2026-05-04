@@ -1,12 +1,12 @@
-import clone from './clone'
-import get from './get'
-import keys from './keys'
-import map from './map'
-import merge from './merge'
-import objToPairs from './objToPairs'
-import pairsToObj from './pairsToObj'
-import reduce from './reduce'
-import values from './values'
+import clone from './clone.js'
+import get from './get.js'
+import keys from './keys.js'
+import map from './map.js'
+import merge from './merge.js'
+import objToPairs from './objToPairs.js'
+import pairsToObj from './pairsToObj.js'
+import reduce from './reduce.js'
+import values from './values.js'
 
 export default {
   clone,

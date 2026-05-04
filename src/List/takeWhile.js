@@ -1,4 +1,4 @@
-import curry from '../Func/curry'
+import curry from '../Func/curry.js'
 
 // + takeWhile :: (a -> Bool) -> [a] -> [a]
 export default curry((f, xs) => {

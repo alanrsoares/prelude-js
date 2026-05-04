@@ -1,0 +1,48 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "files": {
+    "ignore": [
+      "docs/*.md",
+      "Func/**",
+      "General/**",
+      "List/**",
+      "Num/**",
+      "Obj/**",
+      "Str/**",
+      "coverage/**",
+      "node_modules/**"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "asNeeded"
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noForEach": "off",
+        "useArrowFunction": "off"
+      },
+      "suspicious": {
+        "noConsole": "off"
+      },
+      "style": {
+        "noParameterAssign": "off",
+        "useExponentiationOperator": "off"
+      },
+      "correctness": {
+        "noUnusedVariables": "error"
+      }
+    }
+  }
+}

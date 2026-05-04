@@ -1,4 +1,4 @@
-import curry from '../Func/curry'
+import curry from '../Func/curry.js'
 
 // + countBy :: (a -> b) -> [a] -> { b: Number }
 export default curry((fn, xs) => xs.reduce((acc, x) => {

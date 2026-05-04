@@ -1,4 +1,4 @@
-import reduce from './reduce'
+import reduce from './reduce.js'
 
 const reducer = reduce((acc, key, value) => {
   acc[key] = value
