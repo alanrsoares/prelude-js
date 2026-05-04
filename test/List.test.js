@@ -89,6 +89,18 @@ describe('List.js', () => {
     })
   })
 
+  describe('List.elem', () => {
+    it('Should tell whether a value is present in a list', () => {
+      run(List.elem, Case([3, [1, 2, 3]], true), Case([4, [1, 2, 3]], false))
+    })
+  })
+
+  describe('List.notElem', () => {
+    it('Should tell whether a value is absent from a list', () => {
+      run(List.notElem, Case([3, [1, 2, 3]], false), Case([4, [1, 2, 3]], true))
+    })
+  })
+
   describe('List.head', () => {
     const input = [1, 2, 3, 4, 5]
 
@@ -135,6 +147,12 @@ describe('List.js', () => {
     })
     it('Should return false for an non-empty list', () => {
       expect(List.empty([1, 2, 3])).toBe(false)
+    })
+  })
+
+  describe('List.length', () => {
+    it('Should return the number of items in a list', () => {
+      run(List.length, Case([[]], 0), Case([[1, 2, 3]], 3))
     })
   })
 

@@ -28,6 +28,18 @@ const sum = (a, b) => a + b;
 apply(sum, [2, 3]); //=> 5
 ```
 
+## Func.const
+
+```haskell
+const :: a → b → a
+```
+
+> Returns the first supplied value and ignores the second.
+
+```javascript
+const('hello', 'world'); //=> 'hello'
+```
+
 ## Func.flip
 
 ```haskell
@@ -98,4 +110,17 @@ const negate = (x) => -x;
 const complex = compose(plus1, negate, Math.pow);
 
 complex(3, 2) === plus1(negate(Math.pow(3, 2)));
+```
+
+## Func.uncurry
+
+```haskell
+uncurry :: (a → b → c) → [a, b] → c
+```
+
+> Applies an array of arguments to a function, which is especially handy for curried functions.
+
+```javascript
+const add = curry((a, b) => a + b);
+uncurry(add, [2, 3]); //=> 5
 ```

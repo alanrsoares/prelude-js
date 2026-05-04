@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'bun:test'
 import Func from '../src/Func/index.js'
+import { Case, run } from './cases.js'
 
 describe('Func.js', () => {
   describe('Func.curry', () => {
@@ -72,6 +73,23 @@ describe('Func.js', () => {
       const twoOrLess = Func.deny(gt2)
       expect(gt2(2)).toBe(false)
       expect(twoOrLess(2)).toBe(true)
+    })
+  })
+
+  describe('Func.const', () => {
+    it('Should always return the first supplied value', () => {
+      const keepHello = Func.const('hello')
+
+      run(keepHello, Case(['ignored'], 'hello'), Case(['still ignored'], 'hello'))
+      run(Func.const, Case(['hello', 'world'], 'hello'), Case([0, 999], 0))
+    })
+  })
+
+  describe('Func.uncurry', () => {
+    it('Should apply an array of arguments to a function', () => {
+      const sum = Func.curry((a, b) => a + b)
+
+      run(Func.uncurry, Case([sum, [2, 3]], 5), Case([Math.max, [1, 7, 3]], 7))
     })
   })
 })

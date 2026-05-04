@@ -25,3 +25,39 @@ map :: (a → b) → [a] → [b]
 map((x) => x + 1, [1, 2, 3]);
 //=> [2, 3, 4]
 ```
+
+## List.elem
+
+```haskell
+elem :: a → [a] → Boolean
+```
+
+> Checks whether a list contains a given value.
+
+```javascript
+elem(3, [1, 2, 3]); //=> true
+```
+
+## List.length
+
+```haskell
+length :: [a] → Number
+```
+
+> Returns the number of items in a list.
+
+```javascript
+length([1, 2, 3]); //=> 3
+```
+
+## List.notElem
+
+```haskell
+notElem :: a → [a] → Boolean
+```
+
+> Checks whether a list does not contain a given value.
+
+```javascript
+notElem(4, [1, 2, 3]); //=> true
+```
