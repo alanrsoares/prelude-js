@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/alanrsoares/prelude-js/compare/v1.0.0...v1.1.0) (2026-05-04)
+
+
+### Features
+
+* **prelude:** add more prelude helpers ([14e1978](https://github.com/alanrsoares/prelude-js/commit/14e19785dc67c7e6108851ff5878b9288a1a8fb3))
+
+
+### Tooling
+
+* add missing docstrings ([e886e5f](https://github.com/alanrsoares/prelude-js/commit/e886e5fe1ab1d4fd05317cbd6351f45fe066584d))
+* move typedocs closer to exports ([e17aba5](https://github.com/alanrsoares/prelude-js/commit/e17aba528bca2d645978692635c8005dae394f1e))
+* **publish:** add jsr support ([b03258e](https://github.com/alanrsoares/prelude-js/commit/b03258e1966c328a919ab38f1bddd9ff7c7ab0bc))
+
 ## [1.0.0](https://github.com/alanrsoares/prelude-js/compare/v0.4.2...v1.0.0) (2026-05-04)
 
 
