@@ -1,6 +1,6 @@
 {
   "name": "preludejs",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A modular implementation of Haskell's Prelude library in ES6",
   "main": "./src/index.js",
   "type": "module",
@@ -21,7 +21,12 @@
     "./Str/*": "./src/Str/*.js",
     "./package.json": "./package.json"
   },
-  "files": ["src", "docs", "README.md", "LICENSE"],
+  "files": [
+    "src",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
   "sideEffects": false,
   "engines": {
     "bun": ">=1.3.13",
@@ -45,7 +50,15 @@
     "type": "git",
     "url": "git+https://github.com/alanrsoares/prelude-js.git"
   },
-  "keywords": ["prelude", "functional", "js", "es6", "haskell", "lodash", "underscore"],
+  "keywords": [
+    "prelude",
+    "functional",
+    "js",
+    "es6",
+    "haskell",
+    "lodash",
+    "underscore"
+  ],
   "author": "github.com/alanrsoares",
   "license": "MIT",
   "bugs": {
