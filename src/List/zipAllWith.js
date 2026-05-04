@@ -1,3 +1,4 @@
+// + zipAllWith :: (a -> b -> c) -> [a] -> [b] -> [c]
 import curry from '../Func/curry.js'
 
 export default curry((fn, xs, ys) => {

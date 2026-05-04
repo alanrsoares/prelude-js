@@ -1,3 +1,4 @@
+// + elemIndex :: a -> [a] -> Number
 import curry from '../Func/curry.js'
 import findIndex from './findIndex.js'
 

@@ -1,3 +1,4 @@
+// + scan1 :: (a -> a -> a) -> [a] -> [a]
 import curry from '../Func/curry.js'
 import scan from './scan.js'
 import head from './head.js'
