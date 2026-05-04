@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/alanrsoares/prelude-js/compare/v1.1.0...v1.1.1) (2026-05-04)
+
+
+### Tooling
+
+* fix format ([e5778ec](https://github.com/alanrsoares/prelude-js/commit/e5778ec5825372196f56e5292137d7242e16b265))
+
 ## [1.1.0](https://github.com/alanrsoares/prelude-js/compare/v1.0.0...v1.1.0) (2026-05-04)
 
 
