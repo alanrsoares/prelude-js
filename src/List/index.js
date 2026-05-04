@@ -68,8 +68,14 @@ import zip from './zip.js'
 import zipAll from './zipAll.js'
 import zipAllWith from './zipAllWith.js'
 import zipWith from './zipWith.js'
+import length from './length.js'
+import elem from './elem.js'
+import notElem from './notElem.js'
 
 export default {
+  notElem,
+  elem,
+  length,
   all,
   and,
   any,

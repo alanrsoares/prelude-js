@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'bun:test'
 import General from '../src/General/index.js'
+import { Case, run } from './cases.js'
 
 describe('General.js', () => {
   describe('General.deny', () => {
@@ -64,6 +65,24 @@ describe('General.js', () => {
       expect(General.areSimilar(undefined, null)).toBe(false)
       expect(General.areSimilar(null, null)).toBe(true)
       expect(General.areSimilar(undefined, undefined)).toBe(true)
+    })
+  })
+
+  describe('General.not', () => {
+    it('Should negate a value', () => {
+      run(General.not, Case([0], true), Case([true], false), Case([''], true))
+    })
+  })
+
+  describe('General.fst', () => {
+    it('Should return the first value in a pair', () => {
+      run(General.fst, Case([['a', 'b']], 'a'), Case([[1, 2, 3]], 1))
+    })
+  })
+
+  describe('General.snd', () => {
+    it('Should return the second value in a pair', () => {
+      run(General.snd, Case([['a', 'b']], 'b'), Case([[1, 2, 3]], 2))
     })
   })
 })

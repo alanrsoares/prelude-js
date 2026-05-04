@@ -33,6 +33,7 @@
     "coverage": "bun test --coverage",
     "docs": "bun scripts/build-readme.js > docs/README.md",
     "generate": "plop",
+    "generate:function": "bun scripts/generate-function.js",
     "format": "bunx biome format . --write",
     "format:check": "bunx biome format .",
     "jsr:check": "npx jsr publish --dry-run",
