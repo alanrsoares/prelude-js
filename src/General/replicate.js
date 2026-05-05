@@ -7,6 +7,10 @@ import range from '../List/range.js'
  * ```text
  * replicate :: (Number, b) -> [b]
  * ```
+ *
+ * @param arg1 - `(Number, b)`
+ *
+ * @returns `[b]`
  */
 export const replicate = curry((n, x) => range(n).map(() => x))
 

@@ -7,5 +7,10 @@ import drop from '../List/drop.js'
  * ```text
  * drop :: Number -> String -> String
  * ```
+ *
+ * @param arg1 - `Number`
+ * @param arg2 - `String`
+ *
+ * @returns `String`
  */
 export default curry((count, str) => drop(count, str.split('')).join(''))

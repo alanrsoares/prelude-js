@@ -11,6 +11,11 @@ import equals from './equals.js'
  * ```text
  * areSimilar :: a -> a -> Boolean
  * ```
+ *
+ * @param arg1 - `a`
+ * @param arg2 - `a`
+ *
+ * @returns `Boolean`
  */
 export default fix((areSimilar) => curry((a, b) => {
   if (!equals(...[a, b].map(typeOf))) {

@@ -7,5 +7,9 @@ import id from '../General/id.js'
  * ```text
  * maximum :: [Number] -> Number
  * ```
+ *
+ * @param arg1 - `[Number]`
+ *
+ * @returns `Number`
  */
 export default maximumBy(id)

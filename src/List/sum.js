@@ -6,5 +6,9 @@ import add from '../Num/add.js'
  * ```text
  * sum :: [Number] -> Number
  * ```
+ *
+ * @param arg1 - `[Number]`
+ *
+ * @returns `Number`
  */
 export default (xs) => xs.reduceRight(add)

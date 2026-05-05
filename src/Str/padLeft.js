@@ -6,6 +6,11 @@ import curry from '../Func/curry.js'
  * ```text
  * padLeft :: String -> a -> String
  * ```
+ *
+ * @param arg1 - `String`
+ * @param arg2 - `a`
+ *
+ * @returns `String`
  */
 export default curry((p, s) => {
   const padding = p || ''

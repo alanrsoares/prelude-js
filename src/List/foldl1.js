@@ -9,5 +9,10 @@ import tail from './tail.js'
  * ```text
  * foldl1 :: (a -> a -> a) -> [a] -> a
  * ```
+ *
+ * @param arg1 - `(a -> a -> a)`
+ * @param arg2 - `[a]`
+ *
+ * @returns `a`
  */
 export default curry((fn, xs) => fold(fn, head(xs), tail(xs)))

@@ -7,5 +7,9 @@ import flatten from './flatten.js'
  * ```text
  * union :: ([a], [a], ...) -> [a]
  * ```
+ *
+ * @param arg1 - `([a], [a], ...)`
+ *
+ * @returns `[a]`
  */
 export default (xs, ...yss) => unique(xs.concat(flatten(yss)))

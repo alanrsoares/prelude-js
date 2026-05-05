@@ -9,5 +9,10 @@ import tail from './tail.js'
  * ```text
  * scan1 :: (a -> a -> a) -> [a] -> [a]
  * ```
+ *
+ * @param arg1 - `(a -> a -> a)`
+ * @param arg2 - `[a]`
+ *
+ * @returns `[a]`
  */
 export default curry((fn, xs) => !xs.length ? undefined : scan(fn, head(xs), tail(xs)))

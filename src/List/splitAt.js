@@ -8,5 +8,10 @@ import take from './take.js'
  * ```text
  * splitAt :: Number -> [a] -> [[a], [a]]
  * ```
+ *
+ * @param arg1 - `Number`
+ * @param arg2 - `[a]`
+ *
+ * @returns `[[a], [a]]`
  */
 export default curry((index, xs) => [take(index, xs), drop(index, xs)])

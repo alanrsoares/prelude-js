@@ -9,5 +9,10 @@ import initial from './initial.js'
  * ```text
  * scanr1 :: (a -> a -> a) -> [a] -> [a]
  * ```
+ *
+ * @param arg1 - `(a -> a -> a)`
+ * @param arg2 - `[a]`
+ *
+ * @returns `[a]`
  */
 export default curry((fn, xs) => !xs.length ? undefined : scanr(fn, last(xs), initial(xs)))

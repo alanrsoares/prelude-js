@@ -1,6 +1,7 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { basename, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import map from '../src/List/map.js'
 
 const lineSignaturePattern = /^\s*\/\/\s*(?:\+\s*)?(.*::.*)\s*$/
 const jsdocSignatureOpenPattern = /^\s*\/\*\*\s*$/
@@ -31,25 +32,84 @@ function normalizeSignature(signature, file) {
   const clean = signature.replace(/`/g, '').replace(/→/g, '->').trim()
 
   if (clean.startsWith('::')) {
-    return `${basename(file, '.js')} ${clean}`
+    const inferredName = file ? basename(file, '.js') : 'signature'
+    return `${inferredName} ${clean}`
   }
 
   return clean.replace(/\s*::\s*/, ' :: ')
 }
 
-function compileSignature(signature) {
-  return ['/**', ' * @remarks', ' *', ' * ```text', ` * ${signature}`, ' * ```', ' */'].join('\n')
+function splitTopLevelArrows(signature) {
+  const parts = []
+  let current = ''
+  let parenDepth = 0
+  let bracketDepth = 0
+  let braceDepth = 0
+
+  for (let index = 0; index < signature.length; index++) {
+    const char = signature[index]
+    const next = signature[index + 1]
+
+    if (char === '(') parenDepth++
+    if (char === ')') parenDepth = Math.max(0, parenDepth - 1)
+    if (char === '[') bracketDepth++
+    if (char === ']') bracketDepth = Math.max(0, bracketDepth - 1)
+    if (char === '{') braceDepth++
+    if (char === '}') braceDepth = Math.max(0, braceDepth - 1)
+
+    if (
+      char === '-' &&
+      next === '>' &&
+      parenDepth === 0 &&
+      bracketDepth === 0 &&
+      braceDepth === 0
+    ) {
+      parts.push(current.trim())
+      current = ''
+      index++
+      continue
+    }
+
+    current += char
+  }
+
+  if (current.trim()) {
+    parts.push(current.trim())
+  }
+
+  return parts
 }
 
-function isCompiledBlock(lines, index) {
-  return (
-    lines[index] === '/**' &&
-    lines[index + 1] === ' * @remarks' &&
-    lines[index + 2] === ' *' &&
-    lines[index + 3] === ' * ```text' &&
-    lines[index + 5] === ' * ```' &&
-    lines[index + 6] === ' */'
-  )
+function parseSignature(signature, file) {
+  const normalized = normalizeSignature(signature, file)
+  const [name, ...rest] = normalized.split(' :: ')
+  const typeExpression = rest.join(' :: ')
+  const parts = splitTopLevelArrows(typeExpression)
+  const params = parts.length > 1 ? parts.slice(0, -1) : []
+  const returns = parts.at(-1) || typeExpression
+
+  return { name, params, returns, signature: normalized }
+}
+
+function renderTsdoc(parsed) {
+  const lines = ['/**', ' * @remarks', ' *', ' * ```text', ` * ${parsed.signature}`, ' * ```']
+  const paramLines = map((type, index) => ` * @param arg${index + 1} - \`${type}\``, parsed.params)
+
+  if (paramLines.length > 0) {
+    lines.push(' *', ...paramLines)
+  }
+
+  if (parsed.returns) {
+    lines.push(' *', ` * @returns \`${parsed.returns}\``)
+  }
+
+  lines.push(' */')
+
+  return lines.join('\n')
+}
+
+function compileSignature(signature, file) {
+  return renderTsdoc(parseSignature(signature, file))
 }
 
 function convertSource(source, file) {
@@ -57,24 +117,39 @@ function convertSource(source, file) {
   let changed = false
 
   for (let index = 0; index < lines.length; index++) {
-    if (isCompiledBlock(lines, index)) {
-      const signature = normalizeSignature(lines[index + 4].replace(/^\s*\*\s*/, ''), file)
-      const compiled = compileSignature(signature).split('\n')
+    if (lines[index] === '/**' && lines[index + 1] === ' * @remarks') {
+      let closeIndex = index + 1
 
-      if (lines.slice(index, index + 7).join('\n') !== compiled.join('\n')) {
+      while (closeIndex < lines.length && lines[closeIndex] !== ' */') {
+        closeIndex++
+      }
+
+      const block = lines.slice(index, closeIndex + 1)
+      const hasTags = block.some((line) => line.includes('@param') || line.includes('@returns'))
+
+      if (hasTags) {
+        index = closeIndex
+        continue
+      }
+
+      if (lines[index + 3] === ' * ```text' && lines[index + 5] === ' * ```') {
+        const signature = normalizeSignature(lines[index + 4].replace(/^\s*\*\s*/, ''), file)
+        const compiled = compileSignature(signature, file).split('\n')
+
         lines.splice(index, 7, ...compiled)
+        index += compiled.length - 1
         changed = true
       }
 
-      index += 6
       continue
     }
 
     const lineMatch = lines[index].match(lineSignaturePattern)
     if (lineMatch) {
       const signature = normalizeSignature(lineMatch[1], file)
-      lines.splice(index, 1, ...compileSignature(signature).split('\n'))
-      index += 6
+      const compiled = compileSignature(signature, file).split('\n')
+      lines.splice(index, 1, ...compiled)
+      index += compiled.length - 1
       changed = true
       continue
     }
@@ -87,8 +162,9 @@ function convertSource(source, file) {
 
     if (open && body && close) {
       const signature = normalizeSignature(body[1], file)
-      lines.splice(index, 3, ...compileSignature(signature).split('\n'))
-      index += 6
+      const compiled = compileSignature(signature, file).split('\n')
+      lines.splice(index, 3, ...compiled)
+      index += compiled.length - 1
       changed = true
     }
   }
@@ -96,7 +172,14 @@ function convertSource(source, file) {
   return changed ? lines.join('\n') : null
 }
 
-export { compileSignature, convertSource, normalizeSignature }
+export {
+  compileSignature,
+  convertSource,
+  normalizeSignature,
+  parseSignature,
+  renderTsdoc,
+  splitTopLevelArrows,
+}
 
 if (import.meta.main) {
   const root = fileURLToPath(new URL('../src/', import.meta.url))

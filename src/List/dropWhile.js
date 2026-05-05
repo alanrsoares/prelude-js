@@ -6,6 +6,11 @@ import curry from '../Func/curry.js'
  * ```text
  * dropWhile :: (a -> Bool) -> [x] -> [x]
  * ```
+ *
+ * @param arg1 - `(a -> Bool)`
+ * @param arg2 - `[x]`
+ *
+ * @returns `[x]`
  */
 export default curry((f, xs) => {
   for (const x in xs) {

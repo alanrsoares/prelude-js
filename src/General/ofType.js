@@ -8,5 +8,9 @@ import equals from './equals.js'
  * ```text
  * ofType :: (String, a) -> Boolean
  * ```
+ *
+ * @param arg1 - `(String, a)`
+ *
+ * @returns `Boolean`
  */
 export default curry((type, x) => equals(type, typeOf(x)))

@@ -7,5 +7,10 @@ import elem from './elem.js'
  * ```text
  * notElem :: a -> [a] -> Boolean
  * ```
+ *
+ * @param arg1 - `a`
+ * @param arg2 - `[a]`
+ *
+ * @returns `Boolean`
  */
 export default curry((value, xs) => !elem(value, xs))

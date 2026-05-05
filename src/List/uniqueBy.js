@@ -8,6 +8,11 @@ import values from '../Obj/values.js'
  * ```text
  * uniqueBy :: (a -> b) -> [a] -> [a]
  * ```
+ *
+ * @param arg1 - `(a -> b)`
+ * @param arg2 - `[a]`
+ *
+ * @returns `[a]`
  */
 export default curry((fn, xs) => {
   const reducer = (acc, x) => merge(acc, { [`K_${x}`]: x })

@@ -22,6 +22,11 @@ describe('tsdoc compiler', () => {
         ' * ```text',
         ' * map :: (a -> b) -> [a] -> [b]',
         ' * ```',
+        ' *',
+        ' * @param arg1 - `(a -> b)`',
+        ' * @param arg2 - `[a]`',
+        ' *',
+        ' * @returns `[b]`',
         ' */',
       ].join('\n'),
     )
@@ -42,6 +47,11 @@ describe('tsdoc compiler', () => {
       ' * ```text',
       ' * map :: (a -> b) -> [a] -> [b]',
       ' * ```',
+      ' *',
+      ' * @param arg1 - `(a -> b)`',
+      ' * @param arg2 - `[a]`',
+      ' *',
+      ' * @returns `[b]`',
       ' */',
       'export default map',
     ].join('\n')

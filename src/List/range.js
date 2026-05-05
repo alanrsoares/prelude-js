@@ -4,6 +4,10 @@
  * ```text
  * range :: (Number, Number?, Number?) -> [Number]
  * ```
+ *
+ * @param arg1 - `(Number, Number?, Number?)`
+ *
+ * @returns `[Number]`
  */
 export default (to, from = 1, step = 1) => {
   const result = []

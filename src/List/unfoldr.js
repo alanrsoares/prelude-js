@@ -6,6 +6,11 @@ import curry from '../Func/curry.js'
  * ```text
  * unfoldr :: (a -> [b]) -> [a] -> [b]
  * ```
+ *
+ * @param arg1 - `(a -> [b])`
+ * @param arg2 - `[a]`
+ *
+ * @returns `[b]`
  */
 export default curry((fn, b) => {
   const result = []

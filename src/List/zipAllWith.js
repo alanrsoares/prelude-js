@@ -6,6 +6,12 @@ import curry from '../Func/curry.js'
  * ```text
  * zipAllWith :: (a -> b -> c) -> [a] -> [b] -> [c]
  * ```
+ *
+ * @param arg1 - `(a -> b -> c)`
+ * @param arg2 - `[a]`
+ * @param arg3 - `[b]`
+ *
+ * @returns `[c]`
  */
 export default curry((fn, xs, ys) => {
   const length = Math.max(xs.length, ys.length)

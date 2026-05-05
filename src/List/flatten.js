@@ -9,5 +9,9 @@ const flatten = (ys) => concatMap((xs) => ofType('Array', xs) ? flatten(xs) : xs
  * ```text
  * flatten :: List -> List
  * ```
+ *
+ * @param arg1 - `List`
+ *
+ * @returns `List`
  */
 export default flatten

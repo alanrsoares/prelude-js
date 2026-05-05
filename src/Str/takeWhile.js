@@ -7,5 +7,10 @@ import takeWhile from '../List/takeWhile.js'
  * ```text
  * take :: Number -> String -> String
  * ```
+ *
+ * @param arg1 - `Number`
+ * @param arg2 - `String`
+ *
+ * @returns `String`
  */
 export default curry((f, x) => x && takeWhile(f, x.split('')).join(''))

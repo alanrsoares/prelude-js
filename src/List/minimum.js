@@ -7,5 +7,9 @@ import id from '../General/id.js'
  * ```text
  * minimum :: [Number] -> Number
  * ```
+ *
+ * @param arg1 - `[Number]`
+ *
+ * @returns `Number`
  */
 export default minimumBy(id)

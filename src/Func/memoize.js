@@ -4,6 +4,11 @@
  * ```text
  * memoize :: (a -> b) -> a -> b
  * ```
+ *
+ * @param arg1 - `(a -> b)`
+ * @param arg2 - `a`
+ *
+ * @returns `b`
  */
 export default (fn) => {
   const memo = {}

@@ -7,5 +7,9 @@ import id from '../General/id.js'
  * ```text
  * filter :: [a] -> [a]
  * ```
+ *
+ * @param arg1 - `[a]`
+ *
+ * @returns `[a]`
  */
 export default filter(id)

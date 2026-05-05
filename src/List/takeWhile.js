@@ -6,6 +6,11 @@ import curry from '../Func/curry.js'
  * ```text
  * takeWhile :: (a -> Bool) -> [a] -> [a]
  * ```
+ *
+ * @param arg1 - `(a -> Bool)`
+ * @param arg2 - `[a]`
+ *
+ * @returns `[a]`
  */
 export default curry((f, xs) => {
   for (const x in xs) {

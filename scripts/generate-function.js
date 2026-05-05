@@ -75,6 +75,10 @@ const jsdocTemplate = `/**
  * \`\`\`text
  * ${functionName} :: a -> a
  * \`\`\`
+ *
+ * @param arg1 - \`a\`
+ *
+ * @returns \`a\`
  */
 export default function ${functionName} () {
   throw new Error('Not implemented')
