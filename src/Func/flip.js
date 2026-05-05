@@ -1,4 +1,6 @@
 import curry from './curry.js'
 
-// + flip :: (a -> b -> c) -> b -> a -> c
+/**
+ * `flip :: (a -> b -> c) -> b -> a -> c`
+ */
 export default curry((fn, x, y) => fn(y, x))

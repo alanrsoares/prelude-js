@@ -1,4 +1,6 @@
 import curry from '../Func/curry.js'
 
-// + minimumBy :: (a -> b) -> [a] -> b
+/**
+ * `minimumBy :: (a -> b) -> [a] -> b`
+ */
 export default curry((fn, xs) => xs.reduceRight((min, x) => fn(x) < fn(min) ? x : min))

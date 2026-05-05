@@ -1,2 +1,4 @@
-// + unchars :: String[] -> String
+/**
+ * `unchars :: String[] -> String`
+ */
 export default (xs) => xs.join('')

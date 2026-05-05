@@ -1,4 +1,6 @@
-// + words :: String -> String[]
+/**
+ * `words :: String -> String[]`
+ */
 export default (str) => {
   const trimmed = str.trim()
 

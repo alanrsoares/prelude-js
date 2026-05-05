@@ -3,5 +3,7 @@ import concatMap from './concatMap.js'
 
 const flatten = (ys) => concatMap((xs) => ofType('Array', xs) ? flatten(xs) : xs, ys)
 
-// + flatten :: List -> List
+/**
+ * `flatten :: List -> List`
+ */
 export default flatten

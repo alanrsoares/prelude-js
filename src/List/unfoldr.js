@@ -1,6 +1,8 @@
 import curry from '../Func/curry.js'
 
-// :: (a -> [b]) -> [a] -> [b]
+/**
+ * `unfoldr :: (a -> [b]) -> [a] -> [b]`
+ */
 export default curry((fn, b) => {
   const result = []
 

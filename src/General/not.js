@@ -1,2 +1,4 @@
-// + not :: a -> Boolean
+/**
+ * `not :: a -> Boolean`
+ */
 export default (x) => !x

@@ -1,4 +1,6 @@
 import curry from '../Func/curry.js'
 
-// + startsWith :: String -> String -> Bool
+/**
+ * `startsWith :: String -> String -> Bool`
+ */
 export default curry((search, target) => target && target.indexOf(search) === 0)

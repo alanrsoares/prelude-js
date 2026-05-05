@@ -1,2 +1,4 @@
-// + keys :: {a: b} -> [a]
+/**
+ * `keys :: {a: b} -> [a]`
+ */
 export default Object.keys

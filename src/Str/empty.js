@@ -1,2 +1,4 @@
-// + empty :: String -> Boolean
+/**
+ * `empty :: String -> Boolean`
+ */
 export default (str) => !str.length

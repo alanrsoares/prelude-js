@@ -1,2 +1,4 @@
-// + fst :: [a, b] -> a
+/**
+ * `fst :: [a, b] -> a`
+ */
 export default ([x]) => x

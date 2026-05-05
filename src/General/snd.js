@@ -1,2 +1,4 @@
-// + snd :: [a, b] -> b
+/**
+ * `snd :: [a, b] -> b`
+ */
 export default ([_x, y]) => y

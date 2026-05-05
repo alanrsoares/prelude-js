@@ -69,7 +69,9 @@ const moduleDir = new URL(`../src/${moduleName}/`, import.meta.url)
 const moduleIndex = new URL('index.js', moduleDir)
 const functionFile = new URL(`${functionName}.js`, moduleDir)
 
-const template = `// + ${functionName} :: a -> a
+const jsdocTemplate = `/**
+ * \`${functionName} :: a -> a\`
+ */
 export default function ${functionName} () {
   throw new Error('Not implemented')
 }
@@ -93,7 +95,7 @@ const updatedIndex = updatedImports.replace(
 )
 
 await mkdir(moduleDir, { recursive: true })
-await writeFile(functionFile, template)
+await writeFile(functionFile, jsdocTemplate)
 await writeFile(moduleIndex, updatedIndex)
 
 console.log(`added ${functionFile.pathname}`)

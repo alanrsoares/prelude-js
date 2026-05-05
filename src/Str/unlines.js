@@ -1,2 +1,4 @@
-// + unlines :: String[] -> String
+/**
+ * `unlines :: String[] -> String`
+ */
 export default (xs) => xs.join('\n')

@@ -1,2 +1,4 @@
-// + chars :: String -> String[]
+/**
+ * `chars :: String -> String[]`
+ */
 export default (str) => str.split('')

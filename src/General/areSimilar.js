@@ -5,7 +5,9 @@ import get from '../Obj/get.js'
 import typeOf from './typeOf.js'
 import equals from './equals.js'
 
-// + areSimilar :: a -> a -> Boolean
+/**
+ * `areSimilar :: a -> a -> Boolean`
+ */
 export default fix((areSimilar) => curry((a, b) => {
   if (!equals(...[a, b].map(typeOf))) {
     return false

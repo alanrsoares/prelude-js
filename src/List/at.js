@@ -1,4 +1,6 @@
 import curry from '../Func/curry.js'
 
-// + at :: Number -> [a] -> a
+/**
+ * `at :: Number -> [a] -> a`
+ */
 export default curry((index, xs) => xs[index])

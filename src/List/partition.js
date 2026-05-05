@@ -1,6 +1,8 @@
 import curry from '../Func/curry.js'
 
-// + partition :: (a -> Boolean) -> [a] -> [[a] [a]]
+/**
+ * `partition :: (a -> Boolean) -> [a] -> [[a] [a]]`
+ */
 export default curry((fn, xs) => {
   const passed = []
   const failed = []

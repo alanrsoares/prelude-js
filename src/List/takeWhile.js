@@ -1,6 +1,8 @@
 import curry from '../Func/curry.js'
 
-// + takeWhile :: (a -> Bool) -> [a] -> [a]
+/**
+ * `takeWhile :: (a -> Bool) -> [a] -> [a]`
+ */
 export default curry((f, xs) => {
   for (const x in xs) {
     if (f(xs[x])) continue

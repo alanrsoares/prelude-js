@@ -1,6 +1,8 @@
 import curry from '../Func/curry.js'
 
-// + padLeft :: String -> a -> String
+/**
+ * `padLeft :: String -> a -> String`
+ */
 export default curry((p, s) => {
   const padding = p || ''
   const value = s || ''

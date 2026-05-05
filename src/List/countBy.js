@@ -1,6 +1,8 @@
 import curry from '../Func/curry.js'
 
-// + countBy :: (a -> b) -> [a] -> { b: Number }
+/**
+ * `countBy :: (a -> b) -> [a] -> { b: Number }`
+ */
 export default curry((fn, xs) => xs.reduce((acc, x) => {
   const key = fn(x)
   acc[key] = acc[key] ? acc[key] + 1 : 1

@@ -1,4 +1,6 @@
-// + memoize :: (a -> b) -> a -> b
+/**
+ * `memoize :: (a -> b) -> a -> b`
+ */
 export default (fn) => {
   const memo = {}
   return (...args) => {

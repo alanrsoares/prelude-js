@@ -1,2 +1,4 @@
-// + length :: [a] -> Number
+/**
+ * `length :: [a] -> Number`
+ */
 export default (xs) => xs.length
