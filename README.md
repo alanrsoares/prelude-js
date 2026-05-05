@@ -2,9 +2,13 @@
 
 A modular implementation of Haskell's Prelude for modern JavaScript.
 
-The repo now targets native ESM and a Bun-first workflow. There is no Babel build step, no generated CommonJS dist in source control, and the package exports point directly at the maintained source files.
+It ships as native ESM, runs on Bun or Node 20+, and keeps the runtime source in `src/` without a generated CommonJS dist in the repo.
 
-See [docs/README.md](./docs/README.md) for the module reference.
+## Why
+
+- Small, composable helpers that feel close to Prelude semantics.
+- Direct module and deep-function exports for focused imports.
+- Bun-first tooling for install, test, docs, and generator workflows.
 
 ## Install
 
@@ -16,19 +20,34 @@ bun add preludejs
 npm install preludejs
 ```
 
-## Development
+## Usage
+
+```js
+import Prelude, { List, Func, General } from 'preludejs'
+import map from 'preludejs/List/map'
+
+Prelude.List.length([1, 2, 3]) // 3
+List.elem(2, [1, 2, 3]) // true
+Func.const('left', 'right') // 'left'
+General.snd(['first', 'second']) // 'second'
+map((x) => x * 2, [1, 2, 3]) // [2, 4, 6]
+```
+
+## Develop
 
 ```bash
 bun install
-bun run lint
-bun test
+bun run check
+bun run docs
 ```
 
-## Package Layout
+## Layout
 
 - `preludejs` resolves to `src/index.js`.
 - `preludejs/List`, `preludejs/Func`, `preludejs/Obj`, and the other module subpaths are exported directly.
 - Deep imports such as `preludejs/List/map` are also exported for consumers that want single-function entrypoints.
-- Legacy generated module folders are no longer stored in the repository root.
+- Legacy generated module folders are not stored in the repository root.
+
+See [docs/README.md](./docs/README.md) for the module reference.
 
 ![Prelude-js logo](./logo.png)
