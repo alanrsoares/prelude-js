@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'bun:test'
-import General from '../src/General/index.js'
+import * as General from '../src/General/index.js'
 import { Case, run } from './cases.js'
 
 describe('General.js', () => {

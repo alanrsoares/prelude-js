@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'bun:test'
-import Num from '../src/Num/index.js'
+import * as Num from '../src/Num/index.js'
 
 describe('Num.js', () => {
   describe('Num.add', () => {

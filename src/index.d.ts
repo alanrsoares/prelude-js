@@ -1,20 +1,6 @@
-import type {
-  FuncModule,
-  GeneralModule,
-  ListModule,
-  NumModule,
-  ObjModule,
-  PreludeNamespace,
-  StrModule,
-} from './types.d.ts'
-
-export declare const Func: FuncModule
-export declare const General: GeneralModule
-export declare const List: ListModule
-export declare const Num: NumModule
-export declare const Obj: ObjModule
-export declare const Str: StrModule
-
-declare const Prelude: PreludeNamespace
-
-export default Prelude
+export * as Func from './Func/index.js'
+export * as General from './General/index.js'
+export * as List from './List/index.js'
+export * as Num from './Num/index.js'
+export * as Obj from './Obj/index.js'
+export * as Str from './Str/index.js'

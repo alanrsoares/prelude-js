@@ -1,23 +1,10 @@
-import areSimilar from './areSimilar.js'
-import deny from './deny.js'
-import equals from './equals.js'
-import id from './id.js'
-import ofType from './ofType.js'
-import replicate from './replicate.js'
-import typeOf from './typeOf.js'
-import not from './not.js'
-import fst from './fst.js'
-import snd from './snd.js'
-
-export default {
-  snd,
-  fst,
-  not,
-  areSimilar,
-  deny,
-  equals,
-  id,
-  ofType,
-  replicate,
-  typeOf
-}
+export { default as areSimilar } from './areSimilar.js'
+export { default as deny } from './deny.js'
+export { default as equals } from './equals.js'
+export { default as fst } from './fst.js'
+export { default as id } from './id.js'
+export { default as not } from './not.js'
+export { default as ofType } from './ofType.js'
+export { default as replicate } from './replicate.js'
+export { default as snd } from './snd.js'
+export { default as typeOf } from './typeOf.js'

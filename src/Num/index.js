@@ -1,3 +1,1 @@
-import add from './add.js'
-
-export default { add }
+export { default as add } from './add.js'

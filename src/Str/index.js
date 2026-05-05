@@ -1,53 +1,25 @@
-import breakStr from './breakStr.js'
-import camelize from './camelize.js'
-import capitalize from './capitalize.js'
-import chars from './chars.js'
-import contains from './contains.js'
-import dasherize from './dasherize.js'
-import drop from './drop.js'
-import dropWhile from './dropWhile.js'
-import empty from './empty.js'
-import join from './join.js'
-import lines from './lines.js'
-import padLeft from './padLeft.js'
-import repeat from './repeat.js'
-import reverse from './reverse.js'
-import slice from './slice.js'
-import span from './span.js'
-import split from './split.js'
-import splitAt from './splitAt.js'
-import startsWith from './startsWith.js'
-import take from './take.js'
-import takeWhile from './takeWhile.js'
-import unchars from './unchars.js'
-import unlines from './unlines.js'
-import unwords from './unwords.js'
-import words from './words.js'
-
-export default {
-  breakStr,
-  camelize,
-  capitalize,
-  chars,
-  contains,
-  dasherize,
-  drop,
-  dropWhile,
-  empty,
-  join,
-  lines,
-  padLeft,
-  repeat,
-  reverse,
-  slice,
-  span,
-  split,
-  splitAt,
-  startsWith,
-  take,
-  takeWhile,
-  unchars,
-  unlines,
-  unwords,
-  words
-}
+export { default as breakStr } from './breakStr.js'
+export { default as camelize } from './camelize.js'
+export { default as capitalize } from './capitalize.js'
+export { default as chars } from './chars.js'
+export { default as contains } from './contains.js'
+export { default as dasherize } from './dasherize.js'
+export { default as drop } from './drop.js'
+export { default as dropWhile } from './dropWhile.js'
+export { default as empty } from './empty.js'
+export { default as join } from './join.js'
+export { default as lines } from './lines.js'
+export { default as padLeft } from './padLeft.js'
+export { default as repeat } from './repeat.js'
+export { default as reverse } from './reverse.js'
+export { default as slice } from './slice.js'
+export { default as span } from './span.js'
+export { default as split } from './split.js'
+export { default as splitAt } from './splitAt.js'
+export { default as startsWith } from './startsWith.js'
+export { default as take } from './take.js'
+export { default as takeWhile } from './takeWhile.js'
+export { default as unchars } from './unchars.js'
+export { default as unlines } from './unlines.js'
+export { default as unwords } from './unwords.js'
+export { default as words } from './words.js'

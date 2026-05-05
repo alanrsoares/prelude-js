@@ -1,7 +1,7 @@
 import { describe, it } from 'bun:test'
 import { expect } from 'bun:test'
 import flip from '../src/Func/flip.js'
-import Str from '../src/Str/index.js'
+import * as Str from '../src/Str/index.js'
 
 describe('Str.js', () => {
   describe('Str.capitalize', () => {

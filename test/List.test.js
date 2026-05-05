@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test'
 import id from '../src/General/id.js'
-import List from '../src/List/index.js'
+import * as List from '../src/List/index.js'
 import get from '../src/Obj/get.js'
 import { Case, run } from './cases.js'
 

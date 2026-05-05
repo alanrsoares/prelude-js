@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'bun:test'
-import Obj from '../src/Obj/index.js'
+import * as Obj from '../src/Obj/index.js'
 
 describe('Obj.js', () => {
   describe('Obj.keys', () => {

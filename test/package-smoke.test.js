@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'bun:test'
 
-import Prelude, { List as RootList } from 'preludejs'
-import List from 'preludejs/List'
+import { Func as RootFunc, List as RootList } from 'preludejs'
 import map from 'preludejs/List/map'
 
 describe('package exports', () => {
   it('resolves the root package entry as native ESM', () => {
-    expect(typeof Prelude).toBe('object')
-    expect(Prelude.List.range(3)).toEqual([1, 2, 3])
+    expect(typeof RootFunc).toBe('object')
+    expect(RootFunc.const('x')(1)).toBe('x')
+    expect(RootList.range(3)).toEqual([1, 2, 3])
   })
 
   it('resolves named exports from the root package entry', () => {
@@ -15,7 +15,7 @@ describe('package exports', () => {
   })
 
   it('resolves module subpath exports', () => {
-    expect(List.take(2, [1, 2, 3])).toEqual([1, 2])
+    expect(RootList.take(2, [1, 2, 3])).toEqual([1, 2])
   })
 
   it('resolves deep function subpath exports', () => {

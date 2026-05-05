@@ -23,10 +23,10 @@ npm install preludejs
 ## Usage
 
 ```js
-import Prelude, { List, Func, General } from 'preludejs'
+import { List, Func, General } from 'preludejs'
 import map from 'preludejs/List/map'
 
-Prelude.List.length([1, 2, 3]) // 3
+List.length([1, 2, 3]) // 3
 List.elem(2, [1, 2, 3]) // true
 Func.const('left', 'right') // 'left'
 General.snd(['first', 'second']) // 'second'
@@ -44,6 +44,7 @@ bun run docs
 ## Layout
 
 - `preludejs` resolves to `src/index.js`.
+- `preludejs` exposes named module namespaces like `List`, `Func`, `Obj`, and friends.
 - `preludejs/List`, `preludejs/Func`, `preludejs/Obj`, and the other module subpaths are exported directly.
 - Deep imports such as `preludejs/List/map` are also exported for consumers that want single-function entrypoints.
 - Legacy generated module folders are not stored in the repository root.

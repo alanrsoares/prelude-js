@@ -1,21 +1,23 @@
-import Func from 'preludejs/Func'
-import General from 'preludejs/General'
-import List from 'preludejs/List'
-import Num from 'preludejs/Num'
-import Obj from 'preludejs/Obj'
-import Str from 'preludejs/Str'
-import compose from 'preludejs/Func/compose'
-import curry from 'preludejs/Func/curry'
+import {
+  Func as RootFunc,
+  General as RootGeneral,
+  List as RootList,
+  Num as RootNum,
+  Obj as RootObj,
+  Str as RootStr,
+} from 'preludejs'
+import { compose, curry } from 'preludejs/Func'
+import { id, replicate } from 'preludejs/General'
+import { length, reduce } from 'preludejs/List'
 import map from 'preludejs/List/map'
-import reduce from 'preludejs/List/reduce'
-import get from 'preludejs/Obj/get'
-import split from 'preludejs/Str/split'
+import { add } from 'preludejs/Num'
+import { get } from 'preludejs/Obj'
+import { join, split } from 'preludejs/Str'
 import type { Curried, DeepReadonly, Reverse } from '../src/types'
 
 type Equal<L, R> = (<T>() => T extends L ? 1 : 2) extends <T>() => T extends R ? 1 : 2
   ? true
   : false
-
 type Expect<T extends true> = T
 
 type _Reverse = Expect<Equal<Reverse<readonly [1, 2, 3]>, readonly [3, 2, 1]>>
@@ -52,26 +54,41 @@ type _Age = Expect<Equal<typeof age, 32>>
 const parts = split(',')('a,b')
 type _Parts = Expect<Equal<typeof parts, string[]>>
 
-const identity = General.id('ok' as const)
+const identity = id('ok' as const)
 type _Identity = Expect<Equal<typeof identity, 'ok'>>
 
-const repeated = General.replicate(3, 'x')
+const repeated = replicate(3, 'x')
 type _Repeated = Expect<Equal<typeof repeated, string[]>>
 
-const joined = Str.join('-')(['a', 'b'])
+const joined = join('-')(['a', 'b'])
 type _Joined = Expect<Equal<typeof joined, string>>
 
-const listLength = List.length([1, 2, 3])
+const listLength = length([1, 2, 3])
 type _Length = Expect<Equal<typeof listLength, number>>
 
-const sum = Num.add(1)(2)
+const sum = add(1)(2)
 type _Sum = Expect<Equal<typeof sum, number>>
 
-const rootValue = Func.const('alpha')(false)
-type _Const = Expect<Equal<typeof rootValue, string>>
+const rootValue = RootFunc.const('alpha')(false)
+type _RootConst = Expect<Equal<typeof rootValue, string>>
 
-const numeric = Obj.get({ answer: 42 }, 'answer')
-type _Numeric = Expect<Equal<typeof numeric, number>>
+const rootIdentity = RootGeneral.id('beta' as const)
+type _RootIdentity = Expect<Equal<typeof rootIdentity, 'beta'>>
+
+const rootLength = RootList.length([1, 2, 3])
+type _RootLength = Expect<Equal<typeof rootLength, number>>
+
+const rootSum = RootNum.add(1)(2)
+type _RootSum = Expect<Equal<typeof rootSum, number>>
+
+const rootObject = RootObj.get({ answer: 42 }, 'answer')
+type _RootObject = Expect<Equal<typeof rootObject, number>>
+
+const rootJoined = RootStr.join('-')(['a', 'b'])
+type _RootJoined = Expect<Equal<typeof rootJoined, string>>
+
+const rootMap = RootList.map((value: number) => value + 1, [1, 2, 3] as const)
+type _RootMap = Expect<Equal<typeof rootMap, number[]>>
 
 // @ts-expect-error - wrong deep import argument type
 map((value: number) => value + 1, ['x'])

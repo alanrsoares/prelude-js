@@ -1,4 +1,5 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { generateModuleIndex } from './generate-indexes.js'
 
 const MODULES = new Set(['Func', 'General', 'List', 'Num', 'Obj', 'Str'])
 const RESERVED = new Set([
@@ -85,26 +86,18 @@ export default function ${functionName} () {
 }
 `
 
-const indexSource = await readFile(moduleIndex, 'utf8')
-const exportLine = `  ${functionName},`
+await mkdir(moduleDir, { recursive: true })
 
-if (indexSource.includes(`./${functionName}.js`)) {
+try {
+  await readFile(functionFile, 'utf8')
   console.error(`Function "${functionName}" already exists in ${moduleName}`)
   process.exit(1)
+} catch (error) {
+  if (error?.code !== 'ENOENT') throw error
 }
 
-const updatedImports = indexSource.replace(
-  /\n\nexport default \{\n/,
-  `\nimport ${functionName} from './${functionName}.js'\n\nexport default {\n`,
-)
-const updatedIndex = updatedImports.replace(
-  /export default \{\n/,
-  `export default {\n${exportLine}\n`,
-)
-
-await mkdir(moduleDir, { recursive: true })
 await writeFile(functionFile, jsdocTemplate)
-await writeFile(moduleIndex, updatedIndex)
+await generateModuleIndex(moduleName)
 
 console.log(`added ${functionFile.pathname}`)
 console.log(`updated ${moduleIndex.pathname}`)
