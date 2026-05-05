@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/alanrsoares/prelude-js/compare/v1.1.1...v1.1.2) (2026-05-05)
+
+
+### Tooling
+
+* **release:** format package metadata ([f9fc838](https://github.com/alanrsoares/prelude-js/commit/f9fc838b142f814f1ceb75cf2255a580c06cc97f))
+
 ## [1.1.1](https://github.com/alanrsoares/prelude-js/compare/v1.1.0...v1.1.1) (2026-05-04)
 
 
