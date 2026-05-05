@@ -37,7 +37,7 @@
     "test:watch": "bun test --watch",
     "coverage": "bun test --coverage",
     "docs": "bun scripts/build-readme.js > docs/README.md",
-    "generate": "plop",
+    "generate": "bun scripts/generate-function.js",
     "generate:function": "bun scripts/generate-function.js",
     "format": "bunx biome format . --write",
     "format:check": "bunx biome format .",
@@ -67,7 +67,6 @@
   "homepage": "https://github.com/alanrsoares/prelude-js#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "deep-freeze": "^0.0.1",
-    "plop": "^4.0.1"
+    "deep-freeze": "^0.0.1"
   }
 }
