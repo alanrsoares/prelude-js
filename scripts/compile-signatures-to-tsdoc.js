@@ -1,83 +1,112 @@
-import { readdir, readFile, writeFile } from 'node:fs/promises'
+import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { basename, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import map from '../src/List/map.js'
+import Func from '../src/Func/index.js'
+import List from '../src/List/index.js'
+
+const { compose, deny } = Func
+const { any, map, reduce } = List
 
 const lineSignaturePattern = /^\s*\/\/\s*(?:\+\s*)?(.*::.*)\s*$/
 const jsdocSignatureOpenPattern = /^\s*\/\*\*\s*$/
 const jsdocSignatureBodyPattern = /^\s*\*\s*`?(.*::.*)`?\s*$/
 const jsdocSignatureClosePattern = /^\s*\*\/\s*$/
 
-async function walk(dir) {
-  const entries = await readdir(dir, { withFileTypes: true })
-  const files = []
+const stripTicks = (signature) => signature.replace(/`/g, '')
+const normalizeArrows = (signature) => signature.replace(/→/g, '->')
+const trimSignature = (signature) => signature.trim()
+const normalizeSignatureSpacing = (signature) => signature.replace(/\s*::\s*/, ' :: ')
+const normalizeCore = compose(normalizeSignatureSpacing, trimSignature, normalizeArrows, stripTicks)
 
-  for (const entry of entries) {
-    const path = join(dir, entry.name)
+const isDocTagLine = (line) => line.includes('@param') || line.includes('@returns')
+const hasDocTags = any(isDocTagLine)
+const lacksDocTags = deny(hasDocTags)
 
-    if (entry.isDirectory()) {
-      files.push(...(await walk(path)))
-      continue
-    }
-
-    if (entry.isFile() && path.endsWith('.js')) {
-      files.push(path)
-    }
-  }
-
-  return files
-}
-
+const splitLines = (source) => source.split('\n')
+const joinLines = (lines) => lines.join('\n')
 function normalizeSignature(signature, file) {
-  const clean = signature.replace(/`/g, '').replace(/→/g, '->').trim()
+  const clean = normalizeCore(signature)
+  const trimmed = clean.trim()
 
-  if (clean.startsWith('::')) {
+  if (trimmed.startsWith('::')) {
     const inferredName = file ? basename(file, '.js') : 'signature'
-    return `${inferredName} ${clean}`
+    return `${inferredName} ${trimmed}`
   }
 
-  return clean.replace(/\s*::\s*/, ' :: ')
+  return trimmed
 }
 
 function splitTopLevelArrows(signature) {
-  const parts = []
-  let current = ''
-  let parenDepth = 0
-  let bracketDepth = 0
-  let braceDepth = 0
+  const step = (state, char) => {
+    if (state.pendingDash) {
+      if (
+        char === '>' &&
+        state.parenDepth === 0 &&
+        state.bracketDepth === 0 &&
+        state.braceDepth === 0
+      ) {
+        return {
+          ...state,
+          parts: [...state.parts, state.current.trim()],
+          current: '',
+          pendingDash: false,
+        }
+      }
 
-  for (let index = 0; index < signature.length; index++) {
-    const char = signature[index]
-    const next = signature[index + 1]
-
-    if (char === '(') parenDepth++
-    if (char === ')') parenDepth = Math.max(0, parenDepth - 1)
-    if (char === '[') bracketDepth++
-    if (char === ']') bracketDepth = Math.max(0, bracketDepth - 1)
-    if (char === '{') braceDepth++
-    if (char === '}') braceDepth = Math.max(0, braceDepth - 1)
-
-    if (
-      char === '-' &&
-      next === '>' &&
-      parenDepth === 0 &&
-      bracketDepth === 0 &&
-      braceDepth === 0
-    ) {
-      parts.push(current.trim())
-      current = ''
-      index++
-      continue
+      return {
+        ...state,
+        current: `${state.current}-${char}`,
+        pendingDash: false,
+      }
     }
 
-    current += char
+    if (char === '-') {
+      return { ...state, pendingDash: true }
+    }
+
+    return {
+      ...state,
+      current: state.current + char,
+      parenDepth:
+        char === '('
+          ? state.parenDepth + 1
+          : char === ')'
+            ? Math.max(0, state.parenDepth - 1)
+            : state.parenDepth,
+      bracketDepth:
+        char === '['
+          ? state.bracketDepth + 1
+          : char === ']'
+            ? Math.max(0, state.bracketDepth - 1)
+            : state.bracketDepth,
+      braceDepth:
+        char === '{'
+          ? state.braceDepth + 1
+          : char === '}'
+            ? Math.max(0, state.braceDepth - 1)
+            : state.braceDepth,
+    }
   }
 
-  if (current.trim()) {
-    parts.push(current.trim())
+  const finish = (state) => {
+    const completed = state.pendingDash ? `${state.current}-` : state.current
+    return completed.trim() ? [...state.parts, completed.trim()] : state.parts
   }
 
-  return parts
+  return finish(
+    reduce(
+      step,
+      {
+        parts: [],
+        current: '',
+        parenDepth: 0,
+        bracketDepth: 0,
+        braceDepth: 0,
+        pendingDash: false,
+      },
+      signature.split(''),
+    ),
+  )
 }
 
 function parseSignature(signature, file) {
@@ -91,21 +120,17 @@ function parseSignature(signature, file) {
   return { name, params, returns, signature: normalized }
 }
 
+const paramLine = (type, index) => ` * @param arg${index + 1} - \`${type}\``
+
 function renderTsdoc(parsed) {
   const lines = ['/**', ' * @remarks', ' *', ' * ```text', ` * ${parsed.signature}`, ' * ```']
-  const paramLines = map((type, index) => ` * @param arg${index + 1} - \`${type}\``, parsed.params)
+  const paramLines = map(paramLine, parsed.params)
+  const withParams = paramLines.length > 0 ? [...lines, ' *', ...paramLines] : lines
+  const withReturns = parsed.returns
+    ? [...withParams, ' *', ` * @returns \`${parsed.returns}\``]
+    : withParams
 
-  if (paramLines.length > 0) {
-    lines.push(' *', ...paramLines)
-  }
-
-  if (parsed.returns) {
-    lines.push(' *', ` * @returns \`${parsed.returns}\``)
-  }
-
-  lines.push(' */')
-
-  return lines.join('\n')
+  return joinLines([...withReturns, ' */'])
 }
 
 function compileSignature(signature, file) {
@@ -113,7 +138,7 @@ function compileSignature(signature, file) {
 }
 
 function convertSource(source, file) {
-  const lines = source.split('\n')
+  const lines = splitLines(source)
   let changed = false
 
   for (let index = 0; index < lines.length; index++) {
@@ -125,9 +150,8 @@ function convertSource(source, file) {
       }
 
       const block = lines.slice(index, closeIndex + 1)
-      const hasTags = block.some((line) => line.includes('@param') || line.includes('@returns'))
 
-      if (hasTags) {
+      if (!lacksDocTags(block)) {
         index = closeIndex
         continue
       }
@@ -169,7 +193,32 @@ function convertSource(source, file) {
     }
   }
 
-  return changed ? lines.join('\n') : null
+  return changed ? joinLines(lines) : null
+}
+
+async function walk(dir) {
+  const entries = await readdir(dir, { withFileTypes: true })
+  const { files, dirs } = reduce(
+    (state, entry) => {
+      const path = join(dir, entry.name)
+
+      if (entry.isDirectory()) {
+        return { ...state, dirs: [...state.dirs, path] }
+      }
+
+      if (entry.isFile() && path.endsWith('.js')) {
+        return { ...state, files: [...state.files, path] }
+      }
+
+      return state
+    },
+    { files: [], dirs: [] },
+    entries,
+  )
+
+  const nested = await Promise.all(map(walk, dirs))
+
+  return [...files, ...nested.flat()]
 }
 
 export {
