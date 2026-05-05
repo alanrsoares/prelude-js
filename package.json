@@ -91,6 +91,7 @@
   "homepage": "https://github.com/alanrsoares/prelude-js#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "@types/bun": "^1.3.13",
     "deep-freeze": "^0.0.1",
     "ts-expect": "^1.3.0",
     "typescript": "^6.0.3"
