@@ -3,14 +3,10 @@ import typeOf from './typeOf.js'
 import equals from './equals.js'
 
 /**
- * @remarks
- *
- * ```text
  * ofType :: (String, a) -> Boolean
- * ```
  *
+ * @remarks
  * @param arg1 - `(String, a)`
- *
  * @returns `Boolean`
  */
 export default curry((type, x) => equals(type, typeOf(x)))

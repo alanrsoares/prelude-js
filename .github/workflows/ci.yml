@@ -31,6 +31,9 @@ jobs:
       - name: Run tests
         run: bun run test
 
+      - name: Run typecheck
+        run: bun run typecheck
+
       - name: Verify docs generation
         run: |
           bun run docs

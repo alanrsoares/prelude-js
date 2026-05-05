@@ -3,15 +3,11 @@ import merge from '../Obj/merge.js'
 import values from '../Obj/values.js'
 
 /**
- * @remarks
- *
- * ```text
  * uniqueBy :: (a -> b) -> [a] -> [a]
- * ```
  *
+ * @remarks
  * @param arg1 - `(a -> b)`
  * @param arg2 - `[a]`
- *
  * @returns `[a]`
  */
 export default curry((fn, xs) => {

@@ -6,15 +6,11 @@ import typeOf from './typeOf.js'
 import equals from './equals.js'
 
 /**
- * @remarks
- *
- * ```text
  * areSimilar :: a -> a -> Boolean
- * ```
  *
+ * @remarks
  * @param arg1 - `a`
  * @param arg2 - `a`
- *
  * @returns `Boolean`
  */
 export default fix((areSimilar) => curry((a, b) => {

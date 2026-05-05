@@ -1,12 +1,8 @@
 /**
- * @remarks
- *
- * ```text
  * fix :: Function -> Function
- * ```
  *
+ * @remarks
  * @param arg1 - `Function`
- *
  * @returns `Function`
  */
 export default (f) => ((g) => (...args) => f(g(g)).apply(null, args))(

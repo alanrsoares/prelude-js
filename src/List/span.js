@@ -3,15 +3,11 @@ import takeWhile from './takeWhile.js'
 import dropWhile from './dropWhile.js'
 
 /**
- * @remarks
- *
- * ```text
  * span :: (a -> Bool) -> [a] -> [[a], [a]]
- * ```
  *
+ * @remarks
  * @param arg1 - `(a -> Bool)`
  * @param arg2 - `[a]`
- *
  * @returns `[[a], [a]]`
  */
 export default curry((f, xs) => [takeWhile(f, xs), dropWhile(f, xs)])

@@ -1,16 +1,12 @@
 import curry from '../Func/curry.js'
 
 /**
- * @remarks
- *
- * ```text
  * zipAllWith :: (a -> b -> c) -> [a] -> [b] -> [c]
- * ```
  *
+ * @remarks
  * @param arg1 - `(a -> b -> c)`
  * @param arg2 - `[a]`
  * @param arg3 - `[b]`
- *
  * @returns `[c]`
  */
 export default curry((fn, xs, ys) => {

@@ -1,15 +1,11 @@
 import curry from '../Func/curry.js'
 
 /**
- * @remarks
- *
- * ```text
  * padLeft :: String -> a -> String
- * ```
  *
+ * @remarks
  * @param arg1 - `String`
  * @param arg2 - `a`
- *
  * @returns `String`
  */
 export default curry((p, s) => {

@@ -1,15 +1,11 @@
 import curry from '../Func/curry.js'
 
 /**
- * @remarks
- *
- * ```text
  * groupBy :: (a -> b) -> [a] -> { b: [b] }
- * ```
  *
+ * @remarks
  * @param arg1 - `(a -> b)`
  * @param arg2 - `[a]`
- *
  * @returns `{ b: [b] }`
  */
 export default curry((fn, xs) => xs.reduce((acc, x) => {
