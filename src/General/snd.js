@@ -1,4 +1,8 @@
 /**
- * `snd :: [a, b] -> b`
+ * @remarks
+ *
+ * ```text
+ * snd :: [a, b] -> b
+ * ```
  */
 export default ([_x, y]) => y

@@ -1,6 +1,10 @@
 import curry from '../Func/curry.js'
 
 /**
- * `startsWith :: String -> String -> Bool`
+ * @remarks
+ *
+ * ```text
+ * startsWith :: String -> String -> Bool
+ * ```
  */
 export default curry((search, target) => target && target.indexOf(search) === 0)

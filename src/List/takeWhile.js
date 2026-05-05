@@ -1,7 +1,11 @@
 import curry from '../Func/curry.js'
 
 /**
- * `takeWhile :: (a -> Bool) -> [a] -> [a]`
+ * @remarks
+ *
+ * ```text
+ * takeWhile :: (a -> Bool) -> [a] -> [a]
+ * ```
  */
 export default curry((f, xs) => {
   for (const x in xs) {

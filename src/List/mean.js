@@ -1,6 +1,10 @@
 import sum from './sum.js'
 
 /**
- * `mean :: [Number] -> Number`
+ * @remarks
+ *
+ * ```text
+ * mean :: [Number] -> Number
+ * ```
  */
 export default (xs) => sum(xs) / xs.length

@@ -1,4 +1,8 @@
 /**
- * `concat :: [[a]] -> [a]`
+ * @remarks
+ *
+ * ```text
+ * concat :: [[a]] -> [a]
+ * ```
  */
 export default (xss) => [].concat.apply([], xss)

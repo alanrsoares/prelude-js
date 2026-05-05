@@ -1,4 +1,8 @@
 /**
- * `sort :: List -> List`
+ * @remarks
+ *
+ * ```text
+ * sort :: List -> List
+ * ```
  */
 export default (xs) => xs.concat().sort()

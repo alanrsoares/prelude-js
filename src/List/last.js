@@ -1,4 +1,8 @@
 /**
- * `last :: [a] -> a`
+ * @remarks
+ *
+ * ```text
+ * last :: [a] -> a
+ * ```
  */
 export default (xs) => xs.slice(-1)[0]

@@ -1,5 +1,9 @@
 /**
- * `curry :: ((a, b) -> c) -> a -> b -> c`
+ * @remarks
+ *
+ * ```text
+ * curry :: ((a, b) -> c) -> a -> b -> c
+ * ```
  */
 export default function (fn, ...args) {
   const c = (fnArgs) => {

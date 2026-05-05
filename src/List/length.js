@@ -1,4 +1,8 @@
 /**
- * `length :: [a] -> Number`
+ * @remarks
+ *
+ * ```text
+ * length :: [a] -> Number
+ * ```
  */
 export default (xs) => xs.length

@@ -4,6 +4,10 @@ import last from './last.js'
 import initial from './initial.js'
 
 /**
- * `foldr1 :: (a -> a -> a) -> [a] -> a`
+ * @remarks
+ *
+ * ```text
+ * foldr1 :: (a -> a -> a) -> [a] -> a
+ * ```
  */
 export default curry((fn, xs) => foldr(fn, last(xs), initial(xs)))

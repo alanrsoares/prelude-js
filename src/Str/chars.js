@@ -1,4 +1,8 @@
 /**
- * `chars :: String -> String[]`
+ * @remarks
+ *
+ * ```text
+ * chars :: String -> String[]
+ * ```
  */
 export default (str) => str.split('')

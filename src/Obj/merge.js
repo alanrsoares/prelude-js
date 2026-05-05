@@ -6,6 +6,10 @@ const reducer = reduce((acc, key, value) => {
 })
 
 /**
- * `merge :: {a: b} -> {a: b} -> {a: b}`
+ * @remarks
+ *
+ * ```text
+ * merge :: {a: b} -> {a: b} -> {a: b}
+ * ```
  */
 export default Object.assign || ((y, ...xs) => xs.reduce(reducer, y))

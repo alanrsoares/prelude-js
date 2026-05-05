@@ -1,6 +1,10 @@
 import map from './map.js'
 
 /**
- * `objToPairs :: {a: b} -> [[a, b]]`
+ * @remarks
+ *
+ * ```text
+ * objToPairs :: {a: b} -> [[a, b]]
+ * ```
  */
 export default map((k, v) => [k, v])

@@ -1,4 +1,8 @@
 /**
- * `keys :: {a: b} -> [a]`
+ * @remarks
+ *
+ * ```text
+ * keys :: {a: b} -> [a]
+ * ```
  */
 export default Object.keys

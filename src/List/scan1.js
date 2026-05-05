@@ -4,6 +4,10 @@ import head from './head.js'
 import tail from './tail.js'
 
 /**
- * `scan1 :: (a -> a -> a) -> [a] -> [a]`
+ * @remarks
+ *
+ * ```text
+ * scan1 :: (a -> a -> a) -> [a] -> [a]
+ * ```
  */
 export default curry((fn, xs) => !xs.length ? undefined : scan(fn, head(xs), tail(xs)))

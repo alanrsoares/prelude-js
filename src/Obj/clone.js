@@ -1,4 +1,8 @@
 /**
- * `clone :: a -> a'`
+ * @remarks
+ *
+ * ```text
+ * clone :: a -> a'
+ * ```
  */
 export default (x) => JSON.parse(JSON.stringify(x))

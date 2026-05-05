@@ -1,6 +1,10 @@
 import curry from './curry.js'
 
 /**
- * `uncurry :: (a -> b -> c) -> [a, b] -> c`
+ * @remarks
+ *
+ * ```text
+ * uncurry :: (a -> b -> c) -> [a, b] -> c
+ * ```
  */
 export default curry((fn, args) => fn(...args))

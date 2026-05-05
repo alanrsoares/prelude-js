@@ -1,5 +1,9 @@
 /**
- * `memoize :: (a -> b) -> a -> b`
+ * @remarks
+ *
+ * ```text
+ * memoize :: (a -> b) -> a -> b
+ * ```
  */
 export default (fn) => {
   const memo = {}

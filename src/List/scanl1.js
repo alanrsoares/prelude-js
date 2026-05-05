@@ -1,6 +1,10 @@
 import scan1 from './scan1.js'
 
 /**
- * `scanl1 :: (a -> a -> a) -> [a] -> [a]`
+ * @remarks
+ *
+ * ```text
+ * scanl1 :: (a -> a -> a) -> [a] -> [a]
+ * ```
  */
 export default scan1

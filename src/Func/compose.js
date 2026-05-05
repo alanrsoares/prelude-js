@@ -2,7 +2,11 @@ import initial from '../List/initial.js'
 import last from '../List/last.js'
 
 /**
- * `compose :: (b -> c) -> (a -> b) -> a -> c`
+ * @remarks
+ *
+ * ```text
+ * compose :: (b -> c) -> (a -> b) -> a -> c
+ * ```
  */
 export default (...fs) => (...args) =>
   initial(fs).reduceRight(

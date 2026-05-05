@@ -1,5 +1,9 @@
 /**
- * `id :: a -> a`
+ * @remarks
+ *
+ * ```text
+ * id :: a -> a
+ * ```
  */
 export const id = (x) => x
 

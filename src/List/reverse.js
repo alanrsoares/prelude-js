@@ -1,4 +1,8 @@
 /**
- * `reverse :: [a] -> [a]`
+ * @remarks
+ *
+ * ```text
+ * reverse :: [a] -> [a]
+ * ```
  */
 export default (xs) => xs.concat().reverse()

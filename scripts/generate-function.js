@@ -70,7 +70,11 @@ const moduleIndex = new URL('index.js', moduleDir)
 const functionFile = new URL(`${functionName}.js`, moduleDir)
 
 const jsdocTemplate = `/**
- * \`${functionName} :: a -> a\`
+ * @remarks
+ *
+ * \`\`\`text
+ * ${functionName} :: a -> a
+ * \`\`\`
  */
 export default function ${functionName} () {
   throw new Error('Not implemented')

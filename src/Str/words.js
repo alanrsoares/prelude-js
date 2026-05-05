@@ -1,5 +1,9 @@
 /**
- * `words :: String -> String[]`
+ * @remarks
+ *
+ * ```text
+ * words :: String -> String[]
+ * ```
  */
 export default (str) => {
   const trimmed = str.trim()

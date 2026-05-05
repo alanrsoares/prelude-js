@@ -1,5 +1,9 @@
 /**
- * `range :: (Number, Number?, Number?) -> [Number]`
+ * @remarks
+ *
+ * ```text
+ * range :: (Number, Number?, Number?) -> [Number]
+ * ```
  */
 export default (to, from = 1, step = 1) => {
   const result = []

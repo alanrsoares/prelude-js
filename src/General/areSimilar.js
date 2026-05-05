@@ -6,7 +6,11 @@ import typeOf from './typeOf.js'
 import equals from './equals.js'
 
 /**
- * `areSimilar :: a -> a -> Boolean`
+ * @remarks
+ *
+ * ```text
+ * areSimilar :: a -> a -> Boolean
+ * ```
  */
 export default fix((areSimilar) => curry((a, b) => {
   if (!equals(...[a, b].map(typeOf))) {

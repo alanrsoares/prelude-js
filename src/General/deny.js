@@ -1,4 +1,8 @@
 /**
- * `deny :: a -> a`
+ * @remarks
+ *
+ * ```text
+ * deny :: a -> a
+ * ```
  */
 export default (x) => !x
