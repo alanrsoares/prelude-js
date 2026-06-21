@@ -1,3 +1,8 @@
+/**
+ * @module List
+ * List and array processing functions (map, filter, reduce, fold, zip, etc.).
+ */
+
 export { default as all } from './all.js'
 export { default as and } from './and.js'
 export { default as any } from './any.js'

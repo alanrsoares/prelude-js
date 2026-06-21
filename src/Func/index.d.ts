@@ -1,3 +1,8 @@
+/**
+ * @module Func
+ * Functional programming utilities (curry, compose, fix, flip, etc.).
+ */
+
 export { default as apply } from './apply.js'
 export { default as compose } from './compose.js'
 export { default as const } from './const.js'
