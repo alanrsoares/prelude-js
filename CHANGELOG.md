@@ -1,5 +1,38 @@
 # Changelog
 
+## [1.2.0](https://github.com/alanrsoares/prelude-js/compare/v1.1.2...v1.2.0) (2026-06-21)
+
+
+### Features
+
+* **docs:** add TS signatures and twoslash support ([06e46c6](https://github.com/alanrsoares/prelude-js/commit/06e46c6ca6d24bad2404a9504929215c77419e57))
+* **docs:** add TS signatures and twoslash support ([13b87bb](https://github.com/alanrsoares/prelude-js/commit/13b87bbdf6e2696adc12df560ccbde18101cb3de))
+* **types:** add declaration files for functions ([d538b6f](https://github.com/alanrsoares/prelude-js/commit/d538b6f84987bedbf9712521c95c239803fd6823))
+* **types:** add declaration files for functions ([07f9cc8](https://github.com/alanrsoares/prelude-js/commit/07f9cc84f73de2065726e41013f97ff3f6c6026f))
+* **types:** add declaration surface and type tests ([8e874d2](https://github.com/alanrsoares/prelude-js/commit/8e874d26484ebcce1c331befb6344d03b15ca3cc))
+
+
+### Refactoring
+
+* **api:** expose named-only barrel exports ([d2aa97a](https://github.com/alanrsoares/prelude-js/commit/d2aa97ab89f3dccac073e18d0f1ca6f7154aa18b))
+* **docs:** tighten tsdoc compiler ([5fedd51](https://github.com/alanrsoares/prelude-js/commit/5fedd5173b87cf2c43c45aa9829b15119daf3a31))
+* **docs:** use library helpers in tsdoc compiler ([4c8e46d](https://github.com/alanrsoares/prelude-js/commit/4c8e46d9500ff44caa4ae37e40ae639955c28443))
+
+
+### Tooling
+
+* **repo:** update homepage link and ignore next-env.d.ts in Biome ([3c718f5](https://github.com/alanrsoares/prelude-js/commit/3c718f56d5cfffe676ff9d9a60f8fc017ec34a56))
+* **repo:** update homepage link and ignore next-env.d.ts in Biome ([595e941](https://github.com/alanrsoares/prelude-js/commit/595e941d04c2c55da09585d6879e36d3b02ac4cf))
+* **tooling:** replace plop with bun script ([a208b3a](https://github.com/alanrsoares/prelude-js/commit/a208b3ab6e59345194ddf4f47681184c5366a0af))
+
+
+### Documentation
+
+* compile signatures to tsdoc ([cf341e3](https://github.com/alanrsoares/prelude-js/commit/cf341e3f4b8fd98339752cbe358f68925652e9c0))
+* convert signatures to jsdoc ([cf4cec1](https://github.com/alanrsoares/prelude-js/commit/cf4cec1bd0bc48038dfb20c319a7035c238b8f04))
+* generate tsdoc param tags ([70d0a96](https://github.com/alanrsoares/prelude-js/commit/70d0a96a2680c2096523ea1f2bca6790304b9fc2))
+* polish readme ([d65a714](https://github.com/alanrsoares/prelude-js/commit/d65a714366887745770f5841fa58af4ceade5dce))
+
 ## [1.1.2](https://github.com/alanrsoares/prelude-js/compare/v1.1.1...v1.1.2) (2026-05-05)
 
 
