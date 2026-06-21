@@ -5,7 +5,7 @@ A modular, tree-shaking friendly implementation of Haskell's Prelude library in 
 [![CI Status](https://github.com/alanrsoares/prelude-js/actions/workflows/docs.yml/badge.svg)](https://github.com/alanrsoares/prelude-js/actions)
 [![JSR](https://jsr.io/badges/@alanrsoares/preludejs)](https://jsr.io/@alanrsoares/preludejs)
 
-It ships as native ESM, runs on Bun or Node 20+, and keeps the runtime source in `src/` without any legacy top-level compiled output cluttering the repository.
+It ships as native ESM, keeps the runtime source in `src/` without any legacy top-level compiled output, and is fully compatible with Bun, Node.js, Deno, and modern browsers.
 
 ## Features
 
@@ -13,6 +13,16 @@ It ships as native ESM, runs on Bun or Node 20+, and keeps the runtime source in
 - **Native ESM:** Fully compatible with native resolution runtimes (explicit `.js` extensions preserved in imports).
 - **TypeScript Signatures:** Shipped with comprehensive `.d.ts` declaration files for complete IDE autocomplete and compile-time type safety.
 - **Tree-Shaking Friendly:** Zero external dependencies. Every function lives in its own file, allowing bundlers to strip out unused helpers.
+
+## Compatibility
+
+Since `prelude-js` is implemented as standard ES modules (ESM) with zero external dependencies, it runs seamlessly across all modern JavaScript environments:
+
+- **Node.js:** `>=20.0.0`
+- **Bun:** `>=1.3.13`
+- **Deno:** Full native support (installable via JSR)
+- **Edge Runtimes:** Cloudflare Workers, Vercel Edge Functions, Netlify Edge
+- **Browsers:** Modern browsers natively supporting ESM imports
 
 ## Installation
 
