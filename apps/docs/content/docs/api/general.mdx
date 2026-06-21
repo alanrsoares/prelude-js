@@ -16,7 +16,7 @@ areSimilar :: a -> a -> Boolean
 #### TypeScript Signature
 
 ```typescript
-const areSimilar: (left: unknown, right: unknown) => boolean
+declare const areSimilar: (left: unknown, right: unknown) => boolean
 ```
 
 #### Parameters
@@ -49,7 +49,7 @@ deny :: a -> a
 #### TypeScript Signature
 
 ```typescript
-const deny: (value: unknown) => boolean
+declare const deny: (value: unknown) => boolean
 ```
 
 #### Parameters
@@ -81,7 +81,7 @@ equals :: a -> a -> Boolean
 #### TypeScript Signature
 
 ```typescript
-const equals: (left: unknown, right: unknown) => boolean
+declare const equals: (left: unknown, right: unknown) => boolean
 ```
 
 #### Parameters
@@ -147,7 +147,6 @@ id :: a -> a
 
 ```typescript
 const id: <T>(value: T) => T
-id
 ```
 
 #### Parameters
@@ -211,7 +210,7 @@ ofType :: (String, a) -> Boolean
 #### TypeScript Signature
 
 ```typescript
-const ofType: (type: string, value: unknown) => boolean
+declare const ofType: (type: string, value: unknown) => boolean
 ```
 
 #### Parameters
@@ -307,7 +306,7 @@ typeOf :: Any -> String
 #### TypeScript Signature
 
 ```typescript
-const typeOf: (value: unknown) => string
+declare const typeOf: (value: unknown) => string
 ```
 
 #### Parameters
