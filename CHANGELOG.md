@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.2.1](https://github.com/alanrsoares/prelude-js/compare/v1.2.0...v1.2.1) (2026-06-21)
+
+
+### Documentation
+
+* **jsr:** optimize entrypoint exports and add module docs ([f072926](https://github.com/alanrsoares/prelude-js/commit/f07292644b04cd1323466e7c71028a8d49ca2f56))
+* **jsr:** place [@module](https://github.com/module) tags at end of JSDoc blocks ([6923e80](https://github.com/alanrsoares/prelude-js/commit/6923e802d78396cf123f0f5c358a4903791397e1))
+* **jsr:** summarize entrypoint module exports ([6b66aa8](https://github.com/alanrsoares/prelude-js/commit/6b66aa8767fdc5e23da3d35f5e93034d94c61149))
+* **repo:** add compatibility section to README ([b4f3d0c](https://github.com/alanrsoares/prelude-js/commit/b4f3d0c123b79289c4bd6d6a64d5263c404e9e13))
+* **repo:** add compatibility section to README ([e96018c](https://github.com/alanrsoares/prelude-js/commit/e96018c7dafdaa52cad5d041c9a160d509d7a98d))
+
 ## [1.2.0](https://github.com/alanrsoares/prelude-js/compare/v1.1.2...v1.2.0) (2026-06-21)
 
 
