@@ -1,3 +1,8 @@
+/**
+ * @module General
+ * General utility functions (id, equals, not, replicate, etc.).
+ */
+
 export { default as areSimilar } from './areSimilar.js'
 export { default as deny } from './deny.js'
 export { default as equals } from './equals.js'

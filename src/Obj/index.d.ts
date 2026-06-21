@@ -1,3 +1,8 @@
+/**
+ * @module Obj
+ * Object manipulation utilities (keys, values, merge, map, reduce, etc.).
+ */
+
 export { default as clone } from './clone.js'
 export { default as get } from './get.js'
 export { default as keys } from './keys.js'

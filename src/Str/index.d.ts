@@ -1,3 +1,8 @@
+/**
+ * @module Str
+ * String manipulation functions (split, join, capitalize, camelize, startsWith, etc.).
+ */
+
 export { default as breakStr } from './breakStr.js'
 export { default as camelize } from './camelize.js'
 export { default as capitalize } from './capitalize.js'
