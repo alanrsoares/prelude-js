@@ -15,7 +15,8 @@
       "node_modules/**",
       "apps/docs/.next/**",
       "apps/docs/out/**",
-      "apps/docs/.source/**"
+      "apps/docs/.source/**",
+      "apps/docs/next-env.d.ts"
     ]
   },
   "formatter": {
