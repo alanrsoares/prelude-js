@@ -1,54 +1,89 @@
 # Preλude-js
 
-A modular implementation of Haskell's Prelude for modern JavaScript.
+A modular, tree-shaking friendly implementation of Haskell's Prelude library in modern, type-safe JavaScript.
 
-It ships as native ESM, runs on Bun or Node 20+, and keeps the runtime source in `src/` without a generated CommonJS dist in the repo.
+[![CI Status](https://github.com/alanrsoares/prelude-js/actions/workflows/docs.yml/badge.svg)](https://github.com/alanrsoares/prelude-js/actions)
+[![JSR](https://jsr.io/badges/@alanrsoares/preludejs)](https://jsr.io/@alanrsoares/preludejs)
 
-## Why
+It ships as native ESM, runs on Bun or Node 20+, and keeps the runtime source in `src/` without any legacy top-level compiled output cluttering the repository.
 
-- Small, composable helpers that feel close to Prelude semantics.
-- Direct module and deep-function exports for focused imports.
-- Bun-first tooling for install, test, docs, and generator workflows.
+## Features
 
-## Install
+- **Curried by Default:** Multi-argument functions are curried out of the box to enable elegant function composition and point-free style.
+- **Native ESM:** Fully compatible with native resolution runtimes (explicit `.js` extensions preserved in imports).
+- **TypeScript Signatures:** Shipped with comprehensive `.d.ts` declaration files for complete IDE autocomplete and compile-time type safety.
+- **Tree-Shaking Friendly:** Zero external dependencies. Every function lives in its own file, allowing bundlers to strip out unused helpers.
+
+## Installation
 
 ```bash
 bun add preludejs
 ```
 
+or
+
 ```bash
 npm install preludejs
 ```
 
-## Usage
+## Import Styles
 
+You can import either namespace barrels directly from the main entrypoint, or target individual files directly for optimal tree-shaking:
+
+### Barrel Imports
 ```js
-import { List, Func, General } from 'preludejs'
-import map from 'preludejs/List/map'
+import { List, Func, General, Str } from 'preludejs'
 
-List.length([1, 2, 3]) // 3
-List.elem(2, [1, 2, 3]) // true
-Func.const('left', 'right') // 'left'
-General.snd(['first', 'second']) // 'second'
-map((x) => x * 2, [1, 2, 3]) // [2, 4, 6]
+List.length([1, 2, 3]) // => 3
+Func.const('left', 'right') // => 'left'
+Str.capitalize('prelude') // => 'Prelude'
 ```
 
-## Develop
+### Deep Imports (Optimal Tree-Shaking)
+When importing individual functions directly, **always preserve the explicit `.js` extension** to comply with native ESM runtime resolution:
+```js
+import map from 'preludejs/List/map.js'
+import compose from 'preludejs/Func/compose.js'
 
-```bash
-bun install
-bun run check
-bun run docs
+map((x) => x * 2, [1, 2, 3]) // => [2, 4, 6]
+```
+
+## Usage Examples
+
+### 1. Currying & Function Composition
+```js
+import curry from 'preludejs/Func/curry.js'
+import compose from 'preludejs/Func/compose.js'
+
+const add = curry((a, b) => a + b)
+const double = (x) => x * 2
+
+// Compose operations right-to-left
+const addThenDouble = compose(double, add(2))
+
+addThenDouble(3) // => 10 (double(add(2, 3)))
+```
+
+### 2. List Operations
+```js
+import filter from 'preludejs/List/filter.js'
+import reduce from 'preludejs/List/reduce.js'
+
+const isEven = (x) => x % 2 === 0
+const sum = (acc, x) => acc + x
+
+const evens = filter(isEven, [1, 2, 3, 4]) // => [2, 4]
+reduce(sum, 0, evens) // => 6
 ```
 
 ## Layout
 
 - `preludejs` resolves to `src/index.js`.
-- `preludejs` exposes named module namespaces like `List`, `Func`, `Obj`, and friends.
-- `preludejs/List`, `preludejs/Func`, `preludejs/Obj`, and the other module subpaths are exported directly.
-- Deep imports such as `preludejs/List/map` are also exported for consumers that want single-function entrypoints.
-- Legacy generated module folders are not stored in the repository root.
+- Barrel modules export namespaces: `Func`, `General`, `List`, `Num`, `Obj`, `Str`.
+- Direct imports map directly to the function's runtime module (e.g. `preludejs/List/map.js` maps to `src/List/map.js`).
 
-See [docs/README.md](./docs/README.md) for the module reference.
+For the complete API reference, see [docs/README.md](./docs/README.md).
+
+---
 
 ![Prelude-js logo](./logo.png)
