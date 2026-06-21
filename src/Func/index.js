@@ -1,3 +1,18 @@
+/**
+ * @module Func
+ * Functional programming utilities (curry, compose, fix, flip, etc.).
+ *
+ * This module exports the following functions:
+ * - {@link apply}
+ * - {@link compose}
+ * - {@link const}
+ * - {@link curry}
+ * - {@link deny}
+ * - {@link fix}
+ * - {@link flip}
+ * - {@link memoize}
+ * - {@link uncurry}
+ */
 export { default as apply } from './apply.js'
 export { default as compose } from './compose.js'
 export { default as const } from './const.js'

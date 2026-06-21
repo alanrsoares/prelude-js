@@ -1,3 +1,82 @@
+/**
+ * @module List
+ * List and array processing functions (map, filter, reduce, fold, zip, etc.).
+ *
+ * This module exports the following functions:
+ * - {@link all}
+ * - {@link and}
+ * - {@link any}
+ * - {@link at}
+ * - {@link breakList}
+ * - {@link compact}
+ * - {@link concat}
+ * - {@link concatMap}
+ * - {@link countBy}
+ * - {@link difference}
+ * - {@link drop}
+ * - {@link dropWhile}
+ * - {@link each}
+ * - {@link elem}
+ * - {@link elemIndex}
+ * - {@link elemIndices}
+ * - {@link empty}
+ * - {@link filter}
+ * - {@link find}
+ * - {@link findIndex}
+ * - {@link findIndices}
+ * - {@link first}
+ * - {@link flatten}
+ * - {@link fold}
+ * - {@link fold1}
+ * - {@link foldl}
+ * - {@link foldl1}
+ * - {@link foldr}
+ * - {@link foldr1}
+ * - {@link groupBy}
+ * - {@link head}
+ * - {@link initial}
+ * - {@link intersection}
+ * - {@link last}
+ * - {@link length}
+ * - {@link map}
+ * - {@link maximum}
+ * - {@link maximumBy}
+ * - {@link mean}
+ * - {@link minimum}
+ * - {@link minimumBy}
+ * - {@link notElem}
+ * - {@link or}
+ * - {@link partition}
+ * - {@link product}
+ * - {@link range}
+ * - {@link reduce}
+ * - {@link reject}
+ * - {@link reverse}
+ * - {@link scan}
+ * - {@link scan1}
+ * - {@link scanl}
+ * - {@link scanl1}
+ * - {@link scanr}
+ * - {@link scanr1}
+ * - {@link slice}
+ * - {@link sort}
+ * - {@link sortBy}
+ * - {@link sortWith}
+ * - {@link span}
+ * - {@link splitAt}
+ * - {@link sum}
+ * - {@link tail}
+ * - {@link take}
+ * - {@link takeWhile}
+ * - {@link unfoldr}
+ * - {@link union}
+ * - {@link unique}
+ * - {@link uniqueBy}
+ * - {@link zip}
+ * - {@link zipAll}
+ * - {@link zipAllWith}
+ * - {@link zipWith}
+ */
 export { default as all } from './all.js'
 export { default as and } from './and.js'
 export { default as any } from './any.js'

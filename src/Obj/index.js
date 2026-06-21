@@ -1,3 +1,18 @@
+/**
+ * @module Obj
+ * Object manipulation utilities (keys, values, merge, map, reduce, etc.).
+ *
+ * This module exports the following functions:
+ * - {@link clone}
+ * - {@link get}
+ * - {@link keys}
+ * - {@link map}
+ * - {@link merge}
+ * - {@link objToPairs}
+ * - {@link pairsToObj}
+ * - {@link reduce}
+ * - {@link values}
+ */
 export { default as clone } from './clone.js'
 export { default as get } from './get.js'
 export { default as keys } from './keys.js'

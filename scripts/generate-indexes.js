@@ -21,12 +21,35 @@ async function listFunctions(moduleName) {
     .sort()
 }
 
+const MODULE_DESCRIPTIONS = {
+  Func: 'Functional programming utilities (curry, compose, fix, flip, etc.).',
+  General: 'General utility functions (id, equals, not, replicate, etc.).',
+  List: 'List and array processing functions (map, filter, reduce, fold, zip, etc.).',
+  Num: 'Numerical utility functions.',
+  Obj: 'Object manipulation utilities (keys, values, merge, map, reduce, etc.).',
+  Str: 'String manipulation functions (split, join, capitalize, camelize, startsWith, etc.).',
+}
+
 export async function generateModuleIndex(moduleName) {
   const functionNames = await listFunctions(moduleName)
   const moduleDir = join(root, moduleName)
   const moduleIndex = join(moduleDir, 'index.js')
   const moduleTypes = join(moduleDir, 'index.d.ts')
-  const source = `${functionNames.map((name) => `export { default as ${name} } from './${name}.js'`).join('\n')}\n`
+
+  const description = MODULE_DESCRIPTIONS[moduleName] || ''
+  const docblock = [
+    '/**',
+    ` * @module ${moduleName}`,
+    ` * ${description}`,
+    ' *',
+    ' * This module exports the following functions:',
+    ...functionNames.map((name) => ` * - {@link ${name}}`),
+    ' */',
+    '',
+  ].join('\n')
+
+  const exportsSource = `${functionNames.map((name) => `export { default as ${name} } from './${name}.js'`).join('\n')}\n`
+  const source = `${docblock}${exportsSource}`
   const typeSource = source
   await writeFile(moduleIndex, source)
   await writeFile(moduleTypes, typeSource)
@@ -34,8 +57,20 @@ export async function generateModuleIndex(moduleName) {
 
 export async function generateRootIndex() {
   const moduleNames = await listModules()
-  const source = `${moduleNames.map((name) => `export * as ${name} from './${name}/index.js'`).join('\n')}\n`
-  const types = `${moduleNames.map((name) => `export * as ${name} from './${name}/index.js'`).join('\n')}\n`
+  const docblock = [
+    '/**',
+    ' * @module',
+    " * A modular, tree-shaking friendly implementation of Haskell's Prelude library in modern JavaScript.",
+    ' *',
+    ' * This package exports the following modules:',
+    ...moduleNames.map((name) => ` * - {@link ${name}}`),
+    ' */',
+    '',
+  ].join('\n')
+
+  const exportsSource = `${moduleNames.map((name) => `export * as ${name} from './${name}/index.js'`).join('\n')}\n`
+  const source = `${docblock}${exportsSource}`
+  const types = `${docblock}${moduleNames.map((name) => `export * as ${name} from './${name}/index.js'`).join('\n')}\n`
   await writeFile(join(root, 'index.js'), source)
   await writeFile(join(root, 'index.d.ts'), types)
 }
