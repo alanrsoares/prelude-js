@@ -1,3 +1,35 @@
+/**
+ * String manipulation functions (split, join, capitalize, camelize, startsWith, etc.).
+ *
+ * This module exports the following functions:
+ * - {@link breakStr}
+ * - {@link camelize}
+ * - {@link capitalize}
+ * - {@link chars}
+ * - {@link contains}
+ * - {@link dasherize}
+ * - {@link drop}
+ * - {@link dropWhile}
+ * - {@link empty}
+ * - {@link join}
+ * - {@link lines}
+ * - {@link padLeft}
+ * - {@link repeat}
+ * - {@link reverse}
+ * - {@link slice}
+ * - {@link span}
+ * - {@link split}
+ * - {@link splitAt}
+ * - {@link startsWith}
+ * - {@link take}
+ * - {@link takeWhile}
+ * - {@link unchars}
+ * - {@link unlines}
+ * - {@link unwords}
+ * - {@link words}
+ *
+ * @module Str
+ */
 export { default as breakStr } from './breakStr.js'
 export { default as camelize } from './camelize.js'
 export { default as capitalize } from './capitalize.js'

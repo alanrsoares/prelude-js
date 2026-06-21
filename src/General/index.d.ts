@@ -1,3 +1,20 @@
+/**
+ * General utility functions (id, equals, not, replicate, etc.).
+ *
+ * This module exports the following functions:
+ * - {@link areSimilar}
+ * - {@link deny}
+ * - {@link equals}
+ * - {@link fst}
+ * - {@link id}
+ * - {@link not}
+ * - {@link ofType}
+ * - {@link replicate}
+ * - {@link snd}
+ * - {@link typeOf}
+ *
+ * @module General
+ */
 export { default as areSimilar } from './areSimilar.js'
 export { default as deny } from './deny.js'
 export { default as equals } from './equals.js'
