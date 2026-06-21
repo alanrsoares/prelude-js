@@ -1,6 +1,6 @@
 {
   "name": "@alanrsoares/preludejs",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A modular, tree-shaking friendly implementation of Haskell's Prelude library in modern, type-safe JavaScript.",
   "publish": {
     "include": [
