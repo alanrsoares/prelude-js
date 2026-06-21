@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html > body[data-scroll-locked] {
+  margin-right: 0px !important;
+  --removed-body-scroll-bar-size: 0px !important;
+}
+
+/* Twoslash hover popup styling */
+.twoslash-popup-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.twoslash-popup-docs {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-fd-border);
+  line-height: 1.5;
+}

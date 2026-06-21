@@ -1,0 +1,35 @@
+{
+  "name": "prelude-docs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "types:check": "fumadocs-mdx && next typegen && tsc --noEmit"
+  },
+  "dependencies": {
+    "@orama/orama": "^3.1.18",
+    "preludejs": "file:../..",
+    "fumadocs-core": "^16.10.4",
+    "fumadocs-mdx": "^15.0.12",
+    "fumadocs-ui": "^16.10.4",
+    "lucide-react": "^0.475.0",
+    "next": "16.2.9",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tailwind-merge": "^3.6.0",
+    "fumadocs-twoslash": "^3.2.0",
+    "twoslash": "^0.3.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/mdx": "^2.0.14",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "postcss": "^8.5.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0"
+  }
+}

@@ -1,0 +1,622 @@
+---
+title: "Str API"
+description: "Complete API reference for preludejs/Str"
+---
+
+# Str API Reference
+
+## breakStr <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+breakStr :: (String -> Bool) -> String -> [String, String]
+```
+
+#### TypeScript Signature
+
+```typescript
+const breakStr: Curried<[(value: string) => unknown, string], [string, string]>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `(String -> Bool)` |
+| `arg2` | `String` |
+
+#### Returns
+
+`[String, String]`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## camelize <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+camelize :: String -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+const camelize: (value: string) => string
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## capitalize <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+capitalize :: String -> string
+```
+
+#### TypeScript Signature
+
+```typescript
+const capitalize: (value: string) => string
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+
+#### Returns
+
+`string`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## chars <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+chars :: String -> String[]
+```
+
+#### TypeScript Signature
+
+```typescript
+const chars: (value: string) => string[]
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+
+#### Returns
+
+`String[]`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## contains <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+contains :: String -> String -> Bool
+```
+
+#### TypeScript Signature
+
+```typescript
+const contains: Curried<[string, string], boolean>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+| `arg2` | `String` |
+
+#### Returns
+
+`Bool`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## dasherize <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+dasherize :: String -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+const dasherize: (value: string) => string
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## drop <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+drop :: Number -> String -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+const drop: Curried<[number, string], string>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `Number` |
+| `arg2` | `String` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## dropWhile <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+dropWhile :: (String -> Bool) -> String -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+const dropWhile: Curried<[(value: string) => unknown, string], string>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `(String -> Bool)` |
+| `arg2` | `String` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## empty <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+empty :: String -> Boolean
+```
+
+#### TypeScript Signature
+
+```typescript
+const empty: (value: string) => boolean
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+
+#### Returns
+
+`Boolean`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## join <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+join :: String -> String[] -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+function join(sep: string): (values: readonly string[]) => string
+function join(sep: string, values: readonly string[]): string
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+| `arg2` | `String[]` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## lines <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+lines :: String -> String[]
+```
+
+#### TypeScript Signature
+
+```typescript
+const lines: (value: string) => string[]
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+
+#### Returns
+
+`String[]`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## padLeft <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+padLeft :: String -> a -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+const padLeft: Curried<[string, string], string>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+| `arg2` | `a` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## repeat <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+repeat :: Number -> String -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+const repeat: Curried<[number, string], string>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `Number` |
+| `arg2` | `String` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## reverse <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+reverse :: String -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+const reverse: (value: string) => string
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## slice <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+slice :: Number -> Number -> String -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+const slice: Curried<[number, number, string], string>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `Number` |
+| `arg2` | `Number` |
+| `arg3` | `String` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## span <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+span :: (String -> Bool) -> String -> [String, String]
+```
+
+#### TypeScript Signature
+
+```typescript
+const span: Curried<[(value: string) => unknown, string], [string, string]>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `(String -> Bool)` |
+| `arg2` | `String` |
+
+#### Returns
+
+`[String, String]`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## split <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+split :: String -> String -> String[]
+```
+
+#### TypeScript Signature
+
+```typescript
+function split(sep: string): (value: string) => string[]
+function split(sep: string, value: string): string[]
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+| `arg2` | `String` |
+
+#### Returns
+
+`String[]`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## splitAt <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+splitAt :: Number -> String -> [String, String]
+```
+
+#### TypeScript Signature
+
+```typescript
+const splitAt: Curried<[number, string], [string, string]>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `Number` |
+| `arg2` | `String` |
+
+#### Returns
+
+`[String, String]`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## startsWith <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+startsWith :: String -> String -> Bool
+```
+
+#### TypeScript Signature
+
+```typescript
+const startsWith: Curried<[string, string], boolean>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+| `arg2` | `String` |
+
+#### Returns
+
+`Bool`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## take <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+take :: Number -> String -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+const take: Curried<[number, string], string>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `Number` |
+| `arg2` | `String` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## takeWhile <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+take :: Number -> String -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+const takeWhile: Curried<[(value: string) => unknown, string], string>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `Number` |
+| `arg2` | `String` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## unchars <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+unchars :: String[] -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+const unchars: (value: readonly string[]) => string
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String[]` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## unlines <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+unlines :: String[] -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+const unlines: (value: readonly string[]) => string
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String[]` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## unwords <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+unwords :: String[] -> String
+```
+
+#### TypeScript Signature
+
+```typescript
+const unwords: (value: readonly string[]) => string
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String[]` |
+
+#### Returns
+
+`String`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## words <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+words :: String -> String[]
+```
+
+#### TypeScript Signature
+
+```typescript
+const words: (value: string) => string[]
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+
+#### Returns
+
+`String[]`
+

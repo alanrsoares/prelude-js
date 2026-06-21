@@ -1,0 +1,18 @@
+# deps
+/node_modules
+
+# generated content
+.source
+
+# build
+/.next/
+/out/
+/build
+*.tsbuildinfo
+
+# misc
+.DS_Store
+next-env.d.ts
+.env*.local
+.vercel
+_events_*.json
