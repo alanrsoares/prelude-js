@@ -152,6 +152,13 @@ export interface ListModule {
   unfoldr: <A, B>(fn: (seed: B) => [A, B] | undefined, seed: B) => A[]
   compact: <A>(xs: readonly A[]) => A[]
   each: <A>(fn: (value: A, index: number, array: readonly A[]) => unknown, xs: readonly A[]) => void
+  at: <A>(index: number, xs: readonly A[]) => A | undefined
+  elemIndex: <A>(value: A, xs: readonly A[]) => number
+  elemIndices: <A>(value: A, xs: readonly A[]) => number[]
+  fold1: <A>(fn: (acc: A, value: A) => A, xs: readonly A[]) => A
+  foldl1: <A>(fn: (acc: A, value: A) => A, xs: readonly A[]) => A
+  foldr1: <A>(fn: (value: A, acc: A) => A, xs: readonly A[]) => A
+  reverse: <A>(xs: readonly A[]) => A[]
   [key: string]: AnyFn
 }
 

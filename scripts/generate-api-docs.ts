@@ -116,6 +116,7 @@ function parseDtsFile(filePath: string): string | null {
       if (!line) return false
       if (line.startsWith('import ')) return false
       if (line.startsWith('export {')) return false
+      if (line.match(/^export\s+default\s+[a-zA-Z0-9_$]+;?$/)) return false
       return true
     })
     .map((line) => {

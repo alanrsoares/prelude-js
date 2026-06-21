@@ -14,7 +14,7 @@ breakStr :: (String -> Bool) -> String -> [String, String]
 #### TypeScript Signature
 
 ```typescript
-const breakStr: Curried<[(value: string) => unknown, string], [string, string]>
+declare const breakStr: Curried<[(value: string) => unknown, string], [string, string]>
 ```
 
 #### Parameters
@@ -39,7 +39,7 @@ camelize :: String -> String
 #### TypeScript Signature
 
 ```typescript
-const camelize: (value: string) => string
+declare const camelize: (value: string) => string
 ```
 
 #### Parameters
@@ -63,7 +63,7 @@ capitalize :: String -> string
 #### TypeScript Signature
 
 ```typescript
-const capitalize: (value: string) => string
+declare const capitalize: (value: string) => string
 ```
 
 #### Parameters
@@ -87,7 +87,7 @@ chars :: String -> String[]
 #### TypeScript Signature
 
 ```typescript
-const chars: (value: string) => string[]
+declare const chars: (value: string) => string[]
 ```
 
 #### Parameters
@@ -111,7 +111,7 @@ contains :: String -> String -> Bool
 #### TypeScript Signature
 
 ```typescript
-const contains: Curried<[string, string], boolean>
+declare const contains: Curried<[string, string], boolean>
 ```
 
 #### Parameters
@@ -136,7 +136,7 @@ dasherize :: String -> String
 #### TypeScript Signature
 
 ```typescript
-const dasherize: (value: string) => string
+declare const dasherize: (value: string) => string
 ```
 
 #### Parameters
@@ -160,7 +160,7 @@ drop :: Number -> String -> String
 #### TypeScript Signature
 
 ```typescript
-const drop: Curried<[number, string], string>
+declare const drop: Curried<[number, string], string>
 ```
 
 #### Parameters
@@ -185,7 +185,7 @@ dropWhile :: (String -> Bool) -> String -> String
 #### TypeScript Signature
 
 ```typescript
-const dropWhile: Curried<[(value: string) => unknown, string], string>
+declare const dropWhile: Curried<[(value: string) => unknown, string], string>
 ```
 
 #### Parameters
@@ -210,7 +210,7 @@ empty :: String -> Boolean
 #### TypeScript Signature
 
 ```typescript
-const empty: (value: string) => boolean
+declare const empty: (value: string) => boolean
 ```
 
 #### Parameters
@@ -260,7 +260,7 @@ lines :: String -> String[]
 #### TypeScript Signature
 
 ```typescript
-const lines: (value: string) => string[]
+declare const lines: (value: string) => string[]
 ```
 
 #### Parameters
@@ -284,7 +284,7 @@ padLeft :: String -> a -> String
 #### TypeScript Signature
 
 ```typescript
-const padLeft: Curried<[string, string], string>
+declare const padLeft: Curried<[string, string], string>
 ```
 
 #### Parameters
@@ -309,7 +309,7 @@ repeat :: Number -> String -> String
 #### TypeScript Signature
 
 ```typescript
-const repeat: Curried<[number, string], string>
+declare const repeat: Curried<[number, string], string>
 ```
 
 #### Parameters
@@ -334,7 +334,7 @@ reverse :: String -> String
 #### TypeScript Signature
 
 ```typescript
-const reverse: (value: string) => string
+declare const reverse: (value: string) => string
 ```
 
 #### Parameters
@@ -358,7 +358,7 @@ slice :: Number -> Number -> String -> String
 #### TypeScript Signature
 
 ```typescript
-const slice: Curried<[number, number, string], string>
+declare const slice: Curried<[number, number, string], string>
 ```
 
 #### Parameters
@@ -384,7 +384,7 @@ span :: (String -> Bool) -> String -> [String, String]
 #### TypeScript Signature
 
 ```typescript
-const span: Curried<[(value: string) => unknown, string], [string, string]>
+declare const span: Curried<[(value: string) => unknown, string], [string, string]>
 ```
 
 #### Parameters
@@ -435,7 +435,7 @@ splitAt :: Number -> String -> [String, String]
 #### TypeScript Signature
 
 ```typescript
-const splitAt: Curried<[number, string], [string, string]>
+declare const splitAt: Curried<[number, string], [string, string]>
 ```
 
 #### Parameters
@@ -460,7 +460,7 @@ startsWith :: String -> String -> Bool
 #### TypeScript Signature
 
 ```typescript
-const startsWith: Curried<[string, string], boolean>
+declare const startsWith: Curried<[string, string], boolean>
 ```
 
 #### Parameters
@@ -485,7 +485,7 @@ take :: Number -> String -> String
 #### TypeScript Signature
 
 ```typescript
-const take: Curried<[number, string], string>
+declare const take: Curried<[number, string], string>
 ```
 
 #### Parameters
@@ -510,7 +510,7 @@ take :: Number -> String -> String
 #### TypeScript Signature
 
 ```typescript
-const takeWhile: Curried<[(value: string) => unknown, string], string>
+declare const takeWhile: Curried<[(value: string) => unknown, string], string>
 ```
 
 #### Parameters
@@ -535,7 +535,7 @@ unchars :: String[] -> String
 #### TypeScript Signature
 
 ```typescript
-const unchars: (value: readonly string[]) => string
+declare const unchars: (value: readonly string[]) => string
 ```
 
 #### Parameters
@@ -559,7 +559,7 @@ unlines :: String[] -> String
 #### TypeScript Signature
 
 ```typescript
-const unlines: (value: readonly string[]) => string
+declare const unlines: (value: readonly string[]) => string
 ```
 
 #### Parameters
@@ -583,7 +583,7 @@ unwords :: String[] -> String
 #### TypeScript Signature
 
 ```typescript
-const unwords: (value: readonly string[]) => string
+declare const unwords: (value: readonly string[]) => string
 ```
 
 #### Parameters
@@ -607,7 +607,7 @@ words :: String -> String[]
 #### TypeScript Signature
 
 ```typescript
-const words: (value: string) => string[]
+declare const words: (value: string) => string[]
 ```
 
 #### Parameters

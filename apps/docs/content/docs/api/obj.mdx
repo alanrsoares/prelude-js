@@ -14,7 +14,7 @@ clone :: a -> a'
 #### TypeScript Signature
 
 ```typescript
-const clone: <T extends object>(obj: T) => T
+declare const clone: <T extends object>(obj: T) => T
 ```
 
 #### Parameters
@@ -63,7 +63,7 @@ keys :: {a: b} -> [a]
 #### TypeScript Signature
 
 ```typescript
-const keys: <T extends object>(obj: T) => Array<keyof T>
+declare const keys: <T extends object>(obj: T) => Array<keyof T>
 ```
 
 #### Parameters
@@ -87,7 +87,7 @@ map :: ((a, b) -> c) -> {a: b} -> [c]
 #### TypeScript Signature
 
 ```typescript
-const map: <A extends Record<string, unknown>, B>(fn: Accessor<A, B>, obj: A) => Record<string, B>
+declare const map: <A extends Record<string, unknown>, B>(fn: Accessor<A, B>, obj: A) => Record<string, B>
 ```
 
 #### Parameters
@@ -112,7 +112,7 @@ merge :: {a: b} -> {a: b} -> {a: b}
 #### TypeScript Signature
 
 ```typescript
-const merge: <T extends object>(target: T, ...sources: Partial<T>[]) => T
+declare const merge: <T extends object>(target: T, ...sources: Partial<T>[]) => T
 ```
 
 #### Parameters
@@ -137,8 +137,8 @@ objToPairs :: {a: b} -> [[a, b]]
 #### TypeScript Signature
 
 ```typescript
-const objToPairs: <T extends Record<PropertyKey, unknown>>(
-  obj: T,
+declare const objToPairs: <T extends Record<PropertyKey, unknown>>(
+obj: T,
 ) => Array<readonly [keyof T, T[keyof T]]>
 ```
 
@@ -163,7 +163,7 @@ pairsToObj :: [[a, b]] -> {a: b}
 #### TypeScript Signature
 
 ```typescript
-const pairsToObj: <K extends PropertyKey, V>(pairs: ReadonlyArray<readonly [K, V]>) => Record<K, V>
+declare const pairsToObj: <K extends PropertyKey, V>(pairs: ReadonlyArray<readonly [K, V]>) => Record<K, V>
 ```
 
 #### Parameters
@@ -187,10 +187,10 @@ reduce :: (a -> b) -> a -> b -> a
 #### TypeScript Signature
 
 ```typescript
-const reduce: <A, B extends Record<string, unknown>>(
-  fn: Reducer<A, [keyof B, B[keyof B]]>,
-  initial: A,
-  obj: B,
+declare const reduce: <A, B extends Record<string, unknown>>(
+fn: Reducer<A, [keyof B, B[keyof B]]>,
+initial: A,
+obj: B,
 ) => A
 ```
 
@@ -217,7 +217,7 @@ values :: {a: b} -> [b]
 #### TypeScript Signature
 
 ```typescript
-const values: <T extends object>(obj: T) => Array<T[keyof T]>
+declare const values: <T extends object>(obj: T) => Array<T[keyof T]>
 ```
 
 #### Parameters
