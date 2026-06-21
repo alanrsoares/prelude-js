@@ -12,7 +12,10 @@
       "Obj/**",
       "Str/**",
       "coverage/**",
-      "node_modules/**"
+      "node_modules/**",
+      "apps/docs/.next/**",
+      "apps/docs/out/**",
+      "apps/docs/.source/**"
     ]
   },
   "formatter": {

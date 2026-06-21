@@ -1,0 +1,14 @@
+{
+  "title": "prelude-js",
+  "pages": [
+    "index",
+    "getting-started",
+    "---api---",
+    "api/func",
+    "api/general",
+    "api/list",
+    "api/num",
+    "api/obj",
+    "api/str"
+  ]
+}

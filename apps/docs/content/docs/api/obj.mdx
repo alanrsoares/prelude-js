@@ -1,0 +1,232 @@
+---
+title: "Obj API"
+description: "Complete API reference for preludejs/Obj"
+---
+
+# Obj API Reference
+
+## clone <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+clone :: a -> a'
+```
+
+#### TypeScript Signature
+
+```typescript
+const clone: <T extends object>(obj: T) => T
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `a` |
+
+#### Returns
+
+`a'`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## get <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+get :: String -> {a: b} -> b
+```
+
+#### TypeScript Signature
+
+```typescript
+function get<T extends Record<PropertyKey, unknown>, K extends keyof T>(obj: T, key: K): T[K]
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `String` |
+| `arg2` | `{a: b}` |
+
+#### Returns
+
+`b`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## keys <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+keys :: {a: b} -> [a]
+```
+
+#### TypeScript Signature
+
+```typescript
+const keys: <T extends object>(obj: T) => Array<keyof T>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `{a: b}` |
+
+#### Returns
+
+`[a]`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## map <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+map :: ((a, b) -> c) -> {a: b} -> [c]
+```
+
+#### TypeScript Signature
+
+```typescript
+const map: <A extends Record<string, unknown>, B>(fn: Accessor<A, B>, obj: A) => Record<string, B>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `((a, b) -> c)` |
+| `arg2` | `{a: b}` |
+
+#### Returns
+
+`[c]`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## merge <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+merge :: {a: b} -> {a: b} -> {a: b}
+```
+
+#### TypeScript Signature
+
+```typescript
+const merge: <T extends object>(target: T, ...sources: Partial<T>[]) => T
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `{a: b}` |
+| `arg2` | `{a: b}` |
+
+#### Returns
+
+`{a: b}`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## objToPairs <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+objToPairs :: {a: b} -> [[a, b]]
+```
+
+#### TypeScript Signature
+
+```typescript
+const objToPairs: <T extends Record<PropertyKey, unknown>>(
+  obj: T,
+) => Array<readonly [keyof T, T[keyof T]]>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `{a: b}` |
+
+#### Returns
+
+`[[a, b]]`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## pairsToObj <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+pairsToObj :: [[a, b]] -> {a: b}
+```
+
+#### TypeScript Signature
+
+```typescript
+const pairsToObj: <K extends PropertyKey, V>(pairs: ReadonlyArray<readonly [K, V]>) => Record<K, V>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `[[a, b]]` |
+
+#### Returns
+
+`{a: b}`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## reduce <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+reduce :: (a -> b) -> a -> b -> a
+```
+
+#### TypeScript Signature
+
+```typescript
+const reduce: <A, B extends Record<string, unknown>>(
+  fn: Reducer<A, [keyof B, B[keyof B]]>,
+  initial: A,
+  obj: B,
+) => A
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `(a -> b)` |
+| `arg2` | `a` |
+| `arg3` | `b` |
+
+#### Returns
+
+`a`
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+## values <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+```haskell
+values :: {a: b} -> [b]
+```
+
+#### TypeScript Signature
+
+```typescript
+const values: <T extends object>(obj: T) => Array<T[keyof T]>
+```
+
+#### Parameters
+
+| Parameter | Type |
+|---|---|
+| `arg1` | `{a: b}` |
+
+#### Returns
+
+`[b]`
+

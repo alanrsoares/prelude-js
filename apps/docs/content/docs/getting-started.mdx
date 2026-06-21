@@ -1,0 +1,83 @@
+---
+title: Getting Started
+description: Learn how to install and use prelude-js in your project.
+---
+
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+<Steps>
+
+<Step>
+
+### Install
+
+Install the `preludejs` package. It has zero external runtime dependencies.
+
+<Tabs items={["bun", "npm", "pnpm", "yarn"]}>
+
+<Tab value="bun">
+
+```bash
+bun add preludejs
+```
+
+</Tab>
+
+<Tab value="npm">
+
+```bash
+npm install preludejs
+```
+
+</Tab>
+
+<Tab value="pnpm">
+
+```bash
+pnpm add preludejs
+```
+
+</Tab>
+
+<Tab value="yarn">
+
+```bash
+yarn add preludejs
+```
+
+</Tab>
+
+</Tabs>
+
+</Step>
+
+<Step>
+
+### Import and Use
+
+Import the namespaces directly from `preludejs` or target individual modules/functions for maximum tree-shaking performance.
+
+```typescript ts
+import { Func, List } from 'preludejs';
+
+// Functions are curried by default
+const add = Func.curry((a: number, b: number) => a + b);
+const inc = add(1);
+
+const result = List.map(inc, [1, 2, 3]); // => [2, 3, 4]
+```
+
+Or import subpaths directly:
+
+```typescript ts
+import curry from 'preludejs/Func/curry.js';
+import map from 'preludejs/List/map.js';
+
+const add = curry((a: number, b: number) => a + b);
+const result = map(add(1), [1, 2, 3]); // => [2, 3, 4]
+```
+
+</Step>
+
+</Steps>
