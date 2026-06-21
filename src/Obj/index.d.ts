@@ -1,5 +1,4 @@
 /**
- * @module Obj
  * Object manipulation utilities (keys, values, merge, map, reduce, etc.).
  *
  * This module exports the following functions:
@@ -12,6 +11,8 @@
  * - {@link pairsToObj}
  * - {@link reduce}
  * - {@link values}
+ *
+ * @module Obj
  */
 export { default as clone } from './clone.js'
 export { default as get } from './get.js'

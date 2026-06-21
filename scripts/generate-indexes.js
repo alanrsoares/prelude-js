@@ -39,11 +39,12 @@ export async function generateModuleIndex(moduleName) {
   const description = MODULE_DESCRIPTIONS[moduleName] || ''
   const docblock = [
     '/**',
-    ` * @module ${moduleName}`,
     ` * ${description}`,
     ' *',
     ' * This module exports the following functions:',
     ...functionNames.map((name) => ` * - {@link ${name}}`),
+    ' *',
+    ` * @module ${moduleName}`,
     ' */',
     '',
   ].join('\n')
@@ -59,11 +60,12 @@ export async function generateRootIndex() {
   const moduleNames = await listModules()
   const docblock = [
     '/**',
-    ' * @module',
     " * A modular, tree-shaking friendly implementation of Haskell's Prelude library in modern JavaScript.",
     ' *',
     ' * This package exports the following modules:',
     ...moduleNames.map((name) => ` * - {@link ${name}}`),
+    ' *',
+    ' * @module',
     ' */',
     '',
   ].join('\n')

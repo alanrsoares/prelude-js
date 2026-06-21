@@ -1,5 +1,4 @@
 /**
- * @module
  * A modular, tree-shaking friendly implementation of Haskell's Prelude library in modern JavaScript.
  *
  * This package exports the following modules:
@@ -9,6 +8,8 @@
  * - {@link Num}
  * - {@link Obj}
  * - {@link Str}
+ *
+ * @module
  */
 export * as Func from './Func/index.js'
 export * as General from './General/index.js'

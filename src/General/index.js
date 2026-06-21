@@ -1,5 +1,4 @@
 /**
- * @module General
  * General utility functions (id, equals, not, replicate, etc.).
  *
  * This module exports the following functions:
@@ -13,6 +12,8 @@
  * - {@link replicate}
  * - {@link snd}
  * - {@link typeOf}
+ *
+ * @module General
  */
 export { default as areSimilar } from './areSimilar.js'
 export { default as deny } from './deny.js'

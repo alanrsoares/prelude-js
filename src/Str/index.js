@@ -1,5 +1,4 @@
 /**
- * @module Str
  * String manipulation functions (split, join, capitalize, camelize, startsWith, etc.).
  *
  * This module exports the following functions:
@@ -28,6 +27,8 @@
  * - {@link unlines}
  * - {@link unwords}
  * - {@link words}
+ *
+ * @module Str
  */
 export { default as breakStr } from './breakStr.js'
 export { default as camelize } from './camelize.js'

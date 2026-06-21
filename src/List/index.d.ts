@@ -1,5 +1,4 @@
 /**
- * @module List
  * List and array processing functions (map, filter, reduce, fold, zip, etc.).
  *
  * This module exports the following functions:
@@ -76,6 +75,8 @@
  * - {@link zipAll}
  * - {@link zipAllWith}
  * - {@link zipWith}
+ *
+ * @module List
  */
 export { default as all } from './all.js'
 export { default as and } from './and.js'

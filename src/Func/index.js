@@ -1,5 +1,4 @@
 /**
- * @module Func
  * Functional programming utilities (curry, compose, fix, flip, etc.).
  *
  * This module exports the following functions:
@@ -12,6 +11,8 @@
  * - {@link flip}
  * - {@link memoize}
  * - {@link uncurry}
+ *
+ * @module Func
  */
 export { default as apply } from './apply.js'
 export { default as compose } from './compose.js'
