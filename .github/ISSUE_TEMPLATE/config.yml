@@ -4,5 +4,5 @@ contact_links:
     url: https://github.com/alanrsoares/prelude-js/security/advisories/new
     about: Report security vulnerabilities privately through GitHub advisories.
   - name: Usage and support
-    url: https://github.com/alanrsoares/prelude-js/blob/master/SUPPORT.md
+    url: https://github.com/alanrsoares/prelude-js/blob/main/SUPPORT.md
     about: Read the support policy before opening an issue.

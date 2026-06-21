@@ -4,5 +4,5 @@ export const docsRoute = '/docs'
 export const gitConfig = {
   user: 'alanrsoares',
   repo: 'prelude-js',
-  branch: 'master',
+  branch: 'main',
 }
