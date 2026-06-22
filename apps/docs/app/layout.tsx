@@ -1,5 +1,4 @@
 import './global.css'
-import 'fumadocs-twoslash/twoslash.css'
 import { Inter } from 'next/font/google'
 import { Provider } from '@/components/provider'
 
