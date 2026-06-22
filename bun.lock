@@ -35,6 +35,7 @@
         "twoslash": "^0.3.8",
       },
       "devDependencies": {
+        "@onrails/twoslash": "^0.1.3",
         "@tailwindcss/postcss": "^4.0.0",
         "@types/mdx": "^2.0.14",
         "@types/node": "^22.0.0",
@@ -234,6 +235,8 @@
     "@onrails/pattern": ["@onrails/pattern@0.2.0", "", {}, "sha512-AlVv5eNWmmdRYOAgn/+ysS2sHdxA9AL5HBbs/qdklHAAgq3UcWDi1Gono0RvbD71XEJkK5jQxVnZC3W6bG4gYQ=="],
 
     "@onrails/result": ["@onrails/result@0.2.0", "", {}, "sha512-ZoNAB/QpxSjdxXrXxlZKF4+TiM1WtzIJjM2+wsFroDJqSBZT+xiUEv9qAHHEvbV2DJjFfu6jJLXjjbOdNnSEQw=="],
+
+    "@onrails/twoslash": ["@onrails/twoslash@0.1.3", "", {}, "sha512-7oEePlJmBtYNV2c76bMIANXaK59GKMswTewzZmcZTVT+VP2aZm8PvycdBsBGcP4ZK54yMEkCk3DNv2OP7bP6+g=="],
 
     "@orama/orama": ["@orama/orama@3.1.18", "", {}, "sha512-a61ljmRVVyG5MC/698C8/FfFDw5a8LOIvyOLW5fztgUXqUpc1jOfQzOitSCbge657OgXXThmY3Tk8fpiDb4UcA=="],
 

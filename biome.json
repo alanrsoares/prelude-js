@@ -12,6 +12,7 @@
       "!**/apps/docs/.next",
       "!**/apps/docs/out",
       "!**/apps/docs/.source",
+      "!**/apps/docs/**/snippets.generated.ts",
       "!**/apps/docs/next-env.d.ts"
     ]
   },

@@ -3,6 +3,7 @@ import { ArrowRight, Layers, ShieldCheck, Workflow, Zap } from 'lucide-react'
 import Link from 'next/link'
 import { TwoslashSnippet } from '@/components/twoslash-snippet'
 import { gitConfig } from '@/lib/shared'
+import { snippets } from './snippets.generated'
 
 const features = [
   {
@@ -27,50 +28,10 @@ const features = [
   },
 ]
 
-const FUNC_SNIPPET = `import curry from "preludejs/Func/curry.js";
-import compose from "preludejs/Func/compose.js";
-
-const add = curry((a: number, b: number) => a + b);
-const double = (x: number) => x * 2;
-
-// Compose runs right-to-left (double after add(2))
-const addThenDouble = compose(double, add(2));
-const result = addThenDouble(3); // => 10
-//    ^?
-`
-
-const LIST_SNIPPET = `import map from "preludejs/List/map.js";
-import filter from "preludejs/List/filter.js";
-import compose from "preludejs/Func/compose.js";
-
-const isEven = (x: number) => x % 2 === 0;
-const double = (x: number) => x * 2;
-
-// Chain map and filter with compose
-const doubleEvens = compose(
-  (xs: number[]) => map(double, xs),
-  (xs: number[]) => filter(isEven, xs)
-);
-
-const result = doubleEvens([1, 2, 3, 4]); // => [4, 8]
-//    ^?
-`
-
-const STR_SNIPPET = `import camelize from "preludejs/Str/camelize.js";
-import words from "preludejs/Str/words.js";
-
-const text = "prelude-js-library";
-const camel = camelize(text); // => "preludeJsLibrary"
-//    ^?
-
-const list = words("hello functional world"); // => ["hello", "functional", "world"]
-//    ^?
-`
-
 const examples = [
-  { label: 'Func Module', code: FUNC_SNIPPET, filename: 'func-demo.ts' },
-  { label: 'List Module', code: LIST_SNIPPET, filename: 'list-demo.ts' },
-  { label: 'Str Module', code: STR_SNIPPET, filename: 'str-demo.ts' },
+  { label: 'Func Module', code: snippets['func-demo'].twoslash, filename: 'func-demo.ts' },
+  { label: 'List Module', code: snippets['list-demo'].twoslash, filename: 'list-demo.ts' },
+  { label: 'Str Module', code: snippets['str-demo'].twoslash, filename: 'str-demo.ts' },
 ]
 
 export default function HomePage() {
