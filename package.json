@@ -24,10 +24,10 @@
     },
     "./General/*": "./src/General/*.ts",
     "./List": {
-      "types": "./src/List/index.d.ts",
-      "default": "./src/List/index.js"
+      "types": "./src/List/index.ts",
+      "default": "./src/List/index.ts"
     },
-    "./List/*": "./src/List/*.js",
+    "./List/*": "./src/List/*.ts",
     "./Num": {
       "types": "./src/Num/index.ts",
       "default": "./src/Num/index.ts"

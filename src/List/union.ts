@@ -1,0 +1,15 @@
+import flatten from './flatten.js'
+import unique from './unique.js'
+
+/**
+ * Returns the unique items across all supplied lists.
+ *
+ * @example
+ * ```ts
+ * union([1, 2, 3, 4], [2, 4, 5], [9]) //=> [1, 2, 3, 4, 5, 9]
+ * ```
+ */
+const union = (<A>(xs: readonly A[], ...yss: readonly (readonly A[])[]): A[] =>
+  unique(xs.concat(flatten(yss)))) as unknown as <A>(left: readonly A[], right: readonly A[]) => A[]
+
+export default union
