@@ -19,20 +19,20 @@
     },
     "./Func/*": "./src/Func/*.ts",
     "./General": {
-      "types": "./src/General/index.d.ts",
-      "default": "./src/General/index.js"
+      "types": "./src/General/index.ts",
+      "default": "./src/General/index.ts"
     },
-    "./General/*": "./src/General/*.js",
+    "./General/*": "./src/General/*.ts",
     "./List": {
       "types": "./src/List/index.d.ts",
       "default": "./src/List/index.js"
     },
     "./List/*": "./src/List/*.js",
     "./Num": {
-      "types": "./src/Num/index.d.ts",
-      "default": "./src/Num/index.js"
+      "types": "./src/Num/index.ts",
+      "default": "./src/Num/index.ts"
     },
-    "./Num/*": "./src/Num/*.js",
+    "./Num/*": "./src/Num/*.ts",
     "./Obj": {
       "types": "./src/Obj/index.d.ts",
       "default": "./src/Obj/index.js"
