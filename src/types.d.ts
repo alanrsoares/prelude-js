@@ -176,13 +176,28 @@ export interface ObjModule {
   objToPairs: <T extends Record<PropertyKey, unknown>>(
     obj: T,
   ) => Array<readonly [keyof T, T[keyof T]]>
-  reduce: <A, B extends Record<string, unknown>>(
-    fn: Reducer<A, [keyof B, B[keyof B]]>,
-    initial: A,
-    obj: B,
-  ) => A
-  map: <A extends Record<string, unknown>, B>(fn: Accessor<A, B>, obj: A) => Record<string, B>
-  get: <T extends Record<PropertyKey, unknown>, K extends keyof T>(obj: T, key: K) => T[K]
+  reduce: {
+    <A, V>(
+      fn: (acc: A, key: string, value: V, index: number, obj: Record<string, V>) => A,
+    ): (initial: A) => (obj: Record<string, V>) => A
+    <A, V>(
+      fn: (acc: A, key: string, value: V, index: number, obj: Record<string, V>) => A,
+      initial: A,
+    ): (obj: Record<string, V>) => A
+    <A, V>(
+      fn: (acc: A, key: string, value: V, index: number, obj: Record<string, V>) => A,
+      initial: A,
+      obj: Record<string, V>,
+    ): A
+  }
+  map: {
+    <V, B>(fn: (key: string, value: V, index: number) => B): (obj: Record<string, V>) => B[]
+    <V, B>(fn: (key: string, value: V, index: number) => B, obj: Record<string, V>): B[]
+  }
+  get: {
+    <T extends Record<PropertyKey, unknown>, K extends keyof T>(key: K): (obj: T) => T[K]
+    <T extends Record<PropertyKey, unknown>, K extends keyof T>(key: K, obj: T): T[K]
+  }
   [key: string]: AnyFn
 }
 

@@ -34,10 +34,10 @@
     },
     "./Num/*": "./src/Num/*.ts",
     "./Obj": {
-      "types": "./src/Obj/index.d.ts",
-      "default": "./src/Obj/index.js"
+      "types": "./src/Obj/index.ts",
+      "default": "./src/Obj/index.ts"
     },
-    "./Obj/*": "./src/Obj/*.js",
+    "./Obj/*": "./src/Obj/*.ts",
     "./Str": {
       "types": "./src/Str/index.ts",
       "default": "./src/Str/index.ts"
