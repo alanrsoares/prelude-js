@@ -3,20 +3,15 @@
   "version": "1.2.1",
   "description": "A modular, tree-shaking friendly implementation of Haskell's Prelude library in modern, type-safe JavaScript.",
   "publish": {
-    "include": [
-      "LICENSE",
-      "README.md",
-      "src/**/*.js",
-      "src/**/*.d.ts"
-    ]
+    "include": ["LICENSE", "README.md", "src/**/*.ts"]
   },
   "exports": {
-    ".": "./src/index.d.ts",
-    "./Func": "./src/Func/index.d.ts",
-    "./General": "./src/General/index.d.ts",
-    "./List": "./src/List/index.d.ts",
-    "./Num": "./src/Num/index.d.ts",
-    "./Obj": "./src/Obj/index.d.ts",
-    "./Str": "./src/Str/index.d.ts"
+    ".": "./src/index.ts",
+    "./Func": "./src/Func/index.ts",
+    "./General": "./src/General/index.ts",
+    "./List": "./src/List/index.ts",
+    "./Num": "./src/Num/index.ts",
+    "./Obj": "./src/Obj/index.ts",
+    "./Str": "./src/Str/index.ts"
   }
 }

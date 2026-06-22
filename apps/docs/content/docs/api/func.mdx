@@ -1,19 +1,15 @@
 ---
-title: "Func API"
+title: "preludejs/Func API"
 description: "Complete API reference for preludejs/Func"
 ---
 
-# Func API Reference
+# preludejs/Func API Reference
 
-## apply <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+## Core
+
+### apply <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
 Returns the application of the supplied list as arguments to the supplied function.
-
-```haskell
-apply :: ([a] -> b?, [a]) -> b?
-```
-
-#### TypeScript Signature
 
 ```typescript
 function apply<A extends readonly unknown[], R>(fn: (...args: A) => R, args: A): R
@@ -21,32 +17,23 @@ function apply<A extends readonly unknown[], R>(fn: (...args: A) => R, args: A):
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `([a] -> b?, [a])` |
-
-#### Returns
-
-`b?`
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(...args: A) => R` |  |
+| `args` | `A` |  |
 
 #### Example
 
-```javascript
-const sum = (a, b) => a + b;
-apply(sum, [2, 3]); //=> 5
+```ts
+apply((a: number, b: number) => a + b, [2, 3]) //=> 5
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## compose <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### compose <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-Performs right-to-left function composition. The rightmost function may have any arity; the remaining functions must be unary.
-
-```haskell
-compose :: (b -> c) -> (a -> b) -> a -> c
-```
-
-#### TypeScript Signature
+Performs right-to-left function composition. The rightmost function may have
+any arity; the remaining functions must be unary.
 
 ```typescript
 function compose<Fns extends readonly AnyFn[]>(...fns: Fns): Compose<Fns>
@@ -54,71 +41,45 @@ function compose<Fns extends readonly AnyFn[]>(...fns: Fns): Compose<Fns>
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(b -> c)` |
-| `arg2` | `(a -> b)` |
-| `arg3` | `a` |
-
-#### Returns
-
-`c`
+| Parameter | Type | Description |
+|---|---|---|
+| `fns` | `Fns` |  |
 
 #### Example
 
-```javascript
-const plus1 = (x) => x + 1;
-const negate = (x) => -x;
-const complex = compose(plus1, negate, Math.pow);
-
-complex(3, 2) === plus1(negate(Math.pow(3, 2)));
+```ts
+compose((x: number) => x + 1, (x: number) => -x)(3) //=> -2
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## const <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### const <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
 Returns the first supplied value and ignores the second.
 
-```haskell
-const :: a -> b -> a
-```
-
-#### TypeScript Signature
-
 ```typescript
-function constant<A>(value: A): <B>(_ignored: B) => A
-function constant<A, B>(value: A, _ignored: B): A
+function const<A>(value: A): <B>(_ignored: B) => A
+function const<A, B>(value: A, _ignored: B): A
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `a` |
-| `arg2` | `b` |
-
-#### Returns
-
-`a`
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `A` |  |
 
 #### Example
 
-```javascript
-const('hello', 'world'); //=> 'hello'
+```ts
+constant('hello')('world') //=> 'hello'
+constant('hello', 'world') //=> 'hello'
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## curry <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### curry <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
 Returns a curried version of the supplied function.
-
-```haskell
-curry :: ((a, b) -> c) -> a -> b -> c
-```
-
-#### TypeScript Signature
 
 ```typescript
 function curry<A extends readonly unknown[], R>(fn: (...args: A) => R): Curried<A, R>
@@ -126,205 +87,128 @@ function curry<A extends readonly unknown[], R>(fn: (...args: A) => R): Curried<
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `((a, b) -> c)` |
-| `arg2` | `a` |
-| `arg3` | `b` |
-
-#### Returns
-
-`c`
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(...args: A) => R` |  |
 
 #### Example
 
-```javascript
-const add = curry((a, b) => a + b);
-const inc = add(1);
-
-inc(2); //=> 3
+```ts
+curry((a: number, b: number) => a + b)(1)(2) //=> 3
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## deny <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### deny <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-Denies the result of a predicate function
-
-```haskell
-deny :: (a -> b) -> !(a -> b)
-```
-
-#### TypeScript Signature
+Denies the result of a predicate function.
 
 ```typescript
-function deny<A extends readonly unknown[], R>(
-fn: (...args: A) => R,
-): (...args: A) => boolean
+function deny<A extends readonly unknown[], R>(fn: (...args: A) => R): (...args: A) => boolean
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b)` |
-
-#### Returns
-
-`!(a -> b)`
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(...args: A) => R` |  |
 
 #### Example
 
-```javascript
-const gt2 = (x) => x > 2;
-const twoOrLess = deny(gt2);
-gt2(2); //=> false
-twoOrLess(2); //=> true
+```ts
+deny((x: number) => x > 2)(2) //=> true
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## fix <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### fix <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-Fix-point function for anonymous recursion, implemented with the [Y combinator](https://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator).
-
-```haskell
-fix :: Function -> Function
-```
-
-#### TypeScript Signature
+Fix-point function for anonymous recursion, implemented with the
+[https://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator Y combinator](#httpsenwikipediaorgwikifixed-point_combinatory_combinator-y-combinator).
 
 ```typescript
-function fix<A extends readonly unknown[], R>(
-fn: (recur: (...args: A) => R) => (...args: A) => R,
-): (...args: A) => R
+function fix<A extends readonly unknown[], R>(fn: (recur: (...args: A) => R) => (...args: A) => R): (...args: A) => R
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `Function` |
-
-#### Returns
-
-`Function`
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(recur: (...args: A) => R) => (...args: A) => R` |  |
 
 #### Example
 
-```javascript
-fix((fib) => (n) => n <= 1
-      ? 1
-      : fib(n - 1) + fib(n - 2))(9); //=> 55
+```ts
+fix<[number], number>((recur) => (n) => (n <= 1 ? 1 : recur(n - 1) + recur(n - 2)))(9) //=> 55
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## flip <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### flip <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-Returns a function with the arguments flipped.
-
-```haskell
-flip :: (a -> b -> c) -> b -> a -> c
-```
-
-#### TypeScript Signature
+Returns a function with the first two arguments flipped.
 
 ```typescript
-function flip<A extends readonly unknown[], R>(
-fn: (...args: A) => R,
-): (...args: Reverse<A>) => R
+function flip<A extends readonly unknown[], R>(fn: (...args: A) => R): (...args: Reverse<A>) => R
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b -> c)` |
-| `arg2` | `b` |
-| `arg3` | `a` |
-
-#### Returns
-
-`c`
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(...args: A) => R` |  |
 
 #### Example
 
-```javascript
-const invertedPower = flip(Math.pow);
-invertedPower(2, 3); //=> 9
+```ts
+flip(Math.pow)(2, 3) //=> 9
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## memoize <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### memoize <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
 Caches computed results, speeding up later calls with the same arguments.
 
-```haskell
-memoize :: (a -> b) -> a -> b
-```
-
-#### TypeScript Signature
-
 ```typescript
-function memoize<A extends readonly unknown[], R>(
-fn: (...args: A) => R,
-): (...args: A) => R
+function memoize<A extends readonly unknown[], R>(fn: (...args: A) => R): (...args: A) => R
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b)` |
-| `arg2` | `a` |
-
-#### Returns
-
-`b`
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(...args: A) => R` |  |
 
 #### Example
 
-```javascript
-const memoF = memoize(expensiveFunction);
-memoF(2) // slow, but result is then cached
-memoF(2) // fast
+```ts
+memoize((n: number) => n * 2)(2) //=> 4
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## uncurry <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### uncurry <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-Applies an array of arguments to a function, which is especially handy for curried functions.
-
-```haskell
-uncurry :: (a -> b -> c) -> [a, b] -> c
-```
-
-#### TypeScript Signature
+Applies an array of arguments to a function, which is especially handy for
+curried functions.
 
 ```typescript
-function uncurry<A extends readonly unknown[], R>(
-fn: Curried<A, R>,
-): (...args: A) => R
+function uncurry<A extends readonly unknown[], R>(fn: (...args: A) => R, args: A): R
+function uncurry<A extends readonly unknown[], R>(fn: (...args: A) => R): (args: A) => R
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b -> c)` |
-| `arg2` | `[a, b]` |
-
-#### Returns
-
-`c`
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(...args: A) => R` |  |
+| `args` | `A` |  |
 
 #### Example
 
-```javascript
-const add = curry((a, b) => a + b);
-uncurry(add, [2, 3]); //=> 5
+```ts
+uncurry(curry((a: number, b: number) => a + b), [2, 3]) //=> 5
 ```
+
 

@@ -11,7 +11,7 @@ export const twoslashCompilerOptions = {
   target: ts.ScriptTarget.ES2022,
   strict: true,
   paths: {
-    preludejs: ['src/index.js'],
+    preludejs: ['src/index.ts'],
     'preludejs/Func/*': ['src/Func/*'],
     'preludejs/General/*': ['src/General/*'],
     'preludejs/List/*': ['src/List/*'],

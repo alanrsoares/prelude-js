@@ -16,7 +16,9 @@
     "incremental": true,
     "paths": {
       "@/*": ["./*"],
-      "collections/*": ["./.source/*"]
+      "collections/*": ["./.source/*"],
+      "preludejs": ["../../src/index.ts"],
+      "preludejs/*": ["../../src/*"]
     },
     "plugins": [
       {

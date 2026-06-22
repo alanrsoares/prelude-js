@@ -1,7 +1,8 @@
-import { Tab, Tabs } from 'fumadocs-ui/components/tabs'
 import { ArrowRight, Layers, ShieldCheck, Workflow, Zap } from 'lucide-react'
 import Link from 'next/link'
+import { CodeTabs } from '@/components/code-tabs'
 import { TwoslashSnippet } from '@/components/twoslash-snippet'
+import { snippets } from '@/lib/snippets.generated'
 import { gitConfig } from '@/lib/shared'
 
 const features = [
@@ -27,51 +28,14 @@ const features = [
   },
 ]
 
-const FUNC_SNIPPET = `import curry from "preludejs/Func/curry.js";
-import compose from "preludejs/Func/compose.js";
-
-const add = curry((a: number, b: number) => a + b);
-const double = (x: number) => x * 2;
-
-// Compose runs right-to-left (double after add(2))
-const addThenDouble = compose(double, add(2));
-const result = addThenDouble(3); // => 10
-//    ^?
-`
-
-const LIST_SNIPPET = `import map from "preludejs/List/map.js";
-import filter from "preludejs/List/filter.js";
-import compose from "preludejs/Func/compose.js";
-
-const isEven = (x: number) => x % 2 === 0;
-const double = (x: number) => x * 2;
-
-// Chain map and filter with compose
-const doubleEvens = compose(
-  (xs: number[]) => map(double, xs),
-  (xs: number[]) => filter(isEven, xs)
-);
-
-const result = doubleEvens([1, 2, 3, 4]); // => [4, 8]
-//    ^?
-`
-
-const STR_SNIPPET = `import camelize from "preludejs/Str/camelize.js";
-import words from "preludejs/Str/words.js";
-
-const text = "prelude-js-library";
-const camel = camelize(text); // => "preludeJsLibrary"
-//    ^?
-
-const list = words("hello functional world"); // => ["hello", "functional", "world"]
-//    ^?
-`
-
+// Each tab's code is the live source of a type-checked example module in
+// examples/*.ts (see lib/snippets.generated.ts), rendered through twoslash so
+// tokens carry hover types.
 const examples = [
-  { label: 'Func Module', code: FUNC_SNIPPET, filename: 'func-demo.ts' },
-  { label: 'List Module', code: LIST_SNIPPET, filename: 'list-demo.ts' },
-  { label: 'Str Module', code: STR_SNIPPET, filename: 'str-demo.ts' },
-]
+  { id: 'func', filename: 'func.ts' },
+  { id: 'list', filename: 'list.ts' },
+  { id: 'str', filename: 'str.ts' },
+] as const
 
 export default function HomePage() {
   return (
@@ -111,22 +75,12 @@ export default function HomePage() {
       </section>
 
       {/* tabbed code sample in browser frame */}
-      <section className="w-full max-w-3xl pb-20">
-        <Tabs items={examples.map((e) => e.label)}>
-          {examples.map(({ label, code, filename }) => (
-            <Tab key={label} value={label} className="mt-0">
-              <div className="overflow-hidden rounded-xl border border-fd-border bg-fd-card shadow-sm">
-                <div className="flex items-center gap-1.5 border-b border-fd-border px-4 py-3 bg-fd-muted/30">
-                  <span className="size-3 rounded-full bg-red-400/70" />
-                  <span className="size-3 rounded-full bg-yellow-400/70" />
-                  <span className="size-3 rounded-full bg-green-400/70" />
-                  <span className="ml-2 text-xs text-fd-muted-foreground">{filename}</span>
-                </div>
-                <TwoslashSnippet code={code} />
-              </div>
-            </Tab>
+      <section className="w-full max-w-3xl pb-20 text-left">
+        <CodeTabs tabs={examples.map(({ id, filename }) => ({ label: id, filename }))}>
+          {examples.map(({ id }) => (
+            <TwoslashSnippet key={id} code={snippets[id].twoslash} />
           ))}
-        </Tabs>
+        </CodeTabs>
       </section>
 
       {/* features */}

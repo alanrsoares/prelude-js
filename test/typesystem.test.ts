@@ -48,7 +48,7 @@ describe('typesystem', () => {
     const _reducedResult: number = reduced
 
     const person = { name: 'Ava', age: 32 } as const
-    const age = get(person, 'age')
+    const age = get('age', person)
     expectType<TypeEqual<typeof age, 32>>(true)
 
     const parts = split(',')('a,b')
@@ -81,7 +81,7 @@ describe('typesystem', () => {
     const rootSum = RootNum.add(1)(2)
     expectType<TypeEqual<typeof rootSum, number>>(true)
 
-    const rootObject = RootObj.get({ answer: 42 }, 'answer')
+    const rootObject = RootObj.get('answer', { answer: 42 })
     expectType<TypeEqual<typeof rootObject, number>>(true)
 
     const rootJoined = RootStr.join('-')(['a', 'b'])

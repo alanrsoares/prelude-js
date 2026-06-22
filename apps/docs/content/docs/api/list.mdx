@@ -1,352 +1,311 @@
 ---
-title: "List API"
+title: "preludejs/List API"
 description: "Complete API reference for preludejs/List"
 ---
 
-# List API Reference
+# preludejs/List API Reference
 
-## all <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+## Core
 
-```haskell
-all :: (a -> Boolean) -> [a] -> Boolean
-```
+### all <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-#### TypeScript Signature
+Returns true only when every item satisfies the predicate.
 
 ```typescript
-declare const all: <A>(fn: Predicate<A>, xs: readonly A[]) => boolean
+function all<A>(fn: Predicate<A>, xs: readonly A[]): boolean
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> Boolean)` |
-| `arg2` | `[a]` |
-
-#### Returns
-
-`Boolean`
-
-<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-
-## and <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
-
-```haskell
-and :: [a] -> Boolean
-```
-
-#### TypeScript Signature
-
-```typescript
-declare const and: (xs: readonly unknown[]) => boolean
-```
-
-#### Parameters
-
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
-
-#### Returns
-
-`Boolean`
-
-<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-
-## any <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
-
-```haskell
-any :: (a -> Boolean) -> [a] -> Boolean
-```
-
-#### TypeScript Signature
-
-```typescript
-declare const any: <A>(fn: Predicate<A>, xs: readonly A[]) => boolean
-```
-
-#### Parameters
-
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> Boolean)` |
-| `arg2` | `[a]` |
-
-#### Returns
-
-`Boolean`
-
-<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-
-## at <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
-
-```haskell
-at :: Number -> [a] -> a
-```
-
-#### TypeScript Signature
-
-```typescript
-declare const at: <A>(index: number, xs: readonly A[]) => A | undefined
-```
-
-#### Parameters
-
-| Parameter | Type |
-|---|---|
-| `arg1` | `Number` |
-| `arg2` | `[a]` |
-
-#### Returns
-
-`a`
-
-<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-
-## breakList <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
-
-```haskell
-breakList :: (a -> Bool) -> [a] -> [[a], [a]]
-```
-
-#### TypeScript Signature
-
-```typescript
-declare const breakList: <A>(fn: Predicate<A>, xs: readonly A[]) => [A[], A[]]
-```
-
-#### Parameters
-
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> Bool)` |
-| `arg2` | `[a]` |
-
-#### Returns
-
-`[[a], [a]]`
-
-<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-
-## compact <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
-
-```haskell
-filter :: [a] -> [a]
-```
-
-#### TypeScript Signature
-
-```typescript
-declare const compact: <A>(xs: readonly A[]) => A[]
-```
-
-#### Parameters
-
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
-
-#### Returns
-
-`[a]`
-
-<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-
-## concat <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
-
-```haskell
-concat :: [[a]] -> [a]
-```
-
-#### TypeScript Signature
-
-```typescript
-declare const concat: <A>(xss: readonly (readonly A[])[]) => A[]
-```
-
-#### Parameters
-
-| Parameter | Type |
-|---|---|
-| `arg1` | `[[a]]` |
-
-#### Returns
-
-`[a]`
-
-<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-
-## concatMap <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
-
-```haskell
-concatMap :: (a -> [b]) -> [a] -> [b]
-```
-
-#### TypeScript Signature
-
-```typescript
-declare const concatMap: <A, B>(fn: Mapper<A, readonly B[]>, xs: readonly A[]) => B[]
-```
-
-#### Parameters
-
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> [b])` |
-| `arg2` | `[a]` |
-
-#### Returns
-
-`[b]`
-
-<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-
-## countBy <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
-
-```haskell
-countBy :: (a -> b) -> [a] -> { b: Number }
-```
-
-#### TypeScript Signature
-
-```typescript
-declare const countBy: <A, B>(fn: Accessor<A, B>, xs: readonly A[]) => Record<string, number>
-```
-
-#### Parameters
-
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b)` |
-| `arg2` | `[a]` |
-
-#### Returns
-
-`{ b: Number }`
-
-<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-
-## difference <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
-
-```haskell
-difference :: ([a], [a], ...) -> [a]
-```
-
-#### TypeScript Signature
-
-```typescript
-declare const difference: <A>(left: readonly A[], right: readonly A[]) => A[]
-```
-
-#### Parameters
-
-| Parameter | Type |
-|---|---|
-| `arg1` | `([a], [a], ...)` |
-
-#### Returns
-
-`[a]`
-
-<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-
-## drop <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
-
-```haskell
-drop :: Number -> [a] -> [a]
-```
-
-#### TypeScript Signature
-
-```typescript
-declare const drop: <A>(count: number, xs: readonly A[]) => A[]
-```
-
-#### Parameters
-
-| Parameter | Type |
-|---|---|
-| `arg1` | `Number` |
-| `arg2` | `[a]` |
-
-#### Returns
-
-`[a]`
-
-<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-
-## dropWhile <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
-
-```haskell
-dropWhile :: (a -> Bool) -> [x] -> [x]
-```
-
-#### TypeScript Signature
-
-```typescript
-declare const dropWhile: <A>(fn: Predicate<A>, xs: readonly A[]) => A[]
-```
-
-#### Parameters
-
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> Bool)` |
-| `arg2` | `[x]` |
-
-#### Returns
-
-`[x]`
-
-<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-
-## each <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
-
-Applies a function to each item in the list and returns the original list. Used for side effects.
-
-```haskell
-each :: (a -> b) -> [a] -> void
-```
-
-#### TypeScript Signature
-
-```typescript
-declare const each: <A>(
-fn: (value: A, index: number, array: readonly A[]) => unknown,
-xs: readonly A[],
-) => void
-```
-
-#### Parameters
-
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b)` |
-| `arg2` | `[a]` |
-
-#### Returns
-
-`void`
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Predicate<A>` |  |
+| `xs` | `readonly A[]` |  |
 
 #### Example
 
-```javascript
-each((x) => x.push('boom'), [['a'], ['b'], ['c']]);
-//=> [['a', 'boom'], ['b', 'boom'], ['c', 'boom']]
+```ts
+all((x: number) => x > 0, [1, 2, 3]) //=> true
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## elem <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### and <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-Checks whether a list contains a given value.
+Returns true when every item in the list is truthy.
 
-```haskell
-elem :: a -> [a] -> Boolean
+```typescript
+function and(xs: readonly unknown[]): boolean
 ```
 
-#### TypeScript Signature
+#### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly unknown[]` |  |
+
+#### Example
+
+```ts
+and([1, 2, 3]) //=> true
+```
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+### any <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+Returns true when at least one item satisfies the predicate; curried.
+
+```typescript
+function any<A>(fn: Predicate<A>, xs: readonly A[]): boolean
+```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Predicate<A>` |  |
+| `xs` | `readonly A[]` |  |
+
+#### Example
+
+```ts
+any((x: number) => x > 2, [1, 2, 3]) //=> true
+```
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+### at <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+Returns the item at the given index; curried.
+
+```typescript
+function at<A>(index: number, xs: readonly A[]): A | undefined
+```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `index` | `number` |  |
+| `xs` | `readonly A[]` |  |
+
+#### Example
+
+```ts
+at(1, ['a', 'b', 'c']) //=> 'b'
+```
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+### breakList <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+Splits the list at the first item that satisfies the predicate; curried.
+
+```typescript
+function breakList<A>(fn: Predicate<A>, xs: readonly A[]): [A[], A[]]
+```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Predicate<A>` |  |
+| `xs` | `readonly A[]` |  |
+
+#### Example
+
+```ts
+breakList((x: number) => x > 2, [1, 2, 3, 4]) //=> [[1, 2], [3, 4]]
+```
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+### compact <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+Removes falsy values from the list.
+
+```typescript
+function compact<A>(xs: readonly A[]): A[]
+```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
+
+#### Example
+
+```ts
+compact([0, 1, false, 2]) //=> [1, 2]
+```
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+### concat <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+Concatenates a list of lists into a single list.
+
+```typescript
+function concat<A>(xss: readonly (readonly A[])[]): A[]
+```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `xss` | `readonly (readonly A[])[]` |  |
+
+#### Example
+
+```ts
+concat([[1, 2], [3], [4, 5]]) //=> [1, 2, 3, 4, 5]
+```
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+### concatMap <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+Maps a list to lists and concatenates the results; curried.
+
+```typescript
+function concatMap<A, B>(fn: Mapper<A, readonly B[]>, xs: readonly A[]): B[]
+```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Mapper<A, readonly B[]>` |  |
+| `xs` | `readonly A[]` |  |
+
+#### Example
+
+```ts
+concatMap((x: number) => [x, x], [1, 2, 3]) //=> [1, 1, 2, 2, 3, 3]
+```
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+### countBy <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+Counts items grouped by the key the accessor returns; curried.
+
+```typescript
+function countBy<A, B>(fn: Accessor<A, B>, xs: readonly A[]): Record<string, number>
+```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Accessor<A, B>` |  |
+| `xs` | `readonly A[]` |  |
+
+#### Example
+
+```ts
+countBy(Math.floor, [4.2, 4.4, 9.8]) //=> { 4: 2, 9: 1 }
+```
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+### difference <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+Returns items present in the first list but absent from the rest.
+
+```typescript
+function difference<A>(left: readonly A[], right: readonly A[]): A[]
+```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `left` | `readonly A[]` |  |
+| `right` | `readonly A[]` |  |
+
+#### Example
+
+```ts
+difference([1, 2, 3, 4], [1, 4]) //=> [2, 3]
+```
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+### drop <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+Drops the first `n` items from the list; curried.
+
+```typescript
+function drop<A>(count: number, xs: readonly A[]): A[]
+```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `count` | `number` |  |
+| `xs` | `readonly A[]` |  |
+
+#### Example
+
+```ts
+drop(2, [1, 2, 3, 4]) //=> [3, 4]
+```
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+### dropWhile <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+Drops leading items while the predicate holds; curried.
+
+```typescript
+function dropWhile<A>(fn: Predicate<A>, xs: readonly A[]): A[]
+```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Predicate<A>` |  |
+| `xs` | `readonly A[]` |  |
+
+#### Example
+
+```ts
+dropWhile((n: number) => n <= 3, [2, 3, 5, 1]) //=> [5, 1]
+```
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+### each <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+Applies a function to each item for its side effect; curried.
+
+```typescript
+function each<A>(fn: (value: A, index: number, array: readonly A[]) => unknown, xs: readonly A[]): void
+```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(value: A, index: number, array: readonly A[]) => unknown` |  |
+| `xs` | `readonly A[]` |  |
+
+#### Example
+
+```ts
+each((x: number) => console.log(x), [1, 2, 3]) //=> undefined
+```
+
+<hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+### elem <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+
+Returns true when the value is present in the list; curried.
 
 ```typescript
 function elem<A>(value: A): (xs: readonly A[]) => boolean
@@ -355,104 +314,89 @@ function elem<A>(value: A, xs: readonly A[]): boolean
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `a` |
-| `arg2` | `[a]` |
-
-#### Returns
-
-`Boolean`
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `A` |  |
 
 #### Example
 
-```javascript
-elem(3, [1, 2, 3]); //=> true
+```ts
+elem(3, [1, 2, 3]) //=> true
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## elemIndex <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### elemIndex <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-elemIndex :: a -> [a] -> Number
-```
-
-#### TypeScript Signature
+Returns the index of the first item equal to the value, or -1; curried.
 
 ```typescript
-declare const elemIndex: <A>(value: A, xs: readonly A[]) => number
+function elemIndex<A>(value: A, xs: readonly A[]): number
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `a` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `A` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`Number`
+```ts
+elemIndex(3, [1, 2, 3]) //=> 2
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## elemIndices <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### elemIndices <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-elemIndices :: a -> [a] -> [Number]
-```
-
-#### TypeScript Signature
+Returns the indices of all items equal to the value; curried.
 
 ```typescript
-declare const elemIndices: <A>(value: A, xs: readonly A[]) => number[]
+function elemIndices<A>(value: A, xs: readonly A[]): number[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `a` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `A` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[Number]`
+```ts
+elemIndices(2, [2, 1, 2]) //=> [0, 2]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## empty <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### empty <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-empty :: [a] -> Boolean
-```
-
-#### TypeScript Signature
+Returns true when the list has no items.
 
 ```typescript
-declare const empty: <A>(xs: readonly A[]) => boolean
+function empty<A>(xs: readonly A[]): boolean
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`Boolean`
+```ts
+empty([]) //=> true
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## filter <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### filter <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-filter :: (a -> Boolean) -> [a] -> [a]
-```
-
-#### TypeScript Signature
+Keeps the items that satisfy the predicate; curried.
 
 ```typescript
 function filter<A>(fn: Predicate<A>): (xs: readonly A[]) => A[]
@@ -461,427 +405,387 @@ function filter<A>(fn: Predicate<A>, xs: readonly A[]): A[]
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> Boolean)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Predicate<A>` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+filter((x: number) => x > 3, [1, 2, 3, 4, 5]) //=> [4, 5]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## find <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### find <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-find :: (a -> Boolean) -> [a] -> a
-```
-
-#### TypeScript Signature
+Returns the first item that satisfies the predicate, or undefined; curried.
 
 ```typescript
-declare const find: <A>(fn: Predicate<A>, xs: readonly A[]) => A | undefined
+function find<A>(fn: Predicate<A>, xs: readonly A[]): A | undefined
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> Boolean)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Predicate<A>` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`a`
+```ts
+find((x: number) => x > 2, [1, 2, 3, 4]) //=> 3
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## findIndex <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### findIndex <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-findIndex :: (a -> Boolean) -> [a] -> Number
-```
-
-#### TypeScript Signature
+Returns the index of the first item that satisfies the predicate, or -1; curried.
 
 ```typescript
-declare const findIndex: <A>(fn: Predicate<A>, xs: readonly A[]) => number
+function findIndex<A>(fn: Predicate<A>, xs: readonly A[]): number
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> Boolean)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Predicate<A>` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`Number`
+```ts
+findIndex((x: number) => x > 2, [1, 2, 3]) //=> 2
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## findIndices <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### findIndices <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-findIndices :: (a -> Boolean) -> [a] -> [Number]
-```
-
-#### TypeScript Signature
+Returns the indices of all items that satisfy the predicate; curried.
 
 ```typescript
-declare const findIndices: <A>(fn: Predicate<A>, xs: readonly A[]) => number[]
+function findIndices<A>(fn: Predicate<A>, xs: readonly A[]): number[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> Boolean)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Predicate<A>` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[Number]`
+```ts
+findIndices((x: number) => x > 1, [1, 2, 3]) //=> [1, 2]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## first <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### first <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-first :: [a] -> a
-```
-
-#### TypeScript Signature
+Returns the first item of the list, or undefined. Alias of [head](#head-ƒ).
 
 ```typescript
-declare const first: <A>(xs: readonly A[]) => A | undefined
+function first<A>(xs: readonly A[]): A | undefined
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`a`
+```ts
+first([1, 2, 3]) //=> 1
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## flatten <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### flatten <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-flatten :: List -> List
-```
-
-#### TypeScript Signature
+Recursively flattens nested lists into a single list.
 
 ```typescript
-declare const flatten: <A>(xss: readonly (readonly A[])[]) => A[]
+function flatten<A>(xss: readonly (readonly A[])[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `List` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xss` | `readonly (readonly A[])[]` |  |
 
-#### Returns
+#### Example
 
-`List`
+```ts
+flatten([[1, 2], [3], [4, 5]]) //=> [1, 2, 3, 4, 5]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## fold <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### fold <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-fold :: (b -> a -> b) -> b -> [a] -> b
-```
-
-#### TypeScript Signature
+Left-associative fold over a list with an initial accumulator. Alias of [foldl](#foldl-ƒ).
 
 ```typescript
-declare const fold: <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]) => A
+function fold<A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(b -> a -> b)` |
-| `arg2` | `b` |
-| `arg3` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Reducer<A, B>` |  |
+| `initial` | `A` |  |
+| `xs` | `readonly B[]` |  |
 
-#### Returns
+#### Example
 
-`b`
+```ts
+fold((acc: number, x: number) => acc + x, 0, [1, 2, 3]) //=> 6
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## fold1 <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### fold1 <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-fold1 :: (a -> a -> a) -> [a] -> a
-```
-
-#### TypeScript Signature
+Left fold over a non-empty list using its head as the seed. Alias of [foldl1](#foldl1-ƒ).
 
 ```typescript
-declare const fold1: <A>(fn: (acc: A, value: A) => A, xs: readonly A[]) => A
+function fold1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> a -> a)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(acc: A, value: A) => A` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`a`
+```ts
+fold1((acc: number, x: number) => acc + x, [1, 2, 3]) //=> 6
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## foldl <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### foldl <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-foldl :: (b -> a -> b) -> b -> [a] -> b
-```
-
-#### TypeScript Signature
+Left-associative fold over a list with an initial accumulator; curried.
 
 ```typescript
-declare const foldl: <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]) => A
+function foldl<A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(b -> a -> b)` |
-| `arg2` | `b` |
-| `arg3` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Reducer<A, B>` |  |
+| `initial` | `A` |  |
+| `xs` | `readonly B[]` |  |
 
-#### Returns
+#### Example
 
-`b`
+```ts
+foldl((acc: number, x: number) => acc + x, 0, [1, 2, 3]) //=> 6
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## foldl1 <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### foldl1 <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-foldl1 :: (a -> a -> a) -> [a] -> a
-```
-
-#### TypeScript Signature
+Left fold over a non-empty list using its head as the seed; curried.
 
 ```typescript
-declare const foldl1: <A>(fn: (acc: A, value: A) => A, xs: readonly A[]) => A
+function foldl1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> a -> a)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(acc: A, value: A) => A` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`a`
+```ts
+foldl1((acc: number, x: number) => acc + x, [1, 2, 3]) //=> 6
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## foldr <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### foldr <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-foldr :: (b -> a -> b) -> b -> [a] -> b
-```
-
-#### TypeScript Signature
+Right-associative fold over a list with an initial accumulator; curried.
 
 ```typescript
-declare const foldr: <A, B>(
-fn: (value: B, acc: A, index: number, array: readonly B[]) => A,
-initial: A,
-xs: readonly B[],
-) => A
+function foldr<A, B>(fn: (value: B, acc: A, index: number, array: readonly B[]) => A, initial: A, xs: readonly B[]): A
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(b -> a -> b)` |
-| `arg2` | `b` |
-| `arg3` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(value: B, acc: A, index: number, array: readonly B[]) => A` |  |
+| `initial` | `A` |  |
+| `xs` | `readonly B[]` |  |
 
-#### Returns
+#### Example
 
-`b`
+```ts
+foldr((x: string, acc: string) => x + acc, 'o', ['h', 'e', 'l', 'l']) //=> 'hello'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## foldr1 <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### foldr1 <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-foldr1 :: (a -> a -> a) -> [a] -> a
-```
-
-#### TypeScript Signature
+Right fold over a non-empty list using its last item as the seed; curried.
 
 ```typescript
-declare const foldr1: <A>(fn: (value: A, acc: A) => A, xs: readonly A[]) => A
+function foldr1<A>(fn: (value: A, acc: A) => A, xs: readonly A[]): A
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> a -> a)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(value: A, acc: A) => A` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`a`
+```ts
+foldr1((x: number, y: number) => x - y, [1, 2, 3, 4, 9]) //=> 7
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## groupBy <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### groupBy <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-groupBy :: (a -> b) -> [a] -> { b: [b] }
-```
-
-#### TypeScript Signature
+Groups items into lists keyed by the value the function returns; curried.
 
 ```typescript
-declare const groupBy: <A>(fn: Predicate<A>, xs: readonly A[]) => A[][]
+function groupBy<A>(fn: Predicate<A>, xs: readonly A[]): A[][]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Predicate<A>` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`{ b: [b] }`
+```ts
+groupBy(Math.floor, [4.2, 4.4, 9.8]) //=> { 4: [4.2, 4.4], 9: [9.8] }
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## head <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### head <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-head :: [a] -> a
-```
-
-#### TypeScript Signature
+Returns the first item of the list, or undefined.
 
 ```typescript
-declare const head: <A>(xs: readonly A[]) => A | undefined
+function head<A>(xs: readonly A[]): A | undefined
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`a`
+```ts
+head([1, 2, 3]) //=> 1
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## initial <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### initial <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-initial :: [a] -> [a]
-```
-
-#### TypeScript Signature
+Returns all items but the last, or undefined for an empty list.
 
 ```typescript
-declare const initial: <A>(xs: readonly A[]) => A[]
+function initial<A>(xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+initial([1, 2, 3, 4]) //=> [1, 2, 3]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## intersection <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### intersection <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-intersection :: ([a], [a], ...) -> [a]
-```
-
-#### TypeScript Signature
+Returns items present in the first list and every other list.
 
 ```typescript
-declare const intersection: <A>(left: readonly A[], right: readonly A[]) => A[]
+function intersection<A>(left: readonly A[], right: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `([a], [a], ...)` |
+| Parameter | Type | Description |
+|---|---|---|
+| `left` | `readonly A[]` |  |
+| `right` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+intersection([1, 2, 3], [2, 3, 4]) //=> [2, 3]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## last <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### last <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-last :: [a] -> a
-```
-
-#### TypeScript Signature
+Returns the last item of the list, or undefined.
 
 ```typescript
-declare const last: <A>(xs: readonly A[]) => A | undefined
+function last<A>(xs: readonly A[]): A | undefined
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`a`
+```ts
+last([1, 2, 3]) //=> 3
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## length <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### length <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-Returns the number of items in a list.
-
-```haskell
-length :: [a] -> Number
-```
-
-#### TypeScript Signature
+Returns the number of items in the list.
 
 ```typescript
 function length<A>(xs: readonly A[]): number
@@ -889,31 +793,21 @@ function length<A>(xs: readonly A[]): number
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
-
-#### Returns
-
-`Number`
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
 
 #### Example
 
-```javascript
-length([1, 2, 3]); //=> 3
+```ts
+length([1, 2, 3]) //=> 3
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## map <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### map <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-Applies a function to each item in the list, and produces a new list with the results. The length of the result is the same length as the input.
-
-```haskell
-map :: (a -> b) -> [a] -> [b]
-```
-
-#### TypeScript Signature
+Applies a function to each item, returning a new list; curried.
 
 ```typescript
 function map<A, B>(fn: Mapper<A, B>): (xs: readonly A[]) => B[]
@@ -922,155 +816,133 @@ function map<A, B>(fn: Mapper<A, B>, xs: readonly A[]): B[]
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b)` |
-| `arg2` | `[a]` |
-
-#### Returns
-
-`[b]`
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Mapper<A, B>` |  |
 
 #### Example
 
-```javascript
-map((x) => x + 1, [1, 2, 3]);
-//=> [2, 3, 4]
+```ts
+map((x: number) => x + 1, [1, 2, 3]) //=> [2, 3, 4]
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## maximum <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### maximum <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-maximum :: [Number] -> Number
-```
-
-#### TypeScript Signature
+Returns the largest item in the list, or undefined when empty.
 
 ```typescript
-declare const maximum: <A>(xs: readonly A[]) => A | undefined
+function maximum<A>(xs: readonly A[]): A | undefined
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[Number]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`Number`
+```ts
+maximum([1, 2, 3, 4, 5]) //=> 5
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## maximumBy <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### maximumBy <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-maximunBy :: (a -> b) -> [a] -> b
-```
-
-#### TypeScript Signature
+Returns the item with the largest value produced by the accessor; curried.
 
 ```typescript
-declare const maximumBy: <A, B>(fn: Accessor<A, B>, xs: readonly A[]) => A | undefined
+function maximumBy<A, B>(fn: Accessor<A, B>, xs: readonly A[]): A | undefined
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Accessor<A, B>` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`b`
+```ts
+maximumBy((s: string) => s.length, ['a', 'ccc', 'bb']) //=> 'ccc'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## mean <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### mean <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-mean :: [Number] -> Number
-```
-
-#### TypeScript Signature
+Returns the arithmetic mean of a list of numbers.
 
 ```typescript
-declare const mean: (xs: readonly number[]) => number
+function mean(xs: readonly number[]): number
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[Number]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly number[]` |  |
 
-#### Returns
+#### Example
 
-`Number`
+```ts
+mean([1, 2, 3, 4, 5]) //=> 3
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## minimum <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### minimum <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-minimum :: [Number] -> Number
-```
-
-#### TypeScript Signature
+Returns the smallest item in the list, or undefined when empty.
 
 ```typescript
-declare const minimum: <A>(xs: readonly A[]) => A | undefined
+function minimum<A>(xs: readonly A[]): A | undefined
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[Number]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`Number`
+```ts
+minimum([3, 1, 2]) //=> 1
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## minimumBy <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### minimumBy <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-minimumBy :: (a -> b) -> [a] -> b
-```
-
-#### TypeScript Signature
+Returns the item with the smallest value produced by the accessor; curried.
 
 ```typescript
-declare const minimumBy: <A, B>(fn: Accessor<A, B>, xs: readonly A[]) => A | undefined
+function minimumBy<A, B>(fn: Accessor<A, B>, xs: readonly A[]): A | undefined
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Accessor<A, B>` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`b`
+```ts
+minimumBy((s: string) => s.length, ['was', 'a', 'test']) //=> 'a'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## notElem <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### notElem <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-Checks whether a list does not contain a given value.
-
-```haskell
-notElem :: a -> [a] -> Boolean
-```
-
-#### TypeScript Signature
+Returns true when the value is absent from the list; curried.
 
 ```typescript
 function notElem<A>(value: A): (xs: readonly A[]) => boolean
@@ -1079,103 +951,88 @@ function notElem<A>(value: A, xs: readonly A[]): boolean
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `a` |
-| `arg2` | `[a]` |
-
-#### Returns
-
-`Boolean`
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `A` |  |
 
 #### Example
 
-```javascript
-notElem(4, [1, 2, 3]); //=> true
+```ts
+notElem(4, [1, 2, 3]) //=> true
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## or <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### or <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-or :: [a] -> Boolean
-```
-
-#### TypeScript Signature
+Returns true when at least one item in the list is truthy.
 
 ```typescript
-declare const or: (xs: readonly unknown[]) => boolean
+function or(xs: readonly unknown[]): boolean
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly unknown[]` |  |
 
-#### Returns
+#### Example
 
-`Boolean`
+```ts
+or([0, '', 3]) //=> true
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## partition <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### partition <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-partition :: (a -> Boolean) -> [a] -> [[a] [a]]
-```
-
-#### TypeScript Signature
+Splits a list into items that pass and fail the predicate; curried.
 
 ```typescript
-declare const partition: <A>(fn: Predicate<A>, xs: readonly A[]) => [A[], A[]]
+function partition<A>(fn: Predicate<A>, xs: readonly A[]): [A[], A[]]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> Boolean)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Predicate<A>` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[[a] [a]]`
+```ts
+partition((x: number) => x > 2, [1, 2, 3, 4]) //=> [[3, 4], [1, 2]]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## product <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### product <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-product :: [Number] -> Number
-```
-
-#### TypeScript Signature
+Returns the product of a list of numbers.
 
 ```typescript
-declare const product: (xs: readonly number[]) => number
+function product(xs: readonly number[]): number
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[Number]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly number[]` |  |
 
-#### Returns
+#### Example
 
-`Number`
+```ts
+product([1, 2, 3]) //=> 6
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## range <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### range <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-range :: (Number, Number?, Number?) -> [Number]
-```
-
-#### TypeScript Signature
+Builds an inclusive list of numbers from `from` to `to` stepping by `step`.
 
 ```typescript
 function range(to: number, from?: number, step?: number): number[]
@@ -1183,23 +1040,23 @@ function range(to: number, from?: number, step?: number): number[]
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(Number, Number?, Number?)` |
+| Parameter | Type | Description |
+|---|---|---|
+| `to` | `number` |  |
+| `from` | `number` |  |
+| `step` | `number` |  |
 
-#### Returns
+#### Example
 
-`[Number]`
+```ts
+range(3) //=> [1, 2, 3]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## reduce <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### reduce <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-reduce :: ((a, b) -> a) -> [b] -> a
-```
-
-#### TypeScript Signature
+Left-reduces a list with an initial accumulator; curried.
 
 ```typescript
 function reduce<A, B>(fn: Reducer<A, B>): (initial: A) => (xs: readonly B[]) => A
@@ -1209,674 +1066,613 @@ function reduce<A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `((a, b) -> a)` |
-| `arg2` | `[b]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Reducer<A, B>` |  |
 
-#### Returns
+#### Example
 
-`a`
+```ts
+reduce((acc: number, x: number) => acc + x, 0, [1, 2, 3]) //=> 6
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## reject <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### reject <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-reject :: (a -> Boolean) -> [a] -> [a]
-```
-
-#### TypeScript Signature
+Keeps the items that do not satisfy the predicate; curried.
 
 ```typescript
-declare const reject: <A>(fn: Predicate<A>, xs: readonly A[]) => A[]
+function reject<A>(fn: Predicate<A>, xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> Boolean)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Predicate<A>` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+reject((x: number) => x > 2, [1, 2, 3, 4]) //=> [1, 2]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## reverse <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### reverse <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-reverse :: [a] -> [a]
-```
-
-#### TypeScript Signature
+Returns a new list with the items in reverse order.
 
 ```typescript
-declare const reverse: <A>(xs: readonly A[]) => A[]
+function reverse<A>(xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+reverse([1, 2, 3]) //=> [3, 2, 1]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## scan <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### scan <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-scan :: (a -> b) -> [a] -> [b]
-```
-
-#### TypeScript Signature
+Like [reduce](#reduce-ƒ) but returns the list of successive accumulator values; curried.
 
 ```typescript
-declare const scan: <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]) => A[]
+function scan<A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Reducer<A, B>` |  |
+| `initial` | `A` |  |
+| `xs` | `readonly B[]` |  |
 
-#### Returns
+#### Example
 
-`[b]`
+```ts
+scan((a: number, b: number) => a + b, 0, [1, 2, 3]) //=> [0, 1, 3, 6]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## scan1 <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### scan1 <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-scan1 :: (a -> a -> a) -> [a] -> [a]
-```
-
-#### TypeScript Signature
+Like [scan](#scan-ƒ) but seeds with the list head; curried.
 
 ```typescript
-declare const scan1: <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]) => A[]
+function scan1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> a -> a)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(acc: A, value: A) => A` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+scan1((a: number, b: number) => a + b, [1, 2, 3]) //=> [1, 3, 6]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## scanl <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### scanl <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-scanl :: (a -> b) -> [a] -> [b]
-```
-
-#### TypeScript Signature
+Left scan over a list with an initial accumulator. Alias of [scan](#scan-ƒ).
 
 ```typescript
-declare const scanl: <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]) => A[]
+function scanl<A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Reducer<A, B>` |  |
+| `initial` | `A` |  |
+| `xs` | `readonly B[]` |  |
 
-#### Returns
+#### Example
 
-`[b]`
+```ts
+scanl((a: number, b: number) => a + b, 0, [1, 2, 3]) //=> [0, 1, 3, 6]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## scanl1 <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### scanl1 <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-scanl1 :: (a -> a -> a) -> [a] -> [a]
-```
-
-#### TypeScript Signature
+Left scan over a list seeded with its head. Alias of [scan1](#scan1-ƒ).
 
 ```typescript
-declare const scanl1: <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]) => A[]
+function scanl1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> a -> a)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(acc: A, value: A) => A` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+scanl1((a: number, b: number) => a + b, [1, 2, 3]) //=> [1, 3, 6]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## scanr <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### scanr <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-scanr :: (a -> b -> b) -> b -> [a] -> [b]
-```
-
-#### TypeScript Signature
+Right scan over a list with an initial accumulator; curried.
 
 ```typescript
-declare const scanr: <A, B>(
-fn: (value: B, acc: A, index: number, array: readonly B[]) => A,
-initial: A,
-xs: readonly B[],
-) => A[]
+function scanr<A, B>(fn: (value: B, acc: A, index: number, array: readonly B[]) => A, initial: A, xs: readonly B[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b -> b)` |
-| `arg2` | `b` |
-| `arg3` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(value: B, acc: A, index: number, array: readonly B[]) => A` |  |
+| `initial` | `A` |  |
+| `xs` | `readonly B[]` |  |
 
-#### Returns
+#### Example
 
-`[b]`
+```ts
+scanr((a: number, b: number) => a + b, 0, [1, 2, 3]) //=> [6, 5, 3, 0]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## scanr1 <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### scanr1 <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-scanr1 :: (a -> a -> a) -> [a] -> [a]
-```
-
-#### TypeScript Signature
+Right scan over a list seeded with its last item; curried.
 
 ```typescript
-declare const scanr1: <A, B>(
-fn: (value: B, acc: A, index: number, array: readonly B[]) => A,
-initial: A,
-xs: readonly B[],
-) => A[]
+function scanr1<A>(fn: (value: A, acc: A) => A, xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> a -> a)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(value: A, acc: A) => A` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+scanr1((a: number, b: number) => a + b, [1, 2, 3]) //=> [6, 5, 3]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## slice <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### slice <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-slice :: Number -> Number -> [a] -> [a]
-```
-
-#### TypeScript Signature
+Returns the sublist between `start` and `end`; curried.
 
 ```typescript
-declare const slice: <A>(start: number, end: number, xs: readonly A[]) => A[]
+function slice<A>(start: number, end: number, xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `Number` |
-| `arg2` | `Number` |
-| `arg3` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `start` | `number` |  |
+| `end` | `number` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+slice(1, 3, [1, 2, 3, 4]) //=> [2, 3]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## sort <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### sort <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-sort :: List -> List
-```
-
-#### TypeScript Signature
+Returns a new list sorted with default comparison.
 
 ```typescript
-declare const sort: <A>(xs: readonly A[]) => A[]
+function sort<A>(xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `List` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`List`
+```ts
+sort([1, 3, 2]) //=> [1, 2, 3]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## sortBy <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### sortBy <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-sortBy :: (a -> b) -> [a] -> [a]
-```
-
-#### TypeScript Signature
+Returns a new list sorted by the value the accessor returns; curried.
 
 ```typescript
-declare const sortBy: <A, B>(fn: Accessor<A, B>, xs: readonly A[]) => A[]
+function sortBy<A, B>(fn: Accessor<A, B>, xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Accessor<A, B>` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+sortBy((s: string) => s.length, ['three', 'one', 'two']) //=> ['one', 'two', 'three']
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## sortWith <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### sortWith <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-sortWith :: (a -> Number) -> [a] -> [a]
-```
-
-#### TypeScript Signature
+Returns a new list sorted with a custom comparator; curried.
 
 ```typescript
-declare const sortWith: <A>(fn: Comparer<A>, xs: readonly A[]) => A[]
+function sortWith<A>(fn: Comparer<A>, xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> Number)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Comparer<A>` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+sortWith((a: number, b: number) => a - b, [3, 1, 2]) //=> [1, 2, 3]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## span <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### span <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-span :: (a -> Bool) -> [a] -> [[a], [a]]
-```
-
-#### TypeScript Signature
+Splits a list into the longest prefix that satisfies the predicate and the rest; curried.
 
 ```typescript
-declare const span: <A>(fn: Predicate<A>, xs: readonly A[]) => [A[], A[]]
+function span<A>(fn: Predicate<A>, xs: readonly A[]): [A[], A[]]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> Bool)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Predicate<A>` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[[a], [a]]`
+```ts
+span((x: number) => x < 3, [1, 2, 3, 4]) //=> [[1, 2], [3, 4]]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## splitAt <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### splitAt <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-splitAt :: Number -> [a] -> [[a], [a]]
-```
-
-#### TypeScript Signature
+Splits a list into a prefix of length `index` and the remaining items; curried.
 
 ```typescript
-declare const splitAt: <A>(count: number, xs: readonly A[]) => [A[], A[]]
+function splitAt<A>(count: number, xs: readonly A[]): [A[], A[]]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `Number` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `count` | `number` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[[a], [a]]`
+```ts
+splitAt(2, [1, 2, 3, 4]) //=> [[1, 2], [3, 4]]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## sum <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### sum <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-sum :: [Number] -> Number
-```
-
-#### TypeScript Signature
+Returns the sum of a list of numbers.
 
 ```typescript
-declare const sum: (xs: readonly number[]) => number
+function sum(xs: readonly number[]): number
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[Number]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly number[]` |  |
 
-#### Returns
+#### Example
 
-`Number`
+```ts
+sum([1, 2, 3, 4, 5]) //=> 15
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## tail <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### tail <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-tail :: [a] -> [a]
-```
-
-#### TypeScript Signature
+Returns all items but the first.
 
 ```typescript
-declare const tail: <A>(xs: readonly A[]) => A[]
+function tail<A>(xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+tail([1, 2, 3]) //=> [2, 3]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## take <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### take <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-take :: Number -> [a] -> [a]
-```
-
-#### TypeScript Signature
+Takes the first `n` items from the list; curried.
 
 ```typescript
-declare const take: <A>(count: number, xs: readonly A[]) => A[]
+function take<A>(count: number, xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `Number` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `count` | `number` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+take(2, [1, 2, 3, 4]) //=> [1, 2]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## takeWhile <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### takeWhile <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-takeWhile :: (a -> Bool) -> [a] -> [a]
-```
-
-#### TypeScript Signature
+Takes leading items while the predicate holds; curried.
 
 ```typescript
-declare const takeWhile: <A>(fn: Predicate<A>, xs: readonly A[]) => A[]
+function takeWhile<A>(fn: Predicate<A>, xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> Bool)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Predicate<A>` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+takeWhile((n: number) => n <= 3, [2, 3, 5, 1]) //=> [2, 3]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## unfoldr <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### unfoldr <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-unfoldr :: (a -> [b]) -> [a] -> [b]
-```
-
-#### TypeScript Signature
+Builds a list by repeatedly applying a generator to a seed; curried.
 
 ```typescript
-declare const unfoldr: <A, B>(fn: (seed: B) => [A, B] | undefined, seed: B) => A[]
+function unfoldr<A, B>(fn: (seed: B) => [A, B] | undefined, seed: B): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> [b])` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(seed: B) => [A, B] \| undefined` |  |
+| `seed` | `B` |  |
 
-#### Returns
+#### Example
 
-`[b]`
+```ts
+unfoldr((n: number) => (n > 0 ? [n, n - 1] : undefined), 3) //=> [3, 2, 1]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## union <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### union <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-union :: ([a], [a], ...) -> [a]
-```
-
-#### TypeScript Signature
+Returns the unique items across all supplied lists.
 
 ```typescript
-declare const union: <A>(left: readonly A[], right: readonly A[]) => A[]
+function union<A>(left: readonly A[], right: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `([a], [a], ...)` |
+| Parameter | Type | Description |
+|---|---|---|
+| `left` | `readonly A[]` |  |
+| `right` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+union([1, 2, 3], [3, 4]) //=> [1, 2, 3, 4]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## unique <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### unique <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-unique :: [a] -> [a]
-```
-
-#### TypeScript Signature
+Returns the list with duplicate items removed.
 
 ```typescript
-declare const unique: <A>(xs: readonly A[]) => A[]
+function unique<A>(xs: readonly A[]): A[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+unique([1, 2, 2, 3, 1]) //=> [1, 2, 3]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## uniqueBy <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### uniqueBy <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-uniqueBy :: (a -> b) -> [a] -> [a]
-```
-
-#### TypeScript Signature
+Returns items unique by the value the accessor returns; curried.
 
 ```typescript
-declare const uniqueBy: <A, B>(fn: Accessor<A, B>, xs: readonly A[]) => B[]
+function uniqueBy<A, B>(fn: Accessor<A, B>, xs: readonly A[]): B[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b)` |
-| `arg2` | `[a]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `Accessor<A, B>` |  |
+| `xs` | `readonly A[]` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+uniqueBy((o: { id: number }) => o.id, [{ id: 1 }, { id: 1 }, { id: 2 }]) //=> [1, 2]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## zip <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### zip <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-zip :: [a] -> [b] -> [[a, b]]
-```
-
-#### TypeScript Signature
+Zips two lists into a list of pairs, truncating to the shorter; curried.
 
 ```typescript
-declare const zip: <A, B>(xs: readonly A[], ys: readonly B[]) => Array<Pair<A, B>>
+function zip<A, B>(xs: readonly A[], ys: readonly B[]): Pair<A, B>[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
-| `arg2` | `[b]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
+| `ys` | `readonly B[]` |  |
 
-#### Returns
+#### Example
 
-`[[a, b]]`
+```ts
+zip([1, 2], [4, 5]) //=> [[1, 4], [2, 5]]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## zipAll <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### zipAll <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-zipAll :: [a] -> [b] -> [[a, b]]
-```
-
-#### TypeScript Signature
+Zips two lists into pairs, padding the shorter list with undefined.
 
 ```typescript
-declare const zipAll: <A, B>(
-xs: readonly A[],
-ys: readonly B[],
-) => Array<Pair<A | undefined, B | undefined>>
+function zipAll<A, B>(xs: readonly A[], ys: readonly B[]): Pair<A | undefined, B | undefined>[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a]` |
-| `arg2` | `[b]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `xs` | `readonly A[]` |  |
+| `ys` | `readonly B[]` |  |
 
-#### Returns
+#### Example
 
-`[[a, b]]`
+```ts
+zipAll([1, 2], [4]) //=> [[1, 4], [2, undefined]]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## zipAllWith <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### zipAllWith <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-zipAllWith :: (a -> b -> c) -> [a] -> [b] -> [c]
-```
-
-#### TypeScript Signature
+Combines two lists with a function, padding the shorter with undefined; curried.
 
 ```typescript
-declare const zipAllWith: <A, B, C>(
-fn: (left: A | undefined, right: B | undefined) => C,
-xs: readonly A[],
-ys: readonly B[],
-) => C[]
+function zipAllWith<A, B, C>(fn: (left: A | undefined, right: B | undefined) => C, xs: readonly A[], ys: readonly B[]): C[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b -> c)` |
-| `arg2` | `[a]` |
-| `arg3` | `[b]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(left: A \| undefined, right: B \| undefined) => C` |  |
+| `xs` | `readonly A[]` |  |
+| `ys` | `readonly B[]` |  |
 
-#### Returns
+#### Example
 
-`[c]`
+```ts
+zipAllWith((a, b) => [a, b], [1], [4, 5]) //=> [[1, 4], [undefined, 5]]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## zipWith <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### zipWith <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-zipWith ::
-```
-
-#### TypeScript Signature
+Combines two lists element-wise with a function, truncating to the shorter; curried.
 
 ```typescript
-function zipWith<A, B, C>(
-fn: (left: A, right: B) => C,
-): (xs: readonly A[]) => (ys: readonly B[]) => C[]
-function zipWith<A, B, C>(
-fn: (left: A, right: B) => C,
-xs: readonly A[],
-): (ys: readonly B[]) => C[]
-function zipWith<A, B, C>(
-fn: (left: A, right: B) => C,
-xs: readonly A[],
-ys: readonly B[],
-): C[]
+function zipWith<A, B, C>(fn: (left: A, right: B) => C): (xs: readonly A[]) => (ys: readonly B[]) => C[]
+function zipWith<A, B, C>(fn: (left: A, right: B) => C, xs: readonly A[]): (ys: readonly B[]) => C[]
+function zipWith<A, B, C>(fn: (left: A, right: B) => C, xs: readonly A[], ys: readonly B[]): C[]
 ```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(left: A, right: B) => C` |  |
+
+#### Example
+
+```ts
+zipWith((a: number, b: number) => a + b, [1, 2, 3], [3, 2, 1]) //=> [4, 4, 4]
+```
+
 

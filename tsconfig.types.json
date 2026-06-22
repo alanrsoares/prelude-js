@@ -8,11 +8,12 @@
     "lib": ["ES2022"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "customConditions": ["bun"],
     "noEmit": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2022",
     "types": ["bun"]
   },
-  "include": ["src/**/*.d.ts", "test/**/*.test.ts"]
+  "include": ["src/**/*.ts", "test/**/*.test.ts"]
 }
