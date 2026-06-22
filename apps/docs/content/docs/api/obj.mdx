@@ -1,240 +1,212 @@
 ---
-title: "Obj API"
+title: "preludejs/Obj API"
 description: "Complete API reference for preludejs/Obj"
 ---
 
-# Obj API Reference
+# preludejs/Obj API Reference
 
-## clone <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+## Core
 
-```haskell
-clone :: a -> a'
-```
+### clone <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-#### TypeScript Signature
+Returns a deep clone of the value via JSON round-tripping.
 
 ```typescript
-declare const clone: <T extends object>(obj: T) => T
+function clone<T extends object>(obj: T): T
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `a` |
+| Parameter | Type | Description |
+|---|---|---|
+| `obj` | `T` |  |
 
-#### Returns
+#### Example
 
-`a'`
+```ts
+clone({ a: 1, b: 2 }) //=> { a: 1, b: 2 }
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## get <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### get <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-get :: String -> {a: b} -> b
-```
-
-#### TypeScript Signature
+Reads a member from an object by key; key-first and curried.
 
 ```typescript
-function get<T extends Record<PropertyKey, unknown>, K extends keyof T>(
-obj: T,
-key: K,
-): T[K]
+function get<T extends Record<PropertyKey, unknown>, K extends keyof T>(key: K): (obj: T) => T[K]
+function get<T extends Record<PropertyKey, unknown>, K extends keyof T>(key: K, obj: T): T[K]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
-| `arg2` | `{a: b}` |
+| Parameter | Type | Description |
+|---|---|---|
+| `key` | `K` |  |
 
-#### Returns
+#### Example
 
-`b`
+```ts
+get('foo', { foo: 'bar' }) //=> 'bar'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## keys <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### keys <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-keys :: {a: b} -> [a]
-```
-
-#### TypeScript Signature
+Returns the own enumerable keys of an object.
 
 ```typescript
-declare const keys: <T extends object>(obj: T) => Array<keyof T>
+function keys<T extends object>(obj: T): (keyof T)[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `{a: b}` |
+| Parameter | Type | Description |
+|---|---|---|
+| `obj` | `T` |  |
 
-#### Returns
+#### Example
 
-`[a]`
+```ts
+keys({ a: 2, b: 3 }) //=> ['a', 'b']
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## map <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### map <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-map :: ((a, b) -> c) -> {a: b} -> [c]
-```
-
-#### TypeScript Signature
+Maps each key/value pair of an object to an array; curried.
 
 ```typescript
-declare const map: <A extends Record<string, unknown>, B>(
-fn: Accessor<A, B>,
-obj: A,
-) => Record<string, B>
+function map<V, B>(fn: (key: string, value: V, index: number) => B): (obj: Record<string, V>) => B[]
+function map<V, B>(fn: (key: string, value: V, index: number) => B, obj: Record<string, V>): B[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `((a, b) -> c)` |
-| `arg2` | `{a: b}` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(key: string, value: V, index: number) => B` |  |
 
-#### Returns
+#### Example
 
-`[c]`
+```ts
+map((k: string, v: number) => `${k}=${v}`, { a: 1, b: 2 }) //=> ['a=1', 'b=2']
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## merge <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### merge <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-merge :: {a: b} -> {a: b} -> {a: b}
-```
-
-#### TypeScript Signature
+Merges any number of source objects into the first; later sources win.
 
 ```typescript
-declare const merge: <T extends object>(target: T, ...sources: Partial<T>[]) => T
+function merge<T extends object>(target: T, ...sources: Partial<T>[]): T
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `{a: b}` |
-| `arg2` | `{a: b}` |
+| Parameter | Type | Description |
+|---|---|---|
+| `target` | `T` |  |
+| `sources` | `Partial<T>[]` |  |
 
-#### Returns
+#### Example
 
-`{a: b}`
+```ts
+merge({ a: 1, b: 2 }, { b: 3 }) //=> { a: 1, b: 3 }
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## objToPairs <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### objToPairs <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-objToPairs :: {a: b} -> [[a, b]]
-```
-
-#### TypeScript Signature
+Turns an object into a list of `[key, value]` pairs.
 
 ```typescript
-declare const objToPairs: <T extends Record<PropertyKey, unknown>>(
-obj: T,
-) => Array<readonly [keyof T, T[keyof T]]>
+function objToPairs<T extends Record<PropertyKey, unknown>>(obj: T): (readonly [keyof T, T[keyof T]])[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `{a: b}` |
+| Parameter | Type | Description |
+|---|---|---|
+| `obj` | `T` |  |
 
-#### Returns
+#### Example
 
-`[[a, b]]`
+```ts
+objToPairs({ a: 'b', c: 'd' }) //=> [['a', 'b'], ['c', 'd']]
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## pairsToObj <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### pairsToObj <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-pairsToObj :: [[a, b]] -> {a: b}
-```
-
-#### TypeScript Signature
+Turns a list of `[key, value]` pairs into an object.
 
 ```typescript
-declare const pairsToObj: <K extends PropertyKey, V>(
-pairs: ReadonlyArray<readonly [K, V]>,
-) => Record<K, V>
+function pairsToObj<K extends PropertyKey, V>(pairs: readonly (readonly [K, V])[]): Record<K, V>
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[[a, b]]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `pairs` | `readonly (readonly [K, V])[]` |  |
 
-#### Returns
+#### Example
 
-`{a: b}`
+```ts
+pairsToObj([['a', 1], ['b', 2]]) //=> { a: 1, b: 2 }
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## reduce <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### reduce <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-reduce :: (a -> b) -> a -> b -> a
-```
-
-#### TypeScript Signature
+Reduces an object's key/value pairs to a single value; curried.
+The callback receives `(acc, key, value, index, obj)`.
 
 ```typescript
-declare const reduce: <A, B extends Record<string, unknown>>(
-fn: Reducer<A, [keyof B, B[keyof B]]>,
-initial: A,
-obj: B,
-) => A
+function reduce<A, V>(fn: (acc: A, key: string, value: V, index: number, obj: Record<string, V>) => A): (initial: A) => (obj: Record<string, V>) => A
+function reduce<A, V>(fn: (acc: A, key: string, value: V, index: number, obj: Record<string, V>) => A, initial: A): (obj: Record<string, V>) => A
+function reduce<A, V>(fn: (acc: A, key: string, value: V, index: number, obj: Record<string, V>) => A, initial: A, obj: Record<string, V>): A
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(a -> b)` |
-| `arg2` | `a` |
-| `arg3` | `b` |
+| Parameter | Type | Description |
+|---|---|---|
+| `fn` | `(acc: A, key: string, value: V, index: number, obj: Record<string, V>) => A` |  |
 
-#### Returns
+#### Example
 
-`a`
+```ts
+reduce((acc: number, _k: string, v: number) => acc + v, 0, { a: 1, b: 2 }) //=> 3
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## values <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### values <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-values :: {a: b} -> [b]
-```
-
-#### TypeScript Signature
+Returns the own enumerable values of an object.
 
 ```typescript
-declare const values: <T extends object>(obj: T) => Array<T[keyof T]>
+function values<T extends object>(obj: T): T[keyof T][]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `{a: b}` |
+| Parameter | Type | Description |
+|---|---|---|
+| `obj` | `T` |  |
 
-#### Returns
+#### Example
 
-`[b]`
+```ts
+values({ a: 2, b: 3 }) //=> [2, 3]
+```
+
 

@@ -13,10 +13,6 @@ import scanr from './scanr.js'
  */
 const scanr1 = curry((fn: (value: unknown, acc: unknown) => unknown, xs: readonly unknown[]) =>
   !xs.length ? undefined : scanr(fn, last(xs), initial(xs)),
-) as unknown as <A, B>(
-  fn: (value: B, acc: A, index: number, array: readonly B[]) => A,
-  initial: A,
-  xs: readonly B[],
-) => A[]
+) as unknown as <A>(fn: (value: A, acc: A) => A, xs: readonly A[]) => A[]
 
 export default scanr1

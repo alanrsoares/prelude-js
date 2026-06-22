@@ -1,4 +1,4 @@
-import type { AnyFn, Curried } from '../types.js'
+import type { AnyFn } from '../types.js'
 import curry from './curry.js'
 
 /**
@@ -7,15 +7,12 @@ import curry from './curry.js'
  *
  * @example
  * ```ts
- * const add = curry((a: number, b: number) => a + b)
- * uncurry(add, [2, 3]) //=> 5
+ * uncurry(curry((a: number, b: number) => a + b), [2, 3]) //=> 5
  * ```
  */
-const uncurry = curry((fn: AnyFn, args: readonly unknown[]) => fn(...args)) as unknown as <
-  A extends readonly unknown[],
-  R,
->(
-  fn: Curried<A, R>,
-) => (...args: A) => R
+const uncurry = curry((fn: AnyFn, args: readonly unknown[]) => fn(...args)) as unknown as {
+  <A extends readonly unknown[], R>(fn: (...args: A) => R, args: A): R
+  <A extends readonly unknown[], R>(fn: (...args: A) => R): (args: A) => R
+}
 
 export default uncurry

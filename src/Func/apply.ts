@@ -6,8 +6,7 @@ import curry from './curry.js'
  *
  * @example
  * ```ts
- * const sum = (a: number, b: number) => a + b
- * apply(sum, [2, 3]) //=> 5
+ * apply((a: number, b: number) => a + b, [2, 3]) //=> 5
  * ```
  */
 const apply = curry((fn: AnyFn, args: readonly unknown[]) => fn(...args)) as unknown as <

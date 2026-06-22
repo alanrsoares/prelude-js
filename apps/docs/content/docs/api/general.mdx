@@ -1,117 +1,84 @@
 ---
-title: "General API"
+title: "preludejs/General API"
 description: "Complete API reference for preludejs/General"
 ---
 
-# General API Reference
+# preludejs/General API Reference
 
-## areSimilar <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+## Core
 
-Performs a deep similarity check across arrays, objects, functions, and primitive values.
+### areSimilar <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-areSimilar :: a -> a -> Boolean
-```
-
-#### TypeScript Signature
+Performs a deep similarity check across arrays, objects, functions, and
+primitive values. Curried, so it can be partially applied.
 
 ```typescript
-declare const areSimilar: (left: unknown, right: unknown) => boolean
+function areSimilar(left: unknown, right: unknown): boolean
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `a` |
-| `arg2` | `a` |
-
-#### Returns
-
-`Boolean`
+| Parameter | Type | Description |
+|---|---|---|
+| `left` | `unknown` |  |
+| `right` | `unknown` |  |
 
 #### Example
 
-```javascript
-areSimilar({ foo: ['bar'] }, { foo: ['bar'] }); //=> true
+```ts
+areSimilar({ foo: ['bar'] }, { foo: ['bar'] }) //=> true
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## deny <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### deny <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
 Negates the truthiness of a value.
 
-```haskell
-deny :: a -> a
-```
-
-#### TypeScript Signature
-
 ```typescript
-declare const deny: (value: unknown) => boolean
+function deny(value: unknown): boolean
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `a` |
-
-#### Returns
-
-`a`
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `unknown` |  |
 
 #### Example
 
-```javascript
-deny(0); //=> true
+```ts
+deny(0) //=> true
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## equals <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### equals <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
 Checks strict equality between two values.
 
-```haskell
-equals :: a -> a -> Boolean
-```
-
-#### TypeScript Signature
-
 ```typescript
-declare const equals: (left: unknown, right: unknown) => boolean
+function equals(left: unknown, right: unknown): boolean
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `a` |
-| `arg2` | `a` |
-
-#### Returns
-
-`Boolean`
+| Parameter | Type | Description |
+|---|---|---|
+| `left` | `unknown` |  |
+| `right` | `unknown` |  |
 
 #### Example
 
-```javascript
-equals(2, 2); //=> true
+```ts
+equals(2, 2) //=> true
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## fst <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### fst <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
 Returns the first value in a pair.
-
-```haskell
-fst :: [a, b] -> a
-```
-
-#### TypeScript Signature
 
 ```typescript
 function fst<A, B>(pair: readonly [A, B]): A
@@ -119,63 +86,43 @@ function fst<A, B>(pair: readonly [A, B]): A
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a, b]` |
-
-#### Returns
-
-`a`
+| Parameter | Type | Description |
+|---|---|---|
+| `pair` | `readonly [A, B]` |  |
 
 #### Example
 
-```javascript
-fst(['left', 'right']); //=> 'left'
+```ts
+fst(['left', 'right']) //=> 'left'
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## id <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### id <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
 Returns the supplied value unchanged.
 
-```haskell
-id :: a -> a
-```
-
-#### TypeScript Signature
-
 ```typescript
-const id: <T>(value: T) => T
+function id<T>(value: T): T
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `a` |
-
-#### Returns
-
-`a`
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `T` |  |
 
 #### Example
 
-```javascript
-id('foo'); //=> 'foo'
+```ts
+id('foo') //=> 'foo'
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## not <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### not <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
 Negates the truthiness of a value using the canonical Prelude name.
-
-```haskell
-not :: a -> Boolean
-```
-
-#### TypeScript Signature
 
 ```typescript
 function not(value: unknown): boolean
@@ -183,63 +130,44 @@ function not(value: unknown): boolean
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `a` |
-
-#### Returns
-
-`Boolean`
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `unknown` |  |
 
 #### Example
 
-```javascript
-not(true); //=> false
+```ts
+not(true) //=> false
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## ofType <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### ofType <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
 Checks whether a value matches the supplied runtime type name.
 
-```haskell
-ofType :: (String, a) -> Boolean
-```
-
-#### TypeScript Signature
-
 ```typescript
-declare const ofType: (type: string, value: unknown) => boolean
+function ofType(type: string, value: unknown): boolean
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(String, a)` |
-
-#### Returns
-
-`Boolean`
+| Parameter | Type | Description |
+|---|---|---|
+| `type` | `string` |  |
+| `value` | `unknown` |  |
 
 #### Example
 
-```javascript
-ofType('Array', []); //=> true
+```ts
+ofType('Array', []) //=> true
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## replicate <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### replicate <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
 Builds a list of repeated copies of the supplied value.
-
-```haskell
-replicate :: (Number, b) -> [b]
-```
-
-#### TypeScript Signature
 
 ```typescript
 function replicate<T>(n: number, value: T): T[]
@@ -247,31 +175,22 @@ function replicate<T>(n: number, value: T): T[]
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(Number, b)` |
-
-#### Returns
-
-`[b]`
+| Parameter | Type | Description |
+|---|---|---|
+| `n` | `number` |  |
+| `value` | `T` |  |
 
 #### Example
 
-```javascript
-replicate(3, 'a'); //=> ['a', 'a', 'a']
+```ts
+replicate(3, 'a') //=> ['a', 'a', 'a']
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## snd <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### snd <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
 Returns the second value in a pair.
-
-```haskell
-snd :: [a, b] -> b
-```
-
-#### TypeScript Signature
 
 ```typescript
 function snd<A, B>(pair: readonly [A, B]): B
@@ -279,49 +198,36 @@ function snd<A, B>(pair: readonly [A, B]): B
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `[a, b]` |
-
-#### Returns
-
-`b`
+| Parameter | Type | Description |
+|---|---|---|
+| `pair` | `readonly [A, B]` |  |
 
 #### Example
 
-```javascript
-snd(['left', 'right']); //=> 'right'
+```ts
+snd(['left', 'right']) //=> 'right'
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## typeOf <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### typeOf <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
 Returns the internal JavaScript type tag for a value.
 
-```haskell
-typeOf :: Any -> String
-```
-
-#### TypeScript Signature
-
 ```typescript
-declare const typeOf: (value: unknown) => string
+function typeOf(value: unknown): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `Any` |
-
-#### Returns
-
-`String`
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `unknown` |  |
 
 #### Example
 
-```javascript
-typeOf([]); //=> 'Array'
+```ts
+typeOf([]) //=> 'Array'
 ```
+
 

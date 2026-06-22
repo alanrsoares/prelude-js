@@ -6,8 +6,7 @@ import curry from './curry.js'
  *
  * @example
  * ```ts
- * const invertedPower = flip(Math.pow)
- * invertedPower(2, 3) //=> 9
+ * flip(Math.pow)(2, 3) //=> 9
  * ```
  */
 const flip = curry((fn: AnyFn, x: unknown, y: unknown) => fn(y, x)) as unknown as <

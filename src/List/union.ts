@@ -6,7 +6,7 @@ import unique from './unique.js'
  *
  * @example
  * ```ts
- * union([1, 2, 3, 4], [2, 4, 5], [9]) //=> [1, 2, 3, 4, 5, 9]
+ * union([1, 2, 3], [3, 4]) //=> [1, 2, 3, 4]
  * ```
  */
 const union = (<A>(xs: readonly A[], ...yss: readonly (readonly A[])[]): A[] =>

@@ -110,6 +110,7 @@
     "docs:dev": "bun run --filter 'prelude-docs' dev",
     "docs:build": "bun run --filter 'prelude-docs' build",
     "docs:generate": "bun run scripts/generate-api-docs.ts",
+    "check:examples": "bun run scripts/check-examples.ts",
     "generate": "bun scripts/generate-function.js",
     "generate:function": "bun scripts/generate-function.js",
     "generate:indexes": "bun scripts/generate-indexes.js",
@@ -118,7 +119,7 @@
     "typecheck": "tsc -p tsconfig.types.json --noEmit",
     "jsr:check": "npx jsr publish --dry-run",
     "lint": "bunx biome lint .",
-    "check": "bun run format:check && bun run lint && bun run typecheck && bun run test",
+    "check": "bun run format:check && bun run lint && bun run typecheck && bun run check:examples && bun run test",
     "prepack": "bun run check && bun run build"
   },
   "repository": {
@@ -142,6 +143,8 @@
   "homepage": "https://alanrsoares.github.io/prelude-js",
   "devDependencies": {
     "@biomejs/biome": "^2.5.0",
+    "@onrails/docgen": "1.0.1",
+    "@onrails/result": "^0.2.0",
     "@types/bun": "^1.3.13",
     "deep-freeze": "^0.0.1",
     "fumadocs-twoslash": "^3.2.0",

@@ -8,10 +8,7 @@ import last from '../List/last.js'
  *
  * @example
  * ```ts
- * const plus1 = (x: number) => x + 1
- * const negate = (x: number) => -x
- * const complex = compose(plus1, negate, Math.pow)
- * complex(3, 2) //=> plus1(negate(Math.pow(3, 2)))
+ * compose((x: number) => x + 1, (x: number) => -x)(3) //=> -2
  * ```
  */
 const compose = ((...fs: AnyFn[]) =>

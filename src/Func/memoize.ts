@@ -3,9 +3,7 @@
  *
  * @example
  * ```ts
- * const memoF = memoize(expensiveFunction)
- * memoF(2) // slow, but result is then cached
- * memoF(2) // fast
+ * memoize((n: number) => n * 2)(2) //=> 4
  * ```
  */
 export default function memoize<A extends readonly unknown[], R>(

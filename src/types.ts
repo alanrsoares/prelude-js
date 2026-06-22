@@ -47,7 +47,10 @@ export interface FuncModule {
   ) => (...args: A) => R
   flip: <A extends readonly unknown[], R>(fn: (...args: A) => R) => (...args: Reverse<A>) => R
   memoize: <A extends readonly unknown[], R>(fn: (...args: A) => R) => (...args: A) => R
-  uncurry: <A extends readonly unknown[], R>(fn: Curried<A, R>) => (...args: A) => R
+  uncurry: {
+    <A extends readonly unknown[], R>(fn: (...args: A) => R, args: A): R
+    <A extends readonly unknown[], R>(fn: (...args: A) => R): (args: A) => R
+  }
   const: {
     <A>(value: A): <B>(_ignored: B) => A
     <A, B>(value: A, _ignored: B): A
@@ -115,19 +118,15 @@ export interface ListModule {
   span: <A>(fn: Predicate<A>, xs: readonly A[]) => [A[], A[]]
   breakList: <A>(fn: Predicate<A>, xs: readonly A[]) => [A[], A[]]
   scan: <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]) => A[]
-  scan1: <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]) => A[]
+  scan1: <A>(fn: (acc: A, value: A) => A, xs: readonly A[]) => A[]
   scanl: <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]) => A[]
-  scanl1: <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]) => A[]
+  scanl1: <A>(fn: (acc: A, value: A) => A, xs: readonly A[]) => A[]
   scanr: <A, B>(
     fn: (value: B, acc: A, index: number, array: readonly B[]) => A,
     initial: A,
     xs: readonly B[],
   ) => A[]
-  scanr1: <A, B>(
-    fn: (value: B, acc: A, index: number, array: readonly B[]) => A,
-    initial: A,
-    xs: readonly B[],
-  ) => A[]
+  scanr1: <A>(fn: (value: A, acc: A) => A, xs: readonly A[]) => A[]
   sum: (xs: readonly number[]) => number
   product: (xs: readonly number[]) => number
   mean: (xs: readonly number[]) => number

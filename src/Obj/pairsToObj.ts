@@ -3,7 +3,7 @@
  *
  * @example
  * ```ts
- * pairsToObj([['a', 'b'], ['c', 1]]) //=> { a: 'b', c: 1 }
+ * pairsToObj([['a', 1], ['b', 2]]) //=> { a: 1, b: 2 }
  * ```
  */
 export default function pairsToObj<K extends PropertyKey, V>(

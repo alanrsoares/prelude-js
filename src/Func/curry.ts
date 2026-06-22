@@ -5,9 +5,7 @@ import type { AnyFn, Curried } from '../types.js'
  *
  * @example
  * ```ts
- * const add = curry((a: number, b: number) => a + b)
- * const inc = add(1)
- * inc(2) //=> 3
+ * curry((a: number, b: number) => a + b)(1)(2) //=> 3
  * ```
  */
 function curry<A extends readonly unknown[], R>(fn: (...args: A) => R): Curried<A, R>

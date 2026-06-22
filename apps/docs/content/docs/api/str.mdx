@@ -1,237 +1,217 @@
 ---
-title: "Str API"
+title: "preludejs/Str API"
 description: "Complete API reference for preludejs/Str"
 ---
 
-# Str API Reference
+# preludejs/Str API Reference
 
-## breakStr <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+## Core
 
-```haskell
-breakStr :: (String -> Bool) -> String -> [String, String]
-```
+### breakStr <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-#### TypeScript Signature
+Splits a string at the first character matching the predicate; curried.
 
 ```typescript
-declare const breakStr: Curried<[(value: string) => unknown, string], [string, string]>
+function breakStr(arg: (value: string) => unknown): ((arg: string) => [string, string]) & ((arg: string) => [string, string])
+function breakStr(arg: (value: string) => unknown, rest_0: string): [string, string]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(String -> Bool)` |
-| `arg2` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `arg` | `(value: string) => unknown` |  |
 
-#### Returns
+#### Example
 
-`[String, String]`
+```ts
+breakStr((c) => c === ' ', 'foo bar') //=> ['foo', ' bar']
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## camelize <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### camelize <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-camelize :: String -> String
-```
-
-#### TypeScript Signature
+Converts a dash-separated string to camelCase.
 
 ```typescript
-declare const camelize: (value: string) => string
+function camelize(value: string): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `string` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+camelize('foo-bar') //=> 'fooBar'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## capitalize <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### capitalize <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-capitalize :: String -> string
-```
-
-#### TypeScript Signature
+Upper-cases the first character of a string.
 
 ```typescript
-declare const capitalize: (value: string) => string
+function capitalize(value: string): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `string` |  |
 
-#### Returns
+#### Example
 
-`string`
+```ts
+capitalize('foo') //=> 'Foo'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## chars <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### chars <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-chars :: String -> String[]
-```
-
-#### TypeScript Signature
+Splits a string into an array of its characters.
 
 ```typescript
-declare const chars: (value: string) => string[]
+function chars(value: string): string[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `string` |  |
 
-#### Returns
+#### Example
 
-`String[]`
+```ts
+chars('abc') //=> ['a', 'b', 'c']
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## contains <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### contains <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-contains :: String -> String -> Bool
-```
-
-#### TypeScript Signature
+Returns whether the target string contains the search string.
 
 ```typescript
-declare const contains: Curried<[string, string], boolean>
+function contains(arg: string): ((arg: string) => boolean) & ((arg: string) => boolean)
+function contains(arg: string, rest_0: string): boolean
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
-| `arg2` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `arg` | `string` |  |
 
-#### Returns
+#### Example
 
-`Bool`
+```ts
+contains('oo', 'foo') //=> true
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## dasherize <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### dasherize <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-dasherize :: String -> String
-```
-
-#### TypeScript Signature
+Inserts a dash before each upper-case letter and lower-cases it.
 
 ```typescript
-declare const dasherize: (value: string) => string
+function dasherize(value: string): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `string` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+dasherize('fooBar') //=> 'foo-bar'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## drop <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### drop <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-drop :: Number -> String -> String
-```
-
-#### TypeScript Signature
+Drops the first `count` characters of a string; curried.
 
 ```typescript
-declare const drop: Curried<[number, string], string>
+function drop(arg: number): ((arg: string) => string) & ((arg: string) => string)
+function drop(arg: number, rest_0: string): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `Number` |
-| `arg2` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `arg` | `number` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+drop(2, 'hello') //=> 'llo'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## dropWhile <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### dropWhile <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-dropWhile :: (String -> Bool) -> String -> String
-```
-
-#### TypeScript Signature
+Drops leading characters while the predicate holds; curried.
 
 ```typescript
-declare const dropWhile: Curried<[(value: string) => unknown, string], string>
+function dropWhile(arg: (value: string) => unknown): ((arg: string) => string) & ((arg: string) => string)
+function dropWhile(arg: (value: string) => unknown, rest_0: string): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(String -> Bool)` |
-| `arg2` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `arg` | `(value: string) => unknown` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+dropWhile((c) => c === ' ', '  hi') //=> 'hi'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## empty <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### empty <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-empty :: String -> Boolean
-```
-
-#### TypeScript Signature
+Returns whether a string has no characters.
 
 ```typescript
-declare const empty: (value: string) => boolean
+function empty(value: string): boolean
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `string` |  |
 
-#### Returns
+#### Example
 
-`Boolean`
+```ts
+empty('') //=> true
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## join <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### join <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-join :: String -> String[] -> String
-```
-
-#### TypeScript Signature
+Joins an array of strings with a separator; curried.
 
 ```typescript
 function join(sep: string): (values: readonly string[]) => string
@@ -240,173 +220,157 @@ function join(sep: string, values: readonly string[]): string
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
-| `arg2` | `String[]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `sep` | `string` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+join('-', ['a', 'b']) //=> 'a-b'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## lines <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### lines <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-lines :: String -> String[]
-```
-
-#### TypeScript Signature
+Splits a string into lines on CR/LF boundaries.
 
 ```typescript
-declare const lines: (value: string) => string[]
+function lines(value: string): string[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `string` |  |
 
-#### Returns
+#### Example
 
-`String[]`
+```ts
+lines('a\nb') //=> ['a', 'b']
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## padLeft <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### padLeft <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-padLeft :: String -> a -> String
-```
-
-#### TypeScript Signature
+Left-pads a value using the supplied padding string; curried.
 
 ```typescript
-declare const padLeft: Curried<[string, string], string>
+function padLeft(arg: string): ((arg: string) => string) & ((arg: string) => string)
+function padLeft(arg: string, rest_0: string): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
-| `arg2` | `a` |
+| Parameter | Type | Description |
+|---|---|---|
+| `arg` | `string` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+padLeft('   ', '42') //=> ' 42'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## repeat <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### repeat <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-repeat :: Number -> String -> String
-```
-
-#### TypeScript Signature
+Repeats a string `count` times; curried.
 
 ```typescript
-declare const repeat: Curried<[number, string], string>
+function repeat(arg: number): ((arg: string) => string) & ((arg: string) => string)
+function repeat(arg: number, rest_0: string): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `Number` |
-| `arg2` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `arg` | `number` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+repeat(3, 'ab') //=> 'ababab'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## reverse <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### reverse <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-reverse :: String -> String
-```
-
-#### TypeScript Signature
+Reverses the characters of a string.
 
 ```typescript
-declare const reverse: (value: string) => string
+function reverse(value: string): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `string` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+reverse('abc') //=> 'cba'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## slice <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### slice <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-slice :: Number -> Number -> String -> String
-```
-
-#### TypeScript Signature
+Slices a string between two indices; curried.
 
 ```typescript
-declare const slice: Curried<[number, number, string], string>
+function slice(arg: number): ((arg: number) => ((arg: string) => string) & ((arg: string) => string)) & ((arg: number, rest_0: string) => string)
+function slice(arg: number, rest_0: number, rest_1: string): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `Number` |
-| `arg2` | `Number` |
-| `arg3` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `arg` | `number` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+slice(1, 3, 'hello') //=> 'el'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## span <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### span <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-span :: (String -> Bool) -> String -> [String, String]
-```
-
-#### TypeScript Signature
+Splits a string into the longest prefix matching the predicate and the rest; curried.
 
 ```typescript
-declare const span: Curried<[(value: string) => unknown, string], [string, string]>
+function span(arg: (value: string) => unknown): ((arg: string) => [string, string]) & ((arg: string) => [string, string])
+function span(arg: (value: string) => unknown, rest_0: string): [string, string]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `(String -> Bool)` |
-| `arg2` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `arg` | `(value: string) => unknown` |  |
 
-#### Returns
+#### Example
 
-`[String, String]`
+```ts
+span((c) => c !== ' ', 'foo bar') //=> ['foo', ' bar']
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## split <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### split <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-split :: String -> String -> String[]
-```
-
-#### TypeScript Signature
+Splits a string on a separator; curried.
 
 ```typescript
 function split(sep: string): (value: string) => string[]
@@ -415,208 +379,194 @@ function split(sep: string, value: string): string[]
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
-| `arg2` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `sep` | `string` |  |
 
-#### Returns
+#### Example
 
-`String[]`
+```ts
+split(',', 'a,b,c') //=> ['a', 'b', 'c']
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## splitAt <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### splitAt <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-splitAt :: Number -> String -> [String, String]
-```
-
-#### TypeScript Signature
+Splits a string into two parts at the given index; curried.
 
 ```typescript
-declare const splitAt: Curried<[number, string], [string, string]>
+function splitAt(arg: number): ((arg: string) => [string, string]) & ((arg: string) => [string, string])
+function splitAt(arg: number, rest_0: string): [string, string]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `Number` |
-| `arg2` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `arg` | `number` |  |
 
-#### Returns
+#### Example
 
-`[String, String]`
+```ts
+splitAt(2, 'hello') //=> ['he', 'llo']
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## startsWith <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### startsWith <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-startsWith :: String -> String -> Bool
-```
-
-#### TypeScript Signature
+Returns whether the target string starts with the search string.
 
 ```typescript
-declare const startsWith: Curried<[string, string], boolean>
+function startsWith(arg: string): ((arg: string) => boolean) & ((arg: string) => boolean)
+function startsWith(arg: string, rest_0: string): boolean
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
-| `arg2` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `arg` | `string` |  |
 
-#### Returns
+#### Example
 
-`Bool`
+```ts
+startsWith('fo', 'foo') //=> true
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## take <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### take <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-take :: Number -> String -> String
-```
-
-#### TypeScript Signature
+Takes the first `count` characters of a string; curried.
 
 ```typescript
-declare const take: Curried<[number, string], string>
+function take(arg: number): ((arg: string) => string) & ((arg: string) => string)
+function take(arg: number, rest_0: string): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `Number` |
-| `arg2` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `arg` | `number` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+take(2, 'hello') //=> 'he'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## takeWhile <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### takeWhile <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-take :: Number -> String -> String
-```
-
-#### TypeScript Signature
+Takes leading characters while the predicate holds; curried.
 
 ```typescript
-declare const takeWhile: Curried<[(value: string) => unknown, string], string>
+function takeWhile(arg: (value: string) => unknown): ((arg: string) => string) & ((arg: string) => string)
+function takeWhile(arg: (value: string) => unknown, rest_0: string): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `Number` |
-| `arg2` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `arg` | `(value: string) => unknown` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+takeWhile((c) => c !== ' ', 'foo bar') //=> 'foo'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## unchars <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### unchars <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-unchars :: String[] -> String
-```
-
-#### TypeScript Signature
+Joins an array of characters into a string.
 
 ```typescript
-declare const unchars: (value: readonly string[]) => string
+function unchars(value: readonly string[]): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String[]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `readonly string[]` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+unchars(['a', 'b', 'c']) //=> 'abc'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## unlines <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### unlines <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-unlines :: String[] -> String
-```
-
-#### TypeScript Signature
+Joins an array of lines with newlines.
 
 ```typescript
-declare const unlines: (value: readonly string[]) => string
+function unlines(value: readonly string[]): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String[]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `readonly string[]` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+unlines(['a', 'b']) //=> 'a\nb'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## unwords <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### unwords <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-unwords :: String[] -> String
-```
-
-#### TypeScript Signature
+Joins an array of words with spaces.
 
 ```typescript
-declare const unwords: (value: readonly string[]) => string
+function unwords(value: readonly string[]): string
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String[]` |
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `readonly string[]` |  |
 
-#### Returns
+#### Example
 
-`String`
+```ts
+unwords(['foo', 'bar']) //=> 'foo bar'
+```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
-## words <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+### words <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-```haskell
-words :: String -> String[]
-```
-
-#### TypeScript Signature
+Splits a string into words on whitespace.
 
 ```typescript
-declare const words: (value: string) => string[]
+function words(value: string): string[]
 ```
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `String` |
+| Parameter | Type | Description |
+|---|---|---|
+| `value` | `string` |  |
 
-#### Returns
+#### Example
 
-`String[]`
+```ts
+words('foo  bar') //=> ['foo', 'bar']
+```
+
 

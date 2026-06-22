@@ -13,7 +13,7 @@ const reducer = reduce((acc: Record<PropertyKey, unknown>, key: string, value: u
  *
  * @example
  * ```ts
- * merge({ a: 2, c: 9 }, { b: 3 }, { a: 4 }) //=> { a: 4, b: 3, c: 9 }
+ * merge({ a: 1, b: 2 }, { b: 3 }) //=> { a: 1, b: 3 }
  * ```
  */
 const merge = (Object.assign ||

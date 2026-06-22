@@ -6,8 +6,7 @@ import type { AnyFn } from '../types.js'
  *
  * @example
  * ```ts
- * const fib = fix<[number], number>((recur) => (n) => (n <= 1 ? 1 : recur(n - 1) + recur(n - 2)))
- * fib(9) //=> 55
+ * fix<[number], number>((recur) => (n) => (n <= 1 ? 1 : recur(n - 1) + recur(n - 2)))(9) //=> 55
  * ```
  */
 export default function fix<A extends readonly unknown[], R>(

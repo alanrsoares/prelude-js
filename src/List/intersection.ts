@@ -5,7 +5,7 @@ import find from './find.js'
  *
  * @example
  * ```ts
- * intersection([1, 2, 3], [2, 1, 3], [3, 1, 2]) //=> [1, 2, 3]
+ * intersection([1, 2, 3], [2, 3, 4]) //=> [2, 3]
  * ```
  */
 const intersection = (<A>(xs: readonly A[], ...yss: readonly (readonly A[])[]): A[] =>

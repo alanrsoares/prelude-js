@@ -14,7 +14,7 @@ function flattenImpl(ys: readonly unknown[]): unknown[] {
  *
  * @example
  * ```ts
- * flatten([1, [[2], 3], [4, [[5]]]]) //=> [1, 2, 3, 4, 5]
+ * flatten([[1, 2], [3], [4, 5]]) //=> [1, 2, 3, 4, 5]
  * ```
  */
 const flatten = flattenImpl as unknown as <A>(xss: readonly (readonly A[])[]) => A[]

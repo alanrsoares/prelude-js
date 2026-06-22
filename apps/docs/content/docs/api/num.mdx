@@ -1,17 +1,15 @@
 ---
-title: "Num API"
+title: "preludejs/Num API"
 description: "Complete API reference for preludejs/Num"
 ---
 
-# Num API Reference
+# preludejs/Num API Reference
 
-## add <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
+## Core
 
-```haskell
-add :: Number -> Number -> Number
-```
+### add <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-#### TypeScript Signature
+Adds two numbers; curried for partial application.
 
 ```typescript
 function add(a: number): (b: number) => number
@@ -20,12 +18,15 @@ function add(a: number, b: number): number
 
 #### Parameters
 
-| Parameter | Type |
-|---|---|
-| `arg1` | `Number` |
-| `arg2` | `Number` |
+| Parameter | Type | Description |
+|---|---|---|
+| `a` | `number` |  |
 
-#### Returns
+#### Example
 
-`Number`
+```ts
+add(1)(2) //=> 3
+add(1, 2) //=> 3
+```
+
 

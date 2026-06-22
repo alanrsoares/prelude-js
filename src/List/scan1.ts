@@ -14,6 +14,6 @@ import tail from './tail.js'
  */
 const scan1 = curry((fn: Reducer<unknown, unknown>, xs: readonly unknown[]) =>
   !xs.length ? undefined : scan(fn, head(xs), tail(xs)),
-) as unknown as <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]) => A[]
+) as unknown as <A>(fn: (acc: A, value: A) => A, xs: readonly A[]) => A[]
 
 export default scan1
