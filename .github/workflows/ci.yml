@@ -36,5 +36,5 @@ jobs:
 
       - name: Verify docs generation
         run: |
-          bun run docs
-          git diff --exit-code -- docs/README.md
+          bun run docs:generate
+          git diff --exit-code -- apps/docs/content/docs

@@ -1,22 +1,17 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.0/schema.json",
   "files": {
-    "ignore": [
-      "jsr.json",
-      "package.json",
-      "docs/*.md",
-      "Func/**",
-      "General/**",
-      "List/**",
-      "Num/**",
-      "Obj/**",
-      "Str/**",
-      "coverage/**",
-      "node_modules/**",
-      "apps/docs/.next/**",
-      "apps/docs/out/**",
-      "apps/docs/.source/**",
-      "apps/docs/next-env.d.ts"
+    "includes": [
+      "**",
+      "!**/jsr.json",
+      "!**/package.json",
+      "!**/docs/**/*.md",
+      "!**/coverage",
+      "!**/node_modules",
+      "!**/apps/docs/.next",
+      "!**/apps/docs/out",
+      "!**/apps/docs/.source",
+      "!**/apps/docs/next-env.d.ts"
     ]
   },
   "formatter": {
@@ -34,7 +29,7 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "complexity": {
         "noForEach": "off",
         "useArrowFunction": "off"

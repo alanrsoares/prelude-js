@@ -8,8 +8,10 @@ import curry from '../Func/curry.js'
  * @param arg2 - `[a]`
  * @returns `{ b: [b] }`
  */
-export default curry((fn, xs) => xs.reduce((acc, x) => {
-  const key = fn(x)
-  acc[key] = acc[key] ? acc[key].concat([x]) : [x]
-  return acc
-}, {}))
+export default curry((fn, xs) =>
+  xs.reduce((acc, x) => {
+    const key = fn(x)
+    acc[key] = acc[key] ? acc[key].concat([x]) : [x]
+    return acc
+  }, {}),
+)

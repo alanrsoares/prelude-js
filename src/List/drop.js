@@ -8,4 +8,4 @@ import curry from '../Func/curry.js'
  * @param arg2 - `[a]`
  * @returns `[a]`
  */
-export default curry((n, xs) => xs && xs.filter((x, i) => i >= n))
+export default curry((n, xs) => xs?.filter((_x, i) => i >= n))

@@ -1,5 +1,5 @@
-import minimumBy from './minimumBy.js'
 import id from '../General/id.js'
+import minimumBy from './minimumBy.js'
 
 /**
  * minimum :: [Number] -> Number

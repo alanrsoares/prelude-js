@@ -11,9 +11,10 @@ import curry from '../Func/curry.js'
 export default curry((fn, b) => {
   const result = []
 
-  let that
-  while ((that = fn(b))) {
+  let that = fn(b)
+  while (that) {
     result.push(that[0])
+    that = fn(b)
   }
   return result
 })

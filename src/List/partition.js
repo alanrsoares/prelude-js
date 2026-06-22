@@ -11,6 +11,9 @@ import curry from '../Func/curry.js'
 export default curry((fn, xs) => {
   const passed = []
   const failed = []
-  xs.forEach((x) => (fn(x) ? passed : failed).push(x))
+  xs.forEach((x) => {
+    const bucket = fn(x) ? passed : failed
+    bucket.push(x)
+  })
   return [passed, failed]
 })

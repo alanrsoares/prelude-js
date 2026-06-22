@@ -1,5 +1,5 @@
-import maximumBy from './maximumBy.js'
 import id from '../General/id.js'
+import maximumBy from './maximumBy.js'
 
 /**
  * maximum :: [Number] -> Number

@@ -312,7 +312,10 @@ each :: (a -> b) -> [a] -> void
 #### TypeScript Signature
 
 ```typescript
-declare const each: <A>(fn: (value: A, index: number, array: readonly A[]) => unknown, xs: readonly A[]) => void
+declare const each: <A>(
+fn: (value: A, index: number, array: readonly A[]) => unknown,
+xs: readonly A[],
+) => void
 ```
 
 #### Parameters
@@ -1805,7 +1808,10 @@ zipAll :: [a] -> [b] -> [[a, b]]
 #### TypeScript Signature
 
 ```typescript
-declare const zipAll: <A, B>(xs: readonly A[], ys: readonly B[]) => Array<Pair<A | undefined, B | undefined>>
+declare const zipAll: <A, B>(
+xs: readonly A[],
+ys: readonly B[],
+) => Array<Pair<A | undefined, B | undefined>>
 ```
 
 #### Parameters
@@ -1860,8 +1866,17 @@ zipWith ::
 #### TypeScript Signature
 
 ```typescript
-function zipWith<A, B, C>(fn: (left: A, right: B) => C): (xs: readonly A[]) => (ys: readonly B[]) => C[]
-function zipWith<A, B, C>(fn: (left: A, right: B) => C, xs: readonly A[]): (ys: readonly B[]) => C[]
-function zipWith<A, B, C>(fn: (left: A, right: B) => C, xs: readonly A[], ys: readonly B[]): C[]
+function zipWith<A, B, C>(
+fn: (left: A, right: B) => C,
+): (xs: readonly A[]) => (ys: readonly B[]) => C[]
+function zipWith<A, B, C>(
+fn: (left: A, right: B) => C,
+xs: readonly A[],
+): (ys: readonly B[]) => C[]
+function zipWith<A, B, C>(
+fn: (left: A, right: B) => C,
+xs: readonly A[],
+ys: readonly B[],
+): C[]
 ```
 
