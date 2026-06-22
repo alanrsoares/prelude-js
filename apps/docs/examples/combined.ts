@@ -16,9 +16,9 @@ const users: User[] = [
 
 // adults only, oldest first, names capitalized — composed right-to-left
 const summarize = compose(
-  (us: User[]) => map((u: User) => capitalize(get('name', u)), us),
-  (us: User[]) => sortBy((u: User) => -u.age, us),
-  (us: User[]) => filter((u: User) => u.age >= 18, us),
+  map((u: User) => capitalize(get('name', u))),
+  sortBy((u: User) => -u.age),
+  filter((u: User) => u.age >= 18),
 )
 
 export const adults = summarize(users) // => ["Ada", "Grace"]
