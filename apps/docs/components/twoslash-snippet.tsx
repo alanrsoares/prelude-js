@@ -2,6 +2,7 @@ import { highlight } from 'fumadocs-core/highlight'
 import { transformerTwoslash } from 'fumadocs-twoslash'
 import { Popup, PopupContent, PopupTrigger } from 'fumadocs-twoslash/ui'
 import { CodeBlock, Pre } from 'fumadocs-ui/components/codeblock'
+import { twMerge } from 'tailwind-merge'
 import { twoslashCompilerOptions } from '@/lib/twoslash'
 
 /**
@@ -32,7 +33,12 @@ export async function TwoslashSnippet({
       pre: (props) => (
         <CodeBlock
           {...props}
-          className="border-none bg-transparent rounded-none my-0 shadow-none [&_pre]:bg-transparent"
+          // merge — keep shiki's `twoslash lsp shiki-themes …` classes (the
+          // hover-underline cascade hangs off `.twoslash`) and flatten chrome.
+          className={twMerge(
+            props.className,
+            'border-none bg-transparent rounded-none my-0 shadow-none [&_pre]:bg-transparent',
+          )}
         >
           <Pre>{props.children}</Pre>
         </CodeBlock>
