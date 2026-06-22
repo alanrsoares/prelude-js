@@ -2,50 +2,96 @@
   "name": "preludejs",
   "version": "1.2.1",
   "description": "A modular implementation of Haskell's Prelude library in ES6",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "workspaces": [
     "apps/*"
   ],
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "default": "./src/index.ts"
+      "bun": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./Func": {
-      "types": "./src/Func/index.ts",
-      "default": "./src/Func/index.ts"
+      "bun": "./src/Func/index.ts",
+      "types": "./dist/Func/index.d.ts",
+      "import": "./dist/Func/index.js",
+      "require": "./dist/Func/index.cjs"
     },
-    "./Func/*": "./src/Func/*.ts",
+    "./Func/*": {
+      "bun": "./src/Func/*.ts",
+      "types": "./dist/Func/*.d.ts",
+      "import": "./dist/Func/*.js",
+      "require": "./dist/Func/*.cjs"
+    },
     "./General": {
-      "types": "./src/General/index.ts",
-      "default": "./src/General/index.ts"
+      "bun": "./src/General/index.ts",
+      "types": "./dist/General/index.d.ts",
+      "import": "./dist/General/index.js",
+      "require": "./dist/General/index.cjs"
     },
-    "./General/*": "./src/General/*.ts",
+    "./General/*": {
+      "bun": "./src/General/*.ts",
+      "types": "./dist/General/*.d.ts",
+      "import": "./dist/General/*.js",
+      "require": "./dist/General/*.cjs"
+    },
     "./List": {
-      "types": "./src/List/index.ts",
-      "default": "./src/List/index.ts"
+      "bun": "./src/List/index.ts",
+      "types": "./dist/List/index.d.ts",
+      "import": "./dist/List/index.js",
+      "require": "./dist/List/index.cjs"
     },
-    "./List/*": "./src/List/*.ts",
+    "./List/*": {
+      "bun": "./src/List/*.ts",
+      "types": "./dist/List/*.d.ts",
+      "import": "./dist/List/*.js",
+      "require": "./dist/List/*.cjs"
+    },
     "./Num": {
-      "types": "./src/Num/index.ts",
-      "default": "./src/Num/index.ts"
+      "bun": "./src/Num/index.ts",
+      "types": "./dist/Num/index.d.ts",
+      "import": "./dist/Num/index.js",
+      "require": "./dist/Num/index.cjs"
     },
-    "./Num/*": "./src/Num/*.ts",
+    "./Num/*": {
+      "bun": "./src/Num/*.ts",
+      "types": "./dist/Num/*.d.ts",
+      "import": "./dist/Num/*.js",
+      "require": "./dist/Num/*.cjs"
+    },
     "./Obj": {
-      "types": "./src/Obj/index.ts",
-      "default": "./src/Obj/index.ts"
+      "bun": "./src/Obj/index.ts",
+      "types": "./dist/Obj/index.d.ts",
+      "import": "./dist/Obj/index.js",
+      "require": "./dist/Obj/index.cjs"
     },
-    "./Obj/*": "./src/Obj/*.ts",
+    "./Obj/*": {
+      "bun": "./src/Obj/*.ts",
+      "types": "./dist/Obj/*.d.ts",
+      "import": "./dist/Obj/*.js",
+      "require": "./dist/Obj/*.cjs"
+    },
     "./Str": {
-      "types": "./src/Str/index.ts",
-      "default": "./src/Str/index.ts"
+      "bun": "./src/Str/index.ts",
+      "types": "./dist/Str/index.d.ts",
+      "import": "./dist/Str/index.js",
+      "require": "./dist/Str/index.cjs"
     },
-    "./Str/*": "./src/Str/*.ts",
+    "./Str/*": {
+      "bun": "./src/Str/*.ts",
+      "types": "./dist/Str/*.d.ts",
+      "import": "./dist/Str/*.js",
+      "require": "./dist/Str/*.cjs"
+    },
     "./package.json": "./package.json"
   },
   "files": [
+    "dist",
     "src",
     "docs",
     "README.md",
@@ -73,7 +119,7 @@
     "jsr:check": "npx jsr publish --dry-run",
     "lint": "bunx biome lint .",
     "check": "bun run format:check && bun run lint && bun run typecheck && bun run test",
-    "prepack": "bun run check"
+    "prepack": "bun run check && bun run build"
   },
   "repository": {
     "type": "git",
