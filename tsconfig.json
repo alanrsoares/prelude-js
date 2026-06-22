@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "declaration": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "types": ["bun"]
+  },
+  "include": ["src/**/*.ts"]
+}
