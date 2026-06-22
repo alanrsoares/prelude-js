@@ -39,10 +39,10 @@
     },
     "./Obj/*": "./src/Obj/*.js",
     "./Str": {
-      "types": "./src/Str/index.d.ts",
-      "default": "./src/Str/index.js"
+      "types": "./src/Str/index.ts",
+      "default": "./src/Str/index.ts"
     },
-    "./Str/*": "./src/Str/*.js",
+    "./Str/*": "./src/Str/*.ts",
     "./package.json": "./package.json"
   },
   "files": [
