@@ -34,7 +34,9 @@ const features = [
 const examples = [
   { id: 'func', filename: 'func.ts' },
   { id: 'list', filename: 'list.ts' },
+  { id: 'obj', filename: 'obj.ts' },
   { id: 'str', filename: 'str.ts' },
+  { id: 'combined', filename: 'combined.ts' },
 ] as const
 
 export default function HomePage() {

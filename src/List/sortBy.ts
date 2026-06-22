@@ -1,5 +1,5 @@
-import type { Accessor } from '../types.js'
 import curry from '../Func/curry.js'
+import type { Accessor } from '../types.js'
 
 /**
  * Returns a new list sorted by the value the accessor returns; curried.
@@ -13,6 +13,9 @@ const sortBy = curry((fn: Accessor<unknown, number>, xs: readonly unknown[]) =>
   xs
     .concat()
     .sort((x, y) => (fn(x, 0, xs) > fn(y, 0, xs) ? 1 : fn(x, 0, xs) < fn(y, 0, xs) ? -1 : 0)),
-) as unknown as <A, B>(fn: Accessor<A, B>, xs: readonly A[]) => A[]
+) as unknown as {
+  <A, B>(fn: Accessor<A, B>): (xs: readonly A[]) => A[]
+  <A, B>(fn: Accessor<A, B>, xs: readonly A[]): A[]
+}
 
 export default sortBy
