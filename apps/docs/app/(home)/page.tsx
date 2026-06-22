@@ -1,9 +1,9 @@
-import { Tab, Tabs } from 'fumadocs-ui/components/tabs'
 import { ArrowRight, Layers, ShieldCheck, Workflow, Zap } from 'lucide-react'
 import Link from 'next/link'
+import { CodeTabs } from '@/components/code-tabs'
 import { TwoslashSnippet } from '@/components/twoslash-snippet'
+import { snippets } from '@/lib/snippets.generated'
 import { gitConfig } from '@/lib/shared'
-import { snippets } from './snippets.generated'
 
 const features = [
   {
@@ -28,11 +28,14 @@ const features = [
   },
 ]
 
+// Each tab's code is the live source of a type-checked example module in
+// examples/*.ts (see lib/snippets.generated.ts), rendered through twoslash so
+// tokens carry hover types.
 const examples = [
-  { label: 'Func Module', code: snippets['func-demo'].twoslash, filename: 'func-demo.ts' },
-  { label: 'List Module', code: snippets['list-demo'].twoslash, filename: 'list-demo.ts' },
-  { label: 'Str Module', code: snippets['str-demo'].twoslash, filename: 'str-demo.ts' },
-]
+  { id: 'func', filename: 'func.ts' },
+  { id: 'list', filename: 'list.ts' },
+  { id: 'str', filename: 'str.ts' },
+] as const
 
 export default function HomePage() {
   return (
@@ -72,22 +75,12 @@ export default function HomePage() {
       </section>
 
       {/* tabbed code sample in browser frame */}
-      <section className="w-full max-w-3xl pb-20">
-        <Tabs items={examples.map((e) => e.label)}>
-          {examples.map(({ label, code, filename }) => (
-            <Tab key={label} value={label} className="mt-0">
-              <div className="overflow-hidden rounded-xl border border-fd-border bg-fd-card shadow-sm">
-                <div className="flex items-center gap-1.5 border-b border-fd-border px-4 py-3 bg-fd-muted/30">
-                  <span className="size-3 rounded-full bg-red-400/70" />
-                  <span className="size-3 rounded-full bg-yellow-400/70" />
-                  <span className="size-3 rounded-full bg-green-400/70" />
-                  <span className="ml-2 text-xs text-fd-muted-foreground">{filename}</span>
-                </div>
-                <TwoslashSnippet code={code} />
-              </div>
-            </Tab>
+      <section className="w-full max-w-3xl pb-20 text-left">
+        <CodeTabs tabs={examples.map(({ id, filename }) => ({ label: id, filename }))}>
+          {examples.map(({ id }) => (
+            <TwoslashSnippet key={id} code={snippets[id].twoslash} />
           ))}
-        </Tabs>
+        </CodeTabs>
       </section>
 
       {/* features */}

@@ -3,7 +3,7 @@
 
 # generated content
 .source
-app/(home)/snippets.generated.ts
+lib/snippets.generated.ts
 
 # build
 /.next/
