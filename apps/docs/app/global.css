@@ -23,3 +23,31 @@ html > body[data-scroll-locked] {
   border-top: 1px solid var(--color-fd-border);
   line-height: 1.5;
 }
+
+.twoslash-popup-docs-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-fd-border);
+}
+
+/* Stack each tag's label above its value — @example's value is a code block
+   that must sit below the "@example" heading, not inline (pushed right). */
+.twoslash-popup-docs-tag {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: stretch;
+}
+
+.twoslash-popup-docs-tag-name {
+  font-weight: 600;
+  color: var(--color-fd-primary);
+}
+
+.twoslash-popup-docs-tag-value {
+  display: block;
+  width: 100%;
+}
