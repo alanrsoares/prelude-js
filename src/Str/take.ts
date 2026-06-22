@@ -1,4 +1,4 @@
-import type { Curried } from '../types.d.ts'
+import type { Curried } from '../types.js'
 import takeList from '../List/take.js'
 import curry from '../Func/curry.js'
 

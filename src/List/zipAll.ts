@@ -1,4 +1,4 @@
-import type { Pair } from '../types.d.ts'
+import type { Pair } from '../types.js'
 import zipAllWith from './zipAllWith.js'
 
 /**

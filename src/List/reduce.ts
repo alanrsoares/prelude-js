@@ -1,4 +1,4 @@
-import type { Reducer } from '../types.d.ts'
+import type { Reducer } from '../types.js'
 import curry from '../Func/curry.js'
 
 /**

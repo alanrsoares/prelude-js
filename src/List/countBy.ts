@@ -1,4 +1,4 @@
-import type { Accessor } from '../types.d.ts'
+import type { Accessor } from '../types.js'
 import curry from '../Func/curry.js'
 
 /**

@@ -1,4 +1,4 @@
-import type { AnyFn } from '../types.d.ts'
+import type { AnyFn } from '../types.js'
 import curry from './curry.js'
 
 /**

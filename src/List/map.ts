@@ -1,4 +1,4 @@
-import type { Mapper } from '../types.d.ts'
+import type { Mapper } from '../types.js'
 import curry from '../Func/curry.js'
 
 /**

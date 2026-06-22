@@ -2,16 +2,16 @@
   "name": "preludejs",
   "version": "1.2.1",
   "description": "A modular implementation of Haskell's Prelude library in ES6",
-  "main": "./src/index.js",
-  "types": "./src/index.d.ts",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
   "type": "module",
   "workspaces": [
     "apps/*"
   ],
   "exports": {
     ".": {
-      "types": "./src/index.d.ts",
-      "default": "./src/index.js"
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
     },
     "./Func": {
       "types": "./src/Func/index.ts",

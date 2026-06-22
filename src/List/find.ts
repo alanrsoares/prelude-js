@@ -1,4 +1,4 @@
-import type { Predicate } from '../types.d.ts'
+import type { Predicate } from '../types.js'
 import curry from '../Func/curry.js'
 import fix from '../Func/fix.js'
 

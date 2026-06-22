@@ -1,4 +1,4 @@
-import type { Curried } from '../types.d.ts'
+import type { Curried } from '../types.js'
 import curry from '../Func/curry.js'
 import dropWhile from './dropWhile.js'
 import takeWhile from './takeWhile.js'

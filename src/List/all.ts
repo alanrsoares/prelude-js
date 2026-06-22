@@ -1,4 +1,4 @@
-import type { Predicate } from '../types.d.ts'
+import type { Predicate } from '../types.js'
 import deny from '../Func/deny.js'
 import any from './any.js'
 

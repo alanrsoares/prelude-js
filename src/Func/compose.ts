@@ -1,4 +1,4 @@
-import type { AnyFn, Compose } from '../types.d.ts'
+import type { AnyFn, Compose } from '../types.js'
 import initial from '../List/initial.js'
 import last from '../List/last.js'
 

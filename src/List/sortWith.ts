@@ -1,4 +1,4 @@
-import type { Comparer } from '../types.d.ts'
+import type { Comparer } from '../types.js'
 import curry from '../Func/curry.js'
 
 /**

@@ -1,4 +1,4 @@
-import type { AnyFn, Reverse } from '../types.d.ts'
+import type { AnyFn, Reverse } from '../types.js'
 import curry from './curry.js'
 
 /**
