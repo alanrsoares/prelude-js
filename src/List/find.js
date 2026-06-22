@@ -9,7 +9,6 @@ import fix from '../Func/fix.js'
  * @param arg2 - `[a]`
  * @returns `a`
  */
-export default fix((find) => curry((fn, [x, ...xs]) => x
-  ? fn(x) ? x : find(fn, xs)
-  : undefined
-))
+export default fix((find) =>
+  curry((fn, [x, ...xs]) => (x ? (fn(x) ? x : find(fn, xs)) : undefined)),
+)

@@ -10,4 +10,6 @@ import keys from './keys.js'
  * @param arg3 - `b`
  * @returns `a`
  */
-export default curry((fn, initial, x) => keys(x).reduce((acc, k, i) => fn(acc, k, x[k], i, x), initial))
+export default curry((fn, initial, x) =>
+  keys(x).reduce((acc, k, i) => fn(acc, k, x[k], i, x), initial),
+)

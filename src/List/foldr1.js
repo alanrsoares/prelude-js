@@ -1,7 +1,7 @@
 import curry from '../Func/curry.js'
 import foldr from './foldr.js'
-import last from './last.js'
 import initial from './initial.js'
+import last from './last.js'
 
 /**
  * foldr1 :: (a -> a -> a) -> [a] -> a

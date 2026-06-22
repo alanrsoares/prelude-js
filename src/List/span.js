@@ -1,6 +1,6 @@
 import curry from '../Func/curry.js'
-import takeWhile from './takeWhile.js'
 import dropWhile from './dropWhile.js'
+import takeWhile from './takeWhile.js'
 
 /**
  * span :: (a -> Bool) -> [a] -> [[a], [a]]

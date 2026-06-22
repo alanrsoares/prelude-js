@@ -10,8 +10,6 @@ import last from '../List/last.js'
  * @param arg3 - `a`
  * @returns `c`
  */
-export default (...fs) => (...args) =>
-  initial(fs).reduceRight(
-    (acc, f) => f.call(this, acc),
-    last(fs).apply(this, args)
-  )
+export default (...fs) =>
+  (...args) =>
+    initial(fs).reduceRight((acc, f) => f.call(this, acc), last(fs).apply(this, args))

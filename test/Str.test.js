@@ -1,5 +1,4 @@
-import { describe, it } from 'bun:test'
-import { expect } from 'bun:test'
+import { describe, expect, it } from 'bun:test'
 import flip from '../src/Func/flip.js'
 import * as Str from '../src/Str/index.js'
 

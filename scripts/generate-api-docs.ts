@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 // Parse manual docs from docs/
@@ -281,5 +281,5 @@ const meta = {
   ],
 }
 
-writeFileSync('./apps/docs/content/docs/meta.json', JSON.stringify(meta, null, 2), 'utf-8')
+writeFileSync('./apps/docs/content/docs/meta.json', `${JSON.stringify(meta, null, 2)}\n`, 'utf-8')
 console.log('Generated ./apps/docs/content/docs/meta.json')

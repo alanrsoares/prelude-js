@@ -1,5 +1,5 @@
-import uniqueBy from './uniqueBy.js'
 import id from '../General/id.js'
+import uniqueBy from './uniqueBy.js'
 
 /**
  * unique :: [a] -> [a]

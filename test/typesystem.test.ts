@@ -14,7 +14,7 @@ import map from 'preludejs/List/map'
 import { add } from 'preludejs/Num'
 import { get } from 'preludejs/Obj'
 import { join, split } from 'preludejs/Str'
-import { type TypeEqual, type TypeOf, expectType } from 'ts-expect'
+import { expectType, type TypeEqual, type TypeOf } from 'ts-expect'
 import type { Curried, DeepReadonly, Reverse } from '../src/types'
 
 type Frozen = DeepReadonly<{ nested: { values: number[] } }>

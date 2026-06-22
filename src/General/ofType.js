@@ -1,6 +1,6 @@
 import curry from '../Func/curry.js'
-import typeOf from './typeOf.js'
 import equals from './equals.js'
+import typeOf from './typeOf.js'
 
 /**
  * ofType :: (String, a) -> Boolean

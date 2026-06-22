@@ -1,6 +1,6 @@
 import curry from '../Func/curry.js'
-import scan from '../List/scan.js'
 import reverse from '../List/reverse.js'
+import scan from '../List/scan.js'
 
 /**
  * scanr :: (a -> b -> b) -> b -> [a] -> [b]

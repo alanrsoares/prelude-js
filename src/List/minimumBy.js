@@ -8,4 +8,4 @@ import curry from '../Func/curry.js'
  * @param arg2 - `[a]`
  * @returns `b`
  */
-export default curry((fn, xs) => xs.reduceRight((min, x) => fn(x) < fn(min) ? x : min))
+export default curry((fn, xs) => xs.reduceRight((min, x) => (fn(x) < fn(min) ? x : min)))

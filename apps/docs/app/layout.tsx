@@ -1,7 +1,7 @@
 import './global.css'
 import 'fumadocs-twoslash/twoslash.css'
-import { Provider } from '@/components/provider'
 import { Inter } from 'next/font/google'
+import { Provider } from '@/components/provider'
 
 const inter = Inter({
   subsets: ['latin'],

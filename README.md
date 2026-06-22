@@ -92,7 +92,7 @@ reduce(sum, 0, evens) // => 6
 - Barrel modules export namespaces: `Func`, `General`, `List`, `Num`, `Obj`, `Str`.
 - Direct imports map directly to the function's runtime module (e.g. `preludejs/List/map.js` maps to `src/List/map.js`).
 
-For the complete API reference, see [docs/README.md](./docs/README.md).
+For the complete API reference, see the [documentation site](https://alanrsoares.github.io/prelude-js/docs).
 
 ---
 

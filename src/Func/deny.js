@@ -5,4 +5,6 @@
  * @param arg1 - `(a -> b)`
  * @returns `!(a -> b)`
  */
-export default (fn) => (...args) => !fn(...args)
+export default (fn) =>
+  (...args) =>
+    !fn(...args)

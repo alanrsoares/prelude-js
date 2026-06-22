@@ -1,5 +1,5 @@
-import unique from './unique.js'
 import flatten from './flatten.js'
+import unique from './unique.js'
 
 /**
  * union :: ([a], [a], ...) -> [a]

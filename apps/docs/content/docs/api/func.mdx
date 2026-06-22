@@ -158,7 +158,9 @@ deny :: (a -> b) -> !(a -> b)
 #### TypeScript Signature
 
 ```typescript
-function deny<A extends readonly unknown[], R>(fn: (...args: A) => R): (...args: A) => boolean
+function deny<A extends readonly unknown[], R>(
+fn: (...args: A) => R,
+): (...args: A) => boolean
 ```
 
 #### Parameters
@@ -229,7 +231,9 @@ flip :: (a -> b -> c) -> b -> a -> c
 #### TypeScript Signature
 
 ```typescript
-function flip<A extends readonly unknown[], R>(fn: (...args: A) => R): (...args: Reverse<A>) => R
+function flip<A extends readonly unknown[], R>(
+fn: (...args: A) => R,
+): (...args: Reverse<A>) => R
 ```
 
 #### Parameters
@@ -264,7 +268,9 @@ memoize :: (a -> b) -> a -> b
 #### TypeScript Signature
 
 ```typescript
-function memoize<A extends readonly unknown[], R>(fn: (...args: A) => R): (...args: A) => R
+function memoize<A extends readonly unknown[], R>(
+fn: (...args: A) => R,
+): (...args: A) => R
 ```
 
 #### Parameters
@@ -299,7 +305,9 @@ uncurry :: (a -> b -> c) -> [a, b] -> c
 #### TypeScript Signature
 
 ```typescript
-function uncurry<A extends readonly unknown[], R>(fn: Curried<A, R>): (...args: A) => R
+function uncurry<A extends readonly unknown[], R>(
+fn: Curried<A, R>,
+): (...args: A) => R
 ```
 
 #### Parameters
