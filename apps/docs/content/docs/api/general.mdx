@@ -14,6 +14,7 @@ primitive values. Curried, so it can be partially applied.
 
 ```typescript
 function areSimilar(left: unknown, right: unknown): boolean
+function areSimilar(left: unknown): (right: unknown) => boolean
 ```
 
 #### Parameters

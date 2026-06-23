@@ -12,14 +12,14 @@ description: "Complete API reference for preludejs/Obj"
 Returns a deep clone of the value via JSON round-tripping.
 
 ```typescript
-function clone<T extends object>(obj: T): T
+function clone<T>(value: T): T
 ```
 
 #### Parameters
 
 | Parameter | Type | Description |
 |---|---|---|
-| `obj` | `T` |  |
+| `value` | `T` |  |
 
 #### Example
 
@@ -34,8 +34,8 @@ clone({ a: 1, b: 2 }) //=> { a: 1, b: 2 }
 Reads a member from an object by key; key-first and curried.
 
 ```typescript
-function get<T extends Record<PropertyKey, unknown>, K extends keyof T>(key: K): (obj: T) => T[K]
-function get<T extends Record<PropertyKey, unknown>, K extends keyof T>(key: K, obj: T): T[K]
+function get<K extends PropertyKey>(key: K): <T extends Record<K, unknown>>(obj: T) => T[K]
+function get<T, K extends keyof T>(key: K, obj: T): T[K]
 ```
 
 #### Parameters
@@ -102,15 +102,17 @@ map((k: string, v: number) => `${k}=${v}`, { a: 1, b: 2 }) //=> ['a=1', 'b=2']
 Merges any number of source objects into the first; later sources win.
 
 ```typescript
-function merge<T extends object>(target: T, ...sources: Partial<T>[]): T
+function merge<A extends object>(target: A): A
+function merge<A extends object, B extends object>(target: A, b: B): A & B
+function merge<A extends object, B extends object, C extends object>(target: A, b: B, c: C): A & B & C
+function merge<A extends object>(target: A, ...sources: object[]): A & Record<string, unknown>
 ```
 
 #### Parameters
 
 | Parameter | Type | Description |
 |---|---|---|
-| `target` | `T` |  |
-| `sources` | `Partial<T>[]` |  |
+| `target` | `A` |  |
 
 #### Example
 

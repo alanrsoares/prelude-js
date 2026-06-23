@@ -259,8 +259,8 @@ lines('a\nb') //=> ['a', 'b']
 Left-pads a value using the supplied padding string; curried.
 
 ```typescript
-function padLeft(arg: string): ((arg: string) => string) & ((arg: string) => string)
-function padLeft(arg: string, rest_0: string): string
+function padLeft(arg: string): ((arg: string | number | null | undefined) => string) & ((arg: string | number | null | undefined) => string)
+function padLeft(arg: string, rest_0: string | number | null | undefined): string
 ```
 
 #### Parameters
@@ -373,15 +373,15 @@ span((c) => c !== ' ', 'foo bar') //=> ['foo', ' bar']
 Splits a string on a separator; curried.
 
 ```typescript
-function split(sep: string): (value: string) => string[]
-function split(sep: string, value: string): string[]
+function split(sep: string | RegExp): (value: string) => string[]
+function split(sep: string | RegExp, value: string): string[]
 ```
 
 #### Parameters
 
 | Parameter | Type | Description |
 |---|---|---|
-| `sep` | `string` |  |
+| `sep` | `string \| RegExp` |  |
 
 #### Example
 
