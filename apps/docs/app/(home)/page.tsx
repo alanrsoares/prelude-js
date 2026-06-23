@@ -2,8 +2,8 @@ import { ArrowRight, Layers, ShieldCheck, Workflow, Zap } from 'lucide-react'
 import Link from 'next/link'
 import { CodeTabs } from '@/components/code-tabs'
 import { TwoslashSnippet } from '@/components/twoslash-snippet'
-import { snippets } from '@/lib/snippets.generated'
 import { gitConfig } from '@/lib/shared'
+import { snippets } from '@/lib/snippets.generated'
 
 const features = [
   {

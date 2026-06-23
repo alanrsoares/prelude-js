@@ -93,7 +93,6 @@
   "files": [
     "dist",
     "src",
-    "docs",
     "README.md",
     "LICENSE"
   ],
@@ -111,11 +110,8 @@
     "docs:build": "bun run --filter 'prelude-docs' build",
     "docs:generate": "bun run scripts/generate-api-docs.ts",
     "check:examples": "bun run scripts/check-examples.ts",
-    "generate": "bun scripts/generate-function.js",
-    "generate:function": "bun scripts/generate-function.js",
-    "generate:indexes": "bun scripts/generate-indexes.js",
-    "format": "bunx biome format . --write",
-    "format:check": "bunx biome format .",
+    "format": "bunx biome check . --write",
+    "format:check": "bunx biome check .",
     "typecheck": "tsc -p tsconfig.types.json --noEmit",
     "jsr:check": "npx jsr publish --dry-run",
     "lint": "bunx biome lint .",
