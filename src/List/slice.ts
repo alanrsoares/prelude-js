@@ -10,6 +10,10 @@ import curry from '../Func/curry.js'
  */
 const slice = curry((x: number, y: number, xs: readonly unknown[]) =>
   xs.slice(x, y),
-) as unknown as <A>(start: number, end: number, xs: readonly A[]) => A[]
+) as unknown as {
+  <A>(start: number): (end: number) => (xs: readonly A[]) => A[]
+  <A>(start: number, end: number): (xs: readonly A[]) => A[]
+  <A>(start: number, end: number, xs: readonly A[]): A[]
+}
 
 export default slice

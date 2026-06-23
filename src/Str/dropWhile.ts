@@ -1,6 +1,6 @@
-import type { Curried } from '../types.js'
-import dropWhileList from '../List/dropWhile.js'
 import curry from '../Func/curry.js'
+import dropWhileList from '../List/dropWhile.js'
+import type { Curried } from '../types.js'
 
 /**
  * Drops leading characters while the predicate holds; curried.

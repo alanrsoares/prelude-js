@@ -8,9 +8,9 @@ import curry from '../Func/curry.js'
  * at(1, ['a', 'b', 'c']) //=> 'b'
  * ```
  */
-const at = curry((index: number, xs: readonly unknown[]) => xs[index]) as unknown as <A>(
-  index: number,
-  xs: readonly A[],
-) => A | undefined
+const at = curry((index: number, xs: readonly unknown[]) => xs[index]) as unknown as {
+  <A>(index: number): (xs: readonly A[]) => A | undefined
+  <A>(index: number, xs: readonly A[]): A | undefined
+}
 
 export default at

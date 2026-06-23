@@ -13,10 +13,19 @@ import scan from './scan.js'
 const scanr = curry(
   (fn: (value: unknown, acc: unknown) => unknown, init: unknown, xs: readonly unknown[]) =>
     reverse(scan(fn, init, reverse(xs))),
-) as unknown as <A, B>(
-  fn: (value: B, acc: A, index: number, array: readonly B[]) => A,
-  initial: A,
-  xs: readonly B[],
-) => A[]
+) as unknown as {
+  <A, B>(
+    fn: (value: B, acc: A, index: number, array: readonly B[]) => A,
+  ): (initial: A) => (xs: readonly B[]) => A[]
+  <A, B>(
+    fn: (value: B, acc: A, index: number, array: readonly B[]) => A,
+    initial: A,
+  ): (xs: readonly B[]) => A[]
+  <A, B>(
+    fn: (value: B, acc: A, index: number, array: readonly B[]) => A,
+    initial: A,
+    xs: readonly B[],
+  ): A[]
+}
 
 export default scanr

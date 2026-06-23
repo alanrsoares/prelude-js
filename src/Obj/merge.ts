@@ -18,9 +18,11 @@ const reducer = reduce((acc: Record<PropertyKey, unknown>, key: string, value: u
  */
 const merge = (Object.assign ||
   ((y: Record<PropertyKey, unknown>, ...xs: Record<PropertyKey, unknown>[]) =>
-    xs.reduce(reducer, y))) as unknown as <T extends object>(
-  target: T,
-  ...sources: Partial<T>[]
-) => T
+    xs.reduce(reducer, y))) as unknown as {
+  <A extends object>(target: A): A
+  <A extends object, B extends object>(target: A, b: B): A & B
+  <A extends object, B extends object, C extends object>(target: A, b: B, c: C): A & B & C
+  <A extends object>(target: A, ...sources: object[]): A & Record<string, unknown>
+}
 
 export default merge

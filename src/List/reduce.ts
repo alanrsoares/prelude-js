@@ -1,5 +1,5 @@
-import type { Reducer } from '../types.js'
 import curry from '../Func/curry.js'
+import type { Reducer } from '../types.js'
 
 /**
  * Left-reduces a list with an initial accumulator; curried.

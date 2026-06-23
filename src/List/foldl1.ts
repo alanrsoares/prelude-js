@@ -13,6 +13,9 @@ import tail from './tail.js'
  */
 const foldl1 = curry((fn: (acc: unknown, value: unknown) => unknown, xs: readonly unknown[]) =>
   fold(fn, head(xs), tail(xs)),
-) as unknown as <A>(fn: (acc: A, value: A) => A, xs: readonly A[]) => A
+) as unknown as {
+  <A>(fn: (acc: A, value: A) => A): (xs: readonly A[]) => A
+  <A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A
+}
 
 export default foldl1

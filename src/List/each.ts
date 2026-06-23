@@ -13,9 +13,9 @@ const each = curry(
     fn: (value: unknown, index: number, array: readonly unknown[]) => unknown,
     xs: readonly unknown[],
   ) => xs.forEach(fn),
-) as unknown as <A>(
-  fn: (value: A, index: number, array: readonly A[]) => unknown,
-  xs: readonly A[],
-) => void
+) as unknown as {
+  <A>(fn: (value: A, index: number, array: readonly A[]) => unknown): (xs: readonly A[]) => void
+  <A>(fn: (value: A, index: number, array: readonly A[]) => unknown, xs: readonly A[]): void
+}
 
 export default each

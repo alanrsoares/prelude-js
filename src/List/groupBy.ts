@@ -1,5 +1,5 @@
-import type { Predicate } from '../types.js'
 import curry from '../Func/curry.js'
+import type { Accessor } from '../types.js'
 
 /**
  * Groups items into lists keyed by the value the function returns; curried.
@@ -18,6 +18,9 @@ const groupBy = curry((fn: (x: unknown) => PropertyKey, xs: readonly unknown[]) 
     },
     {} as Record<PropertyKey, unknown[]>,
   ),
-) as unknown as <A>(fn: Predicate<A>, xs: readonly A[]) => A[][]
+) as unknown as {
+  <A>(fn: Accessor<A, PropertyKey | boolean>): (xs: readonly A[]) => Record<string, A[]>
+  <A>(fn: Accessor<A, PropertyKey | boolean>, xs: readonly A[]): Record<string, A[]>
+}
 
 export default groupBy

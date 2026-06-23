@@ -13,6 +13,9 @@ import last from './last.js'
  */
 const foldr1 = curry((fn: (value: unknown, acc: unknown) => unknown, xs: readonly unknown[]) =>
   foldr(fn, last(xs), initial(xs)),
-) as unknown as <A>(fn: (value: A, acc: A) => A, xs: readonly A[]) => A
+) as unknown as {
+  <A>(fn: (value: A, acc: A) => A): (xs: readonly A[]) => A
+  <A>(fn: (value: A, acc: A) => A, xs: readonly A[]): A
+}
 
 export default foldr1

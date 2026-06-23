@@ -11,8 +11,8 @@ import curry from '../Func/curry.js'
 const get = curry(
   (member: PropertyKey, x: Record<PropertyKey, unknown>) => x[member],
 ) as unknown as {
-  <T extends Record<PropertyKey, unknown>, K extends keyof T>(key: K): (obj: T) => T[K]
-  <T extends Record<PropertyKey, unknown>, K extends keyof T>(key: K, obj: T): T[K]
+  <K extends PropertyKey>(key: K): <T extends Record<K, unknown>>(obj: T) => T[K]
+  <T, K extends keyof T>(key: K, obj: T): T[K]
 }
 
 export default get

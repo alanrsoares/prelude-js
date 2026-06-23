@@ -37,6 +37,39 @@ export type Reducer<A, B> = (acc: A, value: B, index: number, array: readonly B[
 export type Comparer<A> = (left: A, right: A) => number
 export type Accessor<A, B> = (value: A, index: number, array: readonly A[]) => B
 
+// Shared shapes for curried, element-generic List operations: each takes its
+// leading argument first (point-free), or every argument at once.
+
+/** Predicate-first op returning a fixed result type `R` (e.g. boolean, number). */
+export type CurriedPredicate<R> = {
+  <A>(fn: Predicate<A>): (xs: readonly A[]) => R
+  <A>(fn: Predicate<A>, xs: readonly A[]): R
+}
+
+/** Predicate-first op returning a list of the same element type (filter-like). */
+export type CurriedListFilter = {
+  <A>(fn: Predicate<A>): (xs: readonly A[]) => A[]
+  <A>(fn: Predicate<A>, xs: readonly A[]): A[]
+}
+
+/** Predicate-first op splitting the list into a passing and a failing partition. */
+export type CurriedListSplit = {
+  <A>(fn: Predicate<A>): (xs: readonly A[]) => [A[], A[]]
+  <A>(fn: Predicate<A>, xs: readonly A[]): [A[], A[]]
+}
+
+/** Accessor-first op selecting a single element by comparing accessor values. */
+export type CurriedReduceBy = {
+  <A, B>(fn: Accessor<A, B>): (xs: readonly A[]) => A | undefined
+  <A, B>(fn: Accessor<A, B>, xs: readonly A[]): A | undefined
+}
+
+/** Count-first op returning a sublist (take/drop-like). */
+export type CurriedByCount = {
+  <A>(count: number): (xs: readonly A[]) => A[]
+  <A>(count: number, xs: readonly A[]): A[]
+}
+
 export interface FuncModule {
   apply: <A extends readonly unknown[], R>(fn: (...args: A) => R, args: A) => R
   compose: <Fns extends readonly AnyFn[]>(...fns: Fns) => Compose<Fns>

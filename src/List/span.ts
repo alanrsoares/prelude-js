@@ -1,5 +1,5 @@
-import type { Predicate } from '../types.js'
 import curry from '../Func/curry.js'
+import type { CurriedListSplit, Predicate } from '../types.js'
 import dropWhile from './dropWhile.js'
 import takeWhile from './takeWhile.js'
 
@@ -14,6 +14,6 @@ import takeWhile from './takeWhile.js'
 const span = curry((f: Predicate<unknown>, xs: readonly unknown[]) => [
   takeWhile(f, xs),
   dropWhile(f, xs),
-]) as unknown as <A>(fn: Predicate<A>, xs: readonly A[]) => [A[], A[]]
+]) as unknown as CurriedListSplit
 
 export default span

@@ -1,5 +1,5 @@
-import type { Curried } from '../types.js'
 import curry from '../Func/curry.js'
+import type { Curried } from '../types.js'
 
 /**
  * Returns whether the target string starts with the search string.

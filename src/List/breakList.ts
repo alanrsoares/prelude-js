@@ -1,6 +1,6 @@
-import type { Predicate } from '../types.js'
 import curry from '../Func/curry.js'
 import deny from '../Func/deny.js'
+import type { CurriedListSplit, Predicate } from '../types.js'
 import span from './span.js'
 
 /**
@@ -13,6 +13,6 @@ import span from './span.js'
  */
 const breakList = curry((fn: Predicate<unknown>, xs: readonly unknown[]) =>
   span(deny(fn), xs),
-) as unknown as <A>(fn: Predicate<A>, xs: readonly A[]) => [A[], A[]]
+) as unknown as CurriedListSplit
 
 export default breakList

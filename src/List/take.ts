@@ -1,4 +1,5 @@
 import curry from '../Func/curry.js'
+import type { CurriedByCount } from '../types.js'
 
 /**
  * Takes the first `n` items from the list; curried.
@@ -10,6 +11,6 @@ import curry from '../Func/curry.js'
  */
 const take = curry((n: number, xs: readonly unknown[]) =>
   xs?.filter((_x, i) => i < n),
-) as unknown as <A>(count: number, xs: readonly A[]) => A[]
+) as unknown as CurriedByCount
 
 export default take

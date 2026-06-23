@@ -1,5 +1,5 @@
-import type { Pair } from '../types.js'
 import curry from '../Func/curry.js'
+import type { Pair } from '../types.js'
 
 /**
  * Zips two lists into a list of pairs, truncating to the shorter; curried.
@@ -11,6 +11,9 @@ import curry from '../Func/curry.js'
  */
 const zip = curry((xs: readonly unknown[], ys: readonly unknown[]) =>
   xs.reduce<Pair[]>((acc, x, i) => (i === ys.length ? acc : acc.concat([[x, ys[i]]])), []),
-) as unknown as <A, B>(xs: readonly A[], ys: readonly B[]) => Array<Pair<A, B>>
+) as unknown as {
+  <A, B>(xs: readonly A[], ys: readonly B[]): Array<Pair<A, B>>
+  <A>(xs: readonly A[]): <B>(ys: readonly B[]) => Array<Pair<A, B>>
+}
 
 export default zip

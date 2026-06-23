@@ -1,5 +1,5 @@
-import type { Curried } from '../types.js'
 import curry from '../Func/curry.js'
+import type { Curried } from '../types.js'
 import drop from './drop.js'
 import take from './take.js'
 

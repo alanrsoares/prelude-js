@@ -1,5 +1,5 @@
-import type { Comparer } from '../types.js'
 import curry from '../Func/curry.js'
+import type { Comparer } from '../types.js'
 
 /**
  * Returns a new list sorted with a custom comparator; curried.
@@ -11,6 +11,9 @@ import curry from '../Func/curry.js'
  */
 const sortWith = curry((fn: Comparer<unknown>, xs: readonly unknown[]) =>
   xs.concat().sort(fn),
-) as unknown as <A>(fn: Comparer<A>, xs: readonly A[]) => A[]
+) as unknown as {
+  <A>(fn: Comparer<A>): (xs: readonly A[]) => A[]
+  <A>(fn: Comparer<A>, xs: readonly A[]): A[]
+}
 
 export default sortWith

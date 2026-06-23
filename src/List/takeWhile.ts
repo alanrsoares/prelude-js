@@ -1,5 +1,5 @@
-import type { Predicate } from '../types.js'
 import curry from '../Func/curry.js'
+import type { CurriedListFilter, Predicate } from '../types.js'
 
 /**
  * Takes leading items while the predicate holds; curried.
@@ -15,6 +15,6 @@ const takeWhile = curry((f: Predicate<unknown>, xs: readonly unknown[]) => {
     return xs.slice(0, Number(x))
   }
   return xs
-}) as unknown as <A>(fn: Predicate<A>, xs: readonly A[]) => A[]
+}) as unknown as CurriedListFilter
 
 export default takeWhile
