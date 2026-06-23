@@ -1,5 +1,5 @@
-import type { Reducer } from '../types.js'
 import curry from '../Func/curry.js'
+import type { Reducer } from '../types.js'
 import head from './head.js'
 import scan from './scan.js'
 import tail from './tail.js'
@@ -14,6 +14,9 @@ import tail from './tail.js'
  */
 const scan1 = curry((fn: Reducer<unknown, unknown>, xs: readonly unknown[]) =>
   !xs.length ? undefined : scan(fn, head(xs), tail(xs)),
-) as unknown as <A>(fn: (acc: A, value: A) => A, xs: readonly A[]) => A[]
+) as unknown as {
+  <A>(fn: (acc: A, value: A) => A): (xs: readonly A[]) => A[] | undefined
+  <A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A[] | undefined
+}
 
 export default scan1

@@ -8,6 +8,7 @@ export function baseOptions(): BaseLayoutProps {
     nav: {
       title: (
         <span className="flex items-center gap-2 font-semibold text-base select-none">
+          {/** biome-ignore lint/performance/noImgElement: escape hatch for Biome */}
           <img
             src={`${basePath}/logo.png`}
             width="24"

@@ -1,5 +1,5 @@
-import type { Predicate } from '../types.js'
 import curry from '../Func/curry.js'
+import type { CurriedPredicate, Predicate } from '../types.js'
 
 /**
  * Returns the index of the first item that satisfies the predicate, or -1; curried.
@@ -11,6 +11,6 @@ import curry from '../Func/curry.js'
  */
 const findIndex = curry((fn: Predicate<unknown>, xs: readonly unknown[]) =>
   xs.findIndex(fn),
-) as unknown as <A>(fn: Predicate<A>, xs: readonly A[]) => number
+) as unknown as CurriedPredicate<number>
 
 export default findIndex

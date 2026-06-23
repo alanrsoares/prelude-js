@@ -1,6 +1,6 @@
-import type { Curried } from '../types.js'
-import takeWhileList from '../List/takeWhile.js'
 import curry from '../Func/curry.js'
+import takeWhileList from '../List/takeWhile.js'
+import type { Curried } from '../types.js'
 
 /**
  * Takes leading characters while the predicate holds; curried.

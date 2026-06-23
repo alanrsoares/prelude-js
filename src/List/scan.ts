@@ -1,5 +1,5 @@
-import type { Reducer } from '../types.js'
 import curry from '../Func/curry.js'
+import type { Reducer } from '../types.js'
 import last from './last.js'
 
 /**
@@ -15,6 +15,10 @@ const scan = curry((fn: Reducer<unknown, unknown>, init: unknown, xs: readonly u
     (acc, x, index, array) => acc.concat(fn(last(acc), x, index, array)),
     [init],
   ),
-) as unknown as <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]) => A[]
+) as unknown as {
+  <A, B>(fn: Reducer<A, B>): (initial: A) => (xs: readonly B[]) => A[]
+  <A, B>(fn: Reducer<A, B>, initial: A): (xs: readonly B[]) => A[]
+  <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A[]
+}
 
 export default scan

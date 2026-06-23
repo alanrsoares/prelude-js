@@ -1,6 +1,6 @@
-import type { AnyFn, Compose } from '../types.js'
 import initial from '../List/initial.js'
 import last from '../List/last.js'
+import type { AnyFn, Compose } from '../types.js'
 
 /**
  * Performs right-to-left function composition. The rightmost function may have

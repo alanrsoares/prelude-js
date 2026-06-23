@@ -9,7 +9,7 @@ import unique from './unique.js'
  * union([1, 2, 3], [3, 4]) //=> [1, 2, 3, 4]
  * ```
  */
-const union = (<A>(xs: readonly A[], ...yss: readonly (readonly A[])[]): A[] =>
-  unique(xs.concat(flatten(yss)))) as unknown as <A>(left: readonly A[], right: readonly A[]) => A[]
+const union = <A>(xs: readonly A[], ...yss: readonly (readonly A[])[]): A[] =>
+  unique(xs.concat(flatten(yss)))
 
 export default union

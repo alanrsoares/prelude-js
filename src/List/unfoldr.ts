@@ -16,6 +16,9 @@ const unfoldr = curry((fn: (seed: unknown) => [unknown, unknown] | undefined, b:
     that = fn(b)
   }
   return result
-}) as unknown as <A, B>(fn: (seed: B) => [A, B] | undefined, seed: B) => A[]
+}) as unknown as {
+  <A, B>(fn: (seed: B) => [A, B] | undefined): (seed: B) => A[]
+  <A, B>(fn: (seed: B) => [A, B] | undefined, seed: B): A[]
+}
 
 export default unfoldr

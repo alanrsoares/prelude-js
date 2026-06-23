@@ -1,5 +1,5 @@
-import type { Accessor } from '../types.js'
 import curry from '../Func/curry.js'
+import type { Accessor } from '../types.js'
 
 /**
  * Counts items grouped by the key the accessor returns; curried.
@@ -18,6 +18,9 @@ const countBy = curry((fn: Accessor<unknown, PropertyKey>, xs: readonly unknown[
     },
     {} as Record<PropertyKey, number>,
   ),
-) as unknown as <A, B>(fn: Accessor<A, B>, xs: readonly A[]) => Record<string, number>
+) as unknown as {
+  <A, B>(fn: Accessor<A, B>): (xs: readonly A[]) => Record<string, number>
+  <A, B>(fn: Accessor<A, B>, xs: readonly A[]): Record<string, number>
+}
 
 export default countBy

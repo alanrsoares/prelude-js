@@ -1,6 +1,6 @@
-import type { Curried } from '../types.js'
 import curry from '../Func/curry.js'
 import deny from '../Func/deny.js'
+import type { Curried } from '../types.js'
 import span from './span.js'
 
 /**

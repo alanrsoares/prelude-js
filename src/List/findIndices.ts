@@ -1,5 +1,5 @@
-import type { Predicate } from '../types.js'
 import curry from '../Func/curry.js'
+import type { CurriedPredicate, Predicate } from '../types.js'
 
 /**
  * Returns the indices of all items that satisfy the predicate; curried.
@@ -14,6 +14,6 @@ const findIndices = curry((fn: Predicate<unknown>, xs: readonly unknown[]) =>
     (indices, x, index) => (fn(x, index, xs) ? indices.concat(index) : indices),
     [],
   ),
-) as unknown as <A>(fn: Predicate<A>, xs: readonly A[]) => number[]
+) as unknown as CurriedPredicate<number[]>
 
 export default findIndices

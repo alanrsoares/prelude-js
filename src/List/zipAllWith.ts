@@ -17,10 +17,19 @@ const zipAllWith = curry(
     const length = Math.max(xs.length, ys.length)
     return Array.from({ length }, (_, index) => fn(xs[index], ys[index]))
   },
-) as unknown as <A, B, C>(
-  fn: (left: A | undefined, right: B | undefined) => C,
-  xs: readonly A[],
-  ys: readonly B[],
-) => C[]
+) as unknown as {
+  <A, B, C>(
+    fn: (left: A | undefined, right: B | undefined) => C,
+  ): (xs: readonly A[], ys: readonly B[]) => C[]
+  <A, B, C>(
+    fn: (left: A | undefined, right: B | undefined) => C,
+    xs: readonly A[],
+  ): (ys: readonly B[]) => C[]
+  <A, B, C>(
+    fn: (left: A | undefined, right: B | undefined) => C,
+    xs: readonly A[],
+    ys: readonly B[],
+  ): C[]
+}
 
 export default zipAllWith

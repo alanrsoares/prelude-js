@@ -1,7 +1,7 @@
-import type { Accessor } from '../types.js'
 import curry from '../Func/curry.js'
 import merge from '../Obj/merge.js'
 import values from '../Obj/values.js'
+import type { Accessor } from '../types.js'
 
 /**
  * Returns items unique by the value the accessor returns; curried.
@@ -14,6 +14,9 @@ import values from '../Obj/values.js'
 const uniqueBy = curry((fn: Accessor<unknown, unknown>, xs: readonly unknown[]) => {
   const reducer = (acc: Record<string, unknown>, x: unknown) => merge(acc, { [`K_${x}`]: x })
   return values(xs.map(fn).reduce(reducer, {}))
-}) as unknown as <A, B>(fn: Accessor<A, B>, xs: readonly A[]) => B[]
+}) as unknown as {
+  <A, B>(fn: Accessor<A, B>): (xs: readonly A[]) => B[]
+  <A, B>(fn: Accessor<A, B>, xs: readonly A[]): B[]
+}
 
 export default uniqueBy

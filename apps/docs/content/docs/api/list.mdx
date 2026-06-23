@@ -9,9 +9,10 @@ description: "Complete API reference for preludejs/List"
 
 ### all <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-Returns true only when every item satisfies the predicate.
+Returns true only when every item satisfies the predicate; curried.
 
 ```typescript
+function all<A>(fn: Predicate<A>): (xs: readonly A[]) => boolean
 function all<A>(fn: Predicate<A>, xs: readonly A[]): boolean
 ```
 
@@ -20,7 +21,6 @@ function all<A>(fn: Predicate<A>, xs: readonly A[]): boolean
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Predicate<A>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -57,6 +57,7 @@ and([1, 2, 3]) //=> true
 Returns true when at least one item satisfies the predicate; curried.
 
 ```typescript
+function any<A>(fn: Predicate<A>): (xs: readonly A[]) => boolean
 function any<A>(fn: Predicate<A>, xs: readonly A[]): boolean
 ```
 
@@ -65,7 +66,6 @@ function any<A>(fn: Predicate<A>, xs: readonly A[]): boolean
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Predicate<A>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -80,6 +80,7 @@ any((x: number) => x > 2, [1, 2, 3]) //=> true
 Returns the item at the given index; curried.
 
 ```typescript
+function at<A>(index: number): (xs: readonly A[]) => A | undefined
 function at<A>(index: number, xs: readonly A[]): A | undefined
 ```
 
@@ -88,7 +89,6 @@ function at<A>(index: number, xs: readonly A[]): A | undefined
 | Parameter | Type | Description |
 |---|---|---|
 | `index` | `number` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -103,6 +103,7 @@ at(1, ['a', 'b', 'c']) //=> 'b'
 Splits the list at the first item that satisfies the predicate; curried.
 
 ```typescript
+function breakList<A>(fn: Predicate<A>): (xs: readonly A[]) => [A[], A[]]
 function breakList<A>(fn: Predicate<A>, xs: readonly A[]): [A[], A[]]
 ```
 
@@ -111,7 +112,6 @@ function breakList<A>(fn: Predicate<A>, xs: readonly A[]): [A[], A[]]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Predicate<A>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -170,6 +170,7 @@ concat([[1, 2], [3], [4, 5]]) //=> [1, 2, 3, 4, 5]
 Maps a list to lists and concatenates the results; curried.
 
 ```typescript
+function concatMap<A, B>(fn: Mapper<A, readonly B[]>): (xs: readonly A[]) => B[]
 function concatMap<A, B>(fn: Mapper<A, readonly B[]>, xs: readonly A[]): B[]
 ```
 
@@ -178,7 +179,6 @@ function concatMap<A, B>(fn: Mapper<A, readonly B[]>, xs: readonly A[]): B[]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Mapper<A, readonly B[]>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -193,6 +193,7 @@ concatMap((x: number) => [x, x], [1, 2, 3]) //=> [1, 1, 2, 2, 3, 3]
 Counts items grouped by the key the accessor returns; curried.
 
 ```typescript
+function countBy<A, B>(fn: Accessor<A, B>): (xs: readonly A[]) => Record<string, number>
 function countBy<A, B>(fn: Accessor<A, B>, xs: readonly A[]): Record<string, number>
 ```
 
@@ -201,7 +202,6 @@ function countBy<A, B>(fn: Accessor<A, B>, xs: readonly A[]): Record<string, num
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Accessor<A, B>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -216,20 +216,20 @@ countBy(Math.floor, [4.2, 4.4, 9.8]) //=> { 4: 2, 9: 1 }
 Returns items present in the first list but absent from the rest.
 
 ```typescript
-function difference<A>(left: readonly A[], right: readonly A[]): A[]
+function difference<A>(xs: readonly A[], ...yss: readonly (readonly A[])[]): A[]
 ```
 
 #### Parameters
 
 | Parameter | Type | Description |
 |---|---|---|
-| `left` | `readonly A[]` |  |
-| `right` | `readonly A[]` |  |
+| `xs` | `readonly A[]` |  |
+| `yss` | `readonly (readonly A[])[]` |  |
 
 #### Example
 
 ```ts
-difference([1, 2, 3, 4], [1, 4]) //=> [2, 3]
+difference([1, 2, 3, 4], [1], [4]) //=> [2, 3]
 ```
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
@@ -239,6 +239,7 @@ difference([1, 2, 3, 4], [1, 4]) //=> [2, 3]
 Drops the first `n` items from the list; curried.
 
 ```typescript
+function drop<A>(count: number): (xs: readonly A[]) => A[]
 function drop<A>(count: number, xs: readonly A[]): A[]
 ```
 
@@ -247,7 +248,6 @@ function drop<A>(count: number, xs: readonly A[]): A[]
 | Parameter | Type | Description |
 |---|---|---|
 | `count` | `number` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -262,6 +262,7 @@ drop(2, [1, 2, 3, 4]) //=> [3, 4]
 Drops leading items while the predicate holds; curried.
 
 ```typescript
+function dropWhile<A>(fn: Predicate<A>): (xs: readonly A[]) => A[]
 function dropWhile<A>(fn: Predicate<A>, xs: readonly A[]): A[]
 ```
 
@@ -270,7 +271,6 @@ function dropWhile<A>(fn: Predicate<A>, xs: readonly A[]): A[]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Predicate<A>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -285,6 +285,7 @@ dropWhile((n: number) => n <= 3, [2, 3, 5, 1]) //=> [5, 1]
 Applies a function to each item for its side effect; curried.
 
 ```typescript
+function each<A>(fn: (value: A, index: number, array: readonly A[]) => unknown): (xs: readonly A[]) => void
 function each<A>(fn: (value: A, index: number, array: readonly A[]) => unknown, xs: readonly A[]): void
 ```
 
@@ -293,7 +294,6 @@ function each<A>(fn: (value: A, index: number, array: readonly A[]) => unknown, 
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `(value: A, index: number, array: readonly A[]) => unknown` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -331,6 +331,7 @@ elem(3, [1, 2, 3]) //=> true
 Returns the index of the first item equal to the value, or -1; curried.
 
 ```typescript
+function elemIndex<A>(value: A): (xs: readonly A[]) => number
 function elemIndex<A>(value: A, xs: readonly A[]): number
 ```
 
@@ -339,7 +340,6 @@ function elemIndex<A>(value: A, xs: readonly A[]): number
 | Parameter | Type | Description |
 |---|---|---|
 | `value` | `A` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -354,6 +354,7 @@ elemIndex(3, [1, 2, 3]) //=> 2
 Returns the indices of all items equal to the value; curried.
 
 ```typescript
+function elemIndices<A>(value: A): (xs: readonly A[]) => number[]
 function elemIndices<A>(value: A, xs: readonly A[]): number[]
 ```
 
@@ -362,7 +363,6 @@ function elemIndices<A>(value: A, xs: readonly A[]): number[]
 | Parameter | Type | Description |
 |---|---|---|
 | `value` | `A` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -422,6 +422,7 @@ filter((x: number) => x > 3, [1, 2, 3, 4, 5]) //=> [4, 5]
 Returns the first item that satisfies the predicate, or undefined; curried.
 
 ```typescript
+function find<A>(fn: Predicate<A>): (xs: readonly A[]) => A | undefined
 function find<A>(fn: Predicate<A>, xs: readonly A[]): A | undefined
 ```
 
@@ -430,7 +431,6 @@ function find<A>(fn: Predicate<A>, xs: readonly A[]): A | undefined
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Predicate<A>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -445,6 +445,7 @@ find((x: number) => x > 2, [1, 2, 3, 4]) //=> 3
 Returns the index of the first item that satisfies the predicate, or -1; curried.
 
 ```typescript
+function findIndex<A>(fn: Predicate<A>): (xs: readonly A[]) => number
 function findIndex<A>(fn: Predicate<A>, xs: readonly A[]): number
 ```
 
@@ -453,7 +454,6 @@ function findIndex<A>(fn: Predicate<A>, xs: readonly A[]): number
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Predicate<A>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -468,6 +468,7 @@ findIndex((x: number) => x > 2, [1, 2, 3]) //=> 2
 Returns the indices of all items that satisfy the predicate; curried.
 
 ```typescript
+function findIndices<A>(fn: Predicate<A>): (xs: readonly A[]) => number[]
 function findIndices<A>(fn: Predicate<A>, xs: readonly A[]): number[]
 ```
 
@@ -476,7 +477,6 @@ function findIndices<A>(fn: Predicate<A>, xs: readonly A[]): number[]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Predicate<A>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -510,23 +510,15 @@ first([1, 2, 3]) //=> 1
 
 ### flatten <span className="inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-2.5 py-0.5 font-medium ml-2 align-middle">ƒ</span>
 
-Recursively flattens nested lists into a single list.
-
 ```typescript
-function flatten<A>(xss: readonly (readonly A[])[]): A[]
+function flatten<A>(xss: readonly Nested<A>[]): A[]
 ```
 
 #### Parameters
 
 | Parameter | Type | Description |
 |---|---|---|
-| `xss` | `readonly (readonly A[])[]` |  |
-
-#### Example
-
-```ts
-flatten([[1, 2], [3], [4, 5]]) //=> [1, 2, 3, 4, 5]
-```
+| `xss` | `readonly Nested<A>[]` |  |
 
 <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
 
@@ -535,6 +527,8 @@ flatten([[1, 2], [3], [4, 5]]) //=> [1, 2, 3, 4, 5]
 Left-associative fold over a list with an initial accumulator. Alias of [foldl](#foldl-ƒ).
 
 ```typescript
+function fold<A, B>(fn: Reducer<A, B>): (initial: A) => (xs: readonly B[]) => A
+function fold<A, B>(fn: Reducer<A, B>, initial: A): (xs: readonly B[]) => A
 function fold<A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A
 ```
 
@@ -543,8 +537,6 @@ function fold<A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Reducer<A, B>` |  |
-| `initial` | `A` |  |
-| `xs` | `readonly B[]` |  |
 
 #### Example
 
@@ -559,6 +551,7 @@ fold((acc: number, x: number) => acc + x, 0, [1, 2, 3]) //=> 6
 Left fold over a non-empty list using its head as the seed. Alias of [foldl1](#foldl1-ƒ).
 
 ```typescript
+function fold1<A>(fn: (acc: A, value: A) => A): (xs: readonly A[]) => A
 function fold1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A
 ```
 
@@ -567,7 +560,6 @@ function fold1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `(acc: A, value: A) => A` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -582,6 +574,8 @@ fold1((acc: number, x: number) => acc + x, [1, 2, 3]) //=> 6
 Left-associative fold over a list with an initial accumulator; curried.
 
 ```typescript
+function foldl<A, B>(fn: Reducer<A, B>): (initial: A) => (xs: readonly B[]) => A
+function foldl<A, B>(fn: Reducer<A, B>, initial: A): (xs: readonly B[]) => A
 function foldl<A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A
 ```
 
@@ -590,8 +584,6 @@ function foldl<A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Reducer<A, B>` |  |
-| `initial` | `A` |  |
-| `xs` | `readonly B[]` |  |
 
 #### Example
 
@@ -606,6 +598,7 @@ foldl((acc: number, x: number) => acc + x, 0, [1, 2, 3]) //=> 6
 Left fold over a non-empty list using its head as the seed; curried.
 
 ```typescript
+function foldl1<A>(fn: (acc: A, value: A) => A): (xs: readonly A[]) => A
 function foldl1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A
 ```
 
@@ -614,7 +607,6 @@ function foldl1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `(acc: A, value: A) => A` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -629,6 +621,8 @@ foldl1((acc: number, x: number) => acc + x, [1, 2, 3]) //=> 6
 Right-associative fold over a list with an initial accumulator; curried.
 
 ```typescript
+function foldr<A, B>(fn: (value: B, acc: A, index: number, array: readonly B[]) => A): (initial: A) => (xs: readonly B[]) => A
+function foldr<A, B>(fn: (value: B, acc: A, index: number, array: readonly B[]) => A, initial: A): (xs: readonly B[]) => A
 function foldr<A, B>(fn: (value: B, acc: A, index: number, array: readonly B[]) => A, initial: A, xs: readonly B[]): A
 ```
 
@@ -637,8 +631,6 @@ function foldr<A, B>(fn: (value: B, acc: A, index: number, array: readonly B[]) 
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `(value: B, acc: A, index: number, array: readonly B[]) => A` |  |
-| `initial` | `A` |  |
-| `xs` | `readonly B[]` |  |
 
 #### Example
 
@@ -653,6 +645,7 @@ foldr((x: string, acc: string) => x + acc, 'o', ['h', 'e', 'l', 'l']) //=> 'hell
 Right fold over a non-empty list using its last item as the seed; curried.
 
 ```typescript
+function foldr1<A>(fn: (value: A, acc: A) => A): (xs: readonly A[]) => A
 function foldr1<A>(fn: (value: A, acc: A) => A, xs: readonly A[]): A
 ```
 
@@ -661,7 +654,6 @@ function foldr1<A>(fn: (value: A, acc: A) => A, xs: readonly A[]): A
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `(value: A, acc: A) => A` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -676,15 +668,15 @@ foldr1((x: number, y: number) => x - y, [1, 2, 3, 4, 9]) //=> 7
 Groups items into lists keyed by the value the function returns; curried.
 
 ```typescript
-function groupBy<A>(fn: Predicate<A>, xs: readonly A[]): A[][]
+function groupBy<A>(fn: Accessor<A, boolean | PropertyKey>): (xs: readonly A[]) => Record<string, A[]>
+function groupBy<A>(fn: Accessor<A, boolean | PropertyKey>, xs: readonly A[]): Record<string, A[]>
 ```
 
 #### Parameters
 
 | Parameter | Type | Description |
 |---|---|---|
-| `fn` | `Predicate<A>` |  |
-| `xs` | `readonly A[]` |  |
+| `fn` | `Accessor<A, boolean \| PropertyKey>` |  |
 
 #### Example
 
@@ -743,15 +735,15 @@ initial([1, 2, 3, 4]) //=> [1, 2, 3]
 Returns items present in the first list and every other list.
 
 ```typescript
-function intersection<A>(left: readonly A[], right: readonly A[]): A[]
+function intersection<A>(xs: readonly A[], ...yss: readonly (readonly A[])[]): A[]
 ```
 
 #### Parameters
 
 | Parameter | Type | Description |
 |---|---|---|
-| `left` | `readonly A[]` |  |
-| `right` | `readonly A[]` |  |
+| `xs` | `readonly A[]` |  |
+| `yss` | `readonly (readonly A[])[]` |  |
 
 #### Example
 
@@ -855,6 +847,7 @@ maximum([1, 2, 3, 4, 5]) //=> 5
 Returns the item with the largest value produced by the accessor; curried.
 
 ```typescript
+function maximumBy<A, B>(fn: Accessor<A, B>): (xs: readonly A[]) => A | undefined
 function maximumBy<A, B>(fn: Accessor<A, B>, xs: readonly A[]): A | undefined
 ```
 
@@ -863,7 +856,6 @@ function maximumBy<A, B>(fn: Accessor<A, B>, xs: readonly A[]): A | undefined
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Accessor<A, B>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -922,6 +914,7 @@ minimum([3, 1, 2]) //=> 1
 Returns the item with the smallest value produced by the accessor; curried.
 
 ```typescript
+function minimumBy<A, B>(fn: Accessor<A, B>): (xs: readonly A[]) => A | undefined
 function minimumBy<A, B>(fn: Accessor<A, B>, xs: readonly A[]): A | undefined
 ```
 
@@ -930,7 +923,6 @@ function minimumBy<A, B>(fn: Accessor<A, B>, xs: readonly A[]): A | undefined
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Accessor<A, B>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -990,6 +982,7 @@ or([0, '', 3]) //=> true
 Splits a list into items that pass and fail the predicate; curried.
 
 ```typescript
+function partition<A>(fn: Predicate<A>): (xs: readonly A[]) => [A[], A[]]
 function partition<A>(fn: Predicate<A>, xs: readonly A[]): [A[], A[]]
 ```
 
@@ -998,7 +991,6 @@ function partition<A>(fn: Predicate<A>, xs: readonly A[]): [A[], A[]]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Predicate<A>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -1083,6 +1075,7 @@ reduce((acc: number, x: number) => acc + x, 0, [1, 2, 3]) //=> 6
 Keeps the items that do not satisfy the predicate; curried.
 
 ```typescript
+function reject<A>(fn: Predicate<A>): (xs: readonly A[]) => A[]
 function reject<A>(fn: Predicate<A>, xs: readonly A[]): A[]
 ```
 
@@ -1091,7 +1084,6 @@ function reject<A>(fn: Predicate<A>, xs: readonly A[]): A[]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Predicate<A>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -1128,6 +1120,8 @@ reverse([1, 2, 3]) //=> [3, 2, 1]
 Like [reduce](#reduce-ƒ) but returns the list of successive accumulator values; curried.
 
 ```typescript
+function scan<A, B>(fn: Reducer<A, B>): (initial: A) => (xs: readonly B[]) => A[]
+function scan<A, B>(fn: Reducer<A, B>, initial: A): (xs: readonly B[]) => A[]
 function scan<A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A[]
 ```
 
@@ -1136,8 +1130,6 @@ function scan<A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A[]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Reducer<A, B>` |  |
-| `initial` | `A` |  |
-| `xs` | `readonly B[]` |  |
 
 #### Example
 
@@ -1152,7 +1144,8 @@ scan((a: number, b: number) => a + b, 0, [1, 2, 3]) //=> [0, 1, 3, 6]
 Like [scan](#scan-ƒ) but seeds with the list head; curried.
 
 ```typescript
-function scan1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A[]
+function scan1<A>(fn: (acc: A, value: A) => A): (xs: readonly A[]) => A[] | undefined
+function scan1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A[] | undefined
 ```
 
 #### Parameters
@@ -1160,7 +1153,6 @@ function scan1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A[]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `(acc: A, value: A) => A` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -1175,6 +1167,8 @@ scan1((a: number, b: number) => a + b, [1, 2, 3]) //=> [1, 3, 6]
 Left scan over a list with an initial accumulator. Alias of [scan](#scan-ƒ).
 
 ```typescript
+function scanl<A, B>(fn: Reducer<A, B>): (initial: A) => (xs: readonly B[]) => A[]
+function scanl<A, B>(fn: Reducer<A, B>, initial: A): (xs: readonly B[]) => A[]
 function scanl<A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A[]
 ```
 
@@ -1183,8 +1177,6 @@ function scanl<A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A[]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Reducer<A, B>` |  |
-| `initial` | `A` |  |
-| `xs` | `readonly B[]` |  |
 
 #### Example
 
@@ -1199,7 +1191,8 @@ scanl((a: number, b: number) => a + b, 0, [1, 2, 3]) //=> [0, 1, 3, 6]
 Left scan over a list seeded with its head. Alias of [scan1](#scan1-ƒ).
 
 ```typescript
-function scanl1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A[]
+function scanl1<A>(fn: (acc: A, value: A) => A): (xs: readonly A[]) => A[] | undefined
+function scanl1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A[] | undefined
 ```
 
 #### Parameters
@@ -1207,7 +1200,6 @@ function scanl1<A>(fn: (acc: A, value: A) => A, xs: readonly A[]): A[]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `(acc: A, value: A) => A` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -1222,6 +1214,8 @@ scanl1((a: number, b: number) => a + b, [1, 2, 3]) //=> [1, 3, 6]
 Right scan over a list with an initial accumulator; curried.
 
 ```typescript
+function scanr<A, B>(fn: (value: B, acc: A, index: number, array: readonly B[]) => A): (initial: A) => (xs: readonly B[]) => A[]
+function scanr<A, B>(fn: (value: B, acc: A, index: number, array: readonly B[]) => A, initial: A): (xs: readonly B[]) => A[]
 function scanr<A, B>(fn: (value: B, acc: A, index: number, array: readonly B[]) => A, initial: A, xs: readonly B[]): A[]
 ```
 
@@ -1230,8 +1224,6 @@ function scanr<A, B>(fn: (value: B, acc: A, index: number, array: readonly B[]) 
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `(value: B, acc: A, index: number, array: readonly B[]) => A` |  |
-| `initial` | `A` |  |
-| `xs` | `readonly B[]` |  |
 
 #### Example
 
@@ -1246,6 +1238,7 @@ scanr((a: number, b: number) => a + b, 0, [1, 2, 3]) //=> [6, 5, 3, 0]
 Right scan over a list seeded with its last item; curried.
 
 ```typescript
+function scanr1<A>(fn: (value: A, acc: A) => A): (xs: readonly A[]) => A[]
 function scanr1<A>(fn: (value: A, acc: A) => A, xs: readonly A[]): A[]
 ```
 
@@ -1254,7 +1247,6 @@ function scanr1<A>(fn: (value: A, acc: A) => A, xs: readonly A[]): A[]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `(value: A, acc: A) => A` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -1269,6 +1261,8 @@ scanr1((a: number, b: number) => a + b, [1, 2, 3]) //=> [6, 5, 3]
 Returns the sublist between `start` and `end`; curried.
 
 ```typescript
+function slice<A>(start: number): (end: number) => (xs: readonly A[]) => A[]
+function slice<A>(start: number, end: number): (xs: readonly A[]) => A[]
 function slice<A>(start: number, end: number, xs: readonly A[]): A[]
 ```
 
@@ -1277,8 +1271,6 @@ function slice<A>(start: number, end: number, xs: readonly A[]): A[]
 | Parameter | Type | Description |
 |---|---|---|
 | `start` | `number` |  |
-| `end` | `number` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -1338,6 +1330,7 @@ sortBy((s: string) => s.length, ['three', 'one', 'two']) //=> ['one', 'two', 'th
 Returns a new list sorted with a custom comparator; curried.
 
 ```typescript
+function sortWith<A>(fn: Comparer<A>): (xs: readonly A[]) => A[]
 function sortWith<A>(fn: Comparer<A>, xs: readonly A[]): A[]
 ```
 
@@ -1346,7 +1339,6 @@ function sortWith<A>(fn: Comparer<A>, xs: readonly A[]): A[]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Comparer<A>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -1361,6 +1353,7 @@ sortWith((a: number, b: number) => a - b, [3, 1, 2]) //=> [1, 2, 3]
 Splits a list into the longest prefix that satisfies the predicate and the rest; curried.
 
 ```typescript
+function span<A>(fn: Predicate<A>): (xs: readonly A[]) => [A[], A[]]
 function span<A>(fn: Predicate<A>, xs: readonly A[]): [A[], A[]]
 ```
 
@@ -1369,7 +1362,6 @@ function span<A>(fn: Predicate<A>, xs: readonly A[]): [A[], A[]]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Predicate<A>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -1384,6 +1376,7 @@ span((x: number) => x < 3, [1, 2, 3, 4]) //=> [[1, 2], [3, 4]]
 Splits a list into a prefix of length `index` and the remaining items; curried.
 
 ```typescript
+function splitAt<A>(count: number): (xs: readonly A[]) => [A[], A[]]
 function splitAt<A>(count: number, xs: readonly A[]): [A[], A[]]
 ```
 
@@ -1392,7 +1385,6 @@ function splitAt<A>(count: number, xs: readonly A[]): [A[], A[]]
 | Parameter | Type | Description |
 |---|---|---|
 | `count` | `number` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -1451,6 +1443,7 @@ tail([1, 2, 3]) //=> [2, 3]
 Takes the first `n` items from the list; curried.
 
 ```typescript
+function take<A>(count: number): (xs: readonly A[]) => A[]
 function take<A>(count: number, xs: readonly A[]): A[]
 ```
 
@@ -1459,7 +1452,6 @@ function take<A>(count: number, xs: readonly A[]): A[]
 | Parameter | Type | Description |
 |---|---|---|
 | `count` | `number` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -1474,6 +1466,7 @@ take(2, [1, 2, 3, 4]) //=> [1, 2]
 Takes leading items while the predicate holds; curried.
 
 ```typescript
+function takeWhile<A>(fn: Predicate<A>): (xs: readonly A[]) => A[]
 function takeWhile<A>(fn: Predicate<A>, xs: readonly A[]): A[]
 ```
 
@@ -1482,7 +1475,6 @@ function takeWhile<A>(fn: Predicate<A>, xs: readonly A[]): A[]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Predicate<A>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -1497,6 +1489,7 @@ takeWhile((n: number) => n <= 3, [2, 3, 5, 1]) //=> [2, 3]
 Builds a list by repeatedly applying a generator to a seed; curried.
 
 ```typescript
+function unfoldr<A, B>(fn: (seed: B) => [A, B] | undefined): (seed: B) => A[]
 function unfoldr<A, B>(fn: (seed: B) => [A, B] | undefined, seed: B): A[]
 ```
 
@@ -1505,7 +1498,6 @@ function unfoldr<A, B>(fn: (seed: B) => [A, B] | undefined, seed: B): A[]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `(seed: B) => [A, B] \| undefined` |  |
-| `seed` | `B` |  |
 
 #### Example
 
@@ -1520,15 +1512,15 @@ unfoldr((n: number) => (n > 0 ? [n, n - 1] : undefined), 3) //=> [3, 2, 1]
 Returns the unique items across all supplied lists.
 
 ```typescript
-function union<A>(left: readonly A[], right: readonly A[]): A[]
+function union<A>(xs: readonly A[], ...yss: readonly (readonly A[])[]): A[]
 ```
 
 #### Parameters
 
 | Parameter | Type | Description |
 |---|---|---|
-| `left` | `readonly A[]` |  |
-| `right` | `readonly A[]` |  |
+| `xs` | `readonly A[]` |  |
+| `yss` | `readonly (readonly A[])[]` |  |
 
 #### Example
 
@@ -1565,6 +1557,7 @@ unique([1, 2, 2, 3, 1]) //=> [1, 2, 3]
 Returns items unique by the value the accessor returns; curried.
 
 ```typescript
+function uniqueBy<A, B>(fn: Accessor<A, B>): (xs: readonly A[]) => B[]
 function uniqueBy<A, B>(fn: Accessor<A, B>, xs: readonly A[]): B[]
 ```
 
@@ -1573,7 +1566,6 @@ function uniqueBy<A, B>(fn: Accessor<A, B>, xs: readonly A[]): B[]
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `Accessor<A, B>` |  |
-| `xs` | `readonly A[]` |  |
 
 #### Example
 
@@ -1589,6 +1581,7 @@ Zips two lists into a list of pairs, truncating to the shorter; curried.
 
 ```typescript
 function zip<A, B>(xs: readonly A[], ys: readonly B[]): Pair<A, B>[]
+function zip<A>(xs: readonly A[]): <B>(ys: readonly B[]) => Pair<A, B>[]
 ```
 
 #### Parameters
@@ -1634,6 +1627,8 @@ zipAll([1, 2], [4]) //=> [[1, 4], [2, undefined]]
 Combines two lists with a function, padding the shorter with undefined; curried.
 
 ```typescript
+function zipAllWith<A, B, C>(fn: (left: A | undefined, right: B | undefined) => C): (xs: readonly A[], ys: readonly B[]) => C[]
+function zipAllWith<A, B, C>(fn: (left: A | undefined, right: B | undefined) => C, xs: readonly A[]): (ys: readonly B[]) => C[]
 function zipAllWith<A, B, C>(fn: (left: A | undefined, right: B | undefined) => C, xs: readonly A[], ys: readonly B[]): C[]
 ```
 
@@ -1642,8 +1637,6 @@ function zipAllWith<A, B, C>(fn: (left: A | undefined, right: B | undefined) => 
 | Parameter | Type | Description |
 |---|---|---|
 | `fn` | `(left: A \| undefined, right: B \| undefined) => C` |  |
-| `xs` | `readonly A[]` |  |
-| `ys` | `readonly B[]` |  |
 
 #### Example
 
@@ -1658,7 +1651,7 @@ zipAllWith((a, b) => [a, b], [1], [4, 5]) //=> [[1, 4], [undefined, 5]]
 Combines two lists element-wise with a function, truncating to the shorter; curried.
 
 ```typescript
-function zipWith<A, B, C>(fn: (left: A, right: B) => C): (xs: readonly A[]) => (ys: readonly B[]) => C[]
+function zipWith<A, B, C>(fn: (left: A, right: B) => C): (xs: readonly A[], ys: readonly B[]) => C[]
 function zipWith<A, B, C>(fn: (left: A, right: B) => C, xs: readonly A[]): (ys: readonly B[]) => C[]
 function zipWith<A, B, C>(fn: (left: A, right: B) => C, xs: readonly A[], ys: readonly B[]): C[]
 ```

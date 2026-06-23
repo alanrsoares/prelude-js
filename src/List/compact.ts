@@ -1,5 +1,5 @@
-import filter from './filter.js'
 import id from '../General/id.js'
+import filter from './filter.js'
 
 /**
  * Removes falsy values from the list.

@@ -36,6 +36,9 @@ const areSimilar = fix((recur: (a: unknown, b: unknown) => boolean) =>
         return equals(a, b)
     }
   }),
-) as unknown as (left: unknown, right: unknown) => boolean
+) as unknown as {
+  (left: unknown, right: unknown): boolean
+  (left: unknown): (right: unknown) => boolean
+}
 
 export default areSimilar

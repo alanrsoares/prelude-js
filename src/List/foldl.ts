@@ -1,5 +1,5 @@
-import type { Reducer } from '../types.js'
 import curry from '../Func/curry.js'
+import type { Reducer } from '../types.js'
 
 /**
  * Left-associative fold over a list with an initial accumulator; curried.
@@ -11,6 +11,10 @@ import curry from '../Func/curry.js'
  */
 const foldl = curry((fn: Reducer<unknown, unknown>, acc: unknown, xs: readonly unknown[]) =>
   xs.reduce(fn, acc),
-) as unknown as <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]) => A
+) as unknown as {
+  <A, B>(fn: Reducer<A, B>): (initial: A) => (xs: readonly B[]) => A
+  <A, B>(fn: Reducer<A, B>, initial: A): (xs: readonly B[]) => A
+  <A, B>(fn: Reducer<A, B>, initial: A, xs: readonly B[]): A
+}
 
 export default foldl

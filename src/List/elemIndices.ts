@@ -11,6 +11,9 @@ import findIndices from './findIndices.js'
  */
 const elemIndices = curry((value: unknown, xs: readonly unknown[]) =>
   findIndices((x) => x === value, xs),
-) as unknown as <A>(value: A, xs: readonly A[]) => number[]
+) as unknown as {
+  <A>(value: A): (xs: readonly A[]) => number[]
+  <A>(value: A, xs: readonly A[]): number[]
+}
 
 export default elemIndices

@@ -1,5 +1,5 @@
-import type { Predicate } from '../types.js'
 import curry from '../Func/curry.js'
+import type { CurriedListFilter, Predicate } from '../types.js'
 
 /**
  * Keeps the items that satisfy the predicate; curried.
@@ -11,9 +11,6 @@ import curry from '../Func/curry.js'
  */
 const filter = curry((fn: Predicate<unknown>, xs: readonly unknown[]) =>
   xs.filter(fn),
-) as unknown as {
-  <A>(fn: Predicate<A>): (xs: readonly A[]) => A[]
-  <A>(fn: Predicate<A>, xs: readonly A[]): A[]
-}
+) as unknown as CurriedListFilter
 
 export default filter

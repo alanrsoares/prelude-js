@@ -1,5 +1,5 @@
-import type { Predicate } from '../types.js'
 import curry from '../Func/curry.js'
+import type { CurriedListSplit, Predicate } from '../types.js'
 
 /**
  * Splits a list into items that pass and fail the predicate; curried.
@@ -17,6 +17,6 @@ const partition = curry((fn: Predicate<unknown>, xs: readonly unknown[]) => {
     bucket.push(x)
   })
   return [passed, failed]
-}) as unknown as <A>(fn: Predicate<A>, xs: readonly A[]) => [A[], A[]]
+}) as unknown as CurriedListSplit
 
 export default partition

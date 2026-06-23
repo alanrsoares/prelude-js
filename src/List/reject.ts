@@ -1,6 +1,6 @@
-import type { Predicate } from '../types.js'
 import curry from '../Func/curry.js'
 import deny from '../Func/deny.js'
+import type { CurriedListFilter, Predicate } from '../types.js'
 
 /**
  * Keeps the items that do not satisfy the predicate; curried.
@@ -12,6 +12,6 @@ import deny from '../Func/deny.js'
  */
 const reject = curry((fn: Predicate<unknown>, xs: readonly unknown[]) =>
   xs.filter(deny(fn)),
-) as unknown as <A>(fn: Predicate<A>, xs: readonly A[]) => A[]
+) as unknown as CurriedListFilter
 
 export default reject

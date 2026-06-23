@@ -1,5 +1,5 @@
-import type { Mapper } from '../types.js'
 import curry from '../Func/curry.js'
+import type { Mapper } from '../types.js'
 import concat from './concat.js'
 import map from './map.js'
 
@@ -13,6 +13,9 @@ import map from './map.js'
  */
 const concatMap = curry((fn: Mapper<unknown, readonly unknown[]>, xs: readonly unknown[]) =>
   concat(map(fn, xs)),
-) as unknown as <A, B>(fn: Mapper<A, readonly B[]>, xs: readonly A[]) => B[]
+) as unknown as {
+  <A, B>(fn: Mapper<A, readonly B[]>): (xs: readonly A[]) => B[]
+  <A, B>(fn: Mapper<A, readonly B[]>, xs: readonly A[]): B[]
+}
 
 export default concatMap

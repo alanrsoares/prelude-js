@@ -1,6 +1,6 @@
-import type { Curried } from '../types.js'
-import dropList from '../List/drop.js'
 import curry from '../Func/curry.js'
+import dropList from '../List/drop.js'
+import type { Curried } from '../types.js'
 
 /**
  * Drops the first `count` characters of a string; curried.

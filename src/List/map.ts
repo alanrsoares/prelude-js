@@ -1,5 +1,5 @@
-import type { Mapper } from '../types.js'
 import curry from '../Func/curry.js'
+import type { Mapper } from '../types.js'
 
 /**
  * Applies a function to each item, returning a new list; curried.

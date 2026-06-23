@@ -13,6 +13,9 @@ import take from './take.js'
 const splitAt = curry((index: number, xs: readonly unknown[]) => [
   take(index, xs),
   drop(index, xs),
-]) as unknown as <A>(count: number, xs: readonly A[]) => [A[], A[]]
+]) as unknown as {
+  <A>(count: number): (xs: readonly A[]) => [A[], A[]]
+  <A>(count: number, xs: readonly A[]): [A[], A[]]
+}
 
 export default splitAt

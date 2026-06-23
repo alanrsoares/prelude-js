@@ -17,6 +17,8 @@ function flattenImpl(ys: readonly unknown[]): unknown[] {
  * flatten([[1, 2], [3], [4, 5]]) //=> [1, 2, 3, 4, 5]
  * ```
  */
-const flatten = flattenImpl as unknown as <A>(xss: readonly (readonly A[])[]) => A[]
+type Nested<A> = A | readonly Nested<A>[]
+
+const flatten = flattenImpl as unknown as <A>(xss: readonly Nested<A>[]) => A[]
 
 export default flatten

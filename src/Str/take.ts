@@ -1,6 +1,6 @@
-import type { Curried } from '../types.js'
-import takeList from '../List/take.js'
 import curry from '../Func/curry.js'
+import takeList from '../List/take.js'
+import type { Curried } from '../types.js'
 
 /**
  * Takes the first `count` characters of a string; curried.
