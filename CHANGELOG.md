@@ -1,5 +1,51 @@
 # Changelog
 
+## [1.3.0](https://github.com/alanrsoares/prelude-js/compare/v1.2.1...v1.3.0) (2026-06-23)
+
+
+### Features
+
+* **build:** migrate Func module to TypeScript source ([ebdf337](https://github.com/alanrsoares/prelude-js/commit/ebdf33791de5702c8deb10eafcc580e7299e8105))
+* **build:** migrate Func module to TypeScript source ([074a315](https://github.com/alanrsoares/prelude-js/commit/074a31512c7a2771355d3fccfc6f243ca946cfe8))
+* **build:** migrate General and Num modules to TypeScript source ([b119f8f](https://github.com/alanrsoares/prelude-js/commit/b119f8f67af15664c7ce233ceed9b8ee2da3454a))
+* **build:** migrate List module to TypeScript source ([3b5c32f](https://github.com/alanrsoares/prelude-js/commit/3b5c32fee0b24e6289bca1c164ba3f68ed2df58b))
+* **build:** migrate Obj module to TypeScript source ([a3903b7](https://github.com/alanrsoares/prelude-js/commit/a3903b7a2fd6c0b5ad9c90a2bcbf0bac1c4d7637))
+* **build:** migrate Str module to TypeScript source ([6a08d14](https://github.com/alanrsoares/prelude-js/commit/6a08d14afaa44222ff8b80439867fc35bf7291cc))
+* **docs:** add Obj and combined-pipeline tabs to the homepage ([d860c36](https://github.com/alanrsoares/prelude-js/commit/d860c366abc84d9ca676134ebfdcccd6618cf2fd))
+* **docs:** drive homepage examples from real source via @onrails/twoslash ([5cf0bed](https://github.com/alanrsoares/prelude-js/commit/5cf0bedf9850f1b2dea5f59e638cd36fbf921827))
+* **docs:** generate API reference + example gate via @onrails/docgen ([144b2b6](https://github.com/alanrsoares/prelude-js/commit/144b2b65775b2ee07e8e4529252ee50ce6850806))
+* **docs:** match onrails homepage UX with custom CodeTabs container ([f80648a](https://github.com/alanrsoares/prelude-js/commit/f80648a403f1d5dfee015f403548f4859eae5e45))
+* **types:** broaden and curry library signatures ([f29f2fc](https://github.com/alanrsoares/prelude-js/commit/f29f2fc202db833c6636d63be2fe6cb4741d95f9))
+
+
+### Bug Fixes
+
+* **docs:** load twoslash.css in the global cascade ([f903168](https://github.com/alanrsoares/prelude-js/commit/f9031684aee6613b43430075b94d4e74175e2d7d))
+* **docs:** preserve shiki twoslash classes on the snippet CodeBlock ([304bb71](https://github.com/alanrsoares/prelude-js/commit/304bb71dbe935f2cd599ac64e5634cec1b1dc7bb))
+* **docs:** stack [@example](https://github.com/example) tag in twoslash hover popup ([9621257](https://github.com/alanrsoares/prelude-js/commit/962125748416d140e7871425ef5ae57d0581a7cc))
+* sortBy unary overload + demos ([8b819b8](https://github.com/alanrsoares/prelude-js/commit/8b819b8742b348252c23647c5afae5f167c97718))
+
+
+### Refactoring
+
+* **build:** make src fully TypeScript (index + types) ([d6a630c](https://github.com/alanrsoares/prelude-js/commit/d6a630cfe7e6ff4d5f2c9d871682e70ce99d6a2a))
+* migrate js to ts ([7e01a50](https://github.com/alanrsoares/prelude-js/commit/7e01a50ee5f680789cd92d887cf1c93f57c20a65))
+
+
+### Tooling
+
+* regen list docs ([a73a2c8](https://github.com/alanrsoares/prelude-js/commit/a73a2c86db6c93fa0012f48c8e47e78916134cf1))
+* **repo:** migrate default branch master -&gt; main ([892fe93](https://github.com/alanrsoares/prelude-js/commit/892fe93edf4e518096b2617c6a11d25b3ee45e6c))
+* **repo:** remove dead scripts and sort imports ([cc54f6e](https://github.com/alanrsoares/prelude-js/commit/cc54f6e761021cb92a9a1651ee11c78cee717099))
+* **repo:** upgrade to biome 2 and retire legacy docs index ([030b1a3](https://github.com/alanrsoares/prelude-js/commit/030b1a3842348fda257420887e84fd92f3b5b66b))
+* **repo:** upgrade to biome 2 and retire legacy docs index ([0993134](https://github.com/alanrsoares/prelude-js/commit/09931348adb19d281c4e5d570c401dd50c9a2755))
+
+
+### Documentation
+
+* add Obj and combined-pipeline tabs to the homepage ([998a9da](https://github.com/alanrsoares/prelude-js/commit/998a9dacf99bb4f32dc0e1eea7e4b35a9867d98a))
+* **api:** regenerate reference for updated signatures ([0be390e](https://github.com/alanrsoares/prelude-js/commit/0be390e02a761ddae63d9e50e52b1d4c8f78a820))
+
 ## [1.2.1](https://github.com/alanrsoares/prelude-js/compare/v1.2.0...v1.2.1) (2026-06-21)
 
 
